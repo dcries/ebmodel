@@ -605,9 +605,7 @@ List mcmc_full(
 
   arma::vec currentsigma2x      = as<arma::vec>(initial_values["currentsigma2x"]);
   arma::vec tunevar             = as<arma::vec>(initial_values["tunevar"]);
-  arma::mat tunemat             = as<arma::mat>(initial_values["tunemat"]);
-  double tunecor                = as<double >(initial_values["tunecor"]);
-  
+
   for(int i=0;i<h;i++){
       currentSigma.slice(i).diag() = currentsigma2x;
   }
@@ -617,13 +615,7 @@ List mcmc_full(
     tune.slice(i).diag() = tunevar;
     tune(0,1,i)=tune(1,0,i)=sqrt(tunevar[0]*tunevar[1])*tunecor;
   }
-  // for(int i=0;i<n;i++){
-  //   tune(0,0,i) = pow(tunemat(i,0),2);
-  //   tune(1,1,i) = pow(tunemat(i,1),2);
-  //   tune(0,1,i) = tune(1,0,i) = tunemat(i,0)*tunemat(i,1)*tunemat(i,2);
-  //   //tune.slice(i).
-  // }
-  // 
+
 
   
   //allocate storage

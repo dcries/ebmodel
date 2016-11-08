@@ -533,7 +533,7 @@ generate_data <- function(params,dist=1){
   return(list(xee=xee,xei=xei,xes=xes,wee=wee,wes=wes,yee=yee,yes=yes,zg=zg,zb=zb,za=za))
 }
 
-generate_data2 <- function(params,dist=1){
+generate_data2 <- function(params,dist=1,nrep=2){
   #dist=1 Normal
   #    =2 skew normal
   #    =3 bimodal symmetric
@@ -652,10 +652,11 @@ generate_data2 <- function(params,dist=1){
   
   #within person variability
   dmatrix <- matrix(c(50^2,-2000,-2000,150^2),ncol=2,byrow=TRUE) #EI first row
-  delta1 <- mvrnorm(n,rep(0,2),dmatrix)
-  delta2 <- mvrnorm(n,rep(0,2),dmatrix)
-  delta1es <- delta1[,1]# - delta1[,2]
-  delta2es <- delta2[,1]# - delta2[,2]
+  delta <- list()
+  for(i in 1:nrep){
+    delta[[i]] = mvrnorm(n,rep(0,2),dmatrix)
+  }
+  
   
   #calculate delta ES, positive change => ei > ee
   xes <- xei - xee
@@ -668,56 +669,43 @@ generate_data2 <- function(params,dist=1){
   #   tes1 <- tei1 - tee1
   #   tes2 <- tei2 - tee2
   #calculate DLW est of EE
+  wee <- matrix(0,ncol=nrep,nrow=n,byrow=FALSE)
+  wes <- matrix(0,ncol=nrep,nrow=n,byrow=FALSE)
+  yee <- matrix(0,ncol=nrep,nrow=n,byrow=FALSE)
+  yes <- matrix(0,ncol=nrep,nrow=n,byrow=FALSE)
+  
   if(dist==1){
-    wee1 <- rnorm(n,xee+ delta1[,2],200)  #truth 250 #rnorm(n,xee,.08*xee) + delta1[,2] #rnorm(n,xee,.05*rep(mee,each=n/2))
-    wee2 <- rnorm(n,xee+ delta2[,2],200) #(n,xee,.08*xee) + delta2[,2]
-    wee <- matrix(c(wee1,wee2),ncol=2,byrow=FALSE)
-    #calculate DXA est of ES
-    wes1 <- rnorm(n,xes+ delta1es,53) #truth 72.862 #rnorm(n,xes,.04*abs(xes)+50) + delta1es
-    wes2 <- rnorm(n,xes+ delta2es,53) #rnorm(n,xes,.04*abs(xes)+50) + delta2es
-    wes <- matrix(c(wes1,wes2),ncol=2,byrow=FALSE)
-    #calc cheap EE
-    yee1 <- be0+eecurve(xee+ delta1[,2])+geg*zg+geb*zb+gea*za + rnorm(n,0,380) #truth 408.534
-    yee2 <- be0+eecurve(xee+ delta2[,2])+geg*zg+geb*zb+gea*za + rnorm(n,0,380) 
-    yee <- matrix(c(yee1,yee2),ncol=2,byrow=FALSE)
-    #calc cheap ES
-    yes1 <- bs0+escurve(xes+ delta1es)+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) #truth 216.1748
-    yes2 <- bs0+escurve(xes+ delta2es)+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) 
-    yes <- matrix(c(yes1,yes2),ncol=2,byrow=FALSE)
+    for(i in 1:nrep){
+      wee[,i] <- rnorm(n,xee+ delta[[i]][,2],200)  #truth 250 #rnorm(n,xee,.08*xee) + delta1[,2] #rnorm(n,xee,.05*rep(mee,each=n/2))
+      #calculate DXA est of ES
+      wes[,i] <- rnorm(n,xes+ delta[[i]][,1],53) #truth 72.862 #rnorm(n,xes,.04*abs(xes)+50) + delta1es
+      #calc cheap EE
+      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2])+geg*zg+geb*zb+gea*za + rnorm(n,0,380) #truth 408.534
+      #calc cheap ES
+      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1])+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) #truth 216.1748
+    }
   }
   if(dist==2){
-    wee1 <- xee + rsnorm(n,0,200,10) + delta1[,2] #rnorm(n,xee,.05*rep(mee,each=n/2))
-    wee2 <- xee + rsnorm(n,0,200,10) + delta2[,2]
-    wee <- matrix(c(wee1,wee2),ncol=2,byrow=FALSE)
-    #calculate DXA est of ES
-    wes1 <- xes + rsnorm(n,0,53,10) + delta1es
-    wes2 <- xes + rsnorm(n,0,53,10) + delta2es
-    wes <- matrix(c(wes1,wes2),ncol=2,byrow=FALSE)
-    #calc cheap EE
-    yee1 <- be0+eecurve(xee+ delta1[,2])+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10) 
-    yee2 <- be0+eecurve(xee+ delta2[,2])+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10) 
-    yee <- matrix(c(yee1,yee2),ncol=2,byrow=FALSE)
-    #calc cheap ES
-    yes1 <- bs0+escurve(xes+ delta1es)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) 
-    yes2 <- bs0+escurve(xes+ delta2es)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) 
-    yes <- matrix(c(yes1,yes2),ncol=2,byrow=FALSE)
+    for(i in 1:nrep){
+      wee[,i] <- xee + rsnorm(n,0,200,10) + delta[[i]][,2] #rnorm(n,xee,.05*rep(mee,each=n/2))
+      #calculate DXA est of ES
+      wes[,i] <- xes + rsnorm(n,0,53,10) + delta[[i]][,1]
+      #calc cheap EE
+      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2])+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10) 
+      #calc cheap ES
+      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],k=0.1)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) 
+    }
   }
   if(dist==3){
-    wee1 <- xee + mix*rnorm(n,-175,sqrt(200^2-175^2)) + (1-mix)*rnorm(n,175,sqrt(200^2-175^2)) + delta1[,2]
-    wee2 <- xee + mix*rnorm(n,-175,sqrt(200^2-175^2)) + (1-mix)*rnorm(n,175,sqrt(200^2-175^2)) + delta2[,2]
-    wee <- matrix(c(wee1,wee2),ncol=2,byrow=FALSE)
-    #calculate DXA est of ES
-    wes1 <- xes + mix*rnorm(n,-45,sqrt(53^2-45^2)) + (1-mix)*rnorm(n,45,sqrt(53^2-45^2)) + delta1es
-    wes2 <- xes + mix*rnorm(n,-45,sqrt(53^2-45^2)) + (1-mix)*rnorm(n,45,sqrt(53^2-45^2)) + delta2es
-    wes <- matrix(c(wes1,wes2),ncol=2,byrow=FALSE)
-    #calc cheap EE
-    yee1 <- be0+eecurve(xee+ delta1[,2])+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2)) 
-    yee2 <- be0+eecurve(xee + delta2[,2])+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2))
-    yee <- matrix(c(yee1,yee2),ncol=2,byrow=FALSE)
-    #calc cheap ES
-    yes1 <- bs0+escurve(xes+ delta1es)+gig*zg+gib*zb+gia*za + mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2)) 
-    yes2 <- bs0+escurve(xes+ delta2es)+gig*zg+gib*zb+gia*za + mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2)) 
-    yes <- matrix(c(yes1,yes2),ncol=2,byrow=FALSE)
+    for(i in 1:nrep){
+      wee[,i] <- xee + mix*rnorm(n,-175,sqrt(200^2-175^2)) + (1-mix)*rnorm(n,175,sqrt(200^2-175^2)) + delta[[i]][,2]
+      #calculate DXA est of ES
+      wes[,i] <- xes + mix*rnorm(n,-45,sqrt(53^2-45^2)) + (1-mix)*rnorm(n,45,sqrt(53^2-45^2)) + delta[[i]][,1]
+      #calc cheap EE
+      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2])+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2)) 
+      #calc cheap ES
+      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],k=0.1)+gig*zg+gib*zb+gia*za + mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2)) 
+    }
   }
   return(list(xee=xee,xei=xei,xes=xes,wee=wee,wes=wes,yee=yee,yes=yes,zg=zg,zb=zb,za=za))
 }
@@ -976,22 +964,22 @@ generate_data4 <- function(params,dist=1,nrep=2){
   #mean daily EI
   #mean daily EI
   mei1 <- 1500 + zig*zg + zib*zb + zia*za
-  mei2 <- 2100 + zig*zg + zib*zb + zia*za
-  mei3 <- 2300 + zig*zg + zib*zb + zia*za
+  mei2 <- 1900 + zig*zg + zib*zb + zia*za
+  mei3 <- 2100 + zig*zg + zib*zb + zia*za
   mei4 <- 2900 + zig*zg + zib*zb + zia*za
   mei5 <- 3200 + zig*zg + zib*zb + zia*za
   #sd EI
   sdei1 <- 50 +0#50
   sdei2 <- 80 +0#50
   sdei3 <- 60 +0#90
-  sdei4 <- 150 +0#40
+  sdei4 <- 400 +0#40
   sdei5 <- 220 +0#90
   
   #mean daily EE = mean daily EI
   mee1 <- 1500 + 130 + zeg*zg + zeb*zb + zea*za # 1500
-  mee2 <- 2100 + 130 + zeg*zg + zeb*zb + zea*za # 2000
-  mee3 <- 2300 + 80 + zeg*zg + zeb*zb + zea*za # 2300
-  mee4 <- 2600 + 130 + zeg*zg + zeb*zb + zea*za # 2600
+  mee2 <- 1900 + 130 + zeg*zg + zeb*zb + zea*za # 2000
+  mee3 <- 2100 + 80 + zeg*zg + zeb*zb + zea*za # 2300
+  mee4 <- 2900 + 130 + zeg*zg + zeb*zb + zea*za # 2600
   mee5 <- 3200 + 130 + zeg*zg + zeb*zb + zea*za #- 3500
   mee <- c(mee1,mee2,mee3,mee4,mee5)
   #sd EE
@@ -1069,7 +1057,7 @@ generate_data4 <- function(params,dist=1,nrep=2){
   #calculate delta ES, positive change => ei > ee
   #xes <- xei - xee
   
-  xes <- sample(c(rnorm(n/5,-30,20),rnorm(n/5,30,20),rnorm(n/5,0,30),rnorm(n/5,-70,50),rnorm(n/5,70,50)),n,replace=FALSE)
+  xes <- sample(c(rnorm(n/5,-38,23),rnorm(n/5,38,23),rnorm(n/5,0,34),rnorm(n/5,-80,85),rnorm(n/5,80,85)),n,replace=FALSE)
   
   #calculate true values T_ij of EE,EI, ES
   #   tei1 <- xei + delta1[,1]
@@ -1090,9 +1078,9 @@ generate_data4 <- function(params,dist=1,nrep=2){
       #calculate DXA est of ES
       wes[,i] <- rnorm(n,xes+ delta[[i]][,1],53) #truth 72.862 #rnorm(n,xes,.04*abs(xes)+50) + delta1es
       #calc cheap EE
-      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2])+geg*zg+geb*zb+gea*za + rnorm(n,0,380) #truth 408.534
+      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + rnorm(n,0,380) #truth 408.534
       #calc cheap ES
-      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],k=0.14)+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) #truth 216.1748
+      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],800,k=0.07)+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) #truth 216.1748
     }
   }
   if(dist==2){
