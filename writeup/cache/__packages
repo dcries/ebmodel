@@ -1,0 +1,14 @@
+base
+knitr
+ggplot2
+gridExtra
+lubridate
+dplyr
+stargazer
+timeDate
+timeSeries
+fBasics
+fGarch
+reshape
+mvtnorm
+MASS
