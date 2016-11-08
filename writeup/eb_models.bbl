@@ -1,3 +1,121 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{lagerros}
+Y.T. Lagerros and P.~Lagiou.
+\newblock Assessment of physical activity and energy expenditure in
+  epidemiological research of chronic diseases.
+\newblock {\em European Journal of Epidemiology}, 205:353--62, 2007.
+
+\bibitem{bouten}
+C.~Bouten, W.~Verboeket-van~de Venne, K.R. Westerterp, M.~Verduin, and J.D.
+  Janssen.
+\newblock Daily physical activity assessment: comparison between movement
+  registration and doubly labeled water.
+\newblock {\em Journal of Applied Physiology}, 81:1019--26, 1996.
+
+\bibitem{thomas11}
+Diana~M. Thomas, Corby~K. Martin, Steven Heymsfield, Leanne~M. Redman, Dale~A.
+  Schoeller, and James~A. Levine.
+\newblock A simple model predicting individual weight change in humans.
+\newblock {\em Journal of Biological Dynamics}, 5:579--99, 2011.
+
+\bibitem{hall11}
+Kevin~D Hall and Carson~C Chow.
+\newblock Estimating changes in free-living energy intake and its confidence
+  interval.
+\newblock {\em American Journal of Clinical Nutrition}, 94:66--74, 2011.
+
+\bibitem{gilmore}
+L~Anne Gilmore, Eric Ravussin, George Bray, Hongmei Han, and Leanne Redman.
+\newblock An objective estimate of energy intake during weight gain using the
+  intake-balance method.
+\newblock {\em American Journal of Clinical Nutrition}, 100:806--12, 2014.
+
+\bibitem{sanghvi15}
+Arjun Sanghvi, Leanne~M. Redman, Corby~K. Martin, Eric Ravussin, and Kevin~D.
+  Hall.
+\newblock Validation of an inexpensive and accurate mathematical method to
+  measure long-term changes in free-living energy intake.
+\newblock {\em American Journal of Clinical Nutrition}, 102:353--8, 2015.
+
+\bibitem{racette11}
+Susan~B. Racette, Sai~Krupa Das, Manjushri Bhapkar, Evan~C. Hadley, Susan~B.
+  Robers, Eric Ravussin, Carl Pieper, James~P. DeLany, William~E. Kraus, James
+  Rochon, and Leanne~M. Redman.
+\newblock Approaches for quantifying energy intake and \%calorie restriction
+  during calorie restriction interventions in humans: the multicenter calerie
+  study.
+\newblock {\em Am J Physiol Endorinol Metab}, 302:441--8, 2011.
+
+\bibitem{hand}
+Gregory~A. Hand, Robin~P. Shook, Amanda~E. Paluch, Meghan Baruth, Patrick
+  Crowley, Jason~R. Jaggers, Vivek~K. Prasad, Thomas~G. Hurley, James~R.
+  Hebert, Daniel~P. O'Connor, Edward Archer, Stephanie Burgess, and Steven~N.
+  Blair.
+\newblock The energy balance study: The design and baseline results for a
+  longitudinal study of energy balance.
+\newblock {\em Research Quarterly for Exercise and Sport}, 84:275--86, 2013.
+
+\bibitem{nonlinear}
+Raymond~J. Caroll, David Ruppert, Leonard~A. Stefanski, and Ciprian~M.
+  Crainiceani.
+\newblock {\em Measurement Error in Nonlinear Models}.
+\newblock Chapman and Hall/CRC, 2006.
+
+\bibitem{cdc}
+CDC.
+\newblock Cdc website.
+\newblock
+  \url{https://www.cdc.gov/nchs/data/nhanes/databriefs/adultweight.pdf}.
+\newblock Accessed: 2016-10-10.
+
+\bibitem{fernandez}
+Carmen Fernandez and Mark F.~J. Steel.
+\newblock On bayesian modeling of fat tails and skewness.
+\newblock {\em Journal of the American Statistical Association}, 93:359--71,
+  1998.
+
+\bibitem{nonparametric}
+Kunio Takezawa.
+\newblock {\em Introduction to Nonparametric Regression}.
+\newblock Wiley Series in Probability and Statistics, 2006.
+
+\bibitem{sarkar14}
+Abhra Sarkar, Bani~K. Mallick, and Raymond~J. Carroll.
+\newblock Bayesian semiparametric regression in the presence of conditionally
+  heteroscedastic measurement and regression errors.
+\newblock {\em Biometrics}, 70:823--34, 2014.
+
+\bibitem{bda}
+Andrew Gelman, John~B. Carlin, Hal~S. Stern, David~B. Dunson, Aki Vehtari, and
+  Donald~B. Rubin.
+\newblock {\em Bayesian Data Analysis}.
+\newblock Chapman and Hall/CRC, 2014.
+
+\bibitem{green}
+Peter~J. Green.
+\newblock Reversible jump markov chain monte carlo computation and and bayesian
+  model determination.
+\newblock {\em Biometrika}, 82:711--32, 1995.
+
+\bibitem{dimatteo}
+Ilaria DiMatteo, Christopher~R. Genovese, and Robert~E. Kass.
+\newblock Bayesian curve-fitting with free-knot splines.
+\newblock {\em Biometrika}, 88:1055--71, 2001.
+
+\bibitem{lindstrom}
+Mary~J. Lindstrom.
+\newblock Bayesian estimation of free-knot splines using reversible jumps.
+\newblock {\em Computational Statistics and Data Analysis}, 41:255--69, 2002.
+
+\bibitem{johnson}
+Matthew~S. Johnson.
+\newblock Modeling dichotomous item responses with free-knot splines.
+\newblock {\em Computational Statistics and Data Analysis}, 51:4178--92, 2007.
+
+\bibitem{denison}
+D.G.T Denison, B.K. Mallick, and A.F.M. Smith.
+\newblock Automatic bayesian curve fitting.
+\newblock {\em Journal of the Royal Statistical Society}, 60:333--50, 1998.
 
 \end{thebibliography}
