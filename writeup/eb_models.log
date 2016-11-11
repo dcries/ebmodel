@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  10 NOV 2016 17:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  11 NOV 2016 12:10
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -1123,21 +1123,21 @@ able.8}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2213 
+l.2235 
        ] [60pdfTeX warning (ext4): destination with the same identifier (name{t
 able.9}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2222 
+l.2244 
        ] <manual_figure/wpcalhist.pdf, id=881, 578.16pt x 433.62pt>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
-Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2328.
+Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2350.
 (pdftex.def)             Requested size: 483.6926pt x 284.54257pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2328--2329
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2350--2351
  [][] 
  []
 
@@ -1146,58 +1146,76 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 2328--2329
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2356 
+l.2378 
        ] [62pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.32}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2356 
+l.2378 
        pdfTeX warning (ext4): destination with the same identifier (name{figure
 .33}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2356 
+l.2378 
         <./manual_figure/predbvnbx.pdf> <./manual_figure/wpcalhist.pdf>]
 [63pdfTeX warning (ext4): destination with the same identifier (name{table.11})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2361 
+l.2380 
        pdfTeX warning (ext4): destination with the same identifier (name{table.
 12}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2361 
+l.2380 
        ] [64pdfTeX warning (ext4): destination with the same identifier (name{t
 able.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2363 \clearpage
-                 ] (eb_models.bbl [65
+l.2383 
+       pdfTeX warning (ext4): destination with the same identifier (name{table.
+14}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.2383 
+       ] [65pdfTeX warning (ext4): destination with the same identifier (name{t
+able.15}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.2385 \clearpage
+                 pdfTeX warning (ext4): destination with the same identifier (n
+ame{table.16}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.2385 \clearpage
+                 ] (eb_models.bbl [66
 
 ]) 
 AED: lastpage setting LastPage
-[66]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2367.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2367.
+[67]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2389.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2389.
  (eb_models.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2367.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2367.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2389.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2389.
 
 Package rerunfilecheck Info: File `eb_models.out' has not changed.
 (rerunfilecheck)             Checksum: DDBAB3BF6B0921937C3C87B72CED6D80;1427.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2367.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2389.
  ) 
 Here is how much of TeX's memory you used:
- 7107 strings out of 493334
- 103276 string characters out of 3139180
- 240852 words of memory out of 3000000
- 10243 multiletter control sequences out of 15000+200000
+ 7114 strings out of 493334
+ 103357 string characters out of 3139180
+ 241228 words of memory out of 3000000
+ 10246 multiletter control sequences out of 15000+200000
  12685 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,18n,43p,2967b,494s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1221,9 +1239,9 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (66 pages, 5987776 bytes).
+Output written on eb_models.pdf (67 pages, 5991014 bytes).
 PDF statistics:
- 1058 PDF objects out of 1200 (max. 8388607)
- 273 named destinations out of 1000 (max. 500000)
+ 1067 PDF objects out of 1200 (max. 8388607)
+ 277 named destinations out of 1000 (max. 500000)
  358 words of extra memory for PDF output out of 10000 (max. 10000000)
 
