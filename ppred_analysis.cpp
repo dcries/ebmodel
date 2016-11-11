@@ -878,3 +878,34 @@ List pp_uni(List sample, arma::vec truth,
       Named("checky")   = checky));
   
 }
+
+// [[Rcpp::export]]
+arma::mat pp_pmse(List sample,
+            arma::vec yee, arma::vec yes,
+            arma::mat Z){
+  
+  arma::mat meanfcnee = trans(as<arma::mat>(sample["meanfcnee"]));
+  arma::mat meanfcnes = trans(as<arma::mat>(sample["meanfcnes"]));
+  arma::mat betaee       = as<arma::mat>(sample["betaee"]);
+  arma::mat betaes       = as<arma::mat>(sample["betaes"]);
+  
+  int nreps = betaee.n_rows;
+  //std::cout << "1c" <<"\n";
+  
+  //allocate storage
+  arma::mat pmse(nreps,2);
+  //std::cout << "1e" <<"\n";
+
+  
+  for(int i=0;i<nreps;i++){
+    
+    pmse(i,0) = mean(pow(meanfcnee.col(i)+Z*trans(betaee.row(i))-yee,2));
+    pmse(i,1) = mean(pow(meanfcnes.col(i)+Z*trans(betaes.row(i))-yes,2));
+    
+    
+    if(i % 1000==0){
+      std::cout << i << "\n";
+    }
+  }
+  return(pmse);
+}
