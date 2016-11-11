@@ -213,7 +213,7 @@ for(i in 1:nsim){
   xeenames <- paste0("x[",1:n,",1]")
   xesnames <- paste0("x[",1:n,",2]")
   
-  js3 <- js3[pp_indicies,]
+  #js3 <- js3[pp_indicies,]
   m3list <- list(be0=unlist(js3[,"be0"])[pp_indicies],be1=unlist(js3[,"be1"])[pp_indicies],bs0=unlist(js3[,"bs0"])[pp_indicies],
                  bs1=unlist(js3[,"bs1"])[pp_indicies],muee=unlist(js3[,"mux[1]"])[pp_indicies],mues=unlist(js3[,"mux[2]"])[pp_indicies],
                  sigmaeee=unlist(js3[,"sigmaeee"])[pp_indicies],sigmaees=unlist(js3[,"sigmaees"])[pp_indicies],sigmavee=unlist(js3[,"sigmauee"])[pp_indicies],
