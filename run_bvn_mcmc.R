@@ -10,13 +10,11 @@ library(fGarch)
 library(xtable)
 library(quadprog)
 
-source('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/base_fcn.R', echo=FALSE)#Rcpp::sourceCpp('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/trial_and_simulated/bivar_fullmcmc2.cpp')
-Rcpp::sourceCpp('\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\research\\rprograms\\trial_and_simulated\\ppred_analysis.cpp')
-#Rcpp::sourceCpp('\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\research\\rprograms\\trial_and_simulated\\bivar_bvnmcmc.cpp')
-Rcpp::sourceCpp('\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\research\\rprograms\\trial_and_simulated\\bivar_bvnmcmc1_qp.cpp')
+#source('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/base_fcn.R', echo=FALSE)#Rcpp::sourceCpp('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/trial_and_simulated/bivar_fullmcmc2.cpp')
+source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
+Rcpp::sourceCpp('C:\\Users\\dcries\\github\\ebmodel\\ppred_analysis.cpp')
+Rcpp::sourceCpp('C:\\Users\\dcries\\github\\ebmodel\\bivar_bvnmcmc1_qp.cpp')
 
-tunemat <- read.table("//my.files.iastate.edu/Users/dcries/Desktop/research/data/tunemat2.txt", quote="\"", comment.char="")
-strtcov <- read.csv("//my.files.iastate.edu/Users/dcries/Desktop/research/data/startcov.csv")
 params <- c(100,50,300,14,-7,-200,8,-5)
 #params <- c(100,50,300,14,-7,-200,8,-5)
 simdata <- generate_data4(params,dist=1,nrep=2)
@@ -112,7 +110,7 @@ initial <- list(currentkee=currentkee,currentkes=currentkes,ck=ck,knotsee=knotse
                 currentsigma2es=currentsigma2es,currentsigma2ve=currentsigma2ve,
                 currentsigma2vs=currentsigma2vs,currentsigma2x=currentsigma2x,
                 tunevar=tunevar,currentbetaee=currentbetaee,currentbetaes=currentbetaes,
-                tune=as.matrix(strtcov),tunecor=tunecor,tunemat=as.matrix(tunemat))
+                tunecor=tunecor)
 
 
 initial2 <- list(currentkee=currentkee2,currentkes=currentkes2,ck=ck,knotsee=knotsee2,
@@ -123,7 +121,7 @@ initial2 <- list(currentkee=currentkee2,currentkes=currentkes2,ck=ck,knotsee=kno
                  currentsigma2es=currentsigma2es2,currentsigma2ve=currentsigma2ve2,
                  currentsigma2vs=currentsigma2vs2,currentsigma2x=currentsigma2x2,
                  tunevar=tunevar,currentbetaee=currentbetaee2,currentbetaes=currentbetaes2,
-                 tune=as.matrix(strtcov),tunecor=tunecor,tunemat=as.matrix(tunemat))
+                 tunecor=tunecor)
 
 
 initial3 <- list(currentkee=currentkee3,currentkes=currentkes3,ck=ck,knotsee=knotsee3,
@@ -134,7 +132,7 @@ initial3 <- list(currentkee=currentkee3,currentkes=currentkes3,ck=ck,knotsee=kno
                  currentsigma2es=currentsigma2es3,currentsigma2ve=currentsigma2ve3,
                  currentsigma2vs=currentsigma2vs3,currentsigma2x=currentsigma2x3,
                  tunevar=tunevar,currentbetaee=currentbetaee3,currentbetaes=currentbetaes3,
-                 tune=as.matrix(strtcov),tunecor=tunecor,tunemat=as.matrix(tunemat))
+                 tunecor=tunecor)
 
 prior <- list(lambda=lambda,ae=ae,be=be,av=av,bv=bv,a_alp=a_alp,
               b_alp=b_alp,d=d,m=m,v2=v2,psi=psi,Vb=Vb,Mb=Mb)

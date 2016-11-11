@@ -8,17 +8,26 @@ library(reshape)
 library(mvtnorm)
 library(fGarch)
 
-Rcpp::sourceCpp('C:/Users/dcries/github/ebmodel/ppred_analysis.cpp')
-source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
+#Rcpp::sourceCpp('C:/Users/dcries/github/ebmodel/ppred_analysis.cpp')
+#source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
+setwd('/home/dcries')
+Rcpp::sourceCpp('/ebmodel/ppred_analysis.cpp')
+source('/ebmodel/base_fcn.R')
 
+set.seed(936)
 #number of simulated data sets
-nsim <- 500
+nsim <- 50
 #number of posterior predictive iterations
 m <- 1000
 #burn in
-nadapt <- 1000
+nadapt <- 2000
 #iterations
-niter <- 3000
+niter <- 10000
+#n chains
+nchain <- 1
+#pick which individuals interested in
+ind <- c(72,188,259)
+nind <- length(ind)
 
 pmse0 <- matrix(0,nrow=2,ncol=nsim)
 pmse1 <- matrix(0,nrow=2,ncol=nsim)
@@ -26,6 +35,10 @@ pmse1 <- matrix(0,nrow=2,ncol=nsim)
 model0 <- matrix(0,nrow=12,ncol=nsim)
 model1 <- matrix(0,nrow=19,ncol=nsim)
 
+indcheck <- matrix(0,nrow=nsim,ncol=4*length(ind))
+indnames <- c(paste0("x[",ind[1],",1]"),paste0("x[",ind[1],",2]"),
+              paste0("x[",ind[2],",1]"),paste0("x[",ind[2],",2]"),
+              paste0("x[",ind[3],",1]"),paste0("x[",ind[3],",2]"))
 
 modelj0 <- "
 model{
@@ -120,7 +133,7 @@ wnames <- c("EE Min","EE 5%tile","EE 10%tile","EE 25%tile","EE 75%tile","EE 90%t
             "ES Min","ES 5%tile","ES 10%tile","ES 25%tile","ES 75%tile","ES 90%tile","ES 95%tile","ES Max")
 
 
-for(j in 1:nsim){
+for(i in 1:nsim){
   simdata <- generate_data5(params,dist=1)
   simdata$d <- 3 # for inv-wish prior
   simdata$I <- diag(2) #for inv-wish prior
@@ -161,9 +174,9 @@ for(j in 1:nsim){
   
   
   
-  naivedata <- list(yee=simdata$yee[,1:2],yes=simdata$yes[,1:2],x=matrix(c(weeb,wesb),ncol=2,byrow=FALSE),n=length(simdata$xee),I=diag(2),d=3,zg=zg,za=za,zb=zb)
+  naivedata <- list(yee=simdata$yee,yes=simdata$yes,x=matrix(c(weeb,wesb),ncol=2,byrow=FALSE),n=length(simdata$xee),I=diag(2),d=3,zg=zg,za=za,zb=zb)
   
-  jm0 <- jags.model(textConnection(modelj0),data=naivedata,n.adapt=nadapt,n.chains=3,quiet=TRUE)
+  jm0 <- jags.model(textConnection(modelj0),data=naivedata,n.adapt=nadapt,n.chains=nchain,quiet=TRUE)
   js0 <- coda.samples(jm0,c("mux","sigmaeee","sigmaees","be0","be1","bs0","bs1","geg","geb","gea","gig","gib","gia"),n.iter=niter,quiet=TRUE)
   jdf0 <- as.data.frame(as.matrix(js0))
   
@@ -174,33 +187,33 @@ for(j in 1:nsim){
   dist0 <- matrix(0,nrow=m,ncol=2)
   data0 <- matrix(c(simdata$xee,simdata$xes),ncol=2,byrow=FALSE)
   pmse0a <- matrix(0,ncol=2,nrow=m)
-  for(i in 1:m){
-    datayee <- rnorm(length(simdata$xee),jdf0$be0[i]+jdf0$be1[i]*weeb,jdf0$sigmaeee[i])
-    datayes <- rnorm(length(simdata$xee),jdf0$bs0[i]+jdf0$bs1[i]*wesb,jdf0$sigmaees[i])
+  for(j in 1:m){
+    datayee <- rnorm(length(simdata$xee),jdf0$be0[j]+jdf0$be1[j]*weeb,jdf0$sigmaeee[j])
+    datayes <- rnorm(length(simdata$xee),jdf0$bs0[j]+jdf0$bs1[j]*wesb,jdf0$sigmaees[j])
     
-    check0y[i,1] <- min(datayee)
-    check0y[i,2:7] <- quantile(datayee,probs=c(0.05,0.1,0.25,0.75,0.9,0.95))
-    check0y[i,8] <- max(datayee)
-    check0y[i,9] <- min(datayes)
-    check0y[i,10:15] <- quantile(datayes,probs=c(0.05,0.1,0.25,0.75,0.9,0.95))
-    check0y[i,16] <- max(datayes)
+    check0y[j,1] <- min(datayee)
+    check0y[j,2:7] <- quantile(datayee,probs=c(0.05,0.1,0.25,0.75,0.9,0.95))
+    check0y[j,8] <- max(datayee)
+    check0y[j,9] <- min(datayes)
+    check0y[j,10:15] <- quantile(datayes,probs=c(0.05,0.1,0.25,0.75,0.9,0.95))
+    check0y[j,16] <- max(datayes)
     
-    pmse0a[i,1] <- mean((yeeb - jdf0$be0[i]-jdf0$be1[i]*weeb-jdf0$geg[i]*zg-jdf0$geb[i]*zb-jdf0$gea[i]*za)^2)
-    pmse0a[i,2] <- mean((yesb - jdf0$bs0[i]-jdf0$bs1[i]*wesb-jdf0$gig[i]*zg-jdf0$gib[i]*zb-jdf0$gia[i]*za)^2)
+    pmse0a[j,1] <- mean((yeeb - jdf0$be0[j]-jdf0$be1[j]*weeb-jdf0$geg[j]*zg-jdf0$geb[j]*zb-jdf0$gea[j]*za)^2)
+    pmse0a[j,2] <- mean((yesb - jdf0$bs0[j]-jdf0$bs1[j]*wesb-jdf0$gig[j]*zg-jdf0$gib[j]*zb-jdf0$gia[j]*za)^2)
   }
   
   #sumtable0 <- data.frame(summary(js0[,c("be0","be1","bs0","bs1", "sigmaeee","sigmaees","geg","geb","gea","gig","gib","gia")])$quantile)
   
   
-  jm3 <- jags.model(textConnection(modelj3),data=simdata,n.adapt=nadapt,n.chains=3,quiet=TRUE)
+  jm3 <- jags.model(textConnection(modelj3),data=simdata,n.adapt=nadapt,n.chains=nchain,quiet=TRUE)
   js3 <- coda.samples(jm3,c("be0","be1","bs0","bs1", "mux","sigmaeee","sigmaees","sigmauee","sigmaues","sigmaxee","sigmaxes","corrx","x","geg","geb","gea","gig","gib","gia"),n.iter=niter,quiet=TRUE)
   
   sumtable <- data.frame(summary(js3[,c("be0","be1","bs0","bs1", "mux[1]","mux[2]","sigmaeee","sigmaees","sigmauee","sigmaues","sigmaxee","sigmaxes","corrx","geg","geb","gea","gig","gib","gia")])$quantile)
   
- # xeenames <- paste0("x[",1:n,",1]")
-  #xesnames <- paste0("x[",1:n,",2]")
+  xeenames <- paste0("x[",1:n,",1]")
+  xesnames <- paste0("x[",1:n,",2]")
   
-  #js3 <- js3[pp_indicies,]
+  js3 <- js3[pp_indicies,]
   m3list <- list(be0=unlist(js3[,"be0"])[pp_indicies],be1=unlist(js3[,"be1"])[pp_indicies],bs0=unlist(js3[,"bs0"])[pp_indicies],
                  bs1=unlist(js3[,"bs1"])[pp_indicies],muee=unlist(js3[,"mux[1]"])[pp_indicies],mues=unlist(js3[,"mux[2]"])[pp_indicies],
                  sigmaeee=unlist(js3[,"sigmaeee"])[pp_indicies],sigmaees=unlist(js3[,"sigmaees"])[pp_indicies],sigmavee=unlist(js3[,"sigmauee"])[pp_indicies],
@@ -217,9 +230,27 @@ for(j in 1:nsim){
   pmse1[,i] <- colMeans(ppan3$pmse)
   model0[,i] <- summary(js0)$statistics[,1]
   model1[,i] <- summary(js3[,c("be0","be1","bs0","bs1", "mux[1]","mux[2]","sigmaeee","sigmaees","sigmauee","sigmaues","sigmaxee","sigmaxes","corrx","geg","geb","gea","gig","gib","gia")])$statistics[,1]
+
+  indcheck[i,1] <- simdata$xee[ind[1]]
+  indcheck[i,2] <- mean(unlist(js3[,indnames[1]]))
+  indcheck[i,3] <- simdata$xes[ind[1]]
+  indcheck[i,4] <- mean(unlist(js3[,indnames[2]]))
   
-  if(i %% 10 == 0){
-    print(i)
-  }
+  indcheck[i,5] <- simdata$xee[ind[2]]
+  indcheck[i,6] <- mean(unlist(js3[,indnames[3]]))
+  indcheck[i,7] <- simdata$xes[ind[2]]
+  indcheck[i,8] <- mean(unlist(js3[,indnames[4]]))
+  
+  indcheck[i,9] <- simdata$xee[ind[3]]
+  indcheck[i,10] <- mean(unlist(js3[,indnames[5]]))
+  indcheck[i,11] <- simdata$xes[ind[3]]
+  indcheck[i,12] <- mean(unlist(js3[,indnames[6]]))
+
 }
 
+pmse0 <- t(pmse0)
+pmse1 <- t(pmse1)
+model0 <- t(model0)
+model1 <- t(model1)
+
+save.image()

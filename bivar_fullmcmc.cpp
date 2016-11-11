@@ -605,6 +605,8 @@ List mcmc_full(
 
   arma::vec currentsigma2x      = as<arma::vec>(initial_values["currentsigma2x"]);
   arma::vec tunevar             = as<arma::vec>(initial_values["tunevar"]);
+  double tunecor             = as<double>(initial_values["tunecor"]);
+  
 
   for(int i=0;i<h;i++){
       currentSigma.slice(i).diag() = currentsigma2x;

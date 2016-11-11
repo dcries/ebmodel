@@ -326,7 +326,7 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Nov 08, 2016 - 8:42:13 AM
+% Date and time: Thu, Nov 10, 2016 - 5:34:36 PM
 \begin{table}[!htbp] \centering 
   \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
   \label{ebslm} 
@@ -820,13 +820,6 @@ $\alpha$ helps control how many components are used. This value can be set, but 
 The prior on $k_{ee}$ and $k_{es}$ deals with the number of knots and thus the complexity of the splines. Although we do not know the true form, we do not anticipate it to be highly complex, so we would like to use as few knots as possible. $r_{ee}$ and $r_{es}$ are the knot locations. Our discrete uniform prior on these means that knots can only occur at the latent values of $(X_i^{EE},X_i^{\Delta ES})$. This was done largely for computational convenience as we could have assigned a continuous prior, but we don't believe this will adversely affect the problem because the latent $(X_i^{EE},X_i^{\Delta ES})$ will be updated every MCMC iteration. Notice that we have not placed priors on the spline regression coefficients $\boldsymbol{\beta_{ee}}$ and $\boldsymbol{\beta_{es}}$, this is because we will not be updating this in a fully Bayesian fashion. We will discuss this more in the RJMCMC section.
 
 
-%---------------------------%
-\subsection{Issues with DP}
-%---------------------------%
-
-Although we'd like to be as flexible as possible with our distributional assumptions on the bivariate latent variables, we also want a model that is stable in its estimates given the data constraints of our application. It would be difficult to get more than 2 replicate measurements on an individual for our gold standard measurements. For 3 replicate measuremnets in the DLW case, this amounts to three 2-week periods along with a washout time in between. In the case of DXA scans, this is 6 scans in a short period of time which can raise flags due to radiation concerns. This is exemplified by the high cost associated with these methods (mainly DLW). Cheap measuremnet tools are not as much of a concern, but they are biased measuremnets of the latent variables unlike the gold standards. During our simulation study, we found that the DP on the latent variables was producing unstable results in parameter estimates and acceptance rates of the random walk Metropolis-Hastings under 2 replicate observations per person. The number of individuals played a much smaller role. Results were stable when 4 replicates per person were used. Results were similar when we used mixtures of normals instead of a DP. This presents an issue in our analysis since it is unrealistic to get that number of replicates in application. 
-
-Becuase of this issue, we propose using a bivariate normal distribution for the latent variables. 
 
 % Our model to analyze the measurement error and biases involved with various measurement tools for EE $\Delta$ES involves both parametric and nonparametric components. The goal of this approach is to be able to have interpretable parameters, but also to have a model that is flexible enough to handle relationships and distributions that are unknown. Following \eqref{truedist}, we explain how we are going to model every portion to have in the end, a joint probability model. We will now be more specific than in \eqref{regressionfcn1}-\eqref{gold1}, and we will explain how we propose to deal with specifying the bivariate distribution of the latent variables $(X_i^{EE},X_i^{\Delta ES})$.
 % 
@@ -1886,6 +1879,12 @@ $\beta_{0,ee}$ & -341.79 & -200.87 & -116.19 & -39.05 & 136.63 \\
 \subsection{Model BVN}
 %----------------------------------%
 % 
+We didn't explicitly introduce Model BVN before, but it is the same as Model DP except we assume a bivariate normal distribution for the latent variables $(X_i^{EE},X_i^{\Delta ES})$ instead of the Dirichlet Process. This is a simplifying assumption that we will justify in the next subsection. Tables \ref{mbvnwpestimates}, \ref{mbvnswpestimates}, \ref{mbvnbwpestimates} give posterior quantiles for this model under normal, skewed, and bimodal errors respectively. Quantiles for data under normal and skewed data look similar, while parameter estimates vary more when looking at bimodal errors. This is similar to what happened in previous models. 
+
+Figures \ref{wpxdiagbvn}, \ref{wpxdiagbvns}, \ref{wpxdiagbvnb} show plots of posterior predictive assessment for the latent variables under normal, skewed, and bimodal errors respectively. Under normal and skewed errors, these don't look too bad except for one or two truths not being covered well. The bimodal errors show some more problems on the $\Delta$ES side in particular. 
+
+Figures \ref{wpwdiagbvn}, \ref{wpwdiagbvns}, \ref{wpwdiagbvnb} show the same plots except for gold standard measurements. The assessments for the normal errors look good as  these are under correct specification. Even under skewed or bimodal errors, there doesn't seem to be any glaring issues. Figures \ref{wpydiagbvn}, \ref{wpydiagbvns}, \ref{wpydiagbvnb} show the same plots except for cheap measurements. As with the gold standard measurements, there doesn't appear to be any issues in these assessment plots. This gives some confidence in an amount of robustness to misspecification of measurement error distribution.
+
 
 Table \ref{pmse2} gives PMSE for both the EE and $\Delta$ES regression functions under normal, skewed, and bimodal errors. Not only does ignoring the measurement error give bad parameter estimates and posterior predictive checks, but also its prediction is poor. Our model that has splines in its regression function  whose knots can varry iteration to iteration performs much better than just a linear model. 
 
@@ -2067,9 +2066,18 @@ $\mu_x^{EE}$ & 2581.07 & 2634.84 & 2662.65 & 2690.48 & 2743.29 \\
 %-------------------------------------------------------------%
 % 
 % 
-% %--------------------------------------
-% \subsection{Model DP}
-% %--------------------------------------
+%--------------------------------------
+\subsection{Model DP}
+%--------------------------------------
+
+%---------------------------%
+\subsection{Issues with DP}
+%---------------------------%
+
+Although we'd like to be as flexible as possible with our distributional assumptions on the bivariate latent variables, we also want a model that is stable in its estimates given the data constraints of our application. It would be difficult to get more than 2 replicate measurements on an individual for our gold standard measurements. For 3 replicate measuremnets in the DLW case, this amounts to three 2-week periods along with a washout time in between. In the case of DXA scans, this is 6 scans in a short period of time which can raise flags due to radiation concerns. This is exemplified by the high cost associated with these methods (mainly DLW). Cheap measuremnet tools are not as much of a concern, but they are biased measuremnets of the latent variables unlike the gold standards. During our simulation study, we found that the DP on the latent variables was producing unstable results in parameter estimates and acceptance rates of the random walk Metropolis-Hastings under 2 replicate observations per person. The number of individuals played a much smaller role. Results were stable when 4 replicates per person were used. Results were similar when we used mixtures of normals instead of a DP. This presents an issue in our analysis since it is unrealistic to get that number of replicates in application. Becuase of this issue, we propose using a bivariate normal distribution for the latent variables. 
+
+Nonetheless, we show the results from Model DP under a completely unrealistic data collection standpoint by simulating 20 replicates. This gives us the ``best case scenario''. We give results for this model in addition to the rest in the full simulation study. 
+
 % 
 % For our model we ran 3 chains of 20,000 iterations with a burn in of 5000 iterations. For the regression and variance components, the Gelman-Rubin diagnostic was less than 1.1 for all parameters and trace plots indicated good mixing. To check for any signs of lack of convergence for the Dirichlet process, we calculated the estimated densities for EE and $\Delta$ES at random locations and compared across iterations and chains. Trace plots indicated good mixing of these densities. We also monitored 
 % 

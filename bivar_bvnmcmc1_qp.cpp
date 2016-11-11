@@ -480,7 +480,6 @@ List mcmc_bvn_qp(
   double currentsigma2vs        = as<double >(initial_values["currentsigma2vs"]);
   
   arma::vec tunevar             = as<arma::vec>(initial_values["tunevar"]);
-  arma::mat tunemat             = as<arma::mat>(initial_values["tunemat"]);
   double tunecor                = as<double >(initial_values["tunecor"]);
   
   

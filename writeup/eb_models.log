@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  8 NOV 2016 08:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  10 NOV 2016 17:34
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -408,14 +408,14 @@ Overfull \hbox (57.13844pt too wide) in paragraph at lines 159--159
 
 [3] [4] [5] [6] [7]
 Package color Info: Redefining color shadecolor on input line 229.
- <figure/ebsw-1.pdf, id=195, 433.62pt x 289.08pt>
+ <figure/ebsw-1.pdf, id=199, 433.62pt x 289.08pt>
 File: figure/ebsw-1.pdf Graphic file (type pdf)
 
 <use figure/ebsw-1.pdf>
 Package pdftex.def Info: figure/ebsw-1.pdf used on input line 231.
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
 Package color Info: Redefining color shadecolor on input line 245.
- <figure/ebsdiag-1.pdf, id=196, 505.89pt x 216.81pt>
+ <figure/ebsdiag-1.pdf, id=200, 505.89pt x 216.81pt>
 File: figure/ebsdiag-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag-1.pdf>
@@ -423,7 +423,7 @@ Package pdftex.def Info: figure/ebsdiag-1.pdf used on input line 247.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 259.
 
-<figure/ebsdiag2-1.pdf, id=197, 505.89pt x 216.81pt>
+<figure/ebsdiag2-1.pdf, id=201, 505.89pt x 216.81pt>
 File: figure/ebsdiag2-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag2-1.pdf>
@@ -431,7 +431,7 @@ Package pdftex.def Info: figure/ebsdiag2-1.pdf used on input line 261.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 272.
 
-<figure/ebsdiag3-1.pdf, id=198, 505.89pt x 216.81pt>
+<figure/ebsdiag3-1.pdf, id=202, 505.89pt x 216.81pt>
 File: figure/ebsdiag3-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag3-1.pdf>
@@ -439,7 +439,7 @@ Package pdftex.def Info: figure/ebsdiag3-1.pdf used on input line 274.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 286.
 
-<figure/ebsdiag4-1.pdf, id=199, 505.89pt x 216.81pt>
+<figure/ebsdiag4-1.pdf, id=203, 505.89pt x 216.81pt>
 File: figure/ebsdiag4-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag4-1.pdf>
@@ -447,7 +447,7 @@ Package pdftex.def Info: figure/ebsdiag4-1.pdf used on input line 288.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 300.
 
-<figure/ebsdiagcovariates-1.pdf, id=200, 505.89pt x 361.35pt>
+<figure/ebsdiagcovariates-1.pdf, id=204, 505.89pt x 361.35pt>
 File: figure/ebsdiagcovariates-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiagcovariates-1.pdf>
@@ -456,7 +456,7 @@ Package pdftex.def Info: figure/ebsdiagcovariates-1.pdf used on input line 302.
 (pdftex.def)             Requested size: 472.03111pt x 337.17133pt.
 Package color Info: Redefining color shadecolor on input line 314.
 
-<figure/ebsdiagcovariates2-1.pdf, id=201, 505.89pt x 289.08pt>
+<figure/ebsdiagcovariates2-1.pdf, id=205, 505.89pt x 289.08pt>
 File: figure/ebsdiagcovariates2-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiagcovariates2-1.pdf>
@@ -517,14 +517,14 @@ l.392
        <./figure/ebsdiagcovariates2-1.pdf>]
 Package color Info: Redefining color shadecolor on input line 400.
 
-<figure/latentx-1.pdf, id=282, 650.43pt x 289.08pt>
+<figure/latentx-1.pdf, id=286, 650.43pt x 289.08pt>
 File: figure/latentx-1.pdf Graphic file (type pdf)
  <use figure/latentx-1.pdf>
 Package pdftex.def Info: figure/latentx-1.pdf used on input line 401.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
 Package color Info: Redefining color shadecolor on input line 409.
 
-<figure/contourx-1.pdf, id=283, 650.43pt x 289.08pt>
+<figure/contourx-1.pdf, id=287, 650.43pt x 289.08pt>
 File: figure/contourx-1.pdf Graphic file (type pdf)
 
 <use figure/contourx-1.pdf>
@@ -551,7 +551,7 @@ l.442 \begin{align}
                     <./figure/latentx-1.pdf> <./figure/contourx-1.pdf>]
 [16] [17]
 Package color Info: Redefining color shadecolor on input line 554.
- <figure/errordist-1.pdf, id=344, 650.43pt x 289.08pt>
+ <figure/errordist-1.pdf, id=348, 650.43pt x 289.08pt>
 File: figure/errordist-1.pdf Graphic file (type pdf)
 
 <use figure/errordist-1.pdf>
@@ -567,7 +567,7 @@ l.574 W
  <./figure/errordist-1.pdf>]
 Package color Info: Redefining color shadecolor on input line 618.
 
-<figure/nonlinear-1.pdf, id=360, 505.89pt x 289.08pt>
+<figure/nonlinear-1.pdf, id=364, 505.89pt x 289.08pt>
 File: figure/nonlinear-1.pdf Graphic file (type pdf)
 
 <use figure/nonlinear-1.pdf>
@@ -586,41 +586,41 @@ Overfull \vbox (7.74442pt too high) has occurred while \output is active []
 Overfull \vbox (7.74442pt too high) has occurred while \output is active []
 
 
-[25] [26] [27]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 935.
+[25] [26]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 928.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 935.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 928.
 
-Underfull \hbox (badness 10000) in paragraph at lines 935--937
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 939--943
+Underfull \hbox (badness 10000) in paragraph at lines 928--930
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 950--951
+Underfull \hbox (badness 10000) in paragraph at lines 932--936
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 954--955
+Underfull \hbox (badness 10000) in paragraph at lines 943--944
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 963--967
+Underfull \hbox (badness 10000) in paragraph at lines 947--948
+
+ []
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 956--960
 
  []
 
 
-Overfull \hbox (3.37122pt too wide) in paragraph at lines 969--970
+Overfull \hbox (3.37122pt too wide) in paragraph at lines 962--963
 []$\OML/cmm/m/it/10.95 []\OMS/cmsy/m/n/10.95 j  \OML/cmm/m/it/10.95 IG\OT1/c
 mr/m/n/10.95 (\OML/cmm/m/it/10.95 a[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 
 J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
@@ -630,7 +630,17 @@ J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 969--970
+Underfull \hbox (badness 10000) in paragraph at lines 962--963
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 966--967
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 970--971
 
  []
 
@@ -639,13 +649,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 973--974
 
  []
 
-[28]
+
 Underfull \hbox (badness 10000) in paragraph at lines 977--978
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 979--980
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 
  []
 
@@ -655,143 +670,122 @@ Underfull \hbox (badness 10000) in paragraph at lines 984--985
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 988--990
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 988--989
+Underfull \hbox (badness 10000) in paragraph at lines 991--993
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 994--996
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 991--992
+Underfull \hbox (badness 10000) in paragraph at lines 997--999
+
+ []
+
+[29] [30] [31]
+Underfull \hbox (badness 10000) in paragraph at lines 1069--1070
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 995--997
+Underfull \hbox (badness 10000) in paragraph at lines 1072--1073
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 998--1000
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1003
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1004--1006
-
- []
-
-[29] [30] [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1076--1077
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1079--1080
-
- []
-
-
-Overfull \hbox (0.15877pt too wide) in paragraph at lines 1100--1101
+[32]
+Overfull \hbox (0.15877pt too wide) in paragraph at lines 1093--1094
 []\OT1/cmr/m/n/10.95 Calculate pro-posed spline re-gres-sion co-ef-fi-cients $[
 ]$ by us-ing OLS by re-gress-ing $\OML/cmm/m/it/10.95 Y[]$ \OT1/cmr/m/n/10.95 o
 n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
 /n/10.95 )$ 
  []
 
-[33]
-Underfull \hbox (badness 10000) in paragraph at lines 1103--1104
+
+Underfull \hbox (badness 10000) in paragraph at lines 1096--1097
 
  []
 
-[34] [35] <manual_figure/wpydiag0.pdf, id=587, 794.97pt x 614.295pt>
+[33] [34] <manual_figure/wpydiag0.pdf, id=584, 794.97pt x 614.295pt>
 File: manual_figure/wpydiag0.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiag0.pdf>
-Package pdftex.def Info: manual_figure/wpydiag0.pdf used on input line 1695.
+Package pdftex.def Info: manual_figure/wpydiag0.pdf used on input line 1688.
+(pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
+
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1688--1689
+ [][] 
+ []
+
+<manual_figure/wpydiag0s.pdf, id=585, 794.97pt x 614.295pt>
+File: manual_figure/wpydiag0s.pdf Graphic file (type pdf)
+
+<use manual_figure/wpydiag0s.pdf>
+Package pdftex.def Info: manual_figure/wpydiag0s.pdf used on input line 1695.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
 Overfull \hbox (11.67473pt too wide) in paragraph at lines 1695--1696
  [][] 
  []
 
-<manual_figure/wpydiag0s.pdf, id=588, 794.97pt x 614.295pt>
-File: manual_figure/wpydiag0s.pdf Graphic file (type pdf)
+<manual_figure/wpydiag0b.pdf, id=586, 794.97pt x 614.295pt>
+File: manual_figure/wpydiag0b.pdf Graphic file (type pdf)
 
-<use manual_figure/wpydiag0s.pdf>
-Package pdftex.def Info: manual_figure/wpydiag0s.pdf used on input line 1702.
+<use manual_figure/wpydiag0b.pdf>
+Package pdftex.def Info: manual_figure/wpydiag0b.pdf used on input line 1702.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
 Overfull \hbox (11.67473pt too wide) in paragraph at lines 1702--1703
  [][] 
  []
 
-<manual_figure/wpydiag0b.pdf, id=589, 794.97pt x 614.295pt>
-File: manual_figure/wpydiag0b.pdf Graphic file (type pdf)
-
-<use manual_figure/wpydiag0b.pdf>
-Package pdftex.def Info: manual_figure/wpydiag0b.pdf used on input line 1709.
-(pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
-
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1709--1710
- [][] 
- []
-
-[36pdfTeX warning (ext4): destination with the same identifier (name{table.3}) 
-has been already used, duplicate ignored
+[35] [36pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.12}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1728 
-       ] [37pdfTeX warning (ext4): destination with the same identifier (name{f
-igure.12}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.1728 
-        <./manual_figure/wpydiag0.pdf>] [38pdfTeX warning (ext4): destination w
+l.1721 
+        <./manual_figure/wpydiag0.pdf>] [37pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.13}) has been already used, duplicate igno
 red
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1728 
-        <./manual_figure/wpydiag0s.pdf>] [39pdfTeX warning (ext4): destination 
+l.1721 
+        <./manual_figure/wpydiag0s.pdf>] [38pdfTeX warning (ext4): destination 
 with the same identifier (name{figure.14}) has been already used, duplicate ign
 ored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1728 
-        <./manual_figure/wpydiag0b.pdf>] [40pdfTeX warning (ext4): destination 
-with the same identifier (name{table.4}) has been already used, duplicate ignor
+l.1721 
+        <./manual_figure/wpydiag0b.pdf>] [39pdfTeX warning (ext4): destination 
+with the same identifier (name{table.3}) has been already used, duplicate ignor
 ed
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1733 
+l.1726 
        pdfTeX warning (ext4): destination with the same identifier (name{table.
-5}) has been already used, duplicate ignored
+4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1733 
+l.1726 
        ] <manual_figure/wpxdiag1.pdf, id=648, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiag1.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiag1.pdf>
-Package pdftex.def Info: manual_figure/wpxdiag1.pdf used on input line 1842.
+Package pdftex.def Info: manual_figure/wpxdiag1.pdf used on input line 1835.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1842--1843
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1835--1836
  [][] 
  []
 
@@ -799,10 +793,10 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1842--1843
 File: manual_figure/wpwdiag1.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiag1.pdf>
-Package pdftex.def Info: manual_figure/wpwdiag1.pdf used on input line 1849.
+Package pdftex.def Info: manual_figure/wpwdiag1.pdf used on input line 1842.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1849--1850
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1842--1843
  [][] 
  []
 
@@ -810,10 +804,10 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1849--1850
 File: manual_figure/wpydiag1.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiag1.pdf>
-Package pdftex.def Info: manual_figure/wpydiag1.pdf used on input line 1856.
+Package pdftex.def Info: manual_figure/wpydiag1.pdf used on input line 1849.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1856--1857
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1849--1850
  [][] 
  []
 
@@ -821,10 +815,10 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1856--1857
 File: manual_figure/wpxdiag1s.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiag1s.pdf>
-Package pdftex.def Info: manual_figure/wpxdiag1s.pdf used on input line 1865.
+Package pdftex.def Info: manual_figure/wpxdiag1s.pdf used on input line 1858.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1865--1866
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1858--1859
  [][] 
  []
 
@@ -832,10 +826,10 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1865--1866
 File: manual_figure/wpwdiag1s.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiag1s.pdf>
-Package pdftex.def Info: manual_figure/wpwdiag1s.pdf used on input line 1872.
+Package pdftex.def Info: manual_figure/wpwdiag1s.pdf used on input line 1865.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1872--1873
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1865--1866
  [][] 
  []
 
@@ -843,364 +837,370 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1872--1873
 File: manual_figure/wpydiag1s.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiag1s.pdf>
-Package pdftex.def Info: manual_figure/wpydiag1s.pdf used on input line 1879.
+Package pdftex.def Info: manual_figure/wpydiag1s.pdf used on input line 1872.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1879--1880
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1872--1873
  [][] 
  []
 
-[41pdfTeX warning (ext4): destination with the same identifier (name{table.6}) 
+[40pdfTeX warning (ext4): destination with the same identifier (name{table.5}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
-       ] [42pdfTeX warning (ext4): destination with the same identifier (name{f
+l.1885 
+       ] [41pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.15}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
-        <./manual_figure/wpxdiag1.pdf>] [43pdfTeX warning (ext4): destination w
+l.1885 
+        <./manual_figure/wpxdiag1.pdf>] [42pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.16}) has been already used, duplicate igno
 red
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
-        <./manual_figure/wpwdiag1.pdf>] [44pdfTeX warning (ext4): destination w
+l.1885 
+        <./manual_figure/wpwdiag1.pdf>] [43pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.17}) has been already used, duplicate igno
 red
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
-        <./manual_figure/wpydiag1.pdf>] [45pdfTeX warning (ext4): destination w
+l.1885 
+        <./manual_figure/wpydiag1.pdf>] [44pdfTeX warning (ext4): destination w
 ith the same identifier (name{figure.18}) has been already used, duplicate igno
 red
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
-        <./manual_figure/wpxdiag1s.pdf>] [46pdfTeX warning (ext4): destination 
+l.1885 
+        <./manual_figure/wpxdiag1s.pdf>] [45pdfTeX warning (ext4): destination 
 with the same identifier (name{figure.19}) has been already used, duplicate ign
 ored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
-        <./manual_figure/wpwdiag1s.pdf>] [47pdfTeX warning (ext4): destination 
+l.1885 
+        <./manual_figure/wpwdiag1s.pdf>] [46pdfTeX warning (ext4): destination 
 with the same identifier (name{figure.20}) has been already used, duplicate ign
 ored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1891 
+l.1885 
         <./manual_figure/wpydiag1s.pdf>]
-<manual_figure/wpxdiagbvn.pdf, id=717, 794.97pt x 614.295pt>
+<manual_figure/wpxdiagbvn.pdf, id=732, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvn.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvn.pdf>
-Package pdftex.def Info: manual_figure/wpxdiagbvn.pdf used on input line 1977.
+Package pdftex.def Info: manual_figure/wpxdiagbvn.pdf used on input line 1976.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1977--1978
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1976--1977
  [][] 
  []
 
-<manual_figure/wpwdiagbvn.pdf, id=718, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvn.pdf, id=733, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvn.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvn.pdf>
-Package pdftex.def Info: manual_figure/wpwdiagbvn.pdf used on input line 1984.
+Package pdftex.def Info: manual_figure/wpwdiagbvn.pdf used on input line 1983.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1984--1985
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1983--1984
  [][] 
  []
 
-<manual_figure/wpydiagbvn.pdf, id=719, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvn.pdf, id=734, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvn.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvn.pdf>
-Package pdftex.def Info: manual_figure/wpydiagbvn.pdf used on input line 1991.
+Package pdftex.def Info: manual_figure/wpydiagbvn.pdf used on input line 1990.
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1991--1992
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1990--1991
  [][] 
  []
 
-<manual_figure/wpxdiagbvns.pdf, id=720, 794.97pt x 614.295pt>
+<manual_figure/wpxdiagbvns.pdf, id=735, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 2000.
+Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1999.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 2000--2001
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1999--2000
  [][] 
  []
 
-<manual_figure/wpwdiagbvns.pdf, id=721, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvns.pdf, id=736, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 2007.
+Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 2006.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 2007--2008
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 2006--2007
  [][] 
  []
 
-<manual_figure/wpydiagbvns.pdf, id=722, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvns.pdf, id=737, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 2014.
+Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 2013.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 2014--2015
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 2013--2014
  [][] 
  []
 
-<manual_figure/wpxdiagbvnb.pdf, id=723, 794.97pt x 614.295pt>
+<manual_figure/wpxdiagbvnb.pdf, id=738, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvnb.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvnb.pdf>
-Package pdftex.def Info: manual_figure/wpxdiagbvnb.pdf used on input line 2021.
+Package pdftex.def Info: manual_figure/wpxdiagbvnb.pdf used on input line 2020.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 2021--2022
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 2020--2021
  [][] 
  []
 
-<manual_figure/wpwdiagbvnb.pdf, id=724, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvnb.pdf, id=739, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvnb.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvnb.pdf>
-Package pdftex.def Info: manual_figure/wpwdiagbvnb.pdf used on input line 2028.
+Package pdftex.def Info: manual_figure/wpwdiagbvnb.pdf used on input line 2027.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 2028--2029
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 2027--2028
  [][] 
  []
 
-<manual_figure/wpydiagbvnb.pdf, id=725, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvnb.pdf, id=740, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvnb.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvnb.pdf>
-Package pdftex.def Info: manual_figure/wpydiagbvnb.pdf used on input line 2035.
+Package pdftex.def Info: manual_figure/wpydiagbvnb.pdf used on input line 2034.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 2035--2036
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 2034--2035
  [][] 
  []
 
-<manual_figure/predbvnx.pdf, id=726, 578.16pt x 289.08pt>
+<manual_figure/predbvnx.pdf, id=741, 578.16pt x 289.08pt>
 File: manual_figure/predbvnx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnx.pdf>
-Package pdftex.def Info: manual_figure/predbvnx.pdf used on input line 2044.
+Package pdftex.def Info: manual_figure/predbvnx.pdf used on input line 2043.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2044--2045
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2043--2044
  [][] 
  []
 
-<manual_figure/predbvnsx.pdf, id=727, 578.16pt x 289.08pt>
+<manual_figure/predbvnsx.pdf, id=742, 578.16pt x 289.08pt>
 File: manual_figure/predbvnsx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnsx.pdf>
-Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 2051.
+Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 2050.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2051--2052
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2050--2051
  [][] 
  []
 
-<manual_figure/predbvnbx.pdf, id=728, 578.16pt x 289.08pt>
+<manual_figure/predbvnbx.pdf, id=743, 578.16pt x 289.08pt>
 File: manual_figure/predbvnbx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnbx.pdf>
-Package pdftex.def Info: manual_figure/predbvnbx.pdf used on input line 2058.
+Package pdftex.def Info: manual_figure/predbvnbx.pdf used on input line 2057.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2058--2059
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2057--2058
  [][] 
  []
 
-[48pdfTeX warning (ext4): destination with the same identifier (name{table.7}) 
+[47pdfTeX warning (ext4): destination with the same identifier (name{table.6}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-       ] [49pdfTeX warning (ext4): destination with the same identifier (name{f
+l.2078 
+       ] [48pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.21}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpxdiagbvn.pdf>] [50pdfTeX warning (ext4): destination
+l.2078 
+        <./manual_figure/wpxdiagbvn.pdf>] [49pdfTeX warning (ext4): destination
  with the same identifier (name{figure.22}) has been already used, duplicate ig
 nored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpwdiagbvn.pdf>] [51pdfTeX warning (ext4): destination
+l.2078 
+        <./manual_figure/wpwdiagbvn.pdf>] [50pdfTeX warning (ext4): destination
  with the same identifier (name{figure.23}) has been already used, duplicate ig
 nored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpydiagbvn.pdf>] [52pdfTeX warning (ext4): destination
+l.2078 
+        <./manual_figure/wpydiagbvn.pdf>] [51pdfTeX warning (ext4): destination
  with the same identifier (name{figure.24}) has been already used, duplicate ig
 nored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpxdiagbvns.pdf>] [53pdfTeX warning (ext4): destinatio
+l.2078 
+        <./manual_figure/wpxdiagbvns.pdf>] [52pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.25}) has been already used, duplicate i
 gnored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpwdiagbvns.pdf>] [54pdfTeX warning (ext4): destinatio
+l.2078 
+        <./manual_figure/wpwdiagbvns.pdf>] [53pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.26}) has been already used, duplicate i
 gnored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpydiagbvns.pdf>] [55pdfTeX warning (ext4): destinatio
+l.2078 
+        <./manual_figure/wpydiagbvns.pdf>] [54pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.27}) has been already used, duplicate i
 gnored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpxdiagbvnb.pdf>] [56pdfTeX warning (ext4): destinatio
+l.2078 
+        <./manual_figure/wpxdiagbvnb.pdf>] [55pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.28}) has been already used, duplicate i
 gnored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpwdiagbvnb.pdf>] [57pdfTeX warning (ext4): destinatio
+l.2078 
+        <./manual_figure/wpwdiagbvnb.pdf>] [56pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.29}) has been already used, duplicate i
 gnored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
-        <./manual_figure/wpydiagbvnb.pdf>] [58pdfTeX warning (ext4): destinatio
+l.2078 
+        <./manual_figure/wpydiagbvnb.pdf>] [57pdfTeX warning (ext4): destinatio
 n with the same identifier (name{figure.30}) has been already used, duplicate i
 gnored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
+l.2078 
        pdfTeX warning (ext4): destination with the same identifier (name{figure
 .31}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2205 
+l.2078 
         <./manual_figure/predbvnx.pdf> <./manual_figure/predbvnsx.pdf>]
-[59pdfTeX warning (ext4): destination with the same identifier (name{table.8}) 
+[58pdfTeX warning (ext4): destination with the same identifier (name{table.7}) 
 has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2214 
-       ] <manual_figure/wpcalhist.pdf, id=858, 578.16pt x 433.62pt>
+l.2078 
+       ] [59pdfTeX warning (ext4): destination with the same identifier (name{t
+able.8}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.2213 
+       ] [60pdfTeX warning (ext4): destination with the same identifier (name{t
+able.9}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.2222 
+       ] <manual_figure/wpcalhist.pdf, id=881, 578.16pt x 433.62pt>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
-Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2320.
+Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2328.
 (pdftex.def)             Requested size: 483.6926pt x 284.54257pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2320--2321
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2328--2329
  [][] 
  []
 
-[60pdfTeX warning (ext4): destination with the same identifier (name{table.9}) 
-has been already used, duplicate ignored
+[61pdfTeX warning (ext4): destination with the same identifier (name{table.10})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2348 
-       ] [61pdfTeX warning (ext4): destination with the same identifier (name{f
+l.2356 
+       ] [62pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.32}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2348 
+l.2356 
        pdfTeX warning (ext4): destination with the same identifier (name{figure
 .33}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2348 
+l.2356 
         <./manual_figure/predbvnbx.pdf> <./manual_figure/wpcalhist.pdf>]
-[62pdfTeX warning (ext4): destination with the same identifier (name{table.10})
+[63pdfTeX warning (ext4): destination with the same identifier (name{table.11})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2353 
-       ] [63pdfTeX warning (ext4): destination with the same identifier (name{t
-able.11}) has been already used, duplicate ignored
+l.2361 
+       pdfTeX warning (ext4): destination with the same identifier (name{table.
+12}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2355 \clearpage
-                 pdfTeX warning (ext4): destination with the same identifier (n
-ame{table.12}) has been already used, duplicate ignored
+l.2361 
+       ] [64pdfTeX warning (ext4): destination with the same identifier (name{t
+able.13}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.2355 \clearpage
-                 ] [64pdfTeX warning (ext4): destination with the same identifi
-er (name{table.13}) has been already used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.2355 \clearpage
+l.2363 \clearpage
                  ] (eb_models.bbl [65
 
 ]) 
 AED: lastpage setting LastPage
 [66]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2359.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2359.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2367.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2367.
  (eb_models.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2359.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2359.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2367.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2367.
 
 Package rerunfilecheck Info: File `eb_models.out' has not changed.
-(rerunfilecheck)             Checksum: B46CFD2103F4EF780C83491C977FEEB8;1368.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2359.
+(rerunfilecheck)             Checksum: DDBAB3BF6B0921937C3C87B72CED6D80;1427.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2367.
  ) 
 Here is how much of TeX's memory you used:
- 7105 strings out of 493334
- 103246 string characters out of 3139180
- 234852 words of memory out of 3000000
- 10242 multiletter control sequences out of 15000+200000
+ 7107 strings out of 493334
+ 103276 string characters out of 3139180
+ 240852 words of memory out of 3000000
+ 10243 multiletter control sequences out of 15000+200000
  12685 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,18n,43p,2967b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 29i,18n,43p,2967b,494s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
@@ -1221,9 +1221,9 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (66 pages, 5983857 bytes).
+Output written on eb_models.pdf (66 pages, 5987776 bytes).
 PDF statistics:
- 1042 PDF objects out of 1200 (max. 8388607)
- 272 named destinations out of 1000 (max. 500000)
- 350 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1058 PDF objects out of 1200 (max. 8388607)
+ 273 named destinations out of 1000 (max. 500000)
+ 358 words of extra memory for PDF output out of 10000 (max. 10000000)
 
