@@ -164,7 +164,7 @@ run_bvnsim <- function(nreplicates,dist){
                    sqrt(mean(sample$sigma2ees)),sqrt(mean(sample$sigma2vee)),
                    sqrt(mean(sample$sigma2ves)),sqrt(mean(sample$sigma2xee)),
                    sqrt(mean(sample$sigma2xes)),mean(sample$corrx),
-                   colMeans(sample$betaee),colMeans$betaes)
+                   colMeans(sample$betaee),colMeans(sample$betaes))
     
     indcheck[i,1] <- simdata$xee[ind[1]]
     indcheck[i,2] <- mean(sample$latentxee[,ind[1]])
