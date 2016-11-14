@@ -8,8 +8,8 @@ library(reshape)
 library(mvtnorm)
 library(fGarch)
 
-#Rcpp::sourceCpp('C:/Users/dcries/github/ebmodel/ppred_analysis.cpp')
-#source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
+Rcpp::sourceCpp('C:/Users/dcries/github/ebmodel/ppred_analysis.cpp')
+source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
 setwd('/home/dcries')
 Rcpp::sourceCpp('ebmodel/ppred_analysis.cpp')
 source('ebmodel/base_fcn.R')
@@ -253,4 +253,6 @@ pmse1 <- t(pmse1)
 model0 <- t(model0)
 model1 <- t(model1)
 
-save.image()
+out <- list(pmse0=pmse0,pmse1=pmse1,model0=model0,model1=model1)
+save(out,file="\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\simple_2_1.RData")
+

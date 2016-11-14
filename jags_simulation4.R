@@ -253,4 +253,5 @@ pmse1 <- t(pmse1)
 model0 <- t(model0)
 model1 <- t(model1)
 
-save.image()
+out <- list(pmse0=pmse0,pmse1=pmse1,model0=model0,model1=model1)
+save(out,file="\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\simple_4_1.RData")

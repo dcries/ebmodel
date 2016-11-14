@@ -39,7 +39,7 @@ run_bvnsim <- function(nreplicates,dist){
   nind <- length(ind)
   
   pmse <- matrix(0,nrow=2,ncol=nsim)
-  model <- matrix(0,nrow=12,ncol=nsim)
+  model <- matrix(0,nrow=15,ncol=nsim)
   
   indcheck <- matrix(0,nrow=nsim,ncol=4*length(ind))
   
@@ -156,6 +156,11 @@ run_bvnsim <- function(nreplicates,dist){
                     tunecor=tunecor)
     
     sample=mcmc_bvn_qp(yee,yes,wee,wes,Z,initial,prior,nreps,burn,maxkt,my_bs,my_qp)
+    
+    pp_indicies <- sample(1:niter,m)
+    
+    sample_r <- list(sample$meanfcnee[pp_indicies,],sample$meanfcnes[pp_indicies,],
+                     sample$betaee[pp_indicies,],sample$betaes[pp_indicies,])
     
     pp <- pp_pmse(sample,yeeb,yesb,Z)
     
