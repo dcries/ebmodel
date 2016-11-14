@@ -11,8 +11,8 @@ library(fGarch)
 #Rcpp::sourceCpp('C:/Users/dcries/github/ebmodel/ppred_analysis.cpp')
 #source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
 setwd('/home/dcries')
-Rcpp::sourceCpp('/ebmodel/ppred_analysis.cpp')
-source('/ebmodel/base_fcn.R')
+Rcpp::sourceCpp('ebmodel/ppred_analysis.cpp')
+source('ebmodel/base_fcn.R')
 
 set.seed(936)
 #number of simulated data sets
