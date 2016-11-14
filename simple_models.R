@@ -15,12 +15,14 @@ library(fGarch)
 
 setwd("U:/Desktop/research/data")
 #source("U:\\Desktop\\research\\rprograms\\base_fcn.R")
-Rcpp::sourceCpp('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/trial_and_simulated/ppred_analysis.cpp')
-source('\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\research\\rprograms\\base_fcn.R')
+#Rcpp::sourceCpp('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/trial_and_simulated/ppred_analysis.cpp')
+#source('\\\\my.files.iastate.edu\\Users\\dcries\\Desktop\\research\\rprograms\\base_fcn.R')
+Rcpp::sourceCpp('C:\\Users\\dcries\\github\\ebmodel\\ppred_analysis.cpp')
+source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
 eb <- read.csv("ebs_2_23.csv")
 
 params <- c(100,50,300,14,-7,-200,8,-5)
-simdata <- generate_data(params,dist=1)
+simdata <- generate_data4(params,dist=1)
 simdata$d <- 3 # for inv-wish prior
 simdata$I <- diag(2) #for inv-wish prior
 simdata$n <- length(simdata$xee)
