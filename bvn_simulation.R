@@ -17,6 +17,11 @@ run_bvnsim <- function(nreplicates,dist){
   # Rcpp::sourceCpp('/ebmodel/ppred_analysis.cpp')
   # Rcpp::sourceCpp('/ebmodel/bivar_bvnmcmc1_qp.cpp')
   # source('/ebmodel/base_fcn.R')
+  #
+  # !!!!!!!!!!!!!!!!!!
+  # this value is hardcoded here
+  n <- 300
+  # !!!!!!!!!!!!!!!!!!
   
   set.seed(936)
   #number of simulated data sets
