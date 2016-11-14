@@ -77,8 +77,7 @@ run_bvnsim <- function(nreplicates,dist){
   currentpi <- rep(1/h,h)
   currentzeta <- sample(1:h,n,replace=T)
   currentv <- rep(0.3,h)
-  currentpredee <- wee[,1]
-  currentpredes <- wes[,1]
+
   currentsigma2ee <- 400^2
   currentsigma2ve <- 250^2
   currentsigma2es <- 220^2
@@ -138,6 +137,9 @@ run_bvnsim <- function(nreplicates,dist){
     
     knotsee <- sort(wee)[c(50,200)]
     knotses <- sort(wes)[c(50,200)]
+    
+    currentpredee <- wee[,1]
+    currentpredes <- wes[,1]
     
     currentxee <- wee[,1]
     currentxes <- wes[,1]
