@@ -1,14 +1,14 @@
 run_bvnsim <- function(nreplicates,dist){
   library(MASS)
-  library(ggplot2)
-  library(gridExtra)
+  #library(ggplot2)
+  #library(gridExtra)
   library(mgcv) 
   library(reshape)
   library(mvtnorm)
   library(MCMCpack)
   library(splines)
   library(fGarch)
-  library(xtable)
+  #library(xtable)
   library(quadprog)
   
   #Rcpp::sourceCpp('C:/Users/dcries/github/ebmodel/ppred_analysis.cpp')
