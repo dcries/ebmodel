@@ -162,7 +162,7 @@ run_bvnsim <- function(nreplicates,dist){
     sample_r <- list(sample$meanfcnee[pp_indicies,],sample$meanfcnes[pp_indicies,],
                      sample$betaee[pp_indicies,],sample$betaes[pp_indicies,])
     
-    pp <- pp_pmse(sample,yeeb,yesb,Z)
+    pp <- pp_pmse(sample_r,yeeb,yesb,Z)
     
     pmse[,i] <- colMeans(pp)
     model[,i] <- c(mean(sample$muee),mean(sample$mues),sqrt(mean(sample$sigma2eee)),
