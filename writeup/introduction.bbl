@@ -293,4 +293,29 @@ J.S. Buzas, T.D Tosteson, and L.A. Stefanski.
 \newblock {\em Unpublished Report , Institue of Statistics Mimeo Series No.
   2544}, 2003.
 
+\bibitem{richardson}
+Sylvia Richardson and Walter~R. Gilks.
+\newblock A bayesian approach to measurement error problems in epidemiology
+  using conditional independence models.
+\newblock {\em American Journal of Epidemiology}, 138:430--42, 1993.
+
+\bibitem{berry02}
+Scott~M. Berry, Raymond~J. Carroll, and David Ruppert.
+\newblock Bayesian smoothing and regression splines for measurement error
+  problems.
+\newblock {\em Journal of the American Statistical Association}, 97:160--69,
+  2002.
+
+\bibitem{sinha10}
+Samiran Sinha, Bani~K. Mallick, Victor Kipnis, and Raymond~J. Carroll.
+\newblock Semiparametric bayesian analysis of nutritional epidemiology data in
+  the presence of measurement error.
+\newblock {\em Biometrics}, 66:444--54, 2010.
+
+\bibitem{sarkar14}
+Abhra Sarkar, Bani~K. Mallick, and Raymond~J. Carroll.
+\newblock Bayesian semiparametric regression in the presence of conditionally
+  heteroscedastic measurement and regression errors.
+\newblock {\em Biometrics}, 70:823--34, 2014.
+
 \end{thebibliography}

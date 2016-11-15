@@ -295,6 +295,50 @@ ggplot() + geom_point(aes(x=x,y=y)) + geom_point(aes(x=w,y=y),shape=5) + geom_li
 From (\ref{lmbias}), one can see the usual OLS estimator for $\beta_1$ using {\bf W} instead of {\bf X} produces a biased estimate for the true relationship between {\bf Y} and {\bf X}. Looking at (\ref{lmbias}), one can note if we knew $\lambda$, then we could get an unbiased estimator of $\beta_1$ by dividing by $\lambda$. Of course we would not expect this to be the case very often. Instead, we could find a consistent estimator for $\lambda$, then divide our estimate of $\beta_1$ by that estimate, and we will have an unbiased estimate for $\beta_1$. Using $\sigma_x^2 = \sigma_w^2 - \sigma_u^2$, we get $\hat{\lambda} = \frac{\hat{\sigma_w^2} - \hat{\sigma_u^2}}{\hat{\sigma_w^2}}$. $\hat{\sigma_w^2}$ and $\hat{\sigma_u^2}$ is the sample variance of the observed {\bf W}'s and the estimated variance of the measurement error, respectively. As long as both of these are consistent (which we know $\hat{\sigma_w^2}$ is), then $\hat{\lambda}$ is consistent for $\lambda$. Carroll et al. gives an estimate for $\sigma_u^2$ on page 71. It turns out in small sample sizes, this estimator for $\lambda$ has a a very skewed distribution, and Fuller \cite{linear} gives a modified version of the above approach to give a more symmetric sampling distribution. The above method is a method of moments estimator because it only depends on moments based on the data and no distributional assumptions are made. 
 
 
+%--------------------------------%
+\subsection{Energy Balance Measurement Error Models}
+%--------------------------------%
+
+To the best of our knowledge, no one has attempted to model the energy balance error structure jointly. While there have been measurement error models constructed for both physical activity and various aspects of nutrition, no one has used the joint relationships that exist between physical activity and food consumed (or equivalently physical activity and body composition changes) to assess the measurement error present in today's devices. We will construct our model based on univariate methods developed within the field as well as models constructed with no intent of application in exercise science or nutrition. 
+
+
+%--------------------------------%
+\subsection{Bayesian Measurement Error Models}
+%--------------------------------%
+
+Richardson et al. \cite{richardson} presents a general approach to Bayesian modeling of measurement error problems with particular focus on epidemiology applications. This work was done when MCMC methods were becoming popular, and thus this provided a new way to approach these types of problems compared to frequentist methods. The authors propose hierarchical modeling that utilizes conditional independence. The state that the classical measurement error problem can be broken into the three components below: 
+
+\begin{align}
+  \text{Disease Model} &= Y_i|X_i,Z_i,\theta_y \\
+  \text{Measurement Model} &= W_i|X_i,\theta_w \\
+  \text{Exposure Model} &= X_i|Z_i,\theta_x
+\end{align}
+
+where $Y_i$ is the response, often representing the presence of a disease. $W_i$ is a surrogate for $X_i$, ie a covariate measured with error. $Z_i$ represent other covariates that are assumed to be error free. The interest in the problem is the influence of the covariates measured with error ($W_i$) and without error ($Z_i$) on the response which is some sort of health outcome, whether it be binary or not. Conditional on the truth covariates $X_i$, $Z_i$, the response is conditionally independent of the surrogate $W_i$. The joint distribution can then be easily written as the product over $i$ of the above model components. Richardson et al. give more details and more complex dependence structures, but this is their general framework. They presented a linear and generalized linear (binomial) measurement error model with normal distributions for errors and exposure, but this general framework can easily be expanded upon.
+
+
+The paper by Berry et al. \cite{berry02} introduced a fully Bayesian approach to the problem of nonparametric regression when there is measurement error in the covariates. This extends the traditional linear measurement error by allowing a non-linear response of unknown form. They explored the following situation:
+
+\begin{align}
+  Y_i &= m(X_i) + \epsilon_i \\
+  W_{ij} &= X_i + U_{ij} 
+\end{align}
+
+Berry et al. used penalized splines to estimate the function $m()$, and opt to use a relatively large number of knots (20-40). Assuming normal distributions for the error terms as well as the latent variables $X_i$, they present an MCMC algorithm to sample from the posterior. In a simulation study, they showed their model had better frequentist properties than some competeing frequentist methods. They also did some rbobustness checks to their normal assumptions, and although there were some losses of efficiency, the authors note ``the results are at least encouraging in the case of small model deviations". The analysis was also not sensitive to priors. 
+
+Sinha et al. \cite{sinha10} presents a semiparametric Bayesian analysis of nutritional data. In this paper the authors are interested in a binary response variable as unknown function of a variable measured with error plus a linear function of error-free covariates. The authors assume normal errors for the measurement error terms, but place a Dirichlet Process on the latent variables $X_i$ in an attempt to lighten distributional assumptions. The authors used B-splines instead of P-splines and also opted to use a large number of fixed knots. 
+
+
+Sarkar et al. \cite{sarkar14} presents a semiparametric model that attempts to make as few distributional assumptions as possible. Their setup is nearly identical to Berry et al. They proposed using a Dirichlet Process for the distribution of the latent variables, measurement error, and regression error terms to avoid the standard normality assumption. They also allow for non-constant variance. Sarkar et al. proposes using splines to model the unknown regression function, but they chose to use B-splines largely because they are more stable. The number and location of knots are chosen beforehand. Simulation studies show their model outperforms the model of Berry et al. under various situations. The authors note however, that the model of Berry et al. is competitive when using B-splines instead of the originally proposed P-splines. The authors attributed this to the numerical stability of the B-splines.
+
+
+%-------------------------------------------------------%
+\subsection{Summary}
+%-------------------------------------------------------%
+
+
+
+
 \bibliographystyle{unsrt} %style of bibliography
 \bibliography{references} %tells BibTeX to create a list of references using those in the BibTeX file %research.bib.
 
