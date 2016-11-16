@@ -531,11 +531,11 @@ Figure \ref{fig:ebsdiag2} shows normal quantile plots for DLW measured EE split 
 
 Figure \ref{fig:ebsdiag3} shows normal quantile plots for differenced DXA measurements of $\Delta$ES split by gender, Females on left and Males on right. We calculated the differenced $\Delta$ES for 6 month DXA to 9 month DXA and 9 month DXA to 12 month DXA and took the difference. Both plots look similar and show small signs of non normality in the tails, but nothing too extreme. Figure \ref{fig:ebsdiag4} shows normal quantile plots for differenced armband measured EE split by gender.We calculated the differenced EE by taking the 12 month measurement minus the 9 month measurement. Females on left and Males on right. Again, there are no gross departures from normality. 
 
-Figure \ref{fig:ebsdiagcovariates} show plots of EE and $\Delta$ES faceted by age and BMI. These were measured by DLW and DXA, respectively. A simple linear regression model is fit in blue along with confidence bands to each pair. Looking first at EE vs age, we see a somewhat surprising relationship in that they look almost unrelated. It is misleading though since these data were only collected on individuals aged 20-35, so if we're sampling a larger age base, we would expect there to be more of a (negative) relationship. EE vs BMI shows a moderate, positive relationship. This makes sense because because the majority of calories people burn is through their resting metabolic rate (RMR). Part of this is directly related to the amount of oxygen we consume, and the bigger and more active we are, the more oxygen we consume. The amount of calories burned from physical activity are actually much smaller and this explains the relationship we see in the data.
-
-$\Delta$ES vs age shows a weak, negative relationship indicating, at least with the EBS age group, that older people tend to burn more energy then they consume, on average. $\Delta$ES vs BMI shows no meaningful relationship. Even though this exploratory analysis shows no relationship between these two variables, we will continue to include BMI as a covariate for $\Delta$ES due to its interpretability. Because these plots are based on data from the gold standard measurements, which we are assuming are unbiased for the truth, they give an approximate representation of the true relationship between these variables.
-
-Figure \ref{fig:ebsdiagcovariates2} shows plots of EE vs age (left) and BMI (right). EE in these plots is measured by the armband (cheap measurement). Because all 430 subjects received measurements of EE with the armband, these plots include the entire data set. Looking at EE vs age there appears to be a more obvious negative relationship which we would expect, even in this limited age group. EE vs BMI also shows an obvious relationship, except positive. Again this is what we'd expect as discussed previously. 
+% Figure \ref{fig:ebsdiagcovariates} show plots of EE and $\Delta$ES faceted by age and BMI. These were measured by DLW and DXA, respectively. A simple linear regression model is fit in blue along with confidence bands to each pair. Looking first at EE vs age, we see a somewhat surprising relationship in that they look almost unrelated. It is misleading though since these data were only collected on individuals aged 20-35, so if we're sampling a larger age base, we would expect there to be more of a (negative) relationship. EE vs BMI shows a moderate, positive relationship. This makes sense because because the majority of calories people burn is through their resting metabolic rate (RMR). Part of this is directly related to the amount of oxygen we consume, and the bigger and more active we are, the more oxygen we consume. 
+% 
+% $\Delta$ES vs age shows a weak, negative relationship indicating, at least with the EBS age group, that older people tend to burn more energy then they consume, on average. $\Delta$ES vs BMI shows no meaningful relationship. Even though this exploratory analysis shows no relationship between these two variables, we will continue to include BMI as a covariate for $\Delta$ES due to its interpretability. Because these plots are based on data from the gold standard measurements, which we are assuming are unbiased for the truth, they give an approximate representation of the true relationship between these variables.
+% 
+% Figure \ref{fig:ebsdiagcovariates2} shows plots of EE vs age (left) and BMI (right). EE in these plots is measured by the armband (cheap measurement). Because all 430 subjects received measurements of EE with the armband, these plots include the entire data set. Looking at EE vs age there appears to be a more obvious negative relationship which we would expect, even in this limited age group. EE vs BMI also shows an obvious relationship, except positive. Again this is what we'd expect as discussed previously. 
 
 We also wanted to check for evidence of systematic bias in the cheap measurement of EE, which based on the EBS data is the Sensewear Armband. Using only the subset of individuals who received DLW at the end of the study, we ran a multiple regression using DLW measured EE, age, BMI, and gender as covariates. Regression results are given in Table \eqref{ebslm}. Unsurprisingly, the coefficient on DLW measured EE was highly significant and close to 0.55. A simple linear regression of EE as measured by armband on EE as measured by DLW results in a slope of 0.78 which is still considerable less than 1, which would indicate an unbiased estimator. The coefficients on gender and BMI also were highly significant as indicated by small p-values and large effect sizes (305 for males and 14 for BMI). Age was only weakly significant, but again the EBS study only included a small age group and this effect could change with a larger population. We also like the interpretability of it and the other coefficients and because of that we will include age as well as a linear bias term in our model. We understand that we are doing this regression using DLW measured EE and not \emph{true, usual} EE as specified in \eqref{regressionfcn1},\eqref{regressionfcn2}. Obviously we can never observe the truth and the DLW measurement is the next best, not to mention we are considering DLW to be an unbiased measurement. This simple regression model provides evidence that systematic biases exist in cheap measurements of EE, and we will make the assumption that the same holds true for cheap $\Delta$ES measurements.
 
@@ -610,37 +610,15 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 \end{knitrout}
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=\maxwidth]{figure/ebsdiagcovariates-1} 
-
-}
-
-\caption[EE (top) and ]{EE (top) and $\Delta$ES (bottom) vs Age (left) and BMI (right). EE measured by DLW and $\Delta$ES measured by DXA. Only uses data from EBS on those who received DLW. }\label{fig:ebsdiagcovariates}
-\end{figure}
 
 
-\end{knitrout}
 
 
-\begin{knitrout}
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
-
-{\centering \includegraphics[width=\maxwidth]{figure/ebsdiagcovariates2-1} 
-
-}
-
-\caption[EE vs Age (left)]{EE vs Age (left). EE vs BMI (right). EE measured by armband (cheap measurement). Includes all EBS data.}\label{fig:ebsdiagcovariates2}
-\end{figure}
-
-
-\end{knitrout}
 
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Tue, Nov 15, 2016 - 9:09:46 AM
+% Date and time: Wed, Nov 16, 2016 - 10:50:41 AM
 \begin{table}[!htbp] \centering 
   \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
   \label{ebslm} 
@@ -2174,14 +2152,14 @@ $\sigma_{yee}$ & 399.34 & 404.47 & 407.27 & 410.22 & 416.30 \\
   \hline
 $\sigma_{yee}$ & 408.76 & 414.08 & 417.00 & 419.99 & 426.09 \\ 
   $\sigma_{yes}$ & 300.98 & 304.68 & 306.72 & 308.83 & 313.14 \\ 
-  $\sigma_{wee}$ & 248.17 & 251.18 & 252.82 & 254.48 & 257.66 \\ 
-  $\sigma_{wes}$ & 70.60 & 71.42 & 71.87 & 72.33 & 73.20 \\ 
-  $\gamma_{1,ee}$ & 126.93 & 189.61 & 222.63 & 256.03 & 320.63 \\ 
-  $\gamma_{2,ee}$ & 1.70 & 6.28 & 8.67 & 11.10 & 15.61 \\ 
-  $\gamma_{3,ee}$ & -17.74 & -13.65 & -11.39 & -9.30 & -5.12 \\ 
-  $\gamma_{1,es}$ & -268.29 & -220.21 & -195.87 & -171.08 & -124.51 \\ 
-  $\gamma_{2,es}$ & 3.00 & 6.43 & 8.22 & 10.04 & 13.47 \\ 
-  $\gamma_{3,es}$ & -9.25 & -6.16 & -4.50 & -2.88 & 0.23 \\ 
+  $\sigma_{wee}$ & 248.17 & 251.18 & 252.82 & 254.48 & 257.66 & 250 \\ 
+  $\sigma_{wes}$ & 70.60 & 71.42 & 71.87 & 72.33 & 73.20 & 72.862 \\ 
+  $\gamma_{1,ee}$ & 126.93 & 189.61 & 222.63 & 256.03 & 320.63 & 300 \\ 
+  $\gamma_{2,ee}$ & 1.70 & 6.28 & 8.67 & 11.10 & 15.61 & 14 \\ 
+  $\gamma_{3,ee}$ & -17.74 & -13.65 & -11.39 & -9.30 & -5.12 & -7 \\ 
+  $\gamma_{1,es}$ & -268.29 & -220.21 & -195.87 & -171.08 & -124.51 & -200 \\ 
+  $\gamma_{2,es}$ & 3.00 & 6.43 & 8.22 & 10.04 & 13.47 & 8 \\ 
+  $\gamma_{3,es}$ & -9.25 & -6.16 & -4.50 & -2.88 & 0.23 & -5 \\ 
    \hline
 \end{tabular}
 \caption{Parameter estimates for Model DP for Skewed errors with correct specification of within person errors}
