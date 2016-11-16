@@ -1,4 +1,4 @@
-run_bvnsim <- function(nreplicates,dist){
+run_dpmmsim <- function(nreplicates,dist){
   library(MASS)
   #library(ggplot2)
   #library(gridExtra)
@@ -22,7 +22,7 @@ run_bvnsim <- function(nreplicates,dist){
   # this value is hardcoded here
   n <- 300
   # !!!!!!!!!!!!!!!!!!
-  
+ #number components
   set.seed(936)
   #number of simulated data sets
   nsim <- 50
@@ -39,7 +39,7 @@ run_bvnsim <- function(nreplicates,dist){
   nind <- length(ind)
   
   pmse <- matrix(0,nrow=2,ncol=nsim)
-  model <- matrix(0,nrow=15,ncol=nsim)
+  model <- matrix(0,nrow=10,ncol=nsim)
   
   indcheck <- matrix(0,nrow=nsim,ncol=4*length(ind))
   
@@ -64,7 +64,7 @@ run_bvnsim <- function(nreplicates,dist){
   #number of continuous derivatives -1
   l <- 3
   #number of components
-  h <- 1#10
+  h <- 15#10
   #sd for random walk
   maxkt <- 15
   
@@ -77,7 +77,7 @@ run_bvnsim <- function(nreplicates,dist){
   currentpi <- rep(1/h,h)
   currentzeta <- sample(1:h,n,replace=T)
   currentv <- rep(0.3,h)
-
+  
   currentsigma2ee <- 400^2
   currentsigma2ve <- 250^2
   currentsigma2es <- 220^2
@@ -155,7 +155,7 @@ run_bvnsim <- function(nreplicates,dist){
                     tunevar=tunevar,currentbetaee=currentbetaee,currentbetaes=currentbetaes,
                     tunecor=tunecor)
     
-    sample=mcmc_bvn_qp(yee,yes,wee,wes,Z,initial,prior,nreps,burn,maxkt,my_bs,my_qp)
+    sample=mcmc_full(yee,yes,wee,wes,Z,initial,prior,nreps,burn,h,maxkt,my_bs,my_qp)
     
     pp_indicies <- sample(1:niter,msim)
     
@@ -165,10 +165,9 @@ run_bvnsim <- function(nreplicates,dist){
     pp <- pp_pmse(sample_r,yeeb,yesb,Z)
     
     pmse[,i] <- colMeans(pp)
-    model[,i] <- c(mean(sample$muee),mean(sample$mues),sqrt(mean(sample$sigma2eee)),
+    model[,i] <- c(sqrt(mean(sample$sigma2eee)),
                    sqrt(mean(sample$sigma2ees)),sqrt(mean(sample$sigma2vee)),
-                   sqrt(mean(sample$sigma2ves)),sqrt(mean(sample$sigma2xee)),
-                   sqrt(mean(sample$sigma2xes)),mean(sample$corrx),
+                   sqrt(mean(sample$sigma2ves)),
                    colMeans(sample$betaee),colMeans(sample$betaes))
     
     indcheck[i,1] <- simdata$xee[ind[1]]

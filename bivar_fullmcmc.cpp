@@ -865,11 +865,11 @@ List mcmc_full(
         tune.slice(g) = cpp_cov(arma::join_rows(latentxee.rows(0,i-1).col(g),latentxes.rows(0,i-1).col(g)));
       }
       //
-      if(i==burn+1){
-        std::cout << sqrt(tune.slice(g)[0]) << " ";
-        std::cout << sqrt(tune.slice(g)[3]) << " " << tune.slice(g)[1]/(sqrt(tune.slice(g)[0])*sqrt(tune.slice(g)[3])) << "\n";
-
-      }
+      // if(i==burn+1){
+      //   std::cout << sqrt(tune.slice(g)[0]) << " ";
+      //   std::cout << sqrt(tune.slice(g)[3]) << " " << tune.slice(g)[1]/(sqrt(tune.slice(g)[0])*sqrt(tune.slice(g)[3])) << "\n";
+      // 
+      // }
     }
     
     currentxee = currentx.col(0);
