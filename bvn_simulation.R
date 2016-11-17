@@ -25,7 +25,7 @@ run_bvnsim <- function(nreplicates,dist){
   
   set.seed(936)
   #number of simulated data sets
-  nsim <- 50
+  nsim <- 200
   #number of posterior predictive iterations
   msim <- 1000
   #burn in
