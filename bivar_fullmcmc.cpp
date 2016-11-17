@@ -395,7 +395,7 @@ IntegerVector cpp_pick_indicies(NumericVector fulldata, NumericVector sel,int ns
   //int nm = n-m;
   int count1 = 0;
   //arma::ivec out;
-  IntegerVector res(m+10,0);
+  IntegerVector res(m+16,0);
   //full = arma::sort(full);
   //sel = arma::sort(sel);
   
@@ -418,6 +418,12 @@ IntegerVector cpp_pick_indicies(NumericVector fulldata, NumericVector sel,int ns
   res[m+7] = n-4;
   res[m+8] = 4;
   res[m+9] = n-5;
+  res[m+10] = 5;
+  res[m+11] = n-6;
+  res[m+12] = 6;
+  res[m+13] = n-7;
+  res[m+14] = 7;
+  res[m+15] = n-8;
   //std::cout << unique(res) << "\n";
   return(unique(res));
 }
