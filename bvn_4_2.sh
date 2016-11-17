@@ -1,3 +1,3 @@
 #!/bin/bash
 module load R
-R CMD BATCH bvn_sim_4_2.R
+R CMD BATCH ebmodel/bvn_sim_4_2.R
