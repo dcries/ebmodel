@@ -1229,6 +1229,8 @@ generate_data4 <- function(params,dist=1,nrep=2){
   
   #within person variability
   dmatrix <- matrix(c(50^2,-2000,-2000,150^2),ncol=2,byrow=TRUE) #EI first row
+  #dmatrix <- matrix(c(0,0,0,0),ncol=2,byrow=TRUE) #EI first row
+  
   delta <- list()
   for(i in 1:nrep){
     delta[[i]] = mvrnorm(n,rep(0,2),dmatrix)

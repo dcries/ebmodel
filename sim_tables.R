@@ -1,12 +1,14 @@
 library(xtable)
 load("C:/Users/dcries/bvn_2_1.RData")
-load("C:/Users/dcries/bvn_4_1.RData")
 load("C:/Users/dcries/bvn_2_2.RData")
-load("C:/Users/dcries/bvn_4_2.RData")
 load("C:/Users/dcries/bvn_2_3.RData")
+load("C:/Users/dcries/bvn_4_1.RData")
+load("C:/Users/dcries/bvn_4_2.RData")
 load("C:/Users/dcries/bvn_4_3.RData")
 
-
+load("C:/Users/dcries/dpmm_4_1.RData")
+load("C:/Users/dcries/dpmm_4_2.RData")
+load("C:/Users/dcries/dpmm_4_3.RData")
 
 
 out <- bvn_4_1
