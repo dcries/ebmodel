@@ -185,10 +185,13 @@ run_dpmmsim <- function(nreplicates,dist){
     indcheck[i,11] <- simdata$xes[ind[3]]
     indcheck[i,12] <- mean(sample$latentxes[,ind[3]])
     
+    print(i)
+    
   }
   
   pmse <- t(pmse)
   model <- t(model)
+  
   
   return(list(pmse=pmse,model=model,indcheck=indcheck))
   

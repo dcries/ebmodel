@@ -768,6 +768,7 @@ List mcmc_full(
   //run mcmc 
   for(int i=0;i<nreps;i++){
     //sample zeta
+    //std::cout << "1\n";
     currentzeta = sample_zeta(currentx,currentpi,currentmu,currentSigma);
     allnh = calc_allnh(currentzeta,h,n);
 
@@ -808,7 +809,7 @@ List mcmc_full(
       }
       
       
-      
+      //std::cout << "2\n";
       nu = d + double(allnh[k]);
       //S = arma::trans(arma::join_rows(xhee-currentmu(k,0),xhes-currentmu(k,1)))*arma::join_rows(xhee-currentmu(k,0),xhes-currentmu(k,1)) + psi;
       currentSigma.slice(k) = rinvwish(1,nu,S);
@@ -836,7 +837,7 @@ List mcmc_full(
     currentsigma2ve = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2ee));
     currentsigma2vs = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2es));
 
-
+    //std::cout << "3\n";
     //sample x
     for(int g=0;g<n;g++){
 
@@ -881,7 +882,7 @@ List mcmc_full(
     currentxee = currentx.col(0);
     currentxes = currentx.col(1);
     
-  
+    //std::cout << "4\n";
     //spline step
     //EE
     compare = arma::zeros(2);
@@ -890,6 +891,10 @@ List mcmc_full(
     bkee = ck*compare.min();
     compare[1] = R::dpois(currentkee,lambda,false)/R::dpois(currentkee+1,lambda,false);
     dkee = ck*compare.min();
+    
+    if((knotsee.min() < currentxee.min()) || (knotsee.max() > currentxee.max())){
+      std::cout << "knot out of bounds ee\n";
+    }
     
     knotsandxee = arma::join_cols(currentxee,knotsee);
     knotsandxee = arma::sort(knotsandxee);
@@ -997,6 +1002,7 @@ List mcmc_full(
       }
     }
     
+    //std::cout << "5\n";
     //ES spline step
       compare = arma::zeros(2);
     compare[0] = 1;
@@ -1004,6 +1010,10 @@ List mcmc_full(
     bkes = ck*compare.min();
     compare[1] = R::dpois(currentkes,lambda,false)/R::dpois(currentkes+1,lambda,false);
     dkes = ck*compare.min();
+    
+    if((knotses.min() < currentxes.min()) || (knotses.max() > currentxes.max())){
+      std::cout << "knot out of bounds es\n";
+    }
     
     knotsandxes = arma::join_cols(currentxes,knotses);
     knotsandxes = arma::sort(knotsandxes);
@@ -1169,9 +1179,9 @@ List mcmc_full(
       
     }
     
-    if(i % 1000==0){
-        std::cout << "i= " << i << "\n";
-    }
+    // if(i % 1000==0){
+    //     std::cout << "i= " << i << "\n";
+    // }
     //std::cout << i << "\n";
   }
 

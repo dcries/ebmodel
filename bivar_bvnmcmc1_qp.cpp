@@ -1019,9 +1019,9 @@ List mcmc_bvn_qp(
       latentxes.row(i) = trans(currentx.col(1));
     }
     
-    if(i % 1000==0){
-      std::cout << "i= " << i << "\n";
-    }
+    // if(i % 1000==0){
+    //   std::cout << "i= " << i << "\n";
+    // }
     //std::cout << i << "\n";
   }
   
