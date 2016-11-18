@@ -837,13 +837,13 @@ List mcmc_full(
     currentsigma2ve = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2ee));
     currentsigma2vs = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2es));
 
-    std::cout << "3\n";
+    //std::cout << "3\n";
     //sample x
     for(int g=0;g<n;g++){
-      std::cout << "3a, iteration = " << i << "g = " << g << "\n";
+      //std::cout << "3a, iteration = " << i << "g = " << g << "\n";
       
       propx.row(g) = mvrnormArma(1,currentx.row(g).t(),2.88*tune.slice(g));
-      std::cout << "3b\n";
+      //std::cout << "3b\n";
       
       zbee = 0.0;
       zbes = 0.0;
