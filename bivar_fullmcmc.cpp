@@ -837,11 +837,14 @@ List mcmc_full(
     currentsigma2ve = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2ee));
     currentsigma2vs = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2es));
 
-    //std::cout << "3\n";
+    std::cout << "3\n";
     //sample x
     for(int g=0;g<n;g++){
-
+      std::cout << "3a, iteration = " << i << "g = " << g << "\n";
+      
       propx.row(g) = mvrnormArma(1,currentx.row(g).t(),2.88*tune.slice(g));
+      std::cout << "3b\n";
+      
       zbee = 0.0;
       zbes = 0.0;
       for(int gg=0;gg<np;gg++){
@@ -895,20 +898,29 @@ List mcmc_full(
     
      
     if((knotsee.min() < currentxee.min())){
-      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.min()+10;
+      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] = currentxee.min()+10;
       std::cout << "knot too small ee\n";
     } 
     if((knotsee.max() > currentxee.max())){
-      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.max()-10;
+      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] = currentxee.max()-10;
       std::cout << "knot too large ee\n";
     } 
 
     if((knotsee.min() < currentxee.min())){
-      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.min()+30;
+      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] = currentxee.min()+30;
       std::cout << "knot too small ee\n";
     } 
     if((knotsee.max() > currentxee.max())){
-      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.max()-30;
+      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] = currentxee.max()-30;
+      std::cout << "knot too large ee\n";
+    } 
+    
+    if((knotsee.min() < currentxee.min())){
+      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] = currentxee.min()+50;
+      std::cout << "knot too small ee\n";
+    } 
+    if((knotsee.max() > currentxee.max())){
+      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] = currentxee.max()-50;
       std::cout << "knot too large ee\n";
     } 
     
@@ -1028,20 +1040,29 @@ List mcmc_full(
     dkes = ck*compare.min();
     
     if((knotses.min() < currentxes.min())){
-      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.min()+5;
+      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] = currentxes.min()+5;
       std::cout << "knot too small es\n";
     } 
     if((knotses.max() > currentxes.max())){
-      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.max()-5;
+      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] = currentxes.max()-5;
       std::cout << "knot too large es\n";
     } 
     
     if((knotses.min() < currentxes.min())){
-      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.min()+15;
+      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] = currentxes.min()+15;
       std::cout << "knot too small es\n";
     } 
     if((knotses.max() > currentxes.max())){
-      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.max()-15;
+      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] = currentxes.max()-15;
+      std::cout << "knot too large es\n";
+    } 
+    
+    if((knotses.min() < currentxes.min())){
+      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] = currentxes.min()+25;
+      std::cout << "knot too small es\n";
+    } 
+    if((knotses.max() > currentxes.max())){
+      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] = currentxes.max()-25;
       std::cout << "knot too large es\n";
     } 
     
