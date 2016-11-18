@@ -205,6 +205,9 @@ run_dpmmsim <- function(nreplicates,dist){
     
     
     ck <- 0.4
+    prior <- list(lambda=lambda,ae=ae,be=be,av=av,bv=bv,a_alp=a_alp,
+                  b_alp=b_alp,d=d,m=m,v2=v2,psi=psi,Vb=Vb,Mb=Mb)
+    
     initial <- list(currentkee=currentkee,currentkes=currentkes,ck=ck,knotsee=knotsee,
                     knotses=knotses,currentxee=currentxee,currentxes=currentxes,
                     currentv=currentv,currentpi=currentpi,currentalpha=currentalpha,
