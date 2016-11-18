@@ -892,9 +892,25 @@ List mcmc_full(
     compare[1] = R::dpois(currentkee,lambda,false)/R::dpois(currentkee+1,lambda,false);
     dkee = ck*compare.min();
     
-    if((knotsee.min() < currentxee.min()) || (knotsee.max() > currentxee.max())){
-      std::cout << "knot out of bounds ee\n";
-    }
+    
+     
+    if((knotsee.min() < currentxee.min())){
+      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.min()+10;
+      std::cout << "knot too small ee\n";
+    } 
+    if((knotsee.max() > currentxee.max())){
+      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.max()-10;
+      std::cout << "knot too large ee\n";
+    } 
+
+    if((knotsee.min() < currentxee.min())){
+      knotsee[which_min(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.min()+30;
+      std::cout << "knot too small ee\n";
+    } 
+    if((knotsee.max() > currentxee.max())){
+      knotsee[which_max(NumericVector(knotsee.begin(),knotsee.end()))] <- currentxee.max()-30;
+      std::cout << "knot too large ee\n";
+    } 
     
     knotsandxee = arma::join_cols(currentxee,knotsee);
     knotsandxee = arma::sort(knotsandxee);
@@ -1011,9 +1027,23 @@ List mcmc_full(
     compare[1] = R::dpois(currentkes,lambda,false)/R::dpois(currentkes+1,lambda,false);
     dkes = ck*compare.min();
     
-    if((knotses.min() < currentxes.min()) || (knotses.max() > currentxes.max())){
-      std::cout << "knot out of bounds es\n";
-    }
+    if((knotses.min() < currentxes.min())){
+      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.min()+5;
+      std::cout << "knot too small es\n";
+    } 
+    if((knotses.max() > currentxes.max())){
+      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.max()-5;
+      std::cout << "knot too large es\n";
+    } 
+    
+    if((knotses.min() < currentxes.min())){
+      knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.min()+15;
+      std::cout << "knot too small es\n";
+    } 
+    if((knotses.max() > currentxes.max())){
+      knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] <- currentxes.max()-15;
+      std::cout << "knot too large es\n";
+    } 
     
     knotsandxes = arma::join_cols(currentxes,knotses);
     knotsandxes = arma::sort(knotsandxes);
