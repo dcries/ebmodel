@@ -616,6 +616,7 @@ List mcmc_full(
 
   for(int i=0;i<h;i++){
       currentSigma.slice(i).diag() = currentsigma2x;
+      currentSigma(0,1,i) = currentSigma(1,0,i) = 0;
   }
 
   tune = arma::zeros(2,2,n);
@@ -761,14 +762,17 @@ List mcmc_full(
   accept_rate[0] = 0;
   accept_rate[1] = 0;
   
+  //std::cout << "start\n";
+  
   modelee = my_lm_qp(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())),my_qp);
   modeles = my_lm_qp(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())),my_qp);
   
+  //std::cout << "0\n";
   //RNGScope rngScope;
   //run mcmc 
   for(int i=0;i<nreps;i++){
     //sample zeta
-    //std::cout << "1\n";
+    //std::cout << "1\n" << currentSigma << "\n";
     currentzeta = sample_zeta(currentx,currentpi,currentmu,currentSigma);
     allnh = calc_allnh(currentzeta,h,n);
 
@@ -841,7 +845,7 @@ List mcmc_full(
     //sample x
     for(int g=0;g<n;g++){
       //std::cout << "3a, iteration = " << i << "g = " << g << "\n";
-      
+      //std::cout << "i= " << i << "\n tuning = " << tune.slice(g) << "\n";
       propx.row(g) = mvrnormArma(1,currentx.row(g).t(),2.88*tune.slice(g));
       //std::cout << "3b\n";
       
