@@ -874,7 +874,7 @@ List mcmc_full(
         currentx.row(g) = propx.row(g);
       }
 
-      if((i < burn) && (i > 100) && (i%20==0)){
+      if((i < burn) && (i > 300) && (i%20==0)){
         //tune.slice(g) = cpp_cov(latentxee.rows(0,i).col(g),latentxes.rows(0,i).col(g),i+1);
         tune.slice(g) = cpp_cov(arma::join_rows(latentxee.rows(0,i-1).col(g),latentxes.rows(0,i-1).col(g)));
       }
