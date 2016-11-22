@@ -338,6 +338,10 @@ arma::mat cpp_cov(arma::mat x){
   double covar = 0.0;
   for(int i=0;i<m;i++){
     out(i,i) = var(x.col(i));
+    if(out(i,i) == 0){
+       out(i,i) = 100;
+       std::cout << "Variance equaled 0, col = " << i << "\n";
+    }
     if(i % 2 == 0){
       covar = 0.0;
       for(int j=0;j<n;j++){
