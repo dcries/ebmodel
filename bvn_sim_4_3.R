@@ -6,4 +6,4 @@ source("ebmodel/bvn_simulation.R")
 
 bvn_3_4 <- run_bvnsim(4,3)
 
-save(bvn_3_4,file="bvn_3_4.RData")
+save(bvn_3_4,file="bvn_4_3.RData")
