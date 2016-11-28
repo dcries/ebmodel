@@ -119,7 +119,7 @@ run_dpmmsim <- function(nreplicates,dist){
     #params <- c(100,50,300,14,-7,-200,8,-5)
     params <- c(100,50,300,14,-7,-200,8,-5)
     #params <- c(100,50,300,14,-7,-200,8,-5)
-    simdata <- generate_data5(params,dist=dist,nrep=nrep)
+    simdata <- generate_data5(params,dist=dist,nrep=nreplicates)
     #simdata2 <- generate_data2(params,dist=1)
     
     yee <- simdata$yee

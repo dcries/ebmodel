@@ -164,4 +164,10 @@ yessd3 <- rep(0,nrep)
     yessd3[i] <- sd(yes-(bs0+escurve(xes)+gig*zg+gib*zb+gia*za))
   }
   
+mean(yeesd) #421.0458
+mean(yessd) #344.5043
+mean(yeesd2) #420.4765
+mean(yessd2) #344.3816
+mean(yeesd3) #420.8888
+mean(yessd3) #344.5929
 
