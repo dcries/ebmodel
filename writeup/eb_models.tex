@@ -618,7 +618,7 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, Nov 16, 2016 - 10:50:41 AM
+% Date and time: Mon, Nov 28, 2016 - 2:08:55 PM
 \begin{table}[!htbp] \centering 
   \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
   \label{ebslm} 
@@ -1139,11 +1139,27 @@ where the acceptance probabilities $\alpha_{rj,\cdot}$ are given in the notation
 %-------------------------------%
 %-----------------------------------------
 
-In this section we conduct a simulation study to check the performance of the discussed models and modeling assumptions. There are multiple goals for this simulation study. One, the true joint density of $(X_i^{EE},X_i^{\Delta ES})$ must be specified when we model data (or we can assume error free measurements which we'll see is a bad idea), and since this term is never observed by anyone in any study, it is difficult to select a density for. We want to check the robustness of different choices of bivariate densities. Second, the regression functions $m_{ee}$ and $m_{es}$ \eqref{regressionfcn1},\eqref{regressionfcn2} are also unknown, again due to the fact we never observe $(X_i^{EE},X_i^{\Delta ES})$, and therefore don't know the true relationship between $X^{\cdot}$ and the cheap measurements. Third, normal errors  is a common assumption but  can affect predictive performance, and we want to check the robustness to this assumption.
+In this section we conduct a simulation study to check the performance of the discussed models and modeling assumptions. There are multiple goals for this simulation study. One, the true joint density of $(X_i^{EE},X_i^{\Delta ES})$ must be specified when we model data (or we can assume error free measurements which we'll see is a bad idea), and since this term is never observed by anyone in any study, it is difficult to select a density for. We want to check the robustness of different choices of bivariate densities. Second, the regression functions $m_{ee}$ and $m_{es}$ \eqref{regressionfcn1},\eqref{regressionfcn2} are also unknown, again due to the fact we never observe $(X_i^{EE},X_i^{\Delta ES})$, and therefore don't know the true relationship between $X^{\cdot}$ and the cheap measurements. Third, normal errors  is a common assumption but  can affect predictive performance, and we want to check the robustness to this assumption. We present performance measures such as predicted mean squared error (PMSE) for the regression function in question. Posterior summaries for parameters of interest will be provided as well. 
 
 
- We will present posterior predictive checks to assess the model assumptions and fit, as well as performance measures such as predicted mean squared error (PMSE) for the regression function in question. The posterior predictive distributions of interest are given in \eqref{ypostpred},\eqref{wpostpred},\eqref{xpostpred}. For the measurement error models, we are interested in the posterior predictive distributions for $Y,W,X$ because we are placing distributional assumptions on all of them. The forms for these distributions are given below. Other posterior summaries will be provided as well. We start with the n{\"a}ive model, then the linear measurement error model, and finally our model. 
+%---------------------------------------%
+\subsection{Setup}
+%---------------------------------------%
+
+For this simulation study, we simulated 200 data sets each for normal, skewed, and bimodal errors as described in a previous section. The number of individuals is set to be 300 and the number of replicates is we consider is 2 and 4. Preliminary analysis showed the number of replicates per individual having  more influence than number of individuals. We run the MCMC for 12,000 iterations, using the first 2000 as burn in. For all models, we ran 3 chains for 12,000 iterations under three different data sets, and convergence for all models was fast as indicated by trace plots and Gelman-Rubin diagnostics less than 1.04.
+
+
+%-----------------------------------------%
+\subsection{Results}
+%-----------------------------------------%
+
+
+%-----------------------------------------%
+\subsection{Closer Look at One Simulated Dataset}
+%-----------------------------------------%
  
+In this section we provide an example analysis using one of the simulated data sets. This gives an idea of the type of results for an individual data set. We provide posterior quantiles to understand uncertainty in estimates. We also provide posterior predictive assessments for our modeling assumptions.  The posterior predictive distributions of interest are given in \eqref{ypostpred},\eqref{wpostpred},\eqref{xpostpred}. For the measurement error models, we are interested in the posterior predictive distributions for $Y,W,X$ because we are placing distributional assumptions on all of them. The forms for these distributions are given below.
+  
 \begin{align}
   \label{ypostpred}
   p(Y^*|W,Y,Z) &= \int \int p(Y^*|\theta,X,Z) p(\theta, X|Y,W) d\theta dX \\
@@ -1152,6 +1168,9 @@ In this section we conduct a simulation study to check the performance of the di
   \label{xpostpred}
   p(X^*|W,Y,Z) &= \int \int p(X^*|\theta) p(\theta, X|Y,W) d\theta dX
 \end{align}
+
+
+For these, we are interested in whether our model can capture the true quantiles (min,0.05,0.1,0.25,0.75,0.9,0.95,max) of the bivariate latent vector and for both the cheap and gold standard measurements. To get a distribution of values for our quantiles of interest to compare to the truth, we simulate new data based on MCMC iterations. For example, to calculate distributions for the posterior quantiles for the bivariate latent variable $X$, for each iteration from the MCMC, we  take the sampled values of parameters for the joint distribution of $X$ and simulate a new set of $X$ values, and from that new set of values we calcualte the quantiles of interest. Doing this for many MCMC draws, we get distributions for the quantiles of interest. We then compare these distributions to the truth, and if the truth lies well within the bounds it shows the model accurately captures that feature of the data. If the truth lies outside the bounds, it indicates a lack of fit for that component. Because these distributions for quantiles can have large spreads, we also need to pay attention to their ranges as a check for precision.
 
 %' 
 %' %-----------------%
