@@ -546,3 +546,6 @@ print(xtable((bimodal1df),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),s
 print(xtable((bimodalbvndf),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(bimodalbvndf)),floating=FALSE)
 print(xtable((bimodaldpmmdf),digits=mdatd,align="r|llllllllll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(bimodaldpmmdf)),floating=FALSE)
 
+#\subcaption*{sdjf}
+#\scalebox{0.8}{
+#

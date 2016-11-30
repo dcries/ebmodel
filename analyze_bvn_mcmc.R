@@ -10,23 +10,23 @@ library(fGarch)
 
 source('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/base_fcn.R', echo=FALSE)#Rcpp::sourceCpp('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/trial_and_simulated/bivar_fullmcmc2.cpp')
 load("//my.files.iastate.edu/Users/dcries/Desktop/bvn_mcmc2x.RData")
-# params <- c(100,50,300,14,-7,-200,8,-5)
-# simdata <- generate_data2(params,dist=2)
+params <- c(100,50,300,14,-7,-200,8,-5)
+simdata <- generate_data5(params,dist=2)
+
+yee <- simdata$yee
+yes <- simdata$yes
+yeeb <- rowMeans(yee)
+yesb <- rowMeans(yes)
+xee <- simdata$xee
+xes <- simdata$xes
+wee <- simdata$wee
+wes <- simdata$wes
+n <- length(yeeb)
 # 
-# yee <- simdata$yee
-# yes <- simdata$yes
-# yeeb <- rowMeans(yee)
-# yesb <- rowMeans(yes)
-# xee <- simdata$xee
-# xes <- simdata$xes
-# wee <- simdata$wee
-# wes <- simdata$wes
-# n <- length(yeeb)
-# 
-# zg <- simdata$zg #<- rbinom(n,1,0.5) #gender indicator
-# zb <- simdata$zb#<- rnorm(n,27,5) #bmi
-# za <- simdata$za#<- runif(n,20,40) #age
-# Z= cbind(zg,zb,za)
+zg <- simdata$zg #<- rbinom(n,1,0.5) #gender indicator
+zb <- simdata$zb#<- rnorm(n,27,5) #bmi
+za <- simdata$za#<- runif(n,20,40) #age
+Z= cbind(zg,zb,za)
 
 chain1 <- out2x$chain1
 chain2 <- out2x$chain2
@@ -164,32 +164,45 @@ grid.arrange(p1,p2,nrow=1)
 
 #---------------------------------------------------
 #calibration
-ypredee1 <-  2500
-ypredee2 <-  3200
-ypredee3 <-  4000
+a <- 100 # 17
 
-ypredes1 <-  -250
-ypredes2 <-  320
-ypredes3 <-  90
+ypredee1 <-  yee[a,1] #2500
+ypredee2 <-  yee[296,1] #3200
+ypredee3 <-  yee[184,1] #4000
 
-nr <- 500
+ypredes1 <-  yes[a,1]#-250
+ypredes2 <-  yes[296,1]#320
+ypredes3 <-  yes[184,1]#90
+
+xtrueee1 <- xee[a]
+xtrueee2 <- xee[296]
+xtrueee3 <- xee[184]
+
+xtruees1 <- xes[a]
+xtruees2 <- xes[296]
+xtruees3 <- xes[184]
+
+dem1 <- Z[a,] #c(0,18,25)
+dem2 <- Z[296,]#c(1,32,20)
+dem3 <- Z[184,]#c(1,27,34)
+nr <- 1000
 
 ng <- apply(as.matrix(gammaee),1,function(x) sum(x!=0))
 nges <- apply(as.matrix(gammaes),1,function(x) sum(x!=0))
 nk <- as.numeric(as.matrix(kee))
 nkes <- as.numeric(as.matrix(kes))
 
-cee1 <- callibrate(ypredee1,c(0,18,25),as.matrix(latentxee),as.matrix(ree),as.matrix(betaee),as.matrix(gammaee),nk,ng,nr,min=1500,max=4500)
-cee2 <- callibrate(ypredee2,c(1,32,20),as.matrix(latentxee),as.matrix(ree),as.matrix(betaee),as.matrix(gammaee),nk,ng,nr,min=1500,max=4500)
-cee3 <- callibrate(ypredee3,c(1,27,34),as.matrix(latentxee),as.matrix(ree),as.matrix(betaee),as.matrix(gammaee),nk,ng,nr,min=1500,max=4500)
+cee1 <- callibrate(ypredee1,dem1,as.matrix(latentxee),as.matrix(ree),as.matrix(betaee),as.matrix(gammaee),nk,ng,nr,min=1000,max=4500)
+#cee2 <- callibrate(ypredee2,dem2,as.matrix(latentxee),as.matrix(ree),as.matrix(betaee),as.matrix(gammaee),nk,ng,nr,min=1500,max=4500)
+#cee3 <- callibrate(ypredee3,dem3,as.matrix(latentxee),as.matrix(ree),as.matrix(betaee),as.matrix(gammaee),nk,ng,nr,min=1500,max=4500)
 
 ceei <- data.frame(t(apply(cbind(cee1,cee2,cee3),2,quantile,probs=c(0.025,0.5,0.975))))
 names(ceei) <- c("Lower","Median","Upper")
 ceei$Observed <- c(ypredee1,ypredee2,ypredee3)
 
-ces1 <- callibrate(ypredes1,c(0,18,25),as.matrix(latentxes),as.matrix(res),as.matrix(betaee),as.matrix(gammaes),nkes,nges,nr,min=-200,max=100)
-ces2 <- callibrate(ypredes2,c(1,32,20),as.matrix(latentxes),as.matrix(res),as.matrix(betaee),as.matrix(gammaes),nkes,nges,nr,min=-30,max=300)
-ces3 <- callibrate(ypredes3,c(1,27,34),as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-200,max=300)
+ces1 <- callibrate(ypredes1,dem1,as.matrix(latentxes),as.matrix(res),as.matrix(betaee),as.matrix(gammaes),nkes,nges,nr,min=-300,max=500)
+#ces2 <- callibrate(ypredes2,dem2,as.matrix(latentxes),as.matrix(res),as.matrix(betaee),as.matrix(gammaes),nkes,nges,nr,min=-100,max=100)
+#ces3 <- callibrate(ypredes3,dem3,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-500,max=300)
 
 cesi <- data.frame(t(apply(cbind(ces1,ces2,ces3),2,quantile,probs=c(0.025,0.5,0.975))))
 names(cesi) <- c("Lower","Median","Upper")
@@ -210,12 +223,18 @@ dfcal <- data.frame(cbind(cee1,cee2,cee3,ces1,ces2,ces3))
 names(dfcal) <- c("Calibrated EE 1","Calibrated EE 2","Calibrated EE 3","Calibrated ES 1","Calibrated ES 2","Calibrated ES 3")
 mdfcal <- melt(dfcal)
 mdfcal$obs <- c(rep(ypredee1,nr),rep(ypredee2,nr),rep(ypredee3,nr),rep(ypredes1,nr),rep(ypredes2,nr),rep(ypredes3,nr))
-ggplot(data=mdfcal) + geom_histogram(aes(x=value),bins=20) + geom_vline(aes(xintercept=obs),colour="red") + facet_wrap(~variable,scales="free") + theme_bw()
+mdfcal$true <- c(rep(xtrueee1,nr),rep(xtrueee2,nr),rep(xtrueee3,nr),rep(xtruees1,nr),rep(xtruees2,nr),rep(xtruees3,nr))
+
+ggplot(data=mdfcal) + geom_histogram(aes(x=value),bins=20) + geom_vline(aes(xintercept=obs),colour="red") + geom_vline(aes(xintercept=true),colour="blue",linetype=2) + facet_wrap(~variable,scales="free") + theme_bw()
+
+
 
 names(ceei)[1:3] <- c("2.5%","50%","97.5%")
 names(cesi)[1:3] <- c("2.5%","50%","97.5%")
-print(xtable(ceei,align="cccc|c",caption="95\\% credible interval for calibration estimate for cheap EE measurements for Skewed Errors",label="calibratedee"),include.rownames=FALSE)
-print(xtable(cesi,align="cccc|c",caption="95\\% credible interval for calibration estimate for cheap $\\Delta$ES measurements for Skewed Errors",label="calibratedes"),include.rownames=FALSE)
+ceei$Truth <- c(xee[100],xee[296],xee[184])
+cesi$Truth <- c(xes[100],xes[296],xes[184])
+print(xtable(ceei,align="cccc|cc",caption="95\\% credible interval for calibration estimate for cheap EE measurements for Skewed Errors",label="calibratedee"),include.rownames=FALSE)
+print(xtable(cesi,align="cccc|cc",caption="95\\% credible interval for calibration estimate for cheap $\\Delta$ES measurements for Skewed Errors",label="calibratedes"),include.rownames=FALSE)
 
 
 #--------------------------------------------------
