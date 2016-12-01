@@ -21,6 +21,7 @@
 \newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
 \newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
 \newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
 
 \usepackage{framed}
 \makeatletter
@@ -78,7 +79,18 @@
 \doublespacing
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(lubridate): there is no package called 'lubridate'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(stargazer): there is no package called 'stargazer'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(file, "{}rt"{}): cannot open the connection}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(filename, "{}r"{}, encoding = encoding): cannot open the connection}}\end{kframe}
+\end{knitrout}
 
 
 
@@ -615,46 +627,10 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 
 
 
+\begin{kframe}
 
-% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Wed, Nov 30, 2016 - 2:30:41 PM
-\begin{table}[!htbp] \centering 
-  \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
-  \label{ebslm} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Energy\_expenditure \\ 
-\hline \\[-1.8ex] 
- TDEE & 0.559$^{***}$ \\ 
-  & (0.040) \\ 
-  & \\ 
- age & $-$7.351$^{*}$ \\ 
-  & (4.000) \\ 
-  & \\ 
- genderMale & 305.583$^{***}$ \\ 
-  & (43.259) \\ 
-  & \\ 
- BMI & 14.146$^{***}$ \\ 
-  & (3.989) \\ 
-  & \\ 
- Constant & 878.423$^{***}$ \\ 
-  & (154.113) \\ 
-  & \\ 
-\hline \\[-1.8ex] 
-Observations & 191 \\ 
-R$^{2}$ & 0.830 \\ 
-Adjusted R$^{2}$ & 0.826 \\ 
-Residual Std. Error & 206.875 (df = 186) \\ 
-F Statistic & 226.938$^{***}$ (df = 4; 186) \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
 
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): could not find function "{}stargazer"{}}}\end{kframe}
 
 
 %----------------------------------------------------%
@@ -1175,20 +1151,22 @@ In this section we provide an example analysis using one of the simulated data s
 \end{align}
 
 
-For these, we are interested in whether our model can capture the true quantiles (min,0.05,0.1,0.25,0.75,0.9,0.95,max) of the bivariate latent vector and for both the cheap and gold standard measurements. To get a distribution of values for our quantiles of interest to compare to the truth, we simulate new data based on MCMC iterations. For example, to calculate distributions for the posterior quantiles for the bivariate latent variable $X$, for each iteration from the MCMC, we  take the sampled values of parameters for the joint distribution of $X$ and simulate a new set of $X$ values, and from that new set of values we calcualte the quantiles of interest. Doing this for many MCMC draws, we get distributions for the quantiles of interest. We then compare these distributions to the truth, and if the truth lies well within the bounds it shows the model accurately captures that feature of the data. If the truth lies outside the bounds, it indicates a lack of fit for that component. Because these distributions for quantiles can have large spreads, we also need to pay attention to their ranges as a check for precision. In this section we will only analyze a single data set with replicates per individual with model BVNS fit. 
+For these, we are interested in whether our model can capture the true quantiles (min, 0.05, 0.1, 0.25, 0.75, 0.9, 0.95, max) of the bivariate latent vector and for both the cheap and gold standard measurements. To get a distribution of values for our quantiles of interest to compare to the truth, we simulate new data based on MCMC iterations. For example, to calculate distributions for the posterior quantiles for the bivariate latent variable $X$, for each iteration from the MCMC, we  take the sampled values of parameters for the joint distribution of $X$ and simulate a new set of $X$ values, and from that new set of values we calcualte the quantiles of interest. Doing this for many MCMC draws, we get distributions for the quantiles of interest. We then compare these distributions to the truth, and if the truth lies well within the bounds it shows the model accurately captures that feature of the data. If the truth lies outside the bounds, it indicates a lack of fit for that component. Because these distributions for quantiles can have large spreads, we also need to pay attention to their ranges as a check for precision. In this section we will only analyze a single data set with replicates per individual with model BVNS fit. 
 
 
 %--------------------------------%
 %\subsection{Model BVN}
 %----------------------------------%
 % 
-We didn't explicitly introduce Model BVN before, but it is the same as Model DP except we assume a bivariate normal distribution for the latent variables $(X_i^{EE},X_i^{\Delta ES})$ instead of the Dirichlet Process. For brevity, we will only present results under one dataset with skewed errors. This is a simplifying assumption that we will justify in the next subsection. Table  \ref{mbvnswpestimates} give posterior quantiles for this model. 
+We didn't explicitly introduce Model BVNS before, but it is the same as Model DP except we assume a bivariate normal distribution for the latent variables $(X_i^{EE},X_i^{\Delta ES})$ instead of the Dirichlet Process. For brevity, we will only present results under one dataset with skewed errors. This is a simplifying assumption that we will justify in the next subsection. 
+
+Table  \ref{mbvnswpestimates} give posterior quantiles for this model as well as the truth, when applicable. The asterisk next to the truth for the measurement error with respect to the cheap measurements is to indicate this is a Monte Carlo approximation to the truth. Recall we included within person variation in the functions $m_{\cdot}(\cdot)$, but in our model we use the working assumption that the error term accounts for both within person variability and measurement error. Because we can't directly extract the value from the function, we approximate it by generating 10,000 data sets and removing the mean function from the cheap observations, and then calculating the standard deviation of the residual. We then averaged those standard deviation estimates to get the one reported in the table. All variance components are within the 95\% credible intervals but that for the cheap measurement of $\Delta$ES. All the regression coefficients are in the 95\% credible intervals. These regression coefficients have nice interpretation as they are the linear component of the mean function. $\gamma_{1,ee}$ represents the change in reported EE, all else held equal, for the device user being male. In our example, the truth is 300, which means for two identical people except one male, one female, the cheap measurement tool is biased such that it will record the male as having an EE 300 higher than the female. $\gamma_{2,ee}$ represents the effect of BMI on the device, all else held equal. If BMI increases by 1, then the mean EE reported by the device increases by $\gamma_{2,ee}$. $\gamma_{3,ee}$ represents the effect of age, and the interpretation is similar. Again, we could have included many other/different covariates, and their respective interpretations would be easy as well.
 
 Figure  \ref{wpxdiagbvns} shows plots of posterior predictive assessment for the latent variables skewed errors. Under model BVNS, there is much less flexibility than with the Dirichlet Process. Some of that is seen in this figure, as the minimum EE is not captured and has a large amount of variability. Maximum $\Delta$ES is also only barely covered. Otherwise, these diagnostics look surprisingly good given the truth is clearly non-normal. This result is encouraging since we were concerned about the performance of a single bivariate normal distribution versus the Dirichlet Process for the bivariate latent vector. We constructed the same diagnostic plot where the Dirichlet Process was used and unsuprisingly it looked better in terms of coverage and precision, not by a lot though. However, this was only under 4 replicates because of the issues with 2 replicates described earlier. 
 
 Figure \ref{wpwdiagbvns} show the same plots except for gold standard measurements.  Even under skewed errors, there doesn't seem to be any glaring issues as the truth is captured by the distribution. The only concern would be the amount of variability in the distribution for the minimum and maximum values. Figure \ref{wpydiagbvns} show the same plots except for cheap measurements. The issue here is with capturing the minimum value as recorded by cheap measurement. Otherwise, the remaining plots look good, again even under skewed error terms. This gives some confidence in an amount of robustness to misspecification of measurement error distribution.
 
-Figure \ref{predbvnsx} gives one of the main desired outcomes of this study. This figure plots the fitted spline between the truth and the observed cheap measurement. The plot on the left is for the cheap EE measurement, on the right is for $\Delta$ES. The points plotted are from the individual simulated data where the y value is the mean of the two replicates. The red line is the mean spline function from this data set and we also randomly selected 500 MCMC iteration draws for the spline, and plotted them behind the mean. This is of high interest to us because it shows the relationship between what we observe, and what we are ultimately interested in knowing. To calibrate the cheap measurements, we would use the information from this plot as well as the psoteriors for the $\gamma$ coefficients that refer to demographic variables.
+Figure \ref{predbvnsx} gives one of the main desired outcomes of this study. This figure plots the fitted spline between the truth and the observed cheap measurement. The plot on the left is for the cheap EE measurement, on the right is for $\Delta$ES. The points plotted are from the individual simulated data where the y value is the mean of the two replicates. The red line is the mean spline function from this data set and we also randomly selected 500 MCMC iteration draws for the spline, and plotted them behind the mean. This is of high interest to us because it shows the relationship between what we observe, and what we are ultimately interested in knowing. To calibrate the cheap measurements, we would use the information from this plot as well as the posteriors for the $\gamma$ coefficients that refer to demographic variables.
 
 
 %Table \ref{pmse2} gives PMSE for both the EE and $\Delta$ES regression functions under normal, skewed, and bimodal errors. Not only does ignoring the measurement error give bad parameter estimates and posterior predictive checks, but also its prediction is poor. Our model that has splines in its regression function  whose knots can varry iteration to iteration performs much better than just a linear model. 
@@ -1229,8 +1207,8 @@ Figure \ref{predbvnsx} gives one of the main desired outcomes of this study. Thi
   \hline
 $\mu_x^{EE}$ & 2622.55 & 2675.43 & 2703.64 & 2732.01 & 2786.64 \\ 
   $\mu_x^{\Delta ES}$ & -7.62 & -0.93 & 2.59 & 6.10 & 12.84 \\ 
-  $\sigma_{yee}$ & 371.38 & 387.03 & 395.75 & 405.05 & 425.11 & 422 \\ 
-  $\sigma_{yes}$ & 291.18 & 303.53 & 310.39 & 317.55 & 331.87 & 344 \\ 
+  $\sigma_{yee}$ & 371.38 & 387.03 & 395.75 & 405.05 & 425.11 & $422^*$ \\ 
+  $\sigma_{yes}$ & 291.18 & 303.53 & 310.39 & 317.55 & 331.87 & $344^*$ \\ 
   $\sigma_{wee}$ & 241.21 & 253.60 & 260.49 & 267.51 & 281.58 & 250 \\ 
   $\sigma_{wes}$ & 65.05 & 67.98 & 69.56 & 71.24 & 74.65 & 72.862\\ 
   $\sigma_{xee}$ & 641.81 & 679.00 & 699.07 & 720.28 & 764.17 \\ 
@@ -1244,7 +1222,7 @@ $\mu_x^{EE}$ & 2622.55 & 2675.43 & 2703.64 & 2732.01 & 2786.64 \\
   $\gamma_{3,es}$ & -9.18 & -5.74 & -3.93 & -2.15 & 1.27 & -5 \\ 
    \hline
 \end{tabular}
-\caption{Parameter estimates for Model BVN for Skewed errors with correct specification of within person errors}
+\caption{Parameter estimates for Model BVNS for Skewed errors with correct specification of within person errors}
 \label{mbvnswpestimates}
 \end{table}
 
@@ -1302,21 +1280,21 @@ $\mu_x^{EE}$ & 2622.55 & 2675.43 & 2703.64 & 2732.01 & 2786.64 \\
  \begin{figure}
   \centering
   \includegraphics[width=17cm,height=15cm]{manual_figure/wpxdiagbvns.pdf}
-  \caption{Posterior Predictive Discrepancy Measures For $X^{EE}$ and $X^{\Delta ES}$ for Model BVN with Skewed Normal Errors}
+  \caption{Posterior Predictive Discrepancy Measures For $X^{EE}$ and $X^{\Delta ES}$ for Model BVNS with Skewed Normal Errors}
   \label{wpxdiagbvns}
   \end{figure}
  %post pred check for W
   \begin{figure}
   \centering
   \includegraphics[width=17cm,height=15cm]{manual_figure/wpwdiagbvns.pdf}
-  \caption{Posterior Predictive Discrepancy Measures For $W^{EE}$ and $W^{\Delta ES}$ for Model BVN with Skewed Normal Errors}
+  \caption{Posterior Predictive Discrepancy Measures For $W^{EE}$ and $W^{\Delta ES}$ for Model BVNS with Skewed Normal Errors}
   \label{wpwdiagbvns}
   \end{figure}
  %post pred check for Y
   \begin{figure}
   \centering
   \includegraphics[width=17cm,height=15cm]{manual_figure/wpydiagbvns.pdf}
-  \caption{Posterior Predictive Discrepancy Measures For $Y^{EE}$ and $Y^{\Delta ES}$ for Model BVN with Skewed Normal Errors}
+  \caption{Posterior Predictive Discrepancy Measures For $Y^{EE}$ and $Y^{\Delta ES}$ for Model BVNS with Skewed Normal Errors}
   \label{wpydiagbvns}
   \end{figure}
   
@@ -1353,7 +1331,7 @@ $\mu_x^{EE}$ & 2622.55 & 2675.43 & 2703.64 & 2732.01 & 2786.64 \\
   \begin{figure}
   \centering
   \includegraphics[width=17cm,height=8cm]{manual_figure/predbvnsx.pdf}
-  \caption{Spline function for Model BVN with Skewed Errors}
+  \caption{Spline function for Model BVNS with Skewed Errors}
   \label{predbvnsx}
   \end{figure}
 
@@ -2032,13 +2010,24 @@ One of the main goals of this research was to provide the best possible estimate
 Once we have fit our model to a specific set of cheap measurement tools for EE and $\Delta$ES, we can use our model to calibrate measurements from those cheap meaurements in the future. That is, given an estimate of EE or $\Delta$ES from a cheap measurement tool and some demographic information, we can return a better estimate of the truth as well as a credible interval that shows the uncertainty in the estimate. Calibration for our models simply amounts to finding the inverse of the fitted models in \eqref{regressionfcn1}, \eqref{regressionfcn2} as a function of $Y$ instead of $X$, and $Z$ are still measurement error free covariates as shown below.
 
 \begin{align}
-  X_{calibrated} &= m^{-1}(y-\gamma Z) 
+  X_{calibrated} &= m^{-1}(y-\boldsymbol{\gamma}' Z) 
 \end{align}
 
-We cannot find the inverse of our regression function in closed form so we will find it numerically instead. To do so, we use \texttt{optimize} in \texttt{R} for the function $|f(x)-y|$ where $f()$ represents the regression function and $y$ is the observed value for which we want a calibrated value for. We input a specified number of posterior draws of regression coefficients and latent variablesto then get a set of predicted values for $X$. We can then get a point estimate for the value of $X$ as well as a credible interval using percentiles from the set of estimates.
+We cannot find the inverse of our regression function in closed form so we will find it numerically instead. To do so, we use \texttt{optimize} in \texttt{R} for the function $|f(x)-y^*|$ where $f()$ represents the regression function and $y^*$ is the observed cheap measurement minus the vector of coefficients $\boldsymbol{\gamma}$ multiplied by the individuals covariate values $Z$. We specify a number of posterior draws of regression coefficients and latent variables $R$, to then get a set of predicted values for $X$. We use each of these posterior draws of regression coefficients, latent variables, and spline function to get a calibrated value. Using this set of calibrated values, we can then get a point estimate for the value of $X$ as well as a credible interval using percentiles from the set of estimates. The procedure for getting this distribution for the calibration for individual $i$ is as follows:
+
+For r = 1,...R
+\begin{enumerate}
+\item
+Calculate $y_i^* = y_i- \boldsymbol{\gamma}^{(r)'} Z_i$, where $Z_i$ are the covariate values for individual $i$
+\item
+Use \texttt{optimize} for the function $|f_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the forementioned criteria, call this $x_{i,calibrated}$. $f_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients, latent variables, and knot locations from the $r^{th}$ draw of the chain
+
+\end{enumerate}
 
 
-As an example, we want to calibrate three cheap measurements each from a different individual using Model BVNS. We randomly select 3 individuals from the same data set used above to give results for model BVNS. Individual 1 is female, BMI of 21.9, age 29; individual 2 is female, BMI of 24.9, age 38 and individual 3 is male, BMI 29.2 and age 30. Observed cheap measurements for these individuals, their true values, as well as 95\% credible intervals for their calibrated truth under normal errors are given in Table \ref{calibratedee}. Figures \ref{wpcalhist} gives histograms of 1000 calibrated draws for each individual for EE and $\Delta$ES measurements under skewed errors. 
+As an example, we want to calibrate three cheap measurements each from a different individual using Model BVNS. We randomly select 3 individuals from the same data set used earlier to give results for model BVNS. Individual 1 is female, BMI of 21.9, age 29; individual 2 is female, BMI of 24.9, age 38 and individual 3 is male, BMI 29.2 and age 30. Observed cheap measurements for these individuals, their true values, as well as 95\% credible intervals for their calibrated truth under normal errors are given in Table \ref{calibratedee}. Figures \ref{wpcalhist} gives histograms of 1000 calibrated draws for each individual for EE and $\Delta$ES measurements under skewed errors. 
+
+Looking at the table and figure, one can see that the calibration helps pull the cheap measurement closer to the truth. One can also see that sometimes the cheap measurement is actually close to the truth. What's even more exciting about this is that we have measures of uncertainty immediately, and thus we can get credible intervals easily.
 
 \begin{table}[ht]
 \centering

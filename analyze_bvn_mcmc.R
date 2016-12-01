@@ -200,8 +200,8 @@ ceei <- data.frame(t(apply(cbind(cee1,cee2,cee3),2,quantile,probs=c(0.025,0.5,0.
 names(ceei) <- c("Lower","Median","Upper")
 ceei$Observed <- c(ypredee1,ypredee2,ypredee3)
 
-ces1 <- callibrate(ypredes1,dem1,as.matrix(latentxes),as.matrix(res),as.matrix(betaee),as.matrix(gammaes),nkes,nges,nr,min=-300,max=500)
-#ces2 <- callibrate(ypredes2,dem2,as.matrix(latentxes),as.matrix(res),as.matrix(betaee),as.matrix(gammaes),nkes,nges,nr,min=-100,max=100)
+ces1 <- callibrate(ypredes1,dem1,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-300,max=500)
+#ces2 <- callibrate(ypredes2,dem2,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-100,max=100)
 #ces3 <- callibrate(ypredes3,dem3,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-500,max=300)
 
 cesi <- data.frame(t(apply(cbind(ces1,ces2,ces3),2,quantile,probs=c(0.025,0.5,0.975))))

@@ -1,12 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  30 NOV 2016 14:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.11.12)  30 NOV 2016 18:38
 entering extended mode
-**./eb_models.tex
-(eb_models.tex
-LaTeX2e <2016/03/31> patch level 3
-Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**eb_models.tex
+(./eb_models.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\size11.clo"
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -21,153 +23,153 @@ File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2016/07/10 v1.0t Standard LaTeX Graphics (DPC,SPQR)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
+Package graphics Info: Driver file: pdftex.def on input line 95.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
-File: pdftex.def 2016/07/10 v0.06j Graphics/color for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
-File: color.cfg 2016/01/02 v1.6 sample color configuration
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: pdftex.def on input line 147.
+Package color Info: Driver file: pdftex.def on input line 143.
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\fr
-amed\framed.sty
+(/usr/share/texlive/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip43
 \fb@frw=\dimen105
 \fb@frh=\dimen106
 \FrameRule=\dimen107
 \FrameSep=\dimen108
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\base\alltt.sty"
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/alltt.sty
 Package: alltt 1997/06/16 v2.0g defines alltt environment
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
-Package: hyperref 2016/06/24 v6.83q Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
-Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
-Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
-Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
-Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
-Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
-Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
-Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
-Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
-Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
 Package hobsub Info: Skipping package `hobsub' (already loaded).
-Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
-Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
-Package: xcolor-patch 2016/05/16 xcolor patch
-Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
-Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
-Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
-Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
-Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen109
 \Hy@linkcounter=\count88
 \Hy@pagecounter=\count89
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
-File: pd1enc.def 2016/06/24 v6.83q Hyperref: PDFDocEncoding definition (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
 )
 \Hy@SavedSpaceFactor=\count90
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4486.
-Package hyperref Info: Link nesting OFF on input line 4491.
-Package hyperref Info: Hyper index ON on input line 4494.
-Package hyperref Info: Plain pages OFF on input line 4501.
-Package hyperref Info: Backreferencing OFF on input line 4506.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4735.
+Package hyperref Info: Bookmarks ON on input line 4688.
 \c@Hy@tempcnt=\count91
 
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ur
-l\url.sty
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5088.
+LaTeX Info: Redefining \url on input line 5041.
 \XeTeXLinkMargin=\dimen110
 \Fld@menulength=\count92
 \Field@Width=\dimen111
 \Fld@charsize=\dimen112
-Package hyperref Info: Hyper figures OFF on input line 6342.
-Package hyperref Info: Link nesting OFF on input line 6347.
-Package hyperref Info: Hyper index ON on input line 6350.
-Package hyperref Info: backreferencing OFF on input line 6357.
-Package hyperref Info: Link coloring OFF on input line 6362.
-Package hyperref Info: Link coloring with OCG OFF on input line 6367.
-Package hyperref Info: PDF/A mode OFF on input line 6372.
-LaTeX Info: Redefining \ref on input line 6412.
-LaTeX Info: Redefining \pageref on input line 6416.
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
 \Hy@abspage=\count93
 \c@Item=\count94
 \c@Hfootnote=\count95
@@ -175,24 +177,22 @@ LaTeX Info: Redefining \pageref on input line 6416.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
-File: hpdftex.def 2016/06/24 v6.83q Hyperref driver for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
 \Fld@listcount=\count96
 \c@bookmark@seq@number=\count97
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
-Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
 \Hy@SectionHShift=\skip44
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\la
-stpage\lastpage.sty
+(/usr/share/texlive/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2015/03/29 v1.2m Refers to last page's name (HMM; JPG)
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\fa
-ncyhdr\fancyhdr.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip45
 \f@ncyO@elh=\skip46
 \f@ncyO@erh=\skip47
@@ -202,8 +202,9 @@ ncyhdr\fancyhdr.sty
 \f@ncyO@erf=\skip51
 \f@ncyO@olf=\skip52
 \f@ncyO@orf=\skip53
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
-Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2015/08/19 v1.8n multicolumn formatting (FMi)
 \c@tracingmulticols=\count98
 \mult@box=\box26
 \multicol@leftmargin=\dimen113
@@ -251,13 +252,11 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \colbreak@box=\box51
 \mc@col@check@num=\count106
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ca
-ption\caption.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ca
-ption\caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen122
 \captionmargin@=\dimen123
@@ -270,14 +269,15 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 \c@ContinuedFloat=\count107
 Package caption Info: hyperref package is loaded.
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ca
-ption\subcaption.sty
-Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
 \c@subfigure=\count108
 \c@subtable=\count109
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\tabularx.sty"
-Package: tabularx 2016/02/03 v2.11 `tabularx' package (DPC)
- ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen129
 \extrarowheight=\dimen130
@@ -293,25 +293,25 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \TX@cols=\count110
 \TX@ftn=\toks16
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
-Package: amsmath 2016/06/28 v2.15d AMS math features
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
 \@mathmargin=\skip58
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks17
 \ex@=\dimen136
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen137
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
-Package: amsopn 2016/03/08 v2.02 operator names
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count111
 LaTeX Info: Redefining \frac on input line 199.
@@ -326,8 +326,8 @@ LaTeX Info: Redefining \cdots on input line 518.
 \Mathstrutbox@=\box52
 \strutbox@=\box53
 \big@size=\dimen138
-LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \macc@depth=\count116
 \c@MaxMatrixCols=\count117
 \dotsspace@=\muskip11
@@ -348,10 +348,10 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 \multlinegap=\skip59
 \multlinetaggap=\skip60
 \mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2739.
-LaTeX Info: Redefining \] on input line 2740.
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count123
 \float@exts=\toks22
@@ -359,42 +359,38 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks23
 \@floatcapt=\box55
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\na
-tbib\natbib.sty
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip61
 \bibsep=\skip62
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count124
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\up
-quote\upquote.sty
+(/usr/share/texlive/texmf-dist/tex/latex/upquote/upquote.sty
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\se
-tspace\setspace.sty
+(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
-) (eb_models.aux)
+)
+(./eb_models.aux)
 \openout1 = `eb_models.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\context\
-base\supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+ (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count125
 \scratchdimen=\dimen145
@@ -407,148 +403,166 @@ base\supp-pdf.mkii
 \MPnumerator=\count129
 \makeMPintoPDFobject=\count130
 \everyMPtoPDFconversion=\toks25
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
-Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
-Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 )
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
-)
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 \AtBeginShipoutBox=\box57
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 81.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
-Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
-Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count131
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
-(eb_models.out) (eb_models.out)
+(./eb_models.out) (./eb_models.out)
 \@outlinefile=\write3
 \openout3 = `eb_models.out'.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 80.
+(lastpage)             ! on input line 81.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
+Package color Info: Redefining color shadecolor on input line 83.
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 86.
  [1
 
-{C:/Users/dcries/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2] [3]
-Overfull \hbox (57.13844pt too wide) in paragraph at lines 189--189
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+Overfull \hbox (57.13844pt too wide) in paragraph at lines 201--201
 [] 
  []
 
-[4] [5] [6] [7] [8] [9] [10] [11]
+[5] [6] [7] [8] [9] [10] [11] [12]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 503.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 503.
+(hyperref)                removing `math shift' on input line 515.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 503.
+(hyperref)                removing `\Delta' on input line 515.
 
-[12] [13] [14]
-Package color Info: Redefining color shadecolor on input line 542.
- <figure/ebsw-1.pdf, id=315, 433.62pt x 289.08pt>
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 515.
+
+[13] [14]
+
+LaTeX Warning: Reference `ebslm' on page 15 undefined on input line 551.
+
+[15]
+Package color Info: Redefining color shadecolor on input line 554.
+ <figure/ebsw-1.pdf, id=321, 433.62pt x 289.08pt>
 File: figure/ebsw-1.pdf Graphic file (type pdf)
-
-<use figure/ebsw-1.pdf>
-Package pdftex.def Info: figure/ebsw-1.pdf used on input line 544.
+ <use figure/ebsw-1.pdf>
+Package pdftex.def Info: figure/ebsw-1.pdf used on input line 556.
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
-Package color Info: Redefining color shadecolor on input line 558.
- <figure/ebsdiag-1.pdf, id=316, 505.89pt x 216.81pt>
+Package color Info: Redefining color shadecolor on input line 570.
+
+<figure/ebsdiag-1.pdf, id=322, 505.89pt x 216.81pt>
 File: figure/ebsdiag-1.pdf Graphic file (type pdf)
-
-<use figure/ebsdiag-1.pdf>
-Package pdftex.def Info: figure/ebsdiag-1.pdf used on input line 560.
+ <use figure/ebsdiag-1.pdf>
+Package pdftex.def Info: figure/ebsdiag-1.pdf used on input line 572.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
-Package color Info: Redefining color shadecolor on input line 572.
+Package color Info: Redefining color shadecolor on input line 584.
 
-<figure/ebsdiag2-1.pdf, id=317, 505.89pt x 216.81pt>
+<figure/ebsdiag2-1.pdf, id=323, 505.89pt x 216.81pt>
 File: figure/ebsdiag2-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag2-1.pdf>
-Package pdftex.def Info: figure/ebsdiag2-1.pdf used on input line 574.
+Package pdftex.def Info: figure/ebsdiag2-1.pdf used on input line 586.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
-Package color Info: Redefining color shadecolor on input line 585.
+Package color Info: Redefining color shadecolor on input line 597.
 
-<figure/ebsdiag3-1.pdf, id=318, 505.89pt x 216.81pt>
+<figure/ebsdiag3-1.pdf, id=324, 505.89pt x 216.81pt>
 File: figure/ebsdiag3-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag3-1.pdf>
-Package pdftex.def Info: figure/ebsdiag3-1.pdf used on input line 587.
+Package pdftex.def Info: figure/ebsdiag3-1.pdf used on input line 599.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
-Package color Info: Redefining color shadecolor on input line 599.
+Package color Info: Redefining color shadecolor on input line 611.
 
-<figure/ebsdiag4-1.pdf, id=319, 505.89pt x 216.81pt>
+<figure/ebsdiag4-1.pdf, id=325, 505.89pt x 216.81pt>
 File: figure/ebsdiag4-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag4-1.pdf>
-Package pdftex.def Info: figure/ebsdiag4-1.pdf used on input line 601.
+Package pdftex.def Info: figure/ebsdiag4-1.pdf used on input line 613.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
- [15 <./figure/ebsw-1.pdf>] [16 <./figure/ebsdiag-1.pdf> <./figure/ebsdiag2-1.p
-df>] [17 <./figure/ebsdiag3-1.pdf> <./figure/ebsdiag4-1.pdf>] [18]
-Package color Info: Redefining color shadecolor on input line 691.
- <figure/latentx-1.pdf, id=372, 650.43pt x 289.08pt>
+ [16 <./figure/ebsw-1.pdf>] [17 <./figure/ebsdiag-1.pdf> <./figure/ebsdiag2-1.p
+df>] [18 <./figure/ebsdiag3-1.pdf> <./figure/ebsdiag4-1.pdf>]
+Package color Info: Redefining color shadecolor on input line 667.
+ <figure/latentx-1.pdf, id=374, 650.43pt x 289.08pt>
 File: figure/latentx-1.pdf Graphic file (type pdf)
 
 <use figure/latentx-1.pdf>
-Package pdftex.def Info: figure/latentx-1.pdf used on input line 692.
+Package pdftex.def Info: figure/latentx-1.pdf used on input line 668.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
-Package color Info: Redefining color shadecolor on input line 700.
+Package color Info: Redefining color shadecolor on input line 676.
 
-<figure/contourx-1.pdf, id=373, 650.43pt x 289.08pt>
+<figure/contourx-1.pdf, id=375, 650.43pt x 289.08pt>
 File: figure/contourx-1.pdf Graphic file (type pdf)
 
 <use figure/contourx-1.pdf>
-Package pdftex.def Info: figure/contourx-1.pdf used on input line 701.
+Package pdftex.def Info: figure/contourx-1.pdf used on input line 677.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
  [19] [20 <./figure/latentx-1.pdf> <./figure/contourx-1.pdf>] [21] [22]
-Package color Info: Redefining color shadecolor on input line 845.
- <figure/errordist-1.pdf, id=435, 650.43pt x 289.08pt>
+Package color Info: Redefining color shadecolor on input line 821.
+ <figure/errordist-1.pdf, id=437, 650.43pt x 289.08pt>
 File: figure/errordist-1.pdf Graphic file (type pdf)
 
 <use figure/errordist-1.pdf>
-Package pdftex.def Info: figure/errordist-1.pdf used on input line 847.
+Package pdftex.def Info: figure/errordist-1.pdf used on input line 823.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
  [23 <./figure/errordist-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 909.
+Package color Info: Redefining color shadecolor on input line 885.
 
-<figure/nonlinear-1.pdf, id=451, 505.89pt x 289.08pt>
+<figure/nonlinear-1.pdf, id=453, 505.89pt x 289.08pt>
 File: figure/nonlinear-1.pdf Graphic file (type pdf)
 
 <use figure/nonlinear-1.pdf>
-Package pdftex.def Info: figure/nonlinear-1.pdf used on input line 911.
+Package pdftex.def Info: figure/nonlinear-1.pdf used on input line 887.
 (pdftex.def)             Requested size: 472.03111pt x 269.73705pt.
  [24] [25 <./figure/nonlinear-1.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 946.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 922.
 
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 946.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 922.
 
-Underfull \hbox (badness 10000) in paragraph at lines 946--948
+Underfull \hbox (badness 10000) in paragraph at lines 922--924
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--930
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 941--942
 
  []
 
@@ -558,97 +572,87 @@ Underfull \hbox (badness 10000) in paragraph at lines 950--954
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 965--966
+Overfull \hbox (3.37122pt too wide) in paragraph at lines 956--957
+[]$\OML/cmm/m/it/10.95 ^^[[]\OMS/cmsy/m/n/10.95 j^^A ^^X \OML/cmm/m/it/10.95 IG
+\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 a[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/
+10.95 J \OMS/cmsy/m/n/10.95 ^^B []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 
++ [] [][] [][](\OML/cmm/m/it/10.95 Y[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/m/it/10
+.95 m[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ; []) \OMS
+/cmsy/m/n/10.95 ^^@ [][]\OML/cmm/m/it/10.95 Z[]\OT1/cmr/m/n/10.95 )[])$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 956--957
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 974--978
+Underfull \hbox (badness 10000) in paragraph at lines 960--961
 
  []
 
 
-Overfull \hbox (3.37122pt too wide) in paragraph at lines 980--981
-[]$\OML/cmm/m/it/10.95 []\OMS/cmsy/m/n/10.95 j  \OML/cmm/m/it/10.95 IG\OT1/c
-mr/m/n/10.95 (\OML/cmm/m/it/10.95 a[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 
-J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
-] [][](\OML/cmm/m/it/10.95 Y[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 m[]\OT
-1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ; []) \OMS/cmsy/m/n/
-10.95   [][]\OML/cmm/m/it/10.95 Z[]\OT1/cmr/m/n/10.95 )[])$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 980--981
+Underfull \hbox (badness 10000) in paragraph at lines 964--965
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 984--985
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 988--989
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 991--992
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 995--996
+Underfull \hbox (badness 10000) in paragraph at lines 971--972
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 997--998
+Underfull \hbox (badness 10000) in paragraph at lines 973--974
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 999--1000
+Underfull \hbox (badness 10000) in paragraph at lines 975--976
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
+Underfull \hbox (badness 10000) in paragraph at lines 978--979
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1006--1008
+Underfull \hbox (badness 10000) in paragraph at lines 982--984
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1011
+Underfull \hbox (badness 10000) in paragraph at lines 985--987
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
+Underfull \hbox (badness 10000) in paragraph at lines 988--990
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
+Underfull \hbox (badness 10000) in paragraph at lines 991--993
 
  []
 
 [27] [28] [29] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1088
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1064
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
+Underfull \hbox (badness 10000) in paragraph at lines 1066--1067
 
  []
 
 
-Overfull \hbox (0.15877pt too wide) in paragraph at lines 1111--1112
+Overfull \hbox (0.15877pt too wide) in paragraph at lines 1087--1088
 []\OT1/cmr/m/n/10.95 Calculate pro-posed spline re-gres-sion co-ef-fi-cients $[
 ]$ by us-ing OLS by re-gress-ing $\OML/cmm/m/it/10.95 Y[]$ \OT1/cmr/m/n/10.95 o
 n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
@@ -656,12 +660,12 @@ n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1114--1115
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
 
  []
 
 [31] [32]
-Overfull \hbox (7.42311pt too wide) in paragraph at lines 1152--1153
+Overfull \hbox (7.42311pt too wide) in paragraph at lines 1128--1129
 \OT1/cmr/m/n/10.95 100000\OML/cmm/m/it/10.95 ; M[] \OT1/cmr/m/n/10.95 = \OML/cm
 m/m/it/10.95 M[] \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; C[] \OT1/cmr/m/n/1
 0.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10.95 = 100000\OML/cmm/m/it/10.95 ;
@@ -670,119 +674,119 @@ m/m/it/10.95 ; C[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10
 .95 = 100000\OML/cmm/m/it/10.95 ; a[] \OT1/cmr/m/n/10.95 =
  []
 
-[33]
-Overfull \hbox (75.65205pt too wide) in paragraph at lines 1178--1179
-[]\OT1/cmr/m/n/10.95 For these, we are in-ter-ested in whether our model can ca
-p-ture the true quan-tiles (min,0.05,0.1,0.25,0.75,0.9,0.95,max)
- []
-
-[34] <manual_figure/wpxdiagbvns.pdf, id=568, 794.97pt x 614.295pt>
+[33] [34] [35] <manual_figure/wpxdiagbvns.pdf, id=577, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1304.
+Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1282.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1304--1305
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1282--1283
  [][] 
  []
 
-<manual_figure/wpwdiagbvns.pdf, id=569, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvns.pdf, id=578, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1311.
+Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1289.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1311--1312
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1289--1290
  [][] 
  []
 
-<manual_figure/wpydiagbvns.pdf, id=570, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvns.pdf, id=579, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1318.
+Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1296.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1318--1319
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1296--1297
  [][] 
  []
 
-<manual_figure/predbvnsx.pdf, id=571, 578.16pt x 289.08pt>
+<manual_figure/predbvnsx.pdf, id=580, 578.16pt x 289.08pt>
 File: manual_figure/predbvnsx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnsx.pdf>
-Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 1355.
+Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 1333.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 1355--1356
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 1333--1334
  [][] 
  []
 
-[35] [36 <./manual_figure/wpxdiagbvns.pdf>] [37 <./manual_figure/wpwdiagbvns.pd
-f>] [38 <./manual_figure/wpydiagbvns.pdf>] [39]
-<manual_figure/wpcalhist.pdf, id=618, 578.16pt x 433.62pt>
+[36] [37 <./manual_figure/wpxdiagbvns.pdf>] [38 <./manual_figure/wpwdiagbvns.pd
+f>] [39 <./manual_figure/wpydiagbvns.pdf>] [40 <./manual_figure/predbvnsx.pdf>]
+<manual_figure/wpcalhist.pdf, id=634, 578.16pt x 433.62pt>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
-Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2149.
+Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2138.
 (pdftex.def)             Requested size: 483.6926pt x 284.54257pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2149--2150
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2138--2139
  [][] 
  []
 
-[40 <./manual_figure/predbvnsx.pdf>] [41 <./manual_figure/wpcalhist.pdf>]
-[42] [43] (eb_models.bbl [44
+[41] [42 <./manual_figure/wpcalhist.pdf>] [43] [44] (./eb_models.bbl [45
 
-]) 
+])
+
 AED: lastpage setting LastPage
-[45]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2188.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2188.
- (eb_models.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2188.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2188.
+[46]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2177.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2177.
+ (./eb_models.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2177.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2177.
 
 Package rerunfilecheck Info: File `eb_models.out' has not changed.
-(rerunfilecheck)             Checksum: 59F1CFD3008F43165BD284994C725C16;1784.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2188.
+(rerunfilecheck)             Checksum: 3A4E714C40427E6063F57E21FF3D4061;1756.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2177.
  ) 
 Here is how much of TeX's memory you used:
- 8092 strings out of 493334
- 120786 string characters out of 3139180
- 235401 words of memory out of 3000000
- 11284 multiletter control sequences out of 15000+200000
- 12685 words of font info for 45 fonts, out of 3000000 for 9000
+ 8078 strings out of 493029
+ 119718 string characters out of 6136233
+ 234115 words of memory out of 5000000
+ 11272 multiletter control sequences out of 15000+600000
+ 12685 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,18n,43p,2213b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Program Files/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cmextra/cmex8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
-8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/
-Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program F
-iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (45 pages, 2265435 bytes).
+ 36i,18n,43p,2211b,492s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+2.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmtt10.pfb>
+Output written on eb_models.pdf (46 pages, 2193078 bytes).
 PDF statistics:
- 785 PDF objects out of 1000 (max. 8388607)
- 223 named destinations out of 1000 (max. 500000)
+ 797 PDF objects out of 1000 (max. 8388607)
+ 692 compressed objects within 7 object streams
+ 225 named destinations out of 1000 (max. 500000)
  295 words of extra memory for PDF output out of 10000 (max. 10000000)
 
