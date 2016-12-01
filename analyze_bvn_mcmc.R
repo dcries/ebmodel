@@ -309,3 +309,7 @@ a1 <- callibrate(2900,0,as.matrix(latentxee),as.matrix(ree),0,as.matrix(gammaee)
 hist(a1)
 a2 <- callibrate(500,0,as.matrix(latentxes),as.matrix(res),0,as.matrix(gammaes),nkes,nges,300,min=-400,max=400)
 
+#--------------------------------
+p1 <- qplot(as.factor(unlist(kee)),geom="bar") + xlab(bquote(' '~k[ee]~ '')) + theme_bw()
+p2 <- qplot(as.factor(unlist(kes)),geom="bar") + xlab(bquote(' '~k[es]~ '')) + theme_bw()
+grid.arrange(p1,p2,nrow=1)

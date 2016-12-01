@@ -157,11 +157,11 @@ For the purposes of this report, measurement error refers to not being able to m
 As a result, when measurement error is present in covariates, it can have a major impact on the statistical analysis performed if it is ignored. For one, it will bias estimates. This means the estimated effects will be biased in one direction or another and therefore not giving the whole story. Another problem is the loss of power in determining relationships between variables. Having measurement error in covariates essentially clouds the data with extra noise making it harder to see the true relationships and thus miss meaningful conclusions. \\
 
 
-%--------------------------------%
-\subsubsection{Differential Error}
-%---------------------------------%
-
- We say the error in {\bf W} with respect to {\bf X} is non-differential if {\bf Y} is conditionally independent of {\bf W}. In other words, $f_{Y|X,Z,W}=f_{Y|X,Z}$. If this doesn't hold, then we say the error is differential If the error is non-differential, {\bf W} is called a \emph{surrogate} or \emph{proxy} for {\bf X}. Clearly, assuming non-differential error can be used as a simplifying assumption, and it is often the case that this is a valid assumption. Continuing on the obesity/heart disease example above, if we knew the true average daily EI of someone, we wouldn't have reason to have them fill out a FFQ, and it probably wouldn't give us any more information about the chances of heart disease by having him/her fill one out. This would be the rational for assuming non-differential error.  The distinction is not always easy, and Buzas et al. \cite{buzas} gave a nice way to think about it: Consider whether {\bf W} would have been measured had {\bf X} been available. If it wouldn't have, non-differential error is reasonable. . 
+% %--------------------------------%
+% \subsubsection{Differential Error}
+% %---------------------------------%
+% 
+%  We say the error in {\bf W} with respect to {\bf X} is non-differential if {\bf Y} is conditionally independent of {\bf W}. In other words, $f_{Y|X,Z,W}=f_{Y|X,Z}$. If this doesn't hold, then we say the error is differential If the error is non-differential, {\bf W} is called a \emph{surrogate} or \emph{proxy} for {\bf X}. Clearly, assuming non-differential error can be used as a simplifying assumption, and it is often the case that this is a valid assumption. Continuing on the obesity/heart disease example above, if we knew the true average daily EI of someone, we wouldn't have reason to have them fill out a FFQ, and it probably wouldn't give us any more information about the chances of heart disease by having him/her fill one out. This would be the rational for assuming non-differential error.  The distinction is not always easy, and Buzas et al. \cite{buzas} gave a nice way to think about it: Consider whether {\bf W} would have been measured had {\bf X} been available. If it wouldn't have, non-differential error is reasonable. . 
 
 %-----------------------------%
 \subsubsection{Classical Measurement Error Model}

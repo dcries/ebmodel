@@ -47,17 +47,6 @@ Susan~B. Racette, Sai~Krupa Das, Manjushri Bhapkar, Evan~C. Hadley, Susan~B.
   study.
 \newblock {\em Am J Physiol Endorinol Metab}, 302:441--8, 2011.
 
-\bibitem{nonparametric}
-Kunio Takezawa.
-\newblock {\em Introduction to Nonparametric Regression}.
-\newblock Wiley Series in Probability and Statistics, 2006.
-
-\bibitem{sarkar14}
-Abhra Sarkar, Bani~K. Mallick, and Raymond~J. Carroll.
-\newblock Bayesian semiparametric regression in the presence of conditionally
-  heteroscedastic measurement and regression errors.
-\newblock {\em Biometrics}, 70:823--34, 2014.
-
 \bibitem{hand}
 Gregory~A. Hand, Robin~P. Shook, Amanda~E. Paluch, Meghan Baruth, Patrick
   Crowley, Jason~R. Jaggers, Vivek~K. Prasad, Thomas~G. Hurley, James~R.
@@ -72,6 +61,17 @@ Raymond~J. Caroll, David Ruppert, Leonard~A. Stefanski, and Ciprian~M.
   Crainiceani.
 \newblock {\em Measurement Error in Nonlinear Models}.
 \newblock Chapman and Hall/CRC, 2006.
+
+\bibitem{nonparametric}
+Kunio Takezawa.
+\newblock {\em Introduction to Nonparametric Regression}.
+\newblock Wiley Series in Probability and Statistics, 2006.
+
+\bibitem{sarkar14}
+Abhra Sarkar, Bani~K. Mallick, and Raymond~J. Carroll.
+\newblock Bayesian semiparametric regression in the presence of conditionally
+  heteroscedastic measurement and regression errors.
+\newblock {\em Biometrics}, 70:823--34, 2014.
 
 \bibitem{cdc}
 CDC.

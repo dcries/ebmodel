@@ -66,400 +66,6 @@ We are interested in formulating a model for one's energy balance by using energ
 In this chapter we take a semi-parametric approach to modeling this problem. We will make distributional assumptions about error terms, but we try to be flexible in modeling the true relationship between cheap measurements and the truth. This analysis requires replicate observations on gold standard and cheap measurements on each individuals, which is expensive and time consuming in terms of data collection, but this method also provides a detailed solution that accounts for all forms of uncertainty.
 
 
-%-------------------------------------------------------------%
-%-------------------------------------------------------------%
-\section{Methodology}
-%-------------------------------------------------------------%
-%-------------------------------------------------------------%
-
-
-%---------------------------%
-\subsection{Notation}
-%----------------------------%
-
-We will denote the measured average daily EE by DLW for subject $i$ over time period $j$, $W_{ij}^{EE}$, and average daily change in energy stores measured by DXA for subject $i$ over time period $j$, $W_{ij}^{\Delta ES}$. A positive value for $\Delta$ES indicates that more food was consumed than burned. We are averaging these values because DLW gives an estimate of EE over the course of approximately 14 days, so to keep things simple, we will always talk about average kcals per day. 
-
-We also have cheaper measurements for EE and $\Delta$ES. When collecting data on a large population, it makes more sense to collect these cheaper measurements on most of the subjects. However, they are cheaper for a reason, and ultimately, we would like to use our model assess the measurement error involved and calibrate these cheaper measurements to make them more accurate and precise. Although there are multiple different cheap ways to measure EE and $\Delta$ES, we will keep the notation here general since in any given situation we will be talking only about one specific measurement tool of each. We will denote the measured average daily EE by a cheaper method for subject $i$ over time period $j$, $Y_{ij}^{EE}$, and average daily change in energy stores measured by a cheaper method for subject $i$ over time period $j$, $Y_{ij}^{\Delta ES}$. In application, it will be clear in every situation which tool was used to measure the $Y$'s.
-
-Lastly, the values which we never observe are the \emph{usual} EE and $\Delta$ES for subject $i$. We define \emph{usual} as a long run average of the true EE and $\Delta$ES. Let $X_i^{EE}$ represent the \emph{usual} daily EE for subject i and $X_i^{\Delta ES}$ represent the \emph{usual} daily $\Delta$ES for subject $i$. Note there is considerable within person variability to this \emph{usual} value. However, this value is of not much interest itself. We refer to the \emph{truth} for individual $i$ during time period $j$ as being individual $i$'s \emph{usual} value plus their within person variation during time period $j$ Then:
-
-% \begin{align}
-%   \label{trueee}
-%   X_i^{EE} &= X_i^{EE} + \delta_{ij}^{EE} \\
-%   %
-%   \label{truees}
-%   X_i^{\Delta ES} &= X_i^{\Delta ES} + \delta_{ij}^{\Delta ES}
-% \end{align}
-
-%  Here, $X_i^{EE}$ represents the \emph{true} average daily EE for subject i \emph{over time period j}, and $\delta_{ij}^{EE}$ is the deviation from subject i's \emph{true} average daily EE \emph{over the course of several years} ($X_i^{EE}$) and time j, or in other words, within-person variability. Similarly, $X_i^{\Delta ES}$ is the \emph{true} average daily $\Delta$ES for subject i \emph{over time period j}, and $\delta_{ij}^{\Delta ES}$ is the deviation from subject i's \emph{true} average daily $\Delta$ES \emph{over the course of several years} ($X_i^{\Delta ES}$) at time j. If $X_i^{EI}$ represents subject i at time j's \emph{true} EI, $X_{i}^{EI}$ represents subject i's \emph{usual} EI, and $\delta_{ij}^{EI}$ represents subject i at time j's deviation from his \emph{usual} EI. Then by the energy balance principle:
-%  
-% \begin{align} 
-%   \label{usualebe}
-%  X_{i}^{EI} &= X_{i}^{EE} + X_{i}^{\Delta ES} \\
-%  X_i^{EI} &= X_i^{EE} + X_i^{\Delta ES} \\
-%  \label{withinvar}
-%  \delta_{ij}^{EI} &= \delta_{ij}^{EE} + \delta_{ij}^{\Delta ES} 
-% \end{align}
-
-%------------------------------%
-\subsection{(In)Dependence Assumptions}
-%------------------------------%
-
- Our observed data for subject $i$ over time $j$ will consist of the values ({\bf$W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}, Z_i$}) where $Z_i$ is a vector of (assumed) perfectly measured covariates for subject $i$. A joint probability model for these observables is represented as:
-
-\begin{align}
-  f(W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i,\boldsymbol{\theta})
-  \label{fullmodel}
-\end{align}
-
-Because of all the dependencies involved, we will deconstruct this via conditional independence assumptions. Given the value $X_i^{EE}$ (\emph{usual} daily EE for subject $i$) and $X_i^{\Delta ES}$ (\emph{usual} daily $\Delta$ES for subject $i$), and covariates $Z_i$, we believe it is reasonable to assume that:
-
-\begin{enumerate}
-\item
-$Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ are independent of each other and 
-\item
-$Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ are each independent from both $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$
-\item
-$W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ are independent of each other
-
-Additionally, given that the above assumptions are reasonable, we expand these by additionally assuming
-
-\item
-Given only $X_i^{EE}$ and $Z_i$, $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ are independent of each other and from both $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ and vice versa for $\Delta$ES
-\item
-Given only $X_i^{EE}$ and $Z_i$, $W_{ij}^{EE}$ is independent from $W_{ij}^{\Delta ES}$ and vice versa for $\Delta$ES
-
-\end{enumerate}
-
- This is because  (1): given the true values \emph{X} and covariates \emph{Z}, knowing a cheap measurement one will give you no more information about the cheap measurement of the other, so long as it is not self-administered. And (2): once we know the truth \emph{X}, having an unbiased measurement of \emph{X} will not provide any more information to the cheap, biased measurement of \emph{X}. DLW and DXA are conducted by separate personnel and these are done separately from those administering the cheap measurement methods. (3) follows the same lines as (1), and again, DXA and DLW are performed by different people.
-
-We are comfortable with conditional independence assumptions (1)-(3) and their validity will not be discussed again. The last two conditional independence assumptions are not as clear cut. It does seem possible that the true change in body composition ($\Delta$ES) could affect how well an activity monitor records EE, even after knowing the true EE and covariates. It also seems possible, but slightly less likely that the same is true for the gold standard measurements. We need to remember this assumption when making conclusions later on.
-
-%----------------------------------%
-\subsection{Model Likelihood}
-%----------------------------------%
-
-Based on the assumptions made in the previous paragraphs, we can specify our full model \eqref{fullmodel} by:
-
-\begin{align}
-  \begin{split}
-    \label{truedist}
-  f({ W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i},\boldsymbol{\theta}) &= \int \int f({ W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}, X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} \\
-  %
-    &= \int_{\mathcal{X}_{es}} \int_{\mathcal{X}_{ee}} f({ W_{ij}^{EE}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{wee}}) f({ W_{ij}^{\Delta ES}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{wes}}) \times\\
-  & f({ Y_{ij}^{EE}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{yee}}) f({ Y_{ij}^{\Delta ES}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{yes}}) \times  \\
-  & f({ X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta_x}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} \\
-  %
-  &= \int_{\mathcal{X}_{es}} \int_{\mathcal{X}_{ee}} f({ W_{ij}^{EE}|X_i^{EE},Z_i},\boldsymbol{\theta_{wee}}) f({ W_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{wes}}) \times\\
-  & f({ Y_{ij}^{EE}|X_i^{EE},Z_i},\boldsymbol{\theta_{yee}}) f({ Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{yes}}) \times  \\
-  & f({ X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta_x}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} 
-  \end{split}
-\end{align}
-
-Further, we specify the models for the \emph{W}'s and \emph{Y}'s as:
-
-\begin{align}
-  \label{regressionfcn1} 
-  Y_{ij}^{EE} &= m_{ee}(X_i^{EE} ,Z_i) + \epsilon_{ij}^{EE}  \\
-  %
-  \label{regressionfcn2}
-  Y_{ij}^{\Delta ES} &= m_{es}(X_i^{\Delta ES} ,Z_i) + \epsilon_{ij}^{\Delta ES} \\
-  %
-  \label{gold1} 
-  W_{ij}^{EE} &= X_i^{EE}  + \nu_{ij}^{EE}  \\
-  %
-  \label{gold2}
-  W_{ij}^{\Delta ES} &= X_i^{\Delta ES}  + \nu_{ij}^{\Delta ES} 
-\end{align}
-
-where $m_{ee}(\cdot)$ and $m_{es}(\cdot)$ are assumed to be general, smooth functions. $\nu_{ij}^{EE}$ and $\nu_{ij}^{\Delta ES}$ represent the measurement error for subject $i$ during time period $j$ using DLW and DXA, respectively, and within person variability. For now, we let $\epsilon_{ij}^{EE}$ and $\epsilon_{ij}^{\Delta ES}$ represent the measurement error for subject $i$ during time period $j$ using cheap measurements of EE and $\Delta$ES, respectively, and within person variability. This is a working assumption since the within person variability is in reality not an additive error, rather it is added to the usual and realized through the functions $m_{\cdot}(\cdot)$. We cannot directly estimate both within person variability and measurement error simultaneously due to realistic data constraints.  We assume the expected values of all $\epsilon,\nu$ are 0. This implies we are assuming DLW and DXA are providing unbiased estimates for the \emph{usual} daily EE ($X_i^{EE}$) and $\Delta$ES ($X_i^{\Delta ES}$), respectively, and the cheap measurements are giving biased estimates of (possibly) unknown form.
-
-
-We will assume subjects in the study will have no influence on each other in terms of consumption or exercise behavior, and thus subjects are assumed to be independent of each other. Additionally, conditional on each subjects' respective \emph{usual} value $X_i^{\cdot}$, replicate measurements within subject are independent. Independence within individuals is justified because it is conditional \emph{on each individuals usual value}, which means once we know an individual's baseline, we expect variation from their to be independent day to day. The likelihood function for an individual can then be written as:
-
-\begin{align}
-  L_i(\boldsymbol{\theta}) &= \prod_{j=1}^{J} f(W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i,\boldsymbol{\theta}) 
-\end{align}
-
-where the RHS is expanded in \eqref{truedist}. Given the independence assumptions in the previous paragraph,  the full likelihood is
-
-\begin{align}
-  L(\boldsymbol{\theta}) &= \prod_{i=1}^{n}  L_i(\boldsymbol{\theta}) 
-\end{align}
-
-
-
-%-------------------------------------
-%-------------------------------%
-%\section{Models}
-%-------------------------------%
-%-----------------------------------------
-
-%-------------------------------
-\subsection{N{\"a}ive Model}
-%-------------------------------
-
-The first model we will consider is what we call the n{\"a}ive model. This model will assume no measurement error in the gold standard instrument exists,  thus DLW and DXA give error-free measurements of $X_i^{EE}$ and $X_i^{\Delta ES}$, respectively. We also assume the cheap measurements $Y$ are linearly related to measurements of the \emph{truth} and of error free covariates. Based on empirical evidence from EBS data, gender, BMI, and age all had some effect on the cheap measurement of EE.  Mathematically, the n{\"a}ive model is represented as:
-
-\begin{align}
-Y_{ij}^{EE} &= \beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i + \epsilon_{ij}^{EE} \\
-Y_{ij}^{\Delta ES} &= \beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}Z_i + \epsilon_{ij}^{\Delta ES} 
-\end{align}
-
-where the $\beta_{1,\cdot}$ terms represents the relationship between cheap measurements and the \emph{truth} EE and $\Delta$ES and the $\beta_0$ terms represent systematic biases. $\boldsymbol{\gamma_{\cdot}}=(\gamma_{1,\cdot},\gamma_{2,\cdot},\gamma_{3,\cdot})$ and $\gamma_{1,\cdot}$ is the coefficient for gender, $\gamma_{2,\cdot}$ is the coefficient for BMI, and $\gamma_{3,\cdot}$ is the coefficient for age. We take the standard approach and assume Normal distributions for the error terms, as well as assuming independence within and across individuals conditional on subject $i$:
-
-\begin{align}
-  \label{ymodel0}
-  (Y_{ij}^{EE} | W_{ij}^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{iid}{\sim} N(\beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
-  \label{ymodel0b}
-  (Y_{ij}^{\Delta ES} | W_{ij}^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{iid}{\sim} N(\beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2)
-\end{align}
-
-Priors are assumed independent and are assigned below. We chose forms for piors to be conjugate or conditionally conjugate for ease of implementation but also to incorporate weak information. 
-
-\begin{multicols}{2}
-\noindent 
-\begin{align}
-p(\beta_{0,ee}) &\sim N(M_{\beta_{0,ee}},C_{\beta_{0,ee}}) \\
-p(\beta_{1,ee}) &\sim N(M_{\beta_{1,ee}},C_{\beta_{1,ee}}) \\
-p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}}), \text{ } g=1,2,3 \\
-p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) 
-\end{align}
-\columnbreak
-\begin{align}
-p(\beta_{0,es}) &\sim N(M_{\beta_{0,es}},C_{\beta_{0,es}}) \\
-p(\beta_{1,es}) &\sim N(M_{\beta_{1,es}},C_{\beta_{1,es}}) \\
-p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}), \text{ } g=1,2,3 \\
-p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{yes},b_{yes}) 
-\end{align}
-\end{multicols}
-
-$\sigma^2_{\epsilon^{ee}}$ and $\sigma^2_{\epsilon^{es}}$ represent the measurement error and within-person variability as measured in the cheap EE and $\Delta$ES tools, respectively. 
-
-
-%----------------------------------------
-\subsection{Linear Measurement Error Model}
-%----------------------------------------
-The Linear Measurement Error Model, or what we'll refer to as the ``basic" model, is a measurement error model that otherwise takes similar form to the n{\"a}ive model. Instead of assuming the gold standard measurements are error free, we allow them to follow the form of \eqref{gold1},\eqref{gold2}. We assume the measurement error terms follow independent normal distributions. We justify this assumption in the development of our full model. We also need to specify a bivariate distribution for the \emph{usual}, $(X_i^{EE},X_i^{\Delta ES})$. The common approach is to assume a Normal distribution, which we do here. In mathematical notation, the model is represented as:
-
-%---------------%
-% fix
-\begin{align}
-  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\sim N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}Z_i, \sigma_{\epsilon_{EE}}^2) \\
-  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\sim N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
-  (W_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{wee}}) &\overset{iid}{\sim} N(X_i^{EE}, \sigma_{\nu_{EE}}^2 ) \\
-  (W_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{wes}}) &\overset{iid}{\sim} N(X_i^{\Delta ES}, \sigma_{\nu_{\Delta ES}}^2 )  \\
-  (X_i^{EE},X_i^{\Delta ES}|\theta_X) &\overset{iid}{\sim} N\left(
-  \begin{bmatrix}
-  \mu_{EE}\\
-  \mu_{\Delta ES}
-  \end{bmatrix}
-  , \Sigma_X
-  \right)
-\end{align}
-
-We choose the priors as:
-
-\begin{multicols}{2}
-\noindent 
-  \begin{align}
-  p(\beta_{0,ee}) &\sim N(M_{\beta_{0,ee}},C_{\beta_{0,ee}}) \\
-  p(\beta_{1,ee}) &\sim N(M_{\beta_{1,ee}},C_{\beta_{1,ee}}) \\
-  p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}}), \text{ } g=1,2,3 \\
-  p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
-  p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{wee},b_{wee}) 
-\end{align}
-\columnbreak
-\begin{align}
-  p(\beta_{0,es}) &\sim N(M_{\beta_{0,es}},C_{\beta_{0,es}}) \\
-  p(\beta_{1,es}) &\sim N(M_{\beta_{1,es}},C_{\beta_{1,es}}) \\
-  p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}), \text{ } g=1,2,3 \\
-  p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{yes},b_{yes}) \\
-  p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) 
-  \end{align}
-\end{multicols}
-
-\begin{align}
-   p(\Sigma_X) &\sim Inv-Wish(\psi,d)\\
-   p(\mu_{EE},\mu_{\Delta ES}) &\sim N(M_{\mu},C_{\mu}) 
-\end{align}
-
-
-
-The interpretation of $\beta_{1,\cdot}$ is similar to the n{\"a}ive model, except it is with respect to $X^{\cdot}$ instead of a gold standard measurement.  The interepretation of the $\gamma$ coefficients is then the bias in EE and $\Delta$ES from the cheap measurements. For example, all else equal, the difference in the cheap measurement of EE between a male and a female is $\gamma_{1,ee}$ kcals. The larger magniture each $\gamma$ is, the more bias that  instrument has. 
-
-
-
-
-%--------------------------------------
-\subsection{Model DP}
-%--------------------------------------
-
-Our model to analyze the measurement error and biases involved with various measurement tools for EE $\Delta$ES involves both parametric and nonparametric components. The goal of this approach is to be able to have interpretable parameters, but also to have a model that is flexible enough to handle relationships  that are unknown. Following \eqref{truedist}, we explain how we are going to model every portion to have in the end, a joint probability model. We will now be more specific than in \eqref{regressionfcn1}-\eqref{gold1}.
-
-We start by explaining how we will model the gold standard measurements. As shown in \eqref{gold1},\eqref{gold2}, we assume measurements $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ are unbiased to $X_i^{EE}$ and $X_i^{\Delta ES}$. We continue with our independence assumptions described earlier. Based on the EBS data and the normal quantile plots generated from it in Figures \eqref{fig:ebsdiag2},\eqref{fig:ebsdiag3}, we feel comfortable assuming the error distributions are normal. Further, we will assume constant variance which seems reasonable at least for DXA as seen in Figure \eqref{fig:ebsdiag}; unfortunately we don't have any replicates for DLW at this time. The conditional specifications are then:
-
-\begin{align}
-  f(W_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\nu^{EE}}^2) &\overset{iid}{\sim} N(X_i^{EE},\sigma_{\nu^{EE}}^2) \\
-    f(W_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\nu^{\Delta ES}}^2) &\overset{iid}{\sim} N(X_i^{\Delta ES},\sigma_{\nu^{\Delta ES}}^2) \\
-\end{align}
-
-
-Next we explain how we will model the cheap measurements $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$. Similar to above, we start with the structure in \eqref{regressionfcn1},\eqref{regressionfcn2}. We have reason to believe and have empirical evidence that cheap instruments are not only noisy, but biased as well. Our goal here is to understand both the biases as functions of \emph{usual} value and demographic covariates, as well as the measurement error in the instruments themselves. We propose modeling the cheap measurements as a semi-parametric regression problem. Specifically, model the functions $m_{\cdot}^{\cdot}$ using free knot cubic B-splines, and model demographic covariates with a linear component. This has three benefits. First, the spline is flexible and can pick up an unknown relationship between $X^{\cdot}$ and the cheap measurement of the same, which is important because we never observe the truth and therefore don't have a reasonable guess as to the function form of the relationship. Second, the use of free knot splines eliminates the need for us to specify the number and position of the knots. We use Reversible Jump MCMC (RJMCMC) to determine the number and position of knots. This means we treat the number of knots in each regression equation and their knot locations as random variables.  Third, the linear component for the covariates allows for an easy interpretation of the parameters and thus the biases involved in the instrument. This is important because the covariates we are using are standard to collect in any exercise, diet, or health study and they could help better calibrate the cheap instruments. Like in the gold standard case, we assume conditional on $X^{\cdot}$, the cheap measurements are independent of the gold standard measurements and of the other cheap measurements. We are also assuming the cheap measurements are independent across individuals and within individual. We will also assume constant variance for both measurement errors even though \eqref{fig:ebsdiag} shows some signs of nonconstant variance. We do not have data with replicates of cheap $\Delta$ES measures.   The conditional specifications are then:
-
-\begin{align}
-  f(Y_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\epsilon^{EE}}^2,\boldsymbol{\beta_{ee}}) &\overset{iid}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
-    f(Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\epsilon^{\Delta ES}}^2,\boldsymbol{\beta_{\Delta es}}) &\overset{iid}{\sim} N(s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
-\end{align}
-
-\begin{align}
-  s(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
-  s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
-\end{align}
-
-where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices that can be constructed using the recursion in \cite{nonparametric} in Appendix A. Note that $k_{ee}$ and $k_{es}$ are random variables because we are using free knot splines.
-
-The modeling approach described here is the same no matter which cheap measurement instruments are used. Because of the conditional independence assumptions, if we wanted to understand the measurement error and biases in multiple instruments, we would perform multiple analyses using the different cheap measurements while using the same gold standard measurements (assuming they are all from the same study and individuals).
-
-As a final note, we briefly justify our use of B-splines as the nonparametric regression function. There are many different types of splines, but we picked B-splines because in similar problems it has been shown that they are numerically more stable, which can have major effects on outcomes as compared in Sarkar et al. \cite{sarkar14} 
-
-We allow more flexibility in the distribution of the latent variables $(X_i^{EE},X_i^{\Delta ES})$ by specifying a Dirichlet process mixture prior for them. This allows the data to speak for itself which is ideal since we are dealing with latent variables. The density of $(X_i^{EE},X_i^{\Delta ES})$ can then modeled as an infinite mixture of normals. In any given problem, we can select $H$ such that $\sum_{h=1}^{H} \pi_h < \epsilon$ for some  $\epsilon > 0$. Then we can model the distribution for the latent variables as:
-
-\begin{align}
-X_i^{EE},X_i^{\Delta ES} &\overset{iid}{\sim} \sum_{h=1}^{H} \pi_i N\left( 
-  \begin{bmatrix}
-  \mu_{ee} \\
-  \mu_{es} 
-  \end{bmatrix}
-  ,
-  \Sigma_x
-    \right) \\
-    V_h &\sim \text{Beta}(1,\alpha) \\
-    V_H & = 1 \\
-    \pi_h &= V_h \prod{\ell < h} (1-V_{\ell}) 
-\end{align}
-
-
-$\alpha$ helps control how many components are used. We choose to set this to be  1 so that two observations have equal chance of being in the same clusters as they do different clusters, \emph{apriori}. Before we can write a MCMC sampler we must choose priors for all the unknown parameters. To help simplify the construction of the sampler, we choose conditionally conjuage priors when available.  We also let  all priors be independent of each other. 
-
-
-\begin{multicols}{2}
-\noindent 
-  \begin{align}
-  p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
-  p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{yes},b_{yes}) \\
-  p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}})  , \text{ } g=1,2,3 \\
-  p(k_{ee}) &\sim Poi(\lambda_{ee}) \\
-  p(r_{ee}) &\sim DisUnif(X_1^{EE},...,X_n^{EE})
-  \end{align}
-\columnbreak
-  \begin{align}
-  p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{wee},b_{wee}) \\
-  p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) \\
-  p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}) , \text{ } g=1,2,3 \\
-  p(k_{es}) &\sim Poi(\lambda_{es}) \\
-  p(r_{es}) &\sim DisUnif(X_1^{\Delta ES},...,X_n^{\Delta ES})
-  \end{align}
-\end{multicols}
-
-
-
-\begin{align}
-   p(\Sigma_{X}) &\sim Inv-Wish(\psi,d) \\
-   p(\mu_{EE},\mu_{\Delta ES}) &\sim N(M_{\mu},C_{\mu})
-   %p(\mu_{\Delta ES,h}) &\overset{iid}{\sim} N(0,100000), \text{ } h=1,...,H
-\end{align}
-
-% \begin{align}
-%   p(\alpha) &\sim Gamma(a_{\alpha},b_{\alpha})
-% \end{align}
-
-
-The prior on $k_{ee}$ and $k_{es}$ deals with the number of knots and thus the complexity of the splines. Although we do not know the true form, we do not anticipate it to be highly complex, so we would like to use as few knots as possible. $r_{ee}$ and $r_{es}$ are the knot locations. Our discrete uniform prior on these means that knots can only occur at the latent values of $(X_i^{EE},X_i^{\Delta ES})$. This was done largely for computational convenience as we could have assigned a continuous prior, but we don't believe this will adversely affect the problem because the latent $(X_i^{EE},X_i^{\Delta ES})$ will be updated every MCMC iteration. Notice that we have not placed priors on the spline regression coefficients $\boldsymbol{\beta_{ee}}$ and $\boldsymbol{\beta_{es}}$, this is because we will not be updating this in a fully Bayesian fashion. We will discuss this more in the RJMCMC section.
-
-
-
-% Our model to analyze the measurement error and biases involved with various measurement tools for EE $\Delta$ES involves both parametric and nonparametric components. The goal of this approach is to be able to have interpretable parameters, but also to have a model that is flexible enough to handle relationships and distributions that are unknown. Following \eqref{truedist}, we explain how we are going to model every portion to have in the end, a joint probability model. We will now be more specific than in \eqref{regressionfcn1}-\eqref{gold1}, and we will explain how we propose to deal with specifying the bivariate distribution of the latent variables $(X_i^{EE},X_i^{\Delta ES})$.
-% 
-% We start by explaining how we will model the gold standard measurements. As shown in \eqref{gold1},\eqref{gold2}, we assume measurements $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ are unbiased to $X_i^{EE}$ and $X_i^{\Delta ES}$. We continue with our independence assumptions described earlier. Based on the EBS data and the normal quantile plots generated from it in Figures \eqref{fig:ebsdiag2},\eqref{fig:ebsdiag3}, we feel comfortable assuming the error distributions are normal. Further, we will assume constant variance which seems reasonable at least for DXA as seen in Figure \eqref{fig:ebsdiag}; unfortunately we don't have any replicates for DLW at this time. The conditional specifications are then:
-% 
-% \begin{align}
-%   f(W_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\nu^{EE}}^2) &\overset{iid}{\sim} N(X_i^{EE},\sigma_{\nu^{EE}}^2) \\
-%     f(W_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\nu^{\Delta ES}}^2) &\overset{iid}{\sim} N(X_i^{\Delta ES},\sigma_{\nu^{\Delta ES}}^2) \\
-% \end{align}
-% 
-% 
-% Next we explain how we will model the cheap measurements $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$. Similar to above, we start with the structure in \eqref{regressionfcn1},\eqref{regressionfcn2}. We have reason to believe and have empirical evidence that cheap instruments are not only noisy, but biased as well. Our goal here is to understand both the biases as functions of \emph{usual} value and demographic covariates, as well as the measurement error in the instruments themselves. We propose modeling the cheap measurements as a semi-parametric regression problem. Specifically, model the $X^{\cdot}$ using free knot cubic B-splines, and model demographic covariates with a linear component. This has three benefits. First, the spline is flexible and can pick up an unknown relationship between $X^{\cdot}$ and the cheap measurement of the same, which is important because we never observe the truth and therefore don't have a reasonable guess as to the function form of the relationship. Second, the use of free knot splines eliminates the need for us to specify the number and position of the knots. We use Reversible Jump MCMC (RJMCMC) to determine the number and position of knots. This means we treat the number of knots in each regression equation and their knot locations as random variables.  Third, the linear component for the covariates allows for an easy interpretation of the parameters and thus the biases involved in the instrument. This is important because the covariates we are using are standard to collect in any exercise, diet, or health study and they could help better calibrate the cheap instruments. Like in the gold standard case, we assume conditional on $X^{\cdot}$, the cheap measurements are independent of the gold standard measurements and of the other cheap measurements. We are also assuming the cheap measurements are independent across individuals and within individual. We will also assume constant variance for both measurement errors even though \eqref{fig:ebsdiag} shows some signs of nonconstant variance. We do not have data with replicates of cheap $\Delta$ES measures.   The conditional specifications are then:
-% 
-% \begin{align}
-%   f(Y_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\epsilon^{EE}}^2,\boldsymbol{\beta_{ee}}) &\overset{iid}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
-%     f(Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\epsilon^{\Delta ES}}^2,\boldsymbol{\beta_{\Delta es}}) &\overset{iid}{\sim} N(s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
-% \end{align}
-% 
-% \begin{align}
-%   s(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
-%   s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
-% \end{align}
-% 
-% where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices that can be constructed using the recursion in \cite{nonparametric} in Appendix A. Note that $k_{ee}$ and $k_{es}$ are random variables because we are using free knot splines.
-% 
-% The modeling approach described here is the same no matter which cheap measurement instruments are used. Because of the conditional independence assumptions, if we wanted to understand the measurement error and biases in multiple instruments, we would perform multiple analyses using the different cheap measurements while using the same gold standard measurements (assuming they are all from the same study and individuals).
-% 
-% As a final note, we briefly justify our use of B-splines as the nonparametric regression function. There are many different types of splines, but we picked B-splines because in similar problems it has been shown that they are numerically more stable, which can have major effects on outcomes as compared in Sarkar et al. \cite{sarkar14} 
-% 
-% The most difficult part of specifying the joint likelihood is how to choose the bivariate distribution for the unknown, true values $(X_i^{EE},X_i^{\Delta ES})$. The standard approach would be to assume a bivariate normal distribution or perform a transformation and put a bivariate normal distribution on that transformation. However, it is difficult for anyone to say whether this is reasonable or not, since these latent variables can never be observed. We would like to approach this problem from a nonparametric standpoint instead of making a strong assumption which we have no way to validate. A natural way to do this in a Bayesian framework is using a Dirichlet Process Mixture Model. We will let our mixture components come from a Normal distribution due to its flexibility and interpretability. The weights on this infinite mixture can be specified using the stick breaking representation. The density of $(X_i^{EE},X_i^{\Delta ES})$ is then modeled as:
-% 
-% \begin{align}
-% X_i^{EE},X_i^{\Delta ES}|\zeta &\overset{iid}{\sim} N\left( 
-%   \begin{bmatrix}
-%   \mu_{i,ee} \\
-%   \mu_{i,es} 
-%   \end{bmatrix}
-%   ,
-%   \Sigma_x
-%     \right) \\
-%     \zeta_i &\overset{iid}{\sim} Cat(H,\pi) \\
-%   \pi_k &= V_k \prod_{i=1}^{k-1}(1-V_i) \\
-%   V_k &\sim Beta(1,\alpha)
-% \end{align}
-% 
-% 
-% In application, we cannot have infinite mixtures because we don't have infinite data, so we pick an H s.t. $\sum_{i=1}^{H} \pi_i < \epsilon$ for some small $\epsilon$. Although we could put a prior on $\alpha$ and try to learn the parameter, we will set $\alpha=3$ as we want to encourage the use of more components. 
-% 
-% Before we can write a MCMC sampler we must choose priors for all the unknown parameters. To help simplify the construction of the sampler, we choose conditionally conjuage priors when available.  We also let  all priors be independent of each other. 
-% 
-% 
-% \begin{multicols}{2}
-% \noindent 
-%   \begin{align}
-%   p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
-%   p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{yes},b_{yes}) \\
-%   p(\gamma_{g,ee}) &\sim N(0,C_{\gamma_{ee}})  , \text{ } g=1,2,3 \\
-%   p(k_{ee}) &\sim Poi(\lambda_{ee}) \\
-%   p(r_{ee}) &\sim DisUnif(X_1^{EE},...,X_n^{EE})
-%   \end{align}
-% \columnbreak
-%   \begin{align}
-%   p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{wee},b_{wee}) \\
-%   p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) \\
-%   p(\gamma_{g,es}) &\sim N(0,C_{\gamma_{es}}) , \text{ } g=1,2,3 \\
-%   p(k_{es}) &\sim Poi(\lambda_{es}) \\
-%   p(r_{es}) &\sim DisUnif(X_1^{\Delta ES},...,X_n^{\Delta ES})
-%   \end{align}
-% \end{multicols}
-% 
-% 
-% 
-% \begin{align}
-%    p(\Sigma_{X,h}) &\overset{iid}{\sim} Inv-Wish(\psi,d), \text{ } h=1,...,H\\
-%    p(\mu_{EE,h},\mu_{\Delta ES,h}) &\overset{iid}{\sim} N(M_{\mu},C_{\mu}) \text{ } h=1,...,H
-%    %p(\mu_{\Delta ES,h}) &\overset{iid}{\sim} N(0,100000), \text{ } h=1,...,H
-% \end{align}
-% 
-% 
-% The prior on $k_{ee}$ and $k_{es}$ deals with the number of knots and thus the complexity of the splines. Although we do not know the true form, we do not anticipate it to be highly complex, so we would like to use as few knots as possible. $r_{ee}$ and $r_{es}$ are the knot locations. Our discrete uniform prior on these means that knots can only occur at the latent values of $(X_i^{EE},X_i^{\Delta ES})$. This was done largely for computational convenience as we could have assigned a continuous prior, but we don't believe this will adversely affect the problem because the latent $(X_i^{EE},X_i^{\Delta ES})$ will be updated every MCMC iteration. Notice that we have not placed priors on the spline regression coefficients $\boldsymbol{\beta_{ee}}$ and $\boldsymbol{\beta_{es}}$, this is because we will not be updating this in a fully Bayesian fashion. We will discuss this more in the RJMCMC section.
-
-
 %---------------------------------------------------%
 %-------------------%
 \section{EBS Data}
@@ -491,7 +97,7 @@ Because of the way these data were collected, we do not technically have replica
 
 The goal in this exploratory exercise is to determine the general form and distribution of the measurements as well as check some common measurement error model assumptions. We also want to look at the underlying relationships between measurements as well as with demographic factors. In Figure \ref{fig:ebsw} we  plot the distribution of EE (left) and $\Delta$ES (right) as measured by gold standard instruments faceted by gender. Values for these plots were from the subsample receiving DLW only. EE by DLW is slightly skewed right with males having systematically greater EE. $\Delta$ES by DXA is fairly symmetric and has no obvious systematic differences between genders. 
 
-In Figure \ref{fig:ebsdiag} we have diagnostic plots to check whether constant variance would be a reasonable assumption for measures of EE and $\Delta$ES, respectively. Both these plots have the mean based on replicates for an individual on the x axis and that same individual's standard deviation based on replicates on the y axis. The left plot is for EE as measured by the Sensewear Armband and the right plot is for $\Delta$ES as measured by DXA. Note the armband for EE is not a gold standard measure, but there is absolutely no replication for DLW measurements in this data. Looking at the EE plot, we see some signs of nonconstant variance, with variability increasing with EE. The $\Delta$ES plot doesn't show much in terms of nonconstant variability. This is again based on the subsample.
+In Figure \ref{fig:ebsdiag} we have diagnostic plots to check whether constant variance would be a reasonable assumption for these specific measures of EE and $\Delta$ES, respectively. Both these plots have the mean based on replicates for an individual on the x axis and that same individual's standard deviation based on replicates on the y axis. The left plot is for EE as measured by the Sensewear Armband and the right plot is for $\Delta$ES as measured by DXA. Looking at the EE plot, we see some signs of nonconstant variance, with variability increasing with EE. The $\Delta$ES plot doesn't show much in terms of nonconstant variability. This is again based on the subsample.
 
 Figure \ref{fig:ebsdiag2} shows normal quantile plots for DLW measured EE split by gender, Females on left and Males on right. Note this is not the usual measurement error diagnostic plot suggested in Carroll et al. \cite{nonlinear} since it is based on actual EE values and not differenced values, however we don't have replicates for DLW measurements. By splitting this measure by gender, we get approximately normally distributed values as opposed to a distribution with fatter tails. Because DLW is the gold standard for EE, or what we referred to as $W^{EE}$, we have at least some empirical evidence of normality for these measurement errors. 
 %relate this back to f(w^ee|x)?
@@ -634,6 +240,401 @@ stargazer(m1,title="Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gend
 @
 
 
+
+
+%-------------------------------------------------------------%
+%-------------------------------------------------------------%
+\section{Methodology}
+%-------------------------------------------------------------%
+%-------------------------------------------------------------%
+
+
+%---------------------------%
+\subsection{Notation}
+%----------------------------%
+
+We will denote the measured average daily EE by DLW for subject $i$ over time period $j$, $W_{ij}^{EE}$, and average daily $\Delta$ES measured by DXA for subject $i$ over time period $j$, $W_{ij}^{\Delta ES}$. A positive value for $\Delta$ES indicates that more food was consumed than burned. We are averaging these values because DLW gives an estimate of EE over the course of approximately 14 days, so to keep things simple and comparable, we will always talk about average kcals per day. 
+
+We also have cheaper measurements for EE and $\Delta$ES. We introduced some of these commonly used methods in the first chapter. When collecting data on a large population, it makes more sense to collect these cheaper measurements on most of the subjects. However, they are cheaper for a reason, and ultimately, we would like to use our model assess the measurement error involved and calibrate these cheaper measurements to make them more accurate and precise. Although there are multiple different cheap ways to measure EE and $\Delta$ES, we will keep the notation here general since in any given situation we will be talking only about one specific measurement tool of each. Therefore we will not talk about specific measurement tools here, rather we lump them together as cheap measurements. We will denote the measured average daily EE by a cheaper method for subject $i$ over time period $j$, $Y_{ij}^{EE}$, and average daily change in energy stores measured by a cheaper method for subject $i$ over time period $j$, $Y_{ij}^{\Delta ES}$. In application, it will be clear in every situation which tool was used to measure the $Y$'s.
+
+Lastly, the values which we never observe are the \emph{usual} EE and $\Delta$ES for subject $i$. We define \emph{usual} as a long run average of the true EE and $\Delta$ES. Let $X_i^{EE}$ represent the \emph{usual} daily EE for subject i and $X_i^{\Delta ES}$ represent the \emph{usual} daily $\Delta$ES for subject $i$. Note there is considerable within person variability to this \emph{usual} value. However, this value is of not much interest itself. We refer to the \emph{truth} for individual $i$ during time period $j$ as being individual $i$'s \emph{usual} value plus their within person variation during time period $j$.
+
+% \begin{align}
+%   \label{trueee}
+%   X_i^{EE} &= X_i^{EE} + \delta_{ij}^{EE} \\
+%   %
+%   \label{truees}
+%   X_i^{\Delta ES} &= X_i^{\Delta ES} + \delta_{ij}^{\Delta ES}
+% \end{align}
+
+%  Here, $X_i^{EE}$ represents the \emph{true} average daily EE for subject i \emph{over time period j}, and $\delta_{ij}^{EE}$ is the deviation from subject i's \emph{true} average daily EE \emph{over the course of several years} ($X_i^{EE}$) and time j, or in other words, within-person variability. Similarly, $X_i^{\Delta ES}$ is the \emph{true} average daily $\Delta$ES for subject i \emph{over time period j}, and $\delta_{ij}^{\Delta ES}$ is the deviation from subject i's \emph{true} average daily $\Delta$ES \emph{over the course of several years} ($X_i^{\Delta ES}$) at time j. If $X_i^{EI}$ represents subject i at time j's \emph{true} EI, $X_{i}^{EI}$ represents subject i's \emph{usual} EI, and $\delta_{ij}^{EI}$ represents subject i at time j's deviation from his \emph{usual} EI. Then by the energy balance principle:
+%  
+% \begin{align} 
+%   \label{usualebe}
+%  X_{i}^{EI} &= X_{i}^{EE} + X_{i}^{\Delta ES} \\
+%  X_i^{EI} &= X_i^{EE} + X_i^{\Delta ES} \\
+%  \label{withinvar}
+%  \delta_{ij}^{EI} &= \delta_{ij}^{EE} + \delta_{ij}^{\Delta ES} 
+% \end{align}
+
+%------------------------------%
+\subsection{(In)Dependence Assumptions}
+%------------------------------%
+
+ Our observed data for subject $i$ over time $j$ will consist of the values ({\bf$W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}, Z_i$}) where $Z_i$ is a vector of (assumed) perfectly measured covariates for subject $i$. A joint probability model for these observables is represented as:
+
+\begin{align}
+  f(W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i,\boldsymbol{\theta})
+  \label{fullmodel}
+\end{align}
+
+Because of all the dependencies involved, we will deconstruct this via conditional independence assumptions. Given the value $X_i^{EE}$ (\emph{usual} daily EE for subject $i$) and $X_i^{\Delta ES}$ (\emph{usual} daily $\Delta$ES for subject $i$), and covariates $Z_i$, we assume that:
+
+\begin{enumerate}
+\item
+$Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ are independent of each other and 
+\item
+$Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ are each independent from both $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$
+\item
+$W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ are independent of each other
+
+Additionally, given that the above assumptions are reasonable, we expand these by additionally assuming
+
+\item
+Given only $X_i^{EE}$ and $Z_i$, $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ are independent of each other and from both $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ and vice versa for $\Delta$ES
+\item
+Given only $X_i^{EE}$ and $Z_i$, $W_{ij}^{EE}$ is independent from $W_{ij}^{\Delta ES}$ and vice versa for $\Delta$ES
+
+\end{enumerate}
+
+ This is because  (1): given the true values \emph{X} and covariates \emph{Z}, knowing a cheap measurement one will give you no more information about the cheap measurement of the other, so long as it is not self-administered. And (2): once we know the truth \emph{X}, having an unbiased measurement of \emph{X} will not provide any more information to the cheap, biased measurement of \emph{X}. DLW and DXA are conducted by separate personnel and these are done separately from those administering the cheap measurement methods. (3) follows the same lines as (1), and again, DXA and DLW are performed by different people.
+
+We are comfortable with conditional independence assumptions (1)-(3) and their validity will not be discussed again. The last two conditional independence assumptions are not as clear cut. It does seem possible that the true change in body composition ($\Delta$ES) could affect how well an activity monitor records EE, even after knowing the true EE and covariates. It also seems possible, but slightly less likely that the same is true for the gold standard measurements. We need to remember this assumption when making conclusions later on.
+
+%----------------------------------%
+\subsection{Model Likelihood}
+%----------------------------------%
+
+Based on the assumptions made in the previous paragraphs, we can specify our full model \eqref{fullmodel} by:
+
+\begin{align}
+  \begin{split}
+    \label{truedist}
+  f({ W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i},\boldsymbol{\theta}) &= \int_{\mathcal{X}_{es}} \int_{\mathcal{X}_{ee}} f({ W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}, X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} \\
+  %
+    &= \int_{\mathcal{X}_{es}} \int_{\mathcal{X}_{ee}} f({ W_{ij}^{EE}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{wee}}) f({ W_{ij}^{\Delta ES}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{wes}}) \times\\
+  & f({ Y_{ij}^{EE}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{yee}}) f({ Y_{ij}^{\Delta ES}|X_i^{EE},X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{yes}}) \times  \\
+  & f({ X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta_x}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} \\
+  %
+  &= \int_{\mathcal{X}_{es}} \int_{\mathcal{X}_{ee}} f({ W_{ij}^{EE}|X_i^{EE},Z_i},\boldsymbol{\theta_{wee}}) f({ W_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{wes}}) \times\\
+  & f({ Y_{ij}^{EE}|X_i^{EE},Z_i},\boldsymbol{\theta_{yee}}) f({ Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i},\boldsymbol{\theta_{yes}}) \times  \\
+  & f({ X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta_x}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} 
+  \end{split}
+\end{align}
+
+Further, we specify the models for the \emph{W}'s and \emph{Y}'s as:
+
+\begin{align}
+  \label{regressionfcn1} 
+  Y_{ij}^{EE} &= m_{ee}(X_i^{EE} ,Z_i) + \epsilon_{ij}^{EE}  \\
+  %
+  \label{regressionfcn2}
+  Y_{ij}^{\Delta ES} &= m_{es}(X_i^{\Delta ES} ,Z_i) + \epsilon_{ij}^{\Delta ES} \\
+  %
+  \label{gold1} 
+  W_{ij}^{EE} &= X_i^{EE}  + \nu_{ij}^{EE}  \\
+  %
+  \label{gold2}
+  W_{ij}^{\Delta ES} &= X_i^{\Delta ES}  + \nu_{ij}^{\Delta ES} 
+\end{align}
+
+where $m_{ee}(\cdot)$ and $m_{es}(\cdot)$ are assumed to be general, smooth functions. $\nu_{ij}^{EE}$ and $\nu_{ij}^{\Delta ES}$ represent the measurement error for subject $i$ during time period $j$ using DLW and DXA, respectively, and within person variability. For now, we let $\epsilon_{ij}^{EE}$ and $\epsilon_{ij}^{\Delta ES}$ represent the measurement error for subject $i$ during time period $j$ using cheap measurements of EE and $\Delta$ES, respectively, and within person variability. This is a working assumption since the within person variability is in reality not an additive error, rather it is added to the usual and realized through the functions $m_{\cdot}(\cdot)$. We cannot directly estimate both within person variability and measurement error simultaneously due to realistic data constraints.  We assume the expected values of all $\epsilon,\nu$ are 0. This implies we are assuming DLW and DXA are providing unbiased estimates for the \emph{usual} daily EE ($X_i^{EE}$) and $\Delta$ES ($X_i^{\Delta ES}$), respectively, and the cheap measurements are giving biased estimates of (possibly) unknown form.
+
+
+We assume subjects are independent of each other. Additionally, conditional on each subjects' respective \emph{usual} value $X_i^{\cdot}$, replicate measurements within subject are independent. Independence within individuals is justified because it is conditional \emph{on each individuals usual value}, which means once we know an individual's baseline, we expect variation from their to be independent day to day. The likelihood function for individual $i$ can then be written as:
+
+\begin{align}
+  L_i(\boldsymbol{\theta}) &= \prod_{j=1}^{J} f(W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i,\boldsymbol{\theta}) 
+\end{align}
+
+where the RHS is expanded in \eqref{truedist}. Given the independence assumptions in the previous paragraph,  the full likelihood is
+
+\begin{align}
+  L(\boldsymbol{\theta}) &= \prod_{i=1}^{n}  L_i(\boldsymbol{\theta}) 
+\end{align}
+
+
+
+%-------------------------------------
+%-------------------------------%
+%\section{Models}
+%-------------------------------%
+%-----------------------------------------
+
+%-------------------------------
+\subsection{N{\"a}ive Model}
+%-------------------------------
+
+The first model we will consider is what we call the n{\"a}ive model. This model will assume no measurement error in the gold standard instrument exists,  thus DLW and DXA give error-free measurements of $X_i^{EE}$ and $X_i^{\Delta ES}$, respectively. We also assume the cheap measurements $Y$ are linearly related to measurements of the \emph{truth} and of error free covariates. Based on empirical evidence from EBS data, gender, BMI, and age all had some effect on the cheap measurement of EE.  Mathematically, the n{\"a}ive model is represented as:
+
+\begin{align}
+Y_{ij}^{EE} &= \beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i + \epsilon_{ij}^{EE} \\
+Y_{ij}^{\Delta ES} &= \beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}Z_i + \epsilon_{ij}^{\Delta ES} 
+\end{align}
+
+where the $\beta_{1,\cdot}$ terms represents the relationship between cheap measurements and the \emph{truth} EE and $\Delta$ES and the $\beta_0$ terms represent systematic biases. $\boldsymbol{\gamma_{\cdot}}=(\gamma_{1,\cdot},\gamma_{2,\cdot},\gamma_{3,\cdot})$ and $\gamma_{1,\cdot}$ is the coefficient for gender, $\gamma_{2,\cdot}$ is the coefficient for BMI, and $\gamma_{3,\cdot}$ is the coefficient for age. We take the standard approach and assume Normal distributions for the error terms, as well as assuming independence within and across individuals conditional on subject $i$:
+
+\begin{align}
+  \label{ymodel0}
+  (Y_{ij}^{EE} | W_{ij}^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{iid}{\sim} N(\beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
+  \label{ymodel0b}
+  (Y_{ij}^{\Delta ES} | W_{ij}^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{iid}{\sim} N(\beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2)
+\end{align}
+
+Priors are assumed independent and are assigned below. We chose forms for piors to be conjugate or conditionally conjugate for ease of implementation but also to incorporate weak information. 
+
+\begin{multicols}{2}
+\noindent 
+\begin{align}
+p(\beta_{0,ee}) &\sim N(M_{\beta_{0,ee}},C_{\beta_{0,ee}}) \\
+p(\beta_{1,ee}) &\sim N(M_{\beta_{1,ee}},C_{\beta_{1,ee}}) \\
+p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}}), \text{ } g=1,2,3 \\
+p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) 
+\end{align}
+\columnbreak
+\begin{align}
+p(\beta_{0,es}) &\sim N(M_{\beta_{0,es}},C_{\beta_{0,es}}) \\
+p(\beta_{1,es}) &\sim N(M_{\beta_{1,es}},C_{\beta_{1,es}}) \\
+p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}), \text{ } g=1,2,3 \\
+p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{yes},b_{yes}) 
+\end{align}
+\end{multicols}
+
+$\sigma^2_{\epsilon^{ee}}$ and $\sigma^2_{\epsilon^{es}}$ represent the measurement error and within-person variability as measured in the cheap EE and $\Delta$ES tools, respectively. 
+
+
+%----------------------------------------
+\subsection{Linear Measurement Error Model}
+%----------------------------------------
+The Linear Measurement Error Model, or what we'll refer to as the LME model, is a measurement error model that otherwise takes similar form to the n{\"a}ive model. Instead of assuming the gold standard measurements are error free, we allow them to follow the form of \eqref{gold1},\eqref{gold2}. We assume the measurement error terms follow independent normal distributions. We justify this assumption in the development of our full model. We also need to specify a bivariate distribution for the \emph{usual}, $(X_i^{EE},X_i^{\Delta ES})$. The common approach is to assume a Normal distribution, which we do here. In mathematical notation, the model is represented as:
+
+%---------------%
+% fix
+\begin{align}
+  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\sim N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}Z_i, \sigma_{\epsilon_{EE}}^2) \\
+  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\sim N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
+  (W_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{wee}}) &\overset{iid}{\sim} N(X_i^{EE}, \sigma_{\nu_{EE}}^2 ) \\
+  (W_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{wes}}) &\overset{iid}{\sim} N(X_i^{\Delta ES}, \sigma_{\nu_{\Delta ES}}^2 )  \\
+  (X_i^{EE},X_i^{\Delta ES}|\theta_X) &\overset{iid}{\sim} N\left(
+  \begin{bmatrix}
+  \mu_{EE}\\
+  \mu_{\Delta ES}
+  \end{bmatrix}
+  , \Sigma_X
+  \right)
+\end{align}
+
+We choose the priors as:
+
+\begin{multicols}{2}
+\noindent 
+  \begin{align}
+  p(\beta_{0,ee}) &\sim N(M_{\beta_{0,ee}},C_{\beta_{0,ee}}) \\
+  p(\beta_{1,ee}) &\sim N(M_{\beta_{1,ee}},C_{\beta_{1,ee}}) \\
+  p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}}), \text{ } g=1,2,3 \\
+  p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
+  p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{wee},b_{wee}) 
+\end{align}
+\columnbreak
+\begin{align}
+  p(\beta_{0,es}) &\sim N(M_{\beta_{0,es}},C_{\beta_{0,es}}) \\
+  p(\beta_{1,es}) &\sim N(M_{\beta_{1,es}},C_{\beta_{1,es}}) \\
+  p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}), \text{ } g=1,2,3 \\
+  p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{yes},b_{yes}) \\
+  p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) 
+  \end{align}
+\end{multicols}
+
+\begin{align}
+   p(\Sigma_X) &\sim Inv-Wish(\psi,d)\\
+   p(\mu_{EE},\mu_{\Delta ES}) &\sim N(M_{\mu},C_{\mu}) 
+\end{align}
+
+
+
+% The interpretation of $\beta_{1,\cdot}$ is similar to the n{\"a}ive model, except it is with respect to $X^{\cdot}$ instead of a gold standard measurement.  The interepretation of the $\gamma$ coefficients is then the bias in EE and $\Delta$ES from the cheap measurements. For example, all else equal, the difference in the cheap measurement of EE between a male and a female is $\gamma_{1,ee}$ kcals. The larger magniture each $\gamma$ is, the more bias that  instrument has. 
+
+
+
+
+%--------------------------------------
+\subsection{Model DP}
+%--------------------------------------
+
+Our model to analyze the measurement error and biases involved with various measurement tools for EE $\Delta$ES involves both parametric and nonparametric components. The goal of this approach is to be able to have interpretable parameters, but also to have a model that is flexible enough to handle relationships  that are unknown. Following \eqref{truedist}, we explain how we are going to model every portion to have in the end, a joint probability model. We will now be more specific than in \eqref{regressionfcn1}-\eqref{gold1}.
+
+We start by explaining how we will model the gold standard measurements. As shown in \eqref{gold1},\eqref{gold2}, we assume measurements $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ are unbiased to $X_i^{EE}$ and $X_i^{\Delta ES}$. We continue with our independence assumptions described earlier. Based on the EBS data and the normal quantile plots generated from it in Figures \eqref{fig:ebsdiag2},\eqref{fig:ebsdiag3}, we feel comfortable assuming the error distributions are normal. Further, we will assume constant variance which seems reasonable at least for DXA as seen in Figure \eqref{fig:ebsdiag}; unfortunately we don't have any replicates for DLW at this time. The conditional specifications are then:
+
+\begin{align}
+  f(W_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\nu^{EE}}^2) &\overset{iid}{\sim} N(X_i^{EE},\sigma_{\nu^{EE}}^2) \\
+    f(W_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\nu^{\Delta ES}}^2) &\overset{iid}{\sim} N(X_i^{\Delta ES},\sigma_{\nu^{\Delta ES}}^2) \\
+\end{align}
+
+
+Next we explain how we will model the cheap measurements $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$. Similar to above, we start with the structure in \eqref{regressionfcn1},\eqref{regressionfcn2}. We have reason to believe and have empirical evidence that cheap instruments are not only noisy, but biased as well. Our goal here is to understand both the biases as functions of \emph{usual} value and demographic covariates, as well as the measurement error in the instruments themselves. We propose modeling the cheap measurements as a semi-parametric regression problem. Specifically, model the functions $m_{\cdot}^{\cdot}()$ using free knot cubic B-splines, and model demographic covariates with a linear component. This has three benefits. First, the spline is flexible and can pick up an unknown relationship between $X^{\cdot}$ and the cheap measurement of the same, which is important because we never observe the truth and therefore don't have a reasonable guess as to the function form of the relationship. Second, the use of free knot splines eliminates the need for us to specify the number and position of the knots. We use Reversible Jump MCMC (RJMCMC) to determine the number and position of knots. This means we treat the number of knots in each regression equation and their knot locations as random variables.  Third, the linear component for the covariates allows for an easy interpretation of the parameters and thus the biases involved in the instrument. This is convenient because the covariates we are using are standard to collect in any exercise, diet, or health study and they could help better calibrate the cheap instruments.  We will make a working assumption of constant variance for all measurement errors at this time. Based on the above, the model specification is then:
+
+\begin{align}
+  f(Y_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\epsilon^{EE}}^2,\boldsymbol{\beta_{ee}}) &\overset{iid}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
+    f(Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\epsilon^{\Delta ES}}^2,\boldsymbol{\beta_{\Delta es}}) &\overset{iid}{\sim} N(s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
+\end{align}
+
+\begin{align}
+  s(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
+  s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
+\end{align}
+
+where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices that can be constructed using the recursion in \cite{nonparametric} in Appendix A. $k_{ee}$ and $k_{es}$ are the number of knots for the EE and $\Delta$ES splines, respectively. Note that $k_{ee}$ and $k_{es}$ are random variables because we are using free knot splines.
+
+
+As a final note, we briefly justify our use of B-splines as the nonparametric regression function. There are many different types of splines, but we picked B-splines because in similar problems it has been shown that they are numerically more stable, which can have major effects on outcomes as compared in Sarkar et al. \cite{sarkar14} 
+
+We allow more flexibility in the distribution of the latent variables $(X_i^{EE},X_i^{\Delta ES})$ by specifying a Dirichlet process mixture prior for them. This allows the data to speak for itself which is ideal since we are dealing with latent variables. The density of $(X_i^{EE},X_i^{\Delta ES})$ can then modeled as an infinite mixture of normals.  Then we can model the distribution for the latent variables as:
+
+\begin{align}
+X_i^{EE},X_i^{\Delta ES} &\overset{iid}{\sim} \sum_{h=1}^{H} \pi_i N\left( 
+  \begin{bmatrix}
+  \mu_{ee} \\
+  \mu_{es} 
+  \end{bmatrix}
+  ,
+  \Sigma_x
+    \right) \\
+    V_h &\sim \text{Beta}(1,\alpha) \\
+    V_H & = 1 \\
+    \pi_h &= V_h \prod{\ell < h} (1-V_{\ell}) 
+\end{align}
+
+
+$\alpha$ helps control how many components are used. In any given problem, we can select $H$ such that $\sum_{h=1}^{H} \pi_h < \epsilon$ for some  $\epsilon > 0$. We choose to set $\alpha$ to be  1 so that two observations have equal chance of being in the same clusters as they do different clusters, \emph{apriori}.  To help simplify the construction of the sampler, we choose conditionally conjuage priors when available.  We also let  all priors be independent of each other. 
+
+
+\begin{multicols}{2}
+\noindent 
+  \begin{align}
+  p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
+  p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{yes},b_{yes}) \\
+  p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}})  , \text{ } g=1,2,3 \\
+  p(k_{ee}) &\sim Poi(\lambda_{ee}) \\
+  p(r_{ee}) &\sim DisUnif(X_1^{EE},...,X_n^{EE})
+  \end{align}
+\columnbreak
+  \begin{align}
+  p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{wee},b_{wee}) \\
+  p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) \\
+  p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}) , \text{ } g=1,2,3 \\
+  p(k_{es}) &\sim Poi(\lambda_{es}) \\
+  p(r_{es}) &\sim DisUnif(X_1^{\Delta ES},...,X_n^{\Delta ES})
+  \end{align}
+\end{multicols}
+
+
+
+\begin{align}
+   p(\Sigma_{X}) &\sim Inv-Wish(\psi,d) \\
+   p(\mu_{EE},\mu_{\Delta ES}) &\sim N(M_{\mu},C_{\mu})
+   %p(\mu_{\Delta ES,h}) &\overset{iid}{\sim} N(0,100000), \text{ } h=1,...,H
+\end{align}
+
+% \begin{align}
+%   p(\alpha) &\sim Gamma(a_{\alpha},b_{\alpha})
+% \end{align}
+
+
+The prior on $k_{ee}$ and $k_{es}$ deals with the number of knots and thus the complexity of the splines. Although we do not know the true form, we do not anticipate it to be highly complex, so we would like to use as few knots as possible. $r_{ee}$ and $r_{es}$ are the knot locations. Our discrete uniform prior on these means that knots can only occur at the latent values of $(X_i^{EE},X_i^{\Delta ES})$. This was done largely for computational convenience as we could have assigned a continuous prior, but we don't believe this will adversely affect the problem because the latent $(X_i^{EE},X_i^{\Delta ES})$ will be updated every MCMC iteration. Notice that we have not placed priors on the spline regression coefficients $\boldsymbol{\beta_{ee}}$ and $\boldsymbol{\beta_{es}}$, this is because we will not be updating this in a fully Bayesian fashion. We will discuss this more in the RJMCMC section.
+
+
+
+% Our model to analyze the measurement error and biases involved with various measurement tools for EE $\Delta$ES involves both parametric and nonparametric components. The goal of this approach is to be able to have interpretable parameters, but also to have a model that is flexible enough to handle relationships and distributions that are unknown. Following \eqref{truedist}, we explain how we are going to model every portion to have in the end, a joint probability model. We will now be more specific than in \eqref{regressionfcn1}-\eqref{gold1}, and we will explain how we propose to deal with specifying the bivariate distribution of the latent variables $(X_i^{EE},X_i^{\Delta ES})$.
+% 
+% We start by explaining how we will model the gold standard measurements. As shown in \eqref{gold1},\eqref{gold2}, we assume measurements $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ are unbiased to $X_i^{EE}$ and $X_i^{\Delta ES}$. We continue with our independence assumptions described earlier. Based on the EBS data and the normal quantile plots generated from it in Figures \eqref{fig:ebsdiag2},\eqref{fig:ebsdiag3}, we feel comfortable assuming the error distributions are normal. Further, we will assume constant variance which seems reasonable at least for DXA as seen in Figure \eqref{fig:ebsdiag}; unfortunately we don't have any replicates for DLW at this time. The conditional specifications are then:
+% 
+% \begin{align}
+%   f(W_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\nu^{EE}}^2) &\overset{iid}{\sim} N(X_i^{EE},\sigma_{\nu^{EE}}^2) \\
+%     f(W_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\nu^{\Delta ES}}^2) &\overset{iid}{\sim} N(X_i^{\Delta ES},\sigma_{\nu^{\Delta ES}}^2) \\
+% \end{align}
+% 
+% 
+% Next we explain how we will model the cheap measurements $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$. Similar to above, we start with the structure in \eqref{regressionfcn1},\eqref{regressionfcn2}. We have reason to believe and have empirical evidence that cheap instruments are not only noisy, but biased as well. Our goal here is to understand both the biases as functions of \emph{usual} value and demographic covariates, as well as the measurement error in the instruments themselves. We propose modeling the cheap measurements as a semi-parametric regression problem. Specifically, model the $X^{\cdot}$ using free knot cubic B-splines, and model demographic covariates with a linear component. This has three benefits. First, the spline is flexible and can pick up an unknown relationship between $X^{\cdot}$ and the cheap measurement of the same, which is important because we never observe the truth and therefore don't have a reasonable guess as to the function form of the relationship. Second, the use of free knot splines eliminates the need for us to specify the number and position of the knots. We use Reversible Jump MCMC (RJMCMC) to determine the number and position of knots. This means we treat the number of knots in each regression equation and their knot locations as random variables.  Third, the linear component for the covariates allows for an easy interpretation of the parameters and thus the biases involved in the instrument. This is important because the covariates we are using are standard to collect in any exercise, diet, or health study and they could help better calibrate the cheap instruments. Like in the gold standard case, we assume conditional on $X^{\cdot}$, the cheap measurements are independent of the gold standard measurements and of the other cheap measurements. We are also assuming the cheap measurements are independent across individuals and within individual. We will also assume constant variance for both measurement errors even though \eqref{fig:ebsdiag} shows some signs of nonconstant variance. We do not have data with replicates of cheap $\Delta$ES measures.   The conditional specifications are then:
+% 
+% \begin{align}
+%   f(Y_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\epsilon^{EE}}^2,\boldsymbol{\beta_{ee}}) &\overset{iid}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
+%     f(Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\sigma_{\epsilon^{\Delta ES}}^2,\boldsymbol{\beta_{\Delta es}}) &\overset{iid}{\sim} N(s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
+% \end{align}
+% 
+% \begin{align}
+%   s(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
+%   s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
+% \end{align}
+% 
+% where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices that can be constructed using the recursion in \cite{nonparametric} in Appendix A. Note that $k_{ee}$ and $k_{es}$ are random variables because we are using free knot splines.
+% 
+% The modeling approach described here is the same no matter which cheap measurement instruments are used. Because of the conditional independence assumptions, if we wanted to understand the measurement error and biases in multiple instruments, we would perform multiple analyses using the different cheap measurements while using the same gold standard measurements (assuming they are all from the same study and individuals).
+% 
+% As a final note, we briefly justify our use of B-splines as the nonparametric regression function. There are many different types of splines, but we picked B-splines because in similar problems it has been shown that they are numerically more stable, which can have major effects on outcomes as compared in Sarkar et al. \cite{sarkar14} 
+% 
+% The most difficult part of specifying the joint likelihood is how to choose the bivariate distribution for the unknown, true values $(X_i^{EE},X_i^{\Delta ES})$. The standard approach would be to assume a bivariate normal distribution or perform a transformation and put a bivariate normal distribution on that transformation. However, it is difficult for anyone to say whether this is reasonable or not, since these latent variables can never be observed. We would like to approach this problem from a nonparametric standpoint instead of making a strong assumption which we have no way to validate. A natural way to do this in a Bayesian framework is using a Dirichlet Process Mixture Model. We will let our mixture components come from a Normal distribution due to its flexibility and interpretability. The weights on this infinite mixture can be specified using the stick breaking representation. The density of $(X_i^{EE},X_i^{\Delta ES})$ is then modeled as:
+% 
+% \begin{align}
+% X_i^{EE},X_i^{\Delta ES}|\zeta &\overset{iid}{\sim} N\left( 
+%   \begin{bmatrix}
+%   \mu_{i,ee} \\
+%   \mu_{i,es} 
+%   \end{bmatrix}
+%   ,
+%   \Sigma_x
+%     \right) \\
+%     \zeta_i &\overset{iid}{\sim} Cat(H,\pi) \\
+%   \pi_k &= V_k \prod_{i=1}^{k-1}(1-V_i) \\
+%   V_k &\sim Beta(1,\alpha)
+% \end{align}
+% 
+% 
+% In application, we cannot have infinite mixtures because we don't have infinite data, so we pick an H s.t. $\sum_{i=1}^{H} \pi_i < \epsilon$ for some small $\epsilon$. Although we could put a prior on $\alpha$ and try to learn the parameter, we will set $\alpha=3$ as we want to encourage the use of more components. 
+% 
+% Before we can write a MCMC sampler we must choose priors for all the unknown parameters. To help simplify the construction of the sampler, we choose conditionally conjuage priors when available.  We also let  all priors be independent of each other. 
+% 
+% 
+% \begin{multicols}{2}
+% \noindent 
+%   \begin{align}
+%   p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
+%   p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{yes},b_{yes}) \\
+%   p(\gamma_{g,ee}) &\sim N(0,C_{\gamma_{ee}})  , \text{ } g=1,2,3 \\
+%   p(k_{ee}) &\sim Poi(\lambda_{ee}) \\
+%   p(r_{ee}) &\sim DisUnif(X_1^{EE},...,X_n^{EE})
+%   \end{align}
+% \columnbreak
+%   \begin{align}
+%   p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{wee},b_{wee}) \\
+%   p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) \\
+%   p(\gamma_{g,es}) &\sim N(0,C_{\gamma_{es}}) , \text{ } g=1,2,3 \\
+%   p(k_{es}) &\sim Poi(\lambda_{es}) \\
+%   p(r_{es}) &\sim DisUnif(X_1^{\Delta ES},...,X_n^{\Delta ES})
+%   \end{align}
+% \end{multicols}
+% 
+% 
+% 
+% \begin{align}
+%    p(\Sigma_{X,h}) &\overset{iid}{\sim} Inv-Wish(\psi,d), \text{ } h=1,...,H\\
+%    p(\mu_{EE,h},\mu_{\Delta ES,h}) &\overset{iid}{\sim} N(M_{\mu},C_{\mu}) \text{ } h=1,...,H
+%    %p(\mu_{\Delta ES,h}) &\overset{iid}{\sim} N(0,100000), \text{ } h=1,...,H
+% \end{align}
+% 
+% 
+% The prior on $k_{ee}$ and $k_{es}$ deals with the number of knots and thus the complexity of the splines. Although we do not know the true form, we do not anticipate it to be highly complex, so we would like to use as few knots as possible. $r_{ee}$ and $r_{es}$ are the knot locations. Our discrete uniform prior on these means that knots can only occur at the latent values of $(X_i^{EE},X_i^{\Delta ES})$. This was done largely for computational convenience as we could have assigned a continuous prior, but we don't believe this will adversely affect the problem because the latent $(X_i^{EE},X_i^{\Delta ES})$ will be updated every MCMC iteration. Notice that we have not placed priors on the spline regression coefficients $\boldsymbol{\beta_{ee}}$ and $\boldsymbol{\beta_{es}}$, this is because we will not be updating this in a fully Bayesian fashion. We will discuss this more in the RJMCMC section.
+
+
 %----------------------------------------------------%
 %------------------%
 %\section{Data Structure}
@@ -643,7 +644,7 @@ stargazer(m1,title="Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gend
 \section{Simulated Data}
 %------------------%
 
-In this section we describe how we simulate a data set that reflects our problem. Our simulated data needs to be sufficiently complex and incorporate dependence in order to represent the distributions of true EE and EI, as well as gold standard measurements and cheap measurements. We need to simulate data for all the components in \eqref{fullmodel} as well as the latent variables ($X_i^{EE}, X_i^{\Delta ES}$). We will explore measurement errors for the gold standard and cheap measurements in 3 different situations: normal errors, skewed errors, bimodal errors. 
+In this section we describe how we simulate a data set that reflects our problem. Our simulated data needs to be sufficiently complex and incorporate dependence in order to represent the distributions of true EE and EI, as well as gold standard measurements and cheap measurements. We try to simulate data  that looks similar to the EBS data. We need to simulate data for all the components in \eqref{fullmodel} as well as the latent variables ($X_i^{EE}, X_i^{\Delta ES}$). We will explore measurement errors for the gold standard and cheap measurements in 3 different situations: normal errors, skewed errors, bimodal errors. 
 
 %-------------------------%
 \subsection{Demographic Covariates}
@@ -694,11 +695,11 @@ contour(kde2d(simdata$xee, simdata$xes))
     \hline
     & Mean EE & Mean EI & Std Dev EE & Std Dev EI & Cor(EE,EI) \\
     \hline
-    Component 1 & 1500 + $\gamma_{ee} Z_{comp,1}$ & 1590 + $\gamma_{ei} Z_1$ & 50 & 70 & 0.4376\\
-    Component 2 & 2000 + $\gamma_{ee} Z_{comp,2}$ & 2090 + $\gamma_{ei} Z_2$ & 50 & 65 & 0.4376\\
-    Component 3 & 2300 + $\gamma_{ee} Z_{comp,3}$ & 2390 + $\gamma_{ei} Z_3$ & 90 & 120 & 0.4376\\
-    Component 4 & 2600 + $\gamma_{ee} Z_{comp,4}$ & 2690 + $\gamma_{ei} Z_4$ & 40 & 50 & 0.4376\\
-    Component 5 & 3200 + $\gamma_{ee} Z_{comp,5}$ & 3290 + $\gamma_{ei} Z_5$ & 90 & 120 & 0.4376\\
+    Component 1 & 1500 + $\gamma_{ee} Z_{comp,1}$ & 1630 + $\gamma_{ei} Z_1$ & 50 & 70 & 0.4376\\
+    Component 2 & 1900 + $\gamma_{ee} Z_{comp,2}$ & 2030 + $\gamma_{ei} Z_2$ & 80 & 95 & 0.4376\\
+    Component 3 & 2100 + $\gamma_{ee} Z_{comp,3}$ & 2180 + $\gamma_{ei} Z_3$ & 60 & 90 & 0.4376\\
+    Component 4 & 2900 + $\gamma_{ee} Z_{comp,4}$ & 3030 + $\gamma_{ei} Z_4$ & 400 & 410 & 0.4376\\
+    Component 5 & 3200 + $\gamma_{ee} Z_{comp,5}$ & 3330 + $\gamma_{ei} Z_5$ & 220 & 250 & 0.4376\\
     \hline
    \end{tabular}
 \caption{Mean and Variances for X}
@@ -710,7 +711,7 @@ contour(kde2d(simdata$xee, simdata$xes))
 \subsection{Within Person Variability}
 %-----------------------------
 
-Recall in \eqref{regressionfcn1}, \eqref{regressionfcn2}, \eqref{gold1}, \eqref{gold2} what the error terms represent: measurement error in the instrument as well as within-person variability (an individual's day to day variation from his \emph{usual}). Again, in terms of \eqref{regressionfcn1}, \eqref{regressionfcn2} this is a working assumption, and here we will correctly put the within person variability within the function. Although we cannot separate the two types of errors when modeling, we can separate them when we simulate data. For the gold standard measurements, let 
+Recall in \eqref{regressionfcn1}, \eqref{regressionfcn2}, \eqref{gold1}, \eqref{gold2} what the error terms represent: measurement error in the instrument as well as within-person variability (an individual's day to day variation from his \emph{usual}). Again, in terms of \eqref{regressionfcn1}, \eqref{regressionfcn2} this is a working assumption, and here we will correctly put the within person variability within the function. For the gold standard measurements, let 
 \begin{align}
 \begin{split}
 \label{wpw}
@@ -900,7 +901,7 @@ grid.arrange(p1,p2,nrow=1)
 %-------------------%
 %---------------------------------------------------%
 
-We will be taking a Bayesian approach to this problem, and as such, our goal is to estimate the joint  posterior distribution of all parameters and latent variables involved. In our case the posterior is  $p(\boldsymbol{\theta}, X^{EE},X^{\Delta ES}|W^{EE},W^{\Delta ES},Y^{EE},Y^{\Delta ES},Z$). Due to the complexity of our problem and the models we will formulate, we will not be able to analytically derive the posterior distribution. Instead, we will use Markov Chain Monte Carlo (MCMC) methods. For models 0 and 1, we utilized JAGS to simulate draws from the posterior distribution. This was easy to implement and was relatively quick to sample. In order to estimate free knot splines, which allows for dimension change, we must use Reversible Jump MCMC which requires a more complex sampler. We will first present our Gibbs sampler with the reversible jump as a single step, and in the next subsection we will describe the reversible jump in more detail.
+We will be taking a Bayesian approach to this problem, and as such, our goal is to estimate the joint  posterior distribution of all parameters and latent variables involved. In our case the posterior is  $p(\boldsymbol{\theta}, X^{EE},X^{\Delta ES}|W^{EE},W^{\Delta ES},Y^{EE},Y^{\Delta ES},Z$). Due to the complexity of our problem and the models we will formulate, we will not be able to analytically derive the posterior distribution. Instead, we will use Markov Chain Monte Carlo (MCMC) methods. For the n{\"a}ive LME models, we utilized JAGS to simulate draws from the posterior distribution. This was easy to implement and was relatively quick to sample. In order to estimate free knot splines, which allows for dimension change, we must use Reversible Jump MCMC which requires a more complex sampler. We will first present our Gibbs sampler with the reversible jump as a single step, and in the next subsection we will describe the reversible jump in more detail.
 
 \subsection{Gibbs Algorithm}
 Here we present our Gibbs algorithm to sample from the joint posterior distribution.
@@ -973,7 +974,7 @@ Set ${\bf X_i^{(k)}} = {\bf X_i^*}$ with probability $\alpha_{X_i}$, otherwise s
 $\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdot)}  \right)$ \\
 
 \item
-Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {\bf  r_{ee}, r_{es}}$ using RJMCMC described in next section. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
+Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}$ using RJMCMC described in next section. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
 
 
 \item
@@ -997,7 +998,7 @@ There are identity matricies because we are assuming independent priors for the 
 
 
 \subsection{Reversible Jump MCMC}
-In order to complete our Gibbs algorithm in the previous section, we need to describe how we estimate the parameters of the free knot spline using RJMCMC. We first present background on estimating free knot splines using RJMCMC. At the end of the section, we present the missing piece in the above algorithm that explains how we sample ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {\bf  r_{ee}, r_{es}}$. 
+In order to complete our Gibbs algorithm in the previous section, we need to describe how we estimate the parameters of the free knot spline using RJMCMC. We first present background on estimating free knot splines using RJMCMC. At the end of the section, we present the missing piece in the above algorithm that explains how we sample ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}$. 
 
 RJMCMC was introduced by Green \cite{green} as a way to jump between parameter spaces having different dimensions. It was developed as a Bayesian approach  for model determination. Model selection and model averaging can be implemented straightfoward through the use of this sampler. Although we are not using RJMCMC for the usual type of model selection \emph{per se}, we are using it to select one piece of our model; that is the spline component of our regression. As discussed earlier, we need to specify the position and number of knots for our spline, but since we have no reasonable guess as to what the error free values would look like, we want to account for that uncertainty by treating the position and number of knots as random variables. RJMCMC is the tool that allows us to do this in a Bayesian framework via free knot splines. 
 
@@ -1049,7 +1050,7 @@ MSE &= \frac{1}{n} \sum_{i=1}^{n}(y_i - f(x_i;\boldsymbol{\beta}))^2
 
 Here we present how we implement our version of RJMCMC for free knot splines. The model \eqref{simplespline} that was used to develop the method in \cite{denison} is simpler than our model in three respects: (i) our covariate value $x_i$ is a latent variable, (ii) we have an additional linear component to our mean function, (iii) the regression model is part of a larger hierarchical model. The third issue doesn't present much of a problem due to our conditional independence assumptions. 
 
-Issue (i) is not as simple. In the free knot spline setup in Denison et al., they have a regression model of the form \eqref{simplespline} where $y$ is the observed response and $x$ is the observed covariate. In our case we do not observe $x$, but rather it is a latent variable that we must sample from using the Gibbs algorithm described in the previous section. Because we have to sample our $x$'s through the Gibbs algorithm, the basis matrix has to be adjusted every iteration. We calculate the basis matrix using the current latent variables and  the proposed knots, if we accept this proposal then the knots, spline coefficients, and thus estimate of $m_{\cdot}(X^{\cdot (k)},\boldsymbol{\beta}_{\cdot}^{(k)})$ are all updated. The bigger problem is what happens when we reject the proposal. Keeping the current knot locations is fine, keeping the current spline regression parameters is fine, but keeping the current predictions doesn't make sense because they are based on $X^{\cdot (k)}$, which is being updated every iteration. What we propose is if we reject the the RJ proposal, we keep the current knots and spline coefficients, calculate a new basis matrix based on the current values of $X^{\cdot (k)}$ and the current knots, then calculate the predicted values by multiplying the basis matrix by the current spline coefficients. An additional complication with $X$ being random instead of fixed has to do with the birth step and the set of available knots to choose from $\mathcal{A}$. We want to pick randomly from the set of $X$ values which we drew in the current iteration of the MCMC, but we do not want a knot to be bigger or smaller than the maximum or minimum value, respectively. This could occur for example, if a new knot is proposed at one of the largest values and it is accepted, then the next iteration through the random walk, the $X$ values could change such that the largest knot is larger than the largest $X$, which causes issues when constructing the basis matrix. To avoid this issue, we exclude the 3 smallest and 3 largest values of $X$ from $\mathcal{A}$.
+Issue (i) is not as simple. In the free knot spline setup in Denison et al., they have a regression model of the form \eqref{simplespline} where $y$ is the observed response and $x$ is the observed covariate. In our case we do not observe $x$, but rather it is a latent variable that we must sample from using the Gibbs algorithm described in the previous section. Because we have to sample our $x$'s through the Gibbs algorithm, the basis matrix has to be adjusted every iteration. We calculate the basis matrix using the current latent variables and  the proposed knots, if we accept this proposal then the knots, spline coefficients, and thus estimate of $m_{\cdot}(X^{\cdot (k)},\boldsymbol{\beta}_{\cdot}^{(k)})$ are all updated. The bigger problem is what happens when we reject the proposal. Keeping the current knot locations is fine, keeping the current spline regression parameters is fine, but keeping the current predictions doesn't make sense because they are based on $X^{\cdot (k)}$, which is being updated every iteration. What we propose is if we reject the the RJ proposal, we keep the current knots and spline coefficients, calculate a new basis matrix based on the current values of $X^{\cdot (k)}$ and the current knots, then calculate the predicted values by multiplying the basis matrix by the current spline coefficients. An additional complication with $X$ being random instead of fixed has to do with the birth step and the set of available knots to choose from $\mathcal{A}$. We want to pick randomly from the set of $X$ values which we drew in the current iteration of the MCMC, but we do not want a knot to be bigger or smaller than the maximum or minimum value, respectively. This could occur for example, if a new knot is proposed at one of the largest values and it is accepted, then the next iteration through the random walk, the $X$ values could change such that the largest knot is larger than the largest $X$, which causes issues when constructing the basis matrix. To avoid this issue, we exclude the 3 smallest and 3 largest values of $X$ from $\mathcal{A}$. We don't expect this to be a major issue because we are less concerned with flexibility of the function at its extremes.
 
 Our solution to issue (ii) is a simple fix. We fit the free knot spline using the original data $Y^{EE}$ and $Y^{\Delta ES}$ regressed on the B-spline basis matrix generated using the current draw of latent variables $X^{EE}$ and $X^{\Delta ES}$, respectively. Then we calculate $\tilde{Y}^{EE(k)}=Y^{EE}-m_{ee}(X^{EE(k)},\boldsymbol{\beta}_{ee}^{(k)})$ and $\tilde{Y}^{\Delta ES(k)}=Y^{\Delta ES}-m_{es}(X^{\Delta ES(k)},\boldsymbol{\beta}_{es}^{(k)})$ where the superscript $(k)$ represents the $k^{th}$ draw from the MCMC. We then update the $\gamma^{(k)}$ coefficients using $\tilde{Y}^{EE(k)}$ and $\tilde{Y}^{\Delta ES(k)}$ as our data.
 
@@ -1087,7 +1088,7 @@ Calculate proposed spline regression coefficients $\boldsymbol{\beta^*_{\cdot}}$
 \item
 Accept proposed knots and coefficients with probability $\alpha_{\cdot}$ \\
 
-Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cdot}} =\boldsymbol{\beta^{(k-1)}_{\cdot}}$ and calculate spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ using $r_{\cdot}^{(k)}$ in order to calculate mean function $m_{\cdot}(\cdot)$
+Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cdot}} =\boldsymbol{\beta^{(k-1)}_{\cdot}}$\\
 
 \begin{align*}
 \alpha_{birth} &= min\left(1, \text{Likelihood ratio}\times \frac{n-Z(k)}{n} \right) \\
@@ -1095,16 +1096,18 @@ Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cd
 \alpha_{move} &= min\left(1, \text{Likelihood ratio}\right) 
 \end{align*}
 
-
 \begin{align*}
 Z(k) &= 2(\ell+1) + k_{\cdot}(2\ell+1) \\
 k_{\cdot} &= length(r_{\cdot}^{(k-1)}) 
 \end{align*}
 
+\item
+Calculate spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ using $r_{\cdot}^{(k)}$ in order to calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}})$
+
 
 \end{enumerate}
 
-where the acceptance probabilities $\alpha_{rj,\cdot}$ are given in the notation of Denison et al.
+
 
 %-------------------------------------
 %-------------------------------%
@@ -1112,16 +1115,16 @@ where the acceptance probabilities $\alpha_{rj,\cdot}$ are given in the notation
 %-------------------------------%
 %-----------------------------------------
 
-In this section we conduct a simulation study to check the performance of the discussed models and modeling assumptions. There are multiple goals for this simulation study. One, the true joint density of $(X_i^{EE},X_i^{\Delta ES})$ must be specified when we model data (or we can assume error free measurements which we'll see is a bad idea), and since this term is never observed by anyone in any study, it is difficult to select a density for. We want to check the robustness of different choices of bivariate densities. Second, the regression functions $m_{ee}$ and $m_{es}$ \eqref{regressionfcn1},\eqref{regressionfcn2} are also unknown, again due to the fact we never observe $(X_i^{EE},X_i^{\Delta ES})$, and therefore don't know the true relationship between $X^{\cdot}$ and the cheap measurements. Third, normal errors  is a common assumption but  can affect predictive performance, and we want to check the robustness to this assumption. We present performance measures such as predicted mean squared error (PMSE) for the regression function in question. Posterior summaries for parameters of interest will be provided as well. 
+In this section we conduct a simulation study to check the performance of the discussed models and modeling assumptions. There are multiple goals for this simulation study. One, the true joint density of $(X_i^{EE},X_i^{\Delta ES})$ must be specified when we model data (or we can assume error free measurements which we'll see is a bad idea), and since this term is never observed by anyone in any study, it is difficult to select a density for. We want to check the robustness of different choices of bivariate densities. Second, the regression functions $m_{ee}$ and $m_{es}$ \eqref{regressionfcn1},\eqref{regressionfcn2} are also unknown, again due to the fact we never observe $(X_i^{EE},X_i^{\Delta ES})$, and therefore don't know the true relationship between $X^{\cdot}$ and the cheap measurements. Third, normal errors  is a common assumption but  can affect predictive performance, and we want to check the robustness to this assumption. We present performance measures such as predicted mean squared error (PMSE) for the regression function in question as well as posterior means and their variability for parameters of interest. 
 
 
 %---------------------------------------%
 \subsection{Setup}
 %---------------------------------------%
 
-For this simulation study, we simulated 200 data sets each for normal, skewed, and bimodal errors as described in a previous section. The number of individuals is set to be 300 and the number of replicates is we consider is 2 and 4. Preliminary analysis showed the number of replicates per individual having  more influence than number of individuals. 
+We simulated 200 data sets each for normal, skewed, and bimodal errors for both 2 and 4 replicates per individual. The number of individuals is set to be 300. Preliminary analysis showed the number of replicates per individual having  more influence than number of individuals. 
 
-Although we'd like to be as flexible as possible with our distributional assumptions on the bivariate latent variables, we also want a model that is stable in its estimates given the data constraints of our application. It would be difficult to get more than 2 replicate measurements on an individual for our gold standard measurements. For 3 replicate measuremnets in the DLW case, this amounts to three 2-week periods along with a washout time in between. In the case of DXA scans, this is 6 scans in a short period of time which can raise flags due to radiation concerns. This is exemplified by the high cost associated with these methods (mainly DLW). Cheap measuremnet tools are not as much of a concern, but they are biased measuremnets of the latent variables unlike the gold standards. During our simulation study, we found that the DP on the latent variables was producing unstable results in parameter estimates and acceptance rates of the random walk Metropolis-Hastings under 2 replicate observations per person. The number of individuals played a much smaller role. Results were stable when 4 replicates per person were used. Results were similar when we used mixtures of normals instead of a DP. This presents an issue in our analysis since it is unrealistic to get that number of replicates in application. Becuase of this issue, we will fit a fourth model using a bivariate normal distribution for the latent variables instead of the Dirichlet Process while still using splines for the regression functions. We refer to this model as BVNS. 
+Although we'd like to be as flexible as possible with our distributional assumptions on the bivariate latent variables, we also want a model that is stable in its estimates given the data constraints of our application. It would be difficult to get more than 2 replicate measurements on an individual for our gold standard measurements. For 3 replicate measurements in the DLW case, this amounts to three 2-week periods along with a washout time in between. In the case of DXA scans, this is 6 scans in a short period of time which can raise flags due to radiation concerns. This is exemplified by the high cost associated with these methods (mainly DLW). Cheap measuremnet tools are not as much of a concern. During our simulation study, we found that the DP on the latent variables was producing unstable results in parameter estimates and acceptance rates of the random walk Metropolis-Hastings under 2 replicate observations per person. The number of individuals played a much smaller role. Results were stable when 4 replicates per person were used. Results were similar when we used mixtures of normals instead of a DP. This presents an issue in our analysis since it is unrealistic to get that number of replicates in application. Becuase of this issue, we will fit a fourth model using a bivariate normal distribution for the latent variables instead of the Dirichlet Process while still using splines for the regression functions. We refer to this model as BVNS. 
 
 We set the values of the hyperparameters as follows: $M_{\beta_{0,ee}} = M_{\beta_{0,es}} = 0, C_{\beta_{0,ee}} = C_{\beta_{0,es}} = 100000, M_{\beta_{1,ee}} = M_{\beta_{1,es}} = 1, C_{\beta_{1,ee}} = C_{\beta_{1,es}} = 100000, M_{\gamma_{ee}} = M_{\gamma_{es}} = 0, C_{\gamma_{ee}} = C_{\gamma_{es}} = 100000, a_{yee} = a_{yes} = a_{wee} = a_{wes} = b_{yee} = b_{yes} = b_{wee} = b_{wes} = 0.1, \psi = I_{2\times 2}, d = 3, M_{\mu} = (2400,0), C_{\mu} = diag(100000,100000), \lambda_{ee} = \lambda_{es} = 1$.
 
@@ -1137,7 +1140,7 @@ We ran the MCMC for 12,000 iterations, using the first 2000 as burn in. For all 
 \subsection{Closer Look at One Simulated Dataset}
 %-----------------------------------------%
  
-In this section we provide an example analysis using one of the simulated data sets. This gives an idea of the type of results for an individual data set. We provide posterior quantiles to understand uncertainty in estimates. We also provide posterior predictive assessments for our modeling assumptions.  The posterior predictive distributions of interest are given in \eqref{ypostpred},\eqref{wpostpred},\eqref{xpostpred}. For the measurement error models, we are interested in the posterior predictive distributions for $Y,W,X$ because we are placing distributional assumptions on all of them. The forms for these distributions are given below.
+In this section we provide an example analysis using one of the simulated data sets. This gives an idea of the type of results for an individual data set. We provide posterior quantiles to understand uncertainty in estimates. We also provide posterior predictive assessments for our modeling assumptions.  The posterior predictive distributions of interest are given in \eqref{ypostpred},\eqref{wpostpred},\eqref{xpostpred}. For the measurement error models, we are interested in the posterior predictive distributions for $Y,W,X$ because we are making distributional assumptions on all of them. The forms for these distributions are given below.
   
 \begin{align}
   \label{ypostpred}
@@ -1149,22 +1152,17 @@ In this section we provide an example analysis using one of the simulated data s
 \end{align}
 
 
-For these, we are interested in whether our model can capture the true quantiles (min, 0.05, 0.1, 0.25, 0.75, 0.9, 0.95, max) of the bivariate latent vector and for both the cheap and gold standard measurements. To get a distribution of values for our quantiles of interest to compare to the truth, we simulate new data based on MCMC iterations. For example, to calculate distributions for the posterior quantiles for the bivariate latent variable $X$, for each iteration from the MCMC, we  take the sampled values of parameters for the joint distribution of $X$ and simulate a new set of $X$ values, and from that new set of values we calcualte the quantiles of interest. Doing this for many MCMC draws, we get distributions for the quantiles of interest. We then compare these distributions to the truth, and if the truth lies well within the bounds it shows the model accurately captures that feature of the data. If the truth lies outside the bounds, it indicates a lack of fit for that component. Because these distributions for quantiles can have large spreads, we also need to pay attention to their ranges as a check for precision. In this section we will only analyze a single data set with replicates per individual with model BVNS fit. 
+For these, we are interested in whether our model can capture the true quantiles (min, 0.05, 0.1, 0.25, 0.75, 0.9, 0.95, max) of the bivariate latent vector and for both the cheap and gold standard measurements. To get a distribution of values for our quantiles of interest to compare to the truth, we simulate new data based on MCMC iterations. For example, to calculate distributions for the posterior quantiles for the bivariate latent variable $X$, for each iteration from the MCMC, we  take the sampled values of parameters for the joint distribution of $X$ and simulate a new set of $X$ values according to how it is specified in the model, and from that new set of values we calcualte the quantiles of interest. Doing this for many MCMC draws, we get distributions for the quantiles of interest. We then compare these distributions to the truth, and if the truth lies well within the bounds it shows the model accurately captures that feature of the data. If the truth lies outside the bounds, it indicates a lack of fit for that component. Because these distributions for quantiles can have large spreads, we also need to pay attention to their ranges as a check for precision. In this section we will only analyze a single data set with 2 replicates per individual with model BVNS fit. We didn't explicitly introduce Model BVNS before, but it is the same as Model DP except we assume a bivariate normal distribution for the latent variables $(X_i^{EE},X_i^{\Delta ES})$ instead of the Dirichlet Process. For brevity, we will only present results under one dataset with skewed errors. 
 
-
-%--------------------------------%
-%\subsection{Model BVN}
-%----------------------------------%
-% 
-We didn't explicitly introduce Model BVNS before, but it is the same as Model DP except we assume a bivariate normal distribution for the latent variables $(X_i^{EE},X_i^{\Delta ES})$ instead of the Dirichlet Process. For brevity, we will only present results under one dataset with skewed errors. This is a simplifying assumption that we will justify in the next subsection. 
+Running 3 chains of 12,000 iterations with 2000 burn in results in Gelman-Rubin diagnostics of less than 1.04 for all parameters. Trace plots for parameters show no signs of non-convergence. Due to the adaptive tuning during burn in, the acceptance rates for the latent variables hovers between 17\% and 40\% for the 300 individuals. We also calculate the MSE diagnostic Denison proposed to check for convergence of the free knot spline, and this number ``settled" down quickly. 
 
 Table  \ref{mbvnswpestimates} give posterior quantiles for this model as well as the truth, when applicable. The asterisk next to the truth for the measurement error with respect to the cheap measurements is to indicate this is a Monte Carlo approximation to the truth. Recall we included within person variation in the functions $m_{\cdot}(\cdot)$, but in our model we use the working assumption that the error term accounts for both within person variability and measurement error. Because we can't directly extract the value from the function, we approximate it by generating 10,000 data sets and removing the mean function from the cheap observations, and then calculating the standard deviation of the residual. We then averaged those standard deviation estimates to get the one reported in the table. All variance components are within the 95\% credible intervals but that for the cheap measurement of $\Delta$ES. All the regression coefficients are in the 95\% credible intervals. These regression coefficients have nice interpretation as they are the linear component of the mean function. $\gamma_{1,ee}$ represents the change in reported EE, all else held equal, for the device user being male. In our example, the truth is 300, which means for two identical people except one male, one female, the cheap measurement tool is biased such that it will record the male as having an EE 300 higher than the female. $\gamma_{2,ee}$ represents the effect of BMI on the device, all else held equal. If BMI increases by 1, then the mean EE reported by the device increases by $\gamma_{2,ee}$. $\gamma_{3,ee}$ represents the effect of age, and the interpretation is similar. Again, we could have included many other/different covariates, and their respective interpretations would be easy as well.
 
-Figure  \ref{wpxdiagbvns} shows plots of posterior predictive assessment for the latent variables skewed errors. Under model BVNS, there is much less flexibility than with the Dirichlet Process. Some of that is seen in this figure, as the minimum EE is not captured and has a large amount of variability. Maximum $\Delta$ES is also only barely covered. Otherwise, these diagnostics look surprisingly good given the truth is clearly non-normal. This result is encouraging since we were concerned about the performance of a single bivariate normal distribution versus the Dirichlet Process for the bivariate latent vector. We constructed the same diagnostic plot where the Dirichlet Process was used and unsuprisingly it looked better in terms of coverage and precision, not by a lot though. However, this was only under 4 replicates because of the issues with 2 replicates described earlier. 
+Figure  \ref{wpxdiagbvns} shows plots of posterior predictive assessment for the latent variables skewed errors. Under model BVNS, there is much less flexibility than with the Dirichlet Process. Some of that is seen in this figure, as the minimum EE is not captured and has a large amount of variability. Maximum $\Delta$ES is also only barely covered. Otherwise, these diagnostics look surprisingly good given the truth is clearly non-normal. This result is encouraging since we were concerned about the performance of a single bivariate normal distribution versus the Dirichlet Process for the bivariate latent vector. We constructed the same diagnostic plot where the Dirichlet Process was used and unsuprisingly it looked better in terms of coverage and precision, however, not by a lot though. However, this was only under 4 replicates because of the issues with 2 replicates described earlier. 
 
 Figure \ref{wpwdiagbvns} show the same plots except for gold standard measurements.  Even under skewed errors, there doesn't seem to be any glaring issues as the truth is captured by the distribution. The only concern would be the amount of variability in the distribution for the minimum and maximum values. Figure \ref{wpydiagbvns} show the same plots except for cheap measurements. The issue here is with capturing the minimum value as recorded by cheap measurement. Otherwise, the remaining plots look good, again even under skewed error terms. This gives some confidence in an amount of robustness to misspecification of measurement error distribution.
 
-Figure \ref{predbvnsx} gives one of the main desired outcomes of this study. This figure plots the fitted spline between the truth and the observed cheap measurement. The plot on the left is for the cheap EE measurement, on the right is for $\Delta$ES. The points plotted are from the individual simulated data where the y value is the mean of the two replicates. The red line is the mean spline function from this data set and we also randomly selected 500 MCMC iteration draws for the spline, and plotted them behind the mean. This is of high interest to us because it shows the relationship between what we observe, and what we are ultimately interested in knowing. To calibrate the cheap measurements, we would use the information from this plot as well as the posteriors for the $\gamma$ coefficients that refer to demographic variables.
+Figure \ref{predbvnsx} gives one of the main desired outcomes of this study. This figure plots the fitted spline between the truth and the observed cheap measurement. The plot on the left is for the cheap EE measurement, on the right is for $\Delta$ES. The points plotted are from the individual simulated data where the y value is the mean of the two replicates. The red line is the mean spline function from this data set and we also randomly selected 500 MCMC iteration draws for the spline, and plotted them behind the mean. This is of high interest to us because it shows the relationship between what we observe, and what we are ultimately interested in knowing. To calibrate the cheap measurements, we would use the information from this plot as well as the posteriors for the $\gamma$ coefficients that refer to demographic variables. Figure \ref{knots} gives the distribution of the number of knots for the spline for both the EE and $\Delta$ES splines. This shows the splines are not overly complex as they typically use 4 or less knots.
 
 
 %Table \ref{pmse2} gives PMSE for both the EE and $\Delta$ES regression functions under normal, skewed, and bimodal errors. Not only does ignoring the measurement error give bad parameter estimates and posterior predictive checks, but also its prediction is poor. Our model that has splines in its regression function  whose knots can varry iteration to iteration performs much better than just a linear model. 
@@ -1331,6 +1329,13 @@ $\mu_x^{EE}$ & 2622.55 & 2675.43 & 2703.64 & 2732.01 & 2786.64 \\
   \includegraphics[width=17cm,height=8cm]{manual_figure/predbvnsx.pdf}
   \caption{Spline function for Model BVNS with Skewed Errors}
   \label{predbvnsx}
+  \end{figure}
+  
+    \begin{figure}
+  \centering
+  \includegraphics[width=17cm,height=8cm]{manual_figure/khist.pdf}
+  \caption{Number of knots for Model BVNS with Skewed Errors}
+  \label{knots}
   \end{figure}
 
   % \begin{figure}
@@ -2018,7 +2023,7 @@ For r = 1,...R
 \item
 Calculate $y_i^* = y_i- \boldsymbol{\gamma}^{(r)'} Z_i$, where $Z_i$ are the covariate values for individual $i$
 \item
-Use \texttt{optimize} for the function $|f_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the forementioned criteria, call this $x_{i,calibrated}$. $f_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients, latent variables, and knot locations from the $r^{th}$ draw of the chain
+Use \texttt{optimize} for the function $|f_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the forementioned criteria, call this $x_{i,calibrated}$. $f_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients $\boldsymbol{\beta_{\cdot}}^{(r)}$, latent variables $({ X^{EE(r)},X^{\Delta ES (r)}})$, and knot locations $(r_{ee}^{(r)},r_{es}^{(r)})$ from the $r^{th}$ draw of the chain
 
 \end{enumerate}
 
@@ -2134,7 +2139,7 @@ EE & 1824.39 & 2041.63 & 2228.32 & 2262.38 & 2204.20 \\
   \begin{figure}
   \centering
   \includegraphics[width=17cm,height=10cm]{manual_figure/wpcalhist.pdf}
-  \caption{Posteriors of calibrated observations. Vertical line shows observed value from cheap measurement.}
+  \caption{Posteriors of calibrated observations. Solid vertical line shows observed value from cheap measurement and dashed vertical line shows truth.}
   \label{wpcalhist}
   \end{figure}
   
@@ -2160,12 +2165,14 @@ EE & 1824.39 & 2041.63 & 2228.32 & 2262.38 & 2204.20 \\
 %---------------------------------------------------%
 %---------------------------------------------------%
 
-In this chapter we presented a semi-parametric model for the measurement of EE and $\Delta$ES. We assume gold standard measurements are unbiased to the truth while cheap measurements are some functions of the truth which we use splines to evaluate, plus a linear combination of demographic, error free covariates. This allows a very flexible relationship between a cheap measurement and its unobserved truth. We assumed normality for measurement error distributions which was justified through the use of diagnostics recommended by Caroll et al. We assumed gold standard measurements and cheap measurements were conditionally independent within and between each other given the latent vector $(X^{EE},X^{\Delta ES})$. We modeled the latent vector $(X^{EE},X^{\Delta ES})$ with both a bivariate normal distribution as well as a Dirichlet process. Although the Dirichlet process was flexible and a much weaker assumption, it required more replicate observations (mainly on gold standard measurements) than is feasible in order to give stable results. The normality assumption was able to give stable and surprisingly good results given the true structure of the latent variables. Because this model was able to stable and pleasing results under the constraint of only two replicates of gold standard measurements, we believe this is the best model for this specific application unless more than 2 replicates per person are available. The resulting estimates, posterior predictive checks, and PMSE show the superiority of our model to a simpler linear measurement error model and the n{\"a}ive model that doens't take measurement error into consideration. 
+In this chapter we presented a semi-parametric model for the measurement of EE and $\Delta$ES. We assume gold standard measurements are unbiased to the truth while cheap measurements are some functions of the truth which we use splines to evaluate, plus a linear combination of demographic, error free covariates. This allows a very flexible relationship between a cheap measurement and its unobserved truth. We assumed normality for measurement error distributions which was justified through the use of diagnostics recommended by Caroll et al. We assumed gold standard measurements and cheap measurements were conditionally independent within and between each other given the latent vector $(X^{EE},X^{\Delta ES})$. We modeled the latent vector $(X^{EE},X^{\Delta ES})$ with both a bivariate normal distribution as well as a Dirichlet process. Although the Dirichlet process was flexible and a much weaker assumption, it required more replicate observations (mainly on gold standard measurements) than is feasible in order to give stable results. The normality assumption was able to give stable and surprisingly good results given the true structure of the latent variables. Because this model was able to stable and pleasing results under the constraint of only two replicates of gold standard measurements, we believe this is the best model for this specific application unless more than 2 replicates per person are available. The resulting estimates and PMSE show the superiority of our model to a simpler linear measurement error model and the n{\"a}ive model that doens't take measurement error into consideration. 
 
 The main motivation for constructing this model was to model the error and bias in measurements so one can calibrate a cheap measurement tool's output in order to make it closer to the truth. We presented a simple way to do this calibration given a cheap measuremet for EE and $\Delta$ES and values for gender, BMI, and age. Using a Bayesian approach we are easily able to get a posterior distribution for the calibrated estimate which provides a measure of uncertainty. Our example shows that in some cases this calibrated estimate could be far from the observed cheap measurement. 
 
 
-Further considerations to the model would include allowing for nonconstant variance. At the time we have limited data from a limited number of EE and $\Delta$ES measurement tools, but it is possible nonconstant variance will be an issue for some and not others. We saw some signs of this already as the SWA armband showed signs of nonconstant variance while DXA did not. In this research we opted to assume constant variance for simplicity, but an extension to allow for this would not be difficult. Other measurement error free covariates could be easily added to the regression functions in \eqref{regressionfcn1},\eqref{regressionfcn2} if desired. Revisting the conditional independence assumptions could provide additional improvements, especially the last two. We modeled the bivariate latent variables jointly but random variables $Y^{EE}$ and $W^{EE}$ were assumed to be conditionally independent of $X^{\Delta ES}$ and vice versa, but there could be a relationship there to take advantage of. We performed the same analysis assuming complete independence of EE and $\Delta$ES and there was much more uncertainty in estimates, we anticipate modeling more of the dependence will only help. We assumed normality for our measurement errors which based on diagnostics from the EBS, looked good, however there are more flexible options available, for example Sarkar et al. We are not able to split within person variability and measurement error explicitly which would be desireable for fully understanding the random error associated with a measurement device. Furthermore, we are considering both within person variability and measurement error to be additive in the cheap measurement case which is of course not true, it has a complicated relationship through our estimated functions $m_{\cdot}(\cdot)$. These last issues will be difficult to fix because we would need additional replicate data and there's no way to exactly decouple the relationship within the B-spline.
+Further considerations to the model would include allowing for nonconstant variance. At the time we have limited data from a limited number of EE and $\Delta$ES measurement tools, but it is possible nonconstant variance will be an issue for some and not others. We saw some signs of this already as the SWA armband showed signs of nonconstant variance while DXA did not. In this research we opted to assume constant variance for simplicity, but an extension to allow for this would not be difficult. Other measurement error free covariates could be easily added to the regression functions in \eqref{regressionfcn1},\eqref{regressionfcn2} if desired. 
+%Revisting the conditional independence assumptions could provide additional improvements, especially the last two. We modeled the bivariate latent variables jointly but random variables $Y^{EE}$ and $W^{EE}$ were assumed to be conditionally independent of $X^{\Delta ES}$ and vice versa, but there could be a relationship there to take advantage of. We performed the same analysis assuming complete independence of EE and $\Delta$ES and there was much more uncertainty in estimates, we anticipate modeling more of the dependence will only help. We assumed normality for our measurement errors which based on diagnostics from the EBS, looked good, however there are more flexible options available, for example Sarkar et al. 
+We are not able to split within person variability and measurement error explicitly which would be desireable for fully understanding the random error associated with a measurement device. Furthermore, we are considering both within person variability and measurement error to be additive in the cheap measurement case which is of course not true, it has a complicated relationship through our estimated functions $m_{\cdot}(\cdot)$. These last issues will be difficult to fix because we would need additional replicate data and there's no way to exactly decouple the relationship within the B-spline.
 
 
 \clearpage
