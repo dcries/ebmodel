@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  1 DEC 2016 10:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  5 DEC 2016 15:49
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -359,13 +359,37 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks23
 \@floatcapt=\box55
 )
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count124
+\Gm@cntv=\count125
+\c@Gm@tempcnt=\count126
+\Gm@bindingoffset=\dimen145
+\Gm@wd@mp=\dimen146
+\Gm@odd@mp=\dimen147
+\Gm@even@mp=\dimen148
+\Gm@layoutwidth=\dimen149
+\Gm@layoutheight=\dimen150
+\Gm@layouthoffset=\dimen151
+\Gm@layoutvoffset=\dimen152
+\Gm@dimlist=\toks24
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\pdflscape.sty"
+Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\lscape.sty"
+Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\na
 tbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip61
 \bibsep=\skip62
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count124
+\c@NAT@ctr=\count127
 )
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\up
 quote\upquote.sty
@@ -378,35 +402,35 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 ) (eb_models.aux)
 \openout1 = `eb_models.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
 
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\context\
 base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count125
-\scratchdimen=\dimen145
+\scratchcounter=\count128
+\scratchdimen=\dimen153
 \scratchbox=\box56
-\nofMPsegments=\count126
-\nofMParguments=\count127
-\everyMPshowfont=\toks24
-\MPscratchCnt=\count128
-\MPscratchDim=\dimen146
-\MPnumerator=\count129
-\makeMPintoPDFobject=\count130
-\everyMPtoPDFconversion=\toks25
+\nofMPsegments=\count129
+\nofMParguments=\count130
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count131
+\MPscratchDim=\dimen154
+\MPnumerator=\count132
+\makeMPintoPDFobject=\count133
+\everyMPtoPDFconversion=\toks26
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -421,7 +445,7 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \AtBeginShipoutBox=\box57
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 81.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -429,11 +453,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count131
+\c@section@level=\count134
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 
 (eb_models.out) (eb_models.out)
 \@outlinefile=\write3
@@ -441,134 +465,169 @@ LaTeX Info: Redefining \nameref on input line 80.
 
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 80.
+(lastpage)             ! on input line 81.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
- [1
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(92.14519pt, 430.00462pt, 92.14519pt)
+* v-part:(T,H,B)=(95.39737pt, 556.47656pt, 143.09605pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=472.03111pt
+* \textheight=681.15904pt
+* \oddsidemargin=-1.13791pt
+* \evensidemargin=-1.13791pt
+* \topmargin=-42.67912pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+[1
 
 {C:/Users/dcries/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 109.
+(hyperref)                removing `math shift' on input line 110.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\Delta' on input line 109.
+(hyperref)                removing `\Delta' on input line 110.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 109.
+(hyperref)                removing `math shift' on input line 110.
 
 [2] [3]
-Package color Info: Redefining color shadecolor on input line 148.
+Package color Info: Redefining color shadecolor on input line 149.
  <figure/ebsw-1.pdf, id=170, 433.62pt x 289.08pt>
 File: figure/ebsw-1.pdf Graphic file (type pdf)
 
 <use figure/ebsw-1.pdf>
-Package pdftex.def Info: figure/ebsw-1.pdf used on input line 150.
+Package pdftex.def Info: figure/ebsw-1.pdf used on input line 151.
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
-Package color Info: Redefining color shadecolor on input line 164.
+Package color Info: Redefining color shadecolor on input line 165.
  <figure/ebsdiag-1.pdf, id=171, 505.89pt x 216.81pt>
 File: figure/ebsdiag-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag-1.pdf>
-Package pdftex.def Info: figure/ebsdiag-1.pdf used on input line 166.
+Package pdftex.def Info: figure/ebsdiag-1.pdf used on input line 167.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
-Package color Info: Redefining color shadecolor on input line 178.
+Package color Info: Redefining color shadecolor on input line 179.
 
 <figure/ebsdiag2-1.pdf, id=172, 505.89pt x 216.81pt>
 File: figure/ebsdiag2-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag2-1.pdf>
-Package pdftex.def Info: figure/ebsdiag2-1.pdf used on input line 180.
+Package pdftex.def Info: figure/ebsdiag2-1.pdf used on input line 181.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
-Package color Info: Redefining color shadecolor on input line 191.
+Package color Info: Redefining color shadecolor on input line 192.
 
 <figure/ebsdiag3-1.pdf, id=173, 505.89pt x 216.81pt>
 File: figure/ebsdiag3-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag3-1.pdf>
-Package pdftex.def Info: figure/ebsdiag3-1.pdf used on input line 193.
+Package pdftex.def Info: figure/ebsdiag3-1.pdf used on input line 194.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
-Package color Info: Redefining color shadecolor on input line 205.
+Package color Info: Redefining color shadecolor on input line 206.
 
 <figure/ebsdiag4-1.pdf, id=174, 505.89pt x 216.81pt>
 File: figure/ebsdiag4-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag4-1.pdf>
-Package pdftex.def Info: figure/ebsdiag4-1.pdf used on input line 207.
+Package pdftex.def Info: figure/ebsdiag4-1.pdf used on input line 208.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
  [4] [5 <./figure/ebsw-1.pdf> <./figure/ebsdiag-1.pdf>] [6 <./figure/ebsdiag2-1
 .pdf> <./figure/ebsdiag3-1.pdf>] [7 <./figure/ebsdiag4-1.pdf>] [8] [9]
-Overfull \hbox (57.13844pt too wide) in paragraph at lines 356--356
+Overfull \hbox (57.13844pt too wide) in paragraph at lines 357--357
 [] 
  []
 
 [10] [11] [12] [13] [14] [15] [16] [17]
-Package color Info: Redefining color shadecolor on input line 692.
+Package color Info: Redefining color shadecolor on input line 693.
 
 <figure/latentx-1.pdf, id=367, 650.43pt x 289.08pt>
 File: figure/latentx-1.pdf Graphic file (type pdf)
  <use figure/latentx-1.pdf>
-Package pdftex.def Info: figure/latentx-1.pdf used on input line 693.
+Package pdftex.def Info: figure/latentx-1.pdf used on input line 694.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
-Package color Info: Redefining color shadecolor on input line 701.
+Package color Info: Redefining color shadecolor on input line 702.
 
 <figure/contourx-1.pdf, id=368, 650.43pt x 289.08pt>
 File: figure/contourx-1.pdf Graphic file (type pdf)
 
 <use figure/contourx-1.pdf>
-Package pdftex.def Info: figure/contourx-1.pdf used on input line 702.
+Package pdftex.def Info: figure/contourx-1.pdf used on input line 703.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
  [18] [19 <./figure/latentx-1.pdf> <./figure/contourx-1.pdf>] [20] [21]
-Package color Info: Redefining color shadecolor on input line 846.
+Package color Info: Redefining color shadecolor on input line 847.
  <figure/errordist-1.pdf, id=430, 650.43pt x 289.08pt>
 File: figure/errordist-1.pdf Graphic file (type pdf)
 
 <use figure/errordist-1.pdf>
-Package pdftex.def Info: figure/errordist-1.pdf used on input line 848.
+Package pdftex.def Info: figure/errordist-1.pdf used on input line 849.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
  [22 <./figure/errordist-1.pdf>]
-Package color Info: Redefining color shadecolor on input line 910.
+Package color Info: Redefining color shadecolor on input line 911.
 
 <figure/nonlinear-1.pdf, id=446, 505.89pt x 289.08pt>
 File: figure/nonlinear-1.pdf Graphic file (type pdf)
 
 <use figure/nonlinear-1.pdf>
-Package pdftex.def Info: figure/nonlinear-1.pdf used on input line 912.
+Package pdftex.def Info: figure/nonlinear-1.pdf used on input line 913.
 (pdftex.def)             Requested size: 472.03111pt x 269.73705pt.
  [23] [24 <./figure/nonlinear-1.pdf>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 947.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 948.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 947.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 948.
 
-Underfull \hbox (badness 10000) in paragraph at lines 947--949
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 951--955
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 966--967
+Underfull \hbox (badness 10000) in paragraph at lines 952--956
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 975--979
+Underfull \hbox (badness 10000) in paragraph at lines 967--968
 
  []
 
 
-Overfull \hbox (3.37122pt too wide) in paragraph at lines 981--982
+Underfull \hbox (badness 10000) in paragraph at lines 976--980
+
+ []
+
+
+Overfull \hbox (3.37122pt too wide) in paragraph at lines 982--983
 []$\OML/cmm/m/it/10.95 []\OMS/cmsy/m/n/10.95 j  \OML/cmm/m/it/10.95 IG\OT1/c
 mr/m/n/10.95 (\OML/cmm/m/it/10.95 a[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 
 J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
@@ -578,77 +637,77 @@ J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 981--982
+Underfull \hbox (badness 10000) in paragraph at lines 982--983
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 985--986
+Underfull \hbox (badness 10000) in paragraph at lines 986--987
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 989--990
+Underfull \hbox (badness 10000) in paragraph at lines 990--991
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 993--994
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 996--997
+Underfull \hbox (badness 10000) in paragraph at lines 997--998
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 998--999
+Underfull \hbox (badness 10000) in paragraph at lines 999--1000
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1000--1001
+Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1004
+Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+Underfull \hbox (badness 10000) in paragraph at lines 1008--1010
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1010--1012
+Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1015
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1016--1018
+Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
 
  []
 
 [26] [27] [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1088--1089
+Underfull \hbox (badness 10000) in paragraph at lines 1089--1090
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1091--1092
+Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
 
  []
 
 
-Overfull \hbox (0.15877pt too wide) in paragraph at lines 1112--1113
+Overfull \hbox (0.15877pt too wide) in paragraph at lines 1113--1114
 []\OT1/cmr/m/n/10.95 Calculate pro-posed spline re-gres-sion co-ef-fi-cients $[
 ]$ by us-ing OLS by re-gress-ing $\OML/cmm/m/it/10.95 Y[]$ \OT1/cmr/m/n/10.95 o
 n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
@@ -656,17 +715,17 @@ n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1115--1116
+Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1117--1118
+Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
 
  []
 
 
-Overfull \hbox (22.34077pt too wide) in paragraph at lines 1131--1132
+Overfull \hbox (22.34077pt too wide) in paragraph at lines 1132--1133
 []\OT1/cmr/m/n/10.95 Calculate spline ba-sis ma-trix $\OML/cmm/m/it/10.95 B[]\O
 T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 )$ us-ing $\OML/cmm
 /m/it/10.95 r[]$ \OT1/cmr/m/n/10.95 in or-der to cal-cu-late mean func-tion $\O
@@ -675,7 +734,7 @@ ML/cmm/m/it/10.95 m[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10
  []
 
 [31]
-Overfull \hbox (7.42311pt too wide) in paragraph at lines 1155--1156
+Overfull \hbox (7.42311pt too wide) in paragraph at lines 1156--1157
 \OT1/cmr/m/n/10.95 100000\OML/cmm/m/it/10.95 ; M[] \OT1/cmr/m/n/10.95 = \OML/cm
 m/m/it/10.95 M[] \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; C[] \OT1/cmr/m/n/1
 0.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10.95 = 100000\OML/cmm/m/it/10.95 ;
@@ -684,99 +743,154 @@ m/m/it/10.95 ; C[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10
 .95 = 100000\OML/cmm/m/it/10.95 ; a[] \OT1/cmr/m/n/10.95 =
  []
 
-[32] [33] [34] <manual_figure/wpxdiagbvns.pdf, id=571, 794.97pt x 614.295pt>
+[32]
+*geometry* verbose mode - [ newgeometry ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(28.45274pt, 557.38951pt, 28.45274pt)
+* v-part:(T,H,B)=(28.45274pt, 738.0645pt, 28.45274pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=557.38951pt
+* \textheight=738.0645pt
+* \oddsidemargin=-43.81725pt
+* \evensidemargin=-43.81725pt
+* \topmargin=-80.81725pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+ [33
+
+
+
+] [34
+
+]
+Overfull \hbox (7.14754pt too wide) in paragraph at lines 1362--1363
+[][] 
+ []
+
+
+Overfull \hbox (11.25934pt too wide) in paragraph at lines 1379--1380
+[][] 
+ []
+
+[35
+
+] [36
+
+
+] [37] [38]
+<manual_figure/wpxdiagbvns.pdf, id=599, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1304.
+Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1585.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1304--1305
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1585--1586
  [][] 
  []
 
-<manual_figure/wpwdiagbvns.pdf, id=572, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvns.pdf, id=600, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1311.
+Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1592.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1311--1312
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1592--1593
  [][] 
  []
 
-<manual_figure/wpydiagbvns.pdf, id=573, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvns.pdf, id=601, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1318.
+Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1599.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1318--1319
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1599--1600
  [][] 
  []
 
-<manual_figure/predbvnsx.pdf, id=574, 578.16pt x 289.08pt>
+<manual_figure/predbvnsx.pdf, id=602, 578.16pt x 289.08pt>
 File: manual_figure/predbvnsx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnsx.pdf>
-Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 1355.
+Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 1636.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 1355--1356
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 1636--1637
  [][] 
  []
 
-<manual_figure/khist.pdf, id=575, 578.16pt x 289.08pt>
+<manual_figure/khist.pdf, id=603, 578.16pt x 289.08pt>
 File: manual_figure/khist.pdf Graphic file (type pdf)
 
 <use manual_figure/khist.pdf>
-Package pdftex.def Info: manual_figure/khist.pdf used on input line 1362.
+Package pdftex.def Info: manual_figure/khist.pdf used on input line 1643.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 1362--1363
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 1643--1644
  [][] 
  []
 
-[35] [36 <./manual_figure/wpxdiagbvns.pdf>] [37 <./manual_figure/wpwdiagbvns.pd
-f>] [38 <./manual_figure/wpydiagbvns.pdf>] [39 <./manual_figure/predbvnsx.pdf> 
-<./manual_figure/khist.pdf>] [40]
-<manual_figure/wpcalhist.pdf, id=640, 578.16pt x 433.62pt>
+[39] [40 <./manual_figure/wpxdiagbvns.pdf>] [41 <./manual_figure/wpwdiagbvns.pd
+f>] [42 <./manual_figure/wpydiagbvns.pdf>] [43 <./manual_figure/predbvnsx.pdf> 
+<./manual_figure/khist.pdf>] [44]
+<manual_figure/wpcalhist.pdf, id=669, 578.16pt x 433.62pt>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
-Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2167.
+Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2448.
 (pdftex.def)             Requested size: 483.6926pt x 284.54257pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2167--2168
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2448--2449
  [][] 
  []
 
-[41] [42 <./manual_figure/wpcalhist.pdf>] [43] (eb_models.bbl [44
+[45 <./manual_figure/wpcalhist.pdf>] [46] [47] (eb_models.bbl [48
 
 ])
 
 AED: lastpage setting LastPage
-[45]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2208.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2208.
+[49]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2489.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2489.
  (eb_models.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2208.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2208.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2489.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2489.
 
 Package rerunfilecheck Info: File `eb_models.out' has not changed.
 (rerunfilecheck)             Checksum: FE90DA2075D37FAE4D1F33B75A1DDCD0;1784.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2208.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2489.
  ) 
 Here is how much of TeX's memory you used:
- 8102 strings out of 493334
- 120951 string characters out of 3139180
- 235530 words of memory out of 3000000
- 11289 multiletter control sequences out of 15000+200000
+ 8581 strings out of 493334
+ 128045 string characters out of 3139180
+ 251992 words of memory out of 3000000
+ 11747 multiletter control sequences out of 15000+200000
  12685 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,18n,43p,2255b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -800,9 +914,9 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (45 pages, 2271391 bytes).
+Output written on eb_models.pdf (49 pages, 2286767 bytes).
 PDF statistics:
- 796 PDF objects out of 1000 (max. 8388607)
- 227 named destinations out of 1000 (max. 500000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 236 named destinations out of 1000 (max. 500000)
  300 words of extra memory for PDF output out of 10000 (max. 10000000)
 

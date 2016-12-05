@@ -130,7 +130,9 @@ pmates[6,4] <- mean(dpmm_4_3$pmse[,2])
 
 #----------------------------------------------#
 
+#true20 <- c(420,420,344,344,-7,-7,14,14,300,300,-5,-5,8,8,-200,-200)
 true20 <- c(420,420,344,344,300,300,14,14,-7,-7,-200,-200,8,8,-5,-5)
+
 true2 <- c(420,420,344,344,250,250,72.862,72.862,300,300,14,14,-7,-7,-200,-200,8,8,-5,-5)
 true2d <- c(420,344,250,72.862,300,14,-7,-200,8,-5)
 
@@ -148,18 +150,18 @@ norm0[1,1] <- mean(simple_2_1$model0[,11]);norm0[1,2] <- sd(simple_2_1$model0[,1
 norm0[2,1] <- mean(simple_4_1$model0[,11]);norm0[2,2] <- sd(simple_4_1$model0[,11])
 norm0[3,1] <- mean(simple_2_1$model0[,12]);norm0[3,2] <- sd(simple_2_1$model0[,12])
 norm0[4,1] <- mean(simple_4_1$model0[,12]);norm0[4,2] <- sd(simple_4_1$model0[,12])
-norm0[5,1] <- mean(simple_2_1$model0[,5]);norm0[5,2] <- sd(simple_2_1$model0[,5])
-norm0[6,1] <- mean(simple_4_1$model0[,5]);norm0[6,2] <- sd(simple_4_1$model0[,5])
+norm0[9,1] <- mean(simple_2_1$model0[,5]);norm0[9,2] <- sd(simple_2_1$model0[,5])
+norm0[10,1] <- mean(simple_4_1$model0[,5]);norm0[10,2] <- sd(simple_4_1$model0[,5])
 norm0[7,1] <- mean(simple_2_1$model0[,6]);norm0[7,2] <- sd(simple_2_1$model0[,6])
 norm0[8,1] <- mean(simple_4_1$model0[,6]);norm0[8,2] <- sd(simple_4_1$model0[,6])
-norm0[9,1] <- mean(simple_2_1$model0[,7]);norm0[9,2] <- sd(simple_2_1$model0[,7])
-norm0[10,1] <- mean(simple_4_1$model0[,7]);norm0[10,2] <- sd(simple_4_1$model0[,7])
-norm0[11,1] <- mean(simple_2_1$model0[,8]);norm0[11,2] <- sd(simple_2_1$model0[,8])  
-norm0[12,1] <- mean(simple_4_1$model0[,8]);norm0[12,2] <- sd(simple_4_1$model0[,8])
+norm0[5,1] <- mean(simple_2_1$model0[,7]);norm0[5,2] <- sd(simple_2_1$model0[,7])
+norm0[6,1] <- mean(simple_4_1$model0[,7]);norm0[6,2] <- sd(simple_4_1$model0[,7])
+norm0[15,1] <- mean(simple_2_1$model0[,8]);norm0[15,2] <- sd(simple_2_1$model0[,8])  
+norm0[16,1] <- mean(simple_4_1$model0[,8]);norm0[16,2] <- sd(simple_4_1$model0[,8])
 norm0[13,1] <- mean(simple_2_1$model0[,9]);norm0[13,2] <- sd(simple_2_1$model0[,9])
 norm0[14,1] <- mean(simple_4_1$model0[,9]);norm0[14,2] <- sd(simple_4_1$model0[,9])
-norm0[15,1] <- mean(simple_2_1$model0[,10]);norm0[15,2] <- sd(simple_2_1$model0[,10])
-norm0[16,1] <- mean(simple_4_1$model0[,10]);norm0[16,2] <- sd(simple_4_1$model0[,10])
+norm0[11,1] <- mean(simple_2_1$model0[,10]);norm0[11,2] <- sd(simple_2_1$model0[,10])
+norm0[12,1] <- mean(simple_4_1$model0[,10]);norm0[12,2] <- sd(simple_4_1$model0[,10])
 
 
 norm1[1,1] <- mean(simple_2_1$model1[,7]);norm1[1,2] <- sd(simple_2_1$model1[,7])
@@ -252,18 +254,18 @@ skew0[1,1] <- mean(simple_2_2$model0[,11]);skew0[1,2] <- sd(simple_2_2$model0[,1
 skew0[2,1] <- mean(simple_4_2$model0[,11]);skew0[2,2] <- sd(simple_4_2$model0[,11])
 skew0[3,1] <- mean(simple_2_2$model0[,12]);skew0[3,2] <- sd(simple_2_2$model0[,12])
 skew0[4,1] <- mean(simple_4_2$model0[,12]);skew0[4,2] <- sd(simple_4_2$model0[,12])
-skew0[5,1] <- mean(simple_2_2$model0[,5]);skew0[5,2] <- sd(simple_2_2$model0[,5])
-skew0[6,1] <- mean(simple_4_2$model0[,5]);skew0[6,2] <- sd(simple_4_2$model0[,5])
+skew0[9,1] <- mean(simple_2_2$model0[,5]);skew0[9,2] <- sd(simple_2_2$model0[,5])
+skew0[10,1] <- mean(simple_4_2$model0[,5]);skew0[10,2] <- sd(simple_4_2$model0[,5])
 skew0[7,1] <- mean(simple_2_2$model0[,6]);skew0[7,2] <- sd(simple_2_2$model0[,6])
 skew0[8,1] <- mean(simple_4_2$model0[,6]);skew0[8,2] <- sd(simple_4_2$model0[,6])
-skew0[9,1] <- mean(simple_2_2$model0[,7]);skew0[9,2] <- sd(simple_2_2$model0[,7])
-skew0[10,1] <- mean(simple_4_2$model0[,7]);skew0[10,2] <- sd(simple_4_2$model0[,7])
-skew0[11,1] <- mean(simple_2_2$model0[,8]);skew0[11,2] <- sd(simple_2_2$model0[,8])  
-skew0[12,1] <- mean(simple_4_2$model0[,8]);skew0[12,2] <- sd(simple_4_2$model0[,8])
+skew0[5,1] <- mean(simple_2_2$model0[,7]);skew0[5,2] <- sd(simple_2_2$model0[,7])
+skew0[6,1] <- mean(simple_4_2$model0[,7]);skew0[6,2] <- sd(simple_4_2$model0[,7])
+skew0[15,1] <- mean(simple_2_2$model0[,8]);skew0[15,2] <- sd(simple_2_2$model0[,8])  
+skew0[16,1] <- mean(simple_4_2$model0[,8]);skew0[16,2] <- sd(simple_4_2$model0[,8])
 skew0[13,1] <- mean(simple_2_2$model0[,9]);skew0[13,2] <- sd(simple_2_2$model0[,9])
 skew0[14,1] <- mean(simple_4_2$model0[,9]);skew0[14,2] <- sd(simple_4_2$model0[,9])
-skew0[15,1] <- mean(simple_2_2$model0[,10]);skew0[15,2] <- sd(simple_2_2$model0[,10])
-skew0[16,1] <- mean(simple_4_2$model0[,10]);skew0[16,2] <- sd(simple_4_2$model0[,10])
+skew0[11,1] <- mean(simple_2_2$model0[,10]);skew0[11,2] <- sd(simple_2_2$model0[,10])
+skew0[12,1] <- mean(simple_4_2$model0[,10]);skew0[12,2] <- sd(simple_4_2$model0[,10])
 
 
 skew1[1,1] <- mean(simple_2_2$model1[,7]);skew1[1,2] <- sd(simple_2_2$model1[,7])
@@ -359,18 +361,18 @@ bimodal0[1,1] <- mean(simple_2_3$model0[,11]);bimodal0[1,2] <- sd(simple_2_3$mod
 bimodal0[2,1] <- mean(simple_4_3$model0[,11]);bimodal0[2,2] <- sd(simple_4_3$model0[,11])
 bimodal0[3,1] <- mean(simple_2_3$model0[,12]);bimodal0[3,2] <- sd(simple_2_3$model0[,12])
 bimodal0[4,1] <- mean(simple_4_3$model0[,12]);bimodal0[4,2] <- sd(simple_4_3$model0[,12])
-bimodal0[5,1] <- mean(simple_2_3$model0[,5]);bimodal0[5,2] <- sd(simple_2_3$model0[,5])
-bimodal0[6,1] <- mean(simple_4_3$model0[,5]);bimodal0[6,2] <- sd(simple_4_3$model0[,5])
+bimodal0[9,1] <- mean(simple_2_3$model0[,5]);bimodal0[9,2] <- sd(simple_2_3$model0[,5])
+bimodal0[10,1] <- mean(simple_4_3$model0[,5]);bimodal0[10,2] <- sd(simple_4_3$model0[,5])
 bimodal0[7,1] <- mean(simple_2_3$model0[,6]);bimodal0[7,2] <- sd(simple_2_3$model0[,6])
 bimodal0[8,1] <- mean(simple_4_3$model0[,6]);bimodal0[8,2] <- sd(simple_4_3$model0[,6])
-bimodal0[9,1] <- mean(simple_2_3$model0[,7]);bimodal0[9,2] <- sd(simple_2_3$model0[,7])
-bimodal0[10,1] <- mean(simple_4_3$model0[,7]);bimodal0[10,2] <- sd(simple_4_3$model0[,7])
-bimodal0[11,1] <- mean(simple_2_3$model0[,8]);bimodal0[11,2] <- sd(simple_2_3$model0[,8])  
-bimodal0[12,1] <- mean(simple_4_3$model0[,8]);bimodal0[12,2] <- sd(simple_4_3$model0[,8])
+bimodal0[5,1] <- mean(simple_2_3$model0[,7]);bimodal0[5,2] <- sd(simple_2_3$model0[,7])
+bimodal0[6,1] <- mean(simple_4_3$model0[,7]);bimodal0[6,2] <- sd(simple_4_3$model0[,7])
+bimodal0[15,1] <- mean(simple_2_3$model0[,8]);bimodal0[15,2] <- sd(simple_2_3$model0[,8])  
+bimodal0[16,1] <- mean(simple_4_3$model0[,8]);bimodal0[16,2] <- sd(simple_4_3$model0[,8])
 bimodal0[13,1] <- mean(simple_2_3$model0[,9]);bimodal0[13,2] <- sd(simple_2_3$model0[,9])
 bimodal0[14,1] <- mean(simple_4_3$model0[,9]);bimodal0[14,2] <- sd(simple_4_3$model0[,9])
-bimodal0[15,1] <- mean(simple_2_3$model0[,10]);bimodal0[15,2] <- sd(simple_2_3$model0[,10])
-bimodal0[16,1] <- mean(simple_4_3$model0[,10]);bimodal0[16,2] <- sd(simple_4_3$model0[,10])
+bimodal0[11,1] <- mean(simple_2_3$model0[,10]);bimodal0[11,2] <- sd(simple_2_3$model0[,10])
+bimodal0[12,1] <- mean(simple_4_3$model0[,10]);bimodal0[12,2] <- sd(simple_4_3$model0[,10])
 
 
 bimodal1[1,1] <- mean(simple_2_3$model1[,7]);bimodal1[1,2] <- sd(simple_2_3$model1[,7])
@@ -453,7 +455,7 @@ bimodaldpmm[,3] <- bimodaldpmm[,1]-true2d
 
 modelnames <- c("", "Replicates", "Naive","Linear","BVN","DPMM","Truth")
 tablenames <- c("", "Replicates","Mean Est","Std Err","Bias","Truth")
-#errors <- c("Normal", "", "Skewed", "", "Bimodal", "")
+errors <- c("Normal", "", "Skewed", "", "Bimodal", "")
 parameters <- c("$\\sigma_{yee}$","","$\\sigma_{yes}$","","$\\sigma_{wee}$","","$\\sigma_{wes}$","",
                 "$\\gamma_{1,ee}$","", "$\\gamma_{2,ee}$","","$\\gamma_{3,ee}$","","$\\gamma_{1,es}$","",
                 "$\\gamma_{2,es}$","","$\\gamma_{3,es}$","")
@@ -528,8 +530,8 @@ mdat <- matrix(c(rep(0,21),rep(2,21*4)),ncol=21,byrow=T)
 mdatd <- matrix(c(rep(0,11),rep(2,11*4)),ncol=11,byrow=T)
 
 
-print(xtable(pmateedf,caption="dsfg",label="dfsf",align="lll|llll"),sanitize.text.function = function(x){x},include.rownames=FALSE)
-print(xtable(pmatesdf,caption="dsfg",label="dfsf",align="lll|llll"),sanitize.text.function = function(x){x},include.rownames=FALSE)
+print(xtable(pmateedf,caption="PMSE for EE Regression",label="pmseee",align="lll|llll"),sanitize.text.function = function(x){x},include.rownames=FALSE)
+print(xtable(pmatesdf,caption="PMSE for $\\Delta$ES Regression",label="pmsees",align="lll|llll"),sanitize.text.function = function(x){x},include.rownames=FALSE)
 
 print(xtable((norm0df),digits=mdat0,align="r|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(norm0df)),floating=FALSE)
 print(xtable((norm1df),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(norm1df)),floating=FALSE)
@@ -537,7 +539,7 @@ print(xtable((normbvndf),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),sa
 print(xtable((normdpmmdf),digits=mdatd,align="r|llllllllll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(normdpmmdf)),floating=FALSE)
 
 print(xtable((skew0df),digits=mdat0,align="r|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(skew0df)),floating=FALSE)
-print(xtable((skew1df),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-10,1,nrow(skew1df)),floating=FALSE)
+print(xtable((skew1df),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(skew1df)),floating=FALSE)
 print(xtable((skewbvndf),digits=mdat,align="r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(skewbvndf)),floating=FALSE)
 print(xtable((skewdpmmdf),digits=mdatd,align="r|llllllllll"),sanitize.text.function = function(x){x},include.rownames=TRUE,hline.after = c(-1,0,1,nrow(skewdpmmdf)),floating=FALSE)
 
