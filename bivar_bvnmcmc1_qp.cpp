@@ -995,14 +995,22 @@ List mcmc_bvn_qp(
     yeebdiff = yeeb - currentpredee;
     yesbdiff = yesb - currentpredes; 
     //sample beta ee
-    Vee = arma::inv((1/currentsigma2ee)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
-    Mee = Vee*((1/currentsigma2ee)*Z.t()*(yeebdiff)+Mb/Vb);
-    currentbetaee.row(0) = mvrnormArma(1,Mee,Vee);
+    //Vee = arma::inv((1/currentsigma2ee)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
+    //Mee = Vee*((1/currentsigma2ee)*Z.t()*(yeebdiff)+Mb/Vb);
+    //std::cout << "1";
+    Vee = arma::inv(Z.t()*Z + (1/Vb)*arma::eye(np,np));
+    //std::cout << "2";
+    Mee = Vee*((1/Vb)*Mb + Z.t()*yeebdiff);
+    //currentbetaee.row(0) = mvrnormArma(1,Mee,Vee);
+    currentbetaee.row(0) = mvrnormArma(1,Mee,currentsigma2ee*Vee);
     
     //sample beta es
-    Ves = arma::inv((1/currentsigma2es)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
-    Mes = Ves*((1/currentsigma2es)*Z.t()*(yesbdiff)+Mb/Vb);
-    currentbetaes.row(0) = mvrnormArma(1,Mes,Ves);
+    //Ves = arma::inv((1/currentsigma2es)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
+    //Mes = Ves*((1/currentsigma2es)*Z.t()*(yesbdiff)+Mb/Vb);
+    //currentbetaes.row(0) = mvrnormArma(1,Mes,Ves);
+    Ves = arma::inv(Z.t()*Z + (1/Vb)*arma::eye(np,np));
+    Mes = Ves*((1/Vb)*Mb + Z.t()*yesbdiff);
+    currentbetaes.row(0) = mvrnormArma(1,Mes,currentsigma2es*Ves);
     
     
     currentkee = knotsee.size();
