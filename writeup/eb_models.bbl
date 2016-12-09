@@ -62,6 +62,12 @@ Raymond~J. Caroll, David Ruppert, Leonard~A. Stefanski, and Ciprian~M.
 \newblock {\em Measurement Error in Nonlinear Models}.
 \newblock Chapman and Hall/CRC, 2006.
 
+\bibitem{sinha10}
+Samiran Sinha, Bani~K. Mallick, Victor Kipnis, and Raymond~J. Carroll.
+\newblock Semiparametric bayesian analysis of nutritional epidemiology data in
+  the presence of measurement error.
+\newblock {\em Biometrics}, 66:444--54, 2010.
+
 \bibitem{nonparametric}
 Kunio Takezawa.
 \newblock {\em Introduction to Nonparametric Regression}.

@@ -224,7 +224,7 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Dec 05, 2016 - 3:49:27 PM
+% Date and time: Fri, Dec 09, 2016 - 3:13:40 PM
 \begin{table}[!htbp] \centering 
   \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
   \label{ebslm} 
@@ -505,7 +505,7 @@ We start by explaining how we will model the gold standard measurements. As show
 \end{align}
 
 
-Next we explain how we will model the cheap measurements $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$. Similar to above, we start with the structure in \eqref{regressionfcn1},\eqref{regressionfcn2}. We have reason to believe and have empirical evidence that cheap instruments are not only noisy, but biased as well. Our goal here is to understand both the biases as functions of \emph{usual} value and demographic covariates, as well as the measurement error in the instruments themselves. We propose modeling the cheap measurements as a semi-parametric regression problem. Specifically, model the functions $m_{\cdot}^{\cdot}()$ using free knot cubic B-splines, and model demographic covariates with a linear component. This has three benefits. First, the spline is flexible and can pick up an unknown relationship between $X^{\cdot}$ and the cheap measurement of the same, which is important because we never observe the truth and therefore don't have a reasonable guess as to the function form of the relationship. Second, the use of free knot splines eliminates the need for us to specify the number and position of the knots. We use Reversible Jump MCMC (RJMCMC) to determine the number and position of knots. This means we treat the number of knots in each regression equation and their knot locations as random variables.  Third, the linear component for the covariates allows for an easy interpretation of the parameters and thus the biases involved in the instrument. This is convenient because the covariates we are using are standard to collect in any exercise, diet, or health study and they could help better calibrate the cheap instruments.  We will make a working assumption of constant variance for all measurement errors at this time. Based on the above, the model specification is then:
+Next we explain how we will model the cheap measurements $Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$. Similar to above, we start with the structure in \eqref{regressionfcn1},\eqref{regressionfcn2}. We have reason to believe and have empirical evidence that cheap instruments are not only noisy, but biased as well. Our goal here is to understand both the biases as functions of \emph{usual} value and demographic covariates, as well as the measurement error in the instruments themselves. We propose modeling the cheap measurements as a semi-parametric regression problem. Specifically, model the functions $m_{\cdot}^{\cdot}()$ using free knot cubic B-splines, and model demographic covariates with a linear component. We need to have monotone functions, but this only requires the spline coefficients to be nondcreasing \cite{sinha10}, ie. $\beta_1 \leq \beta_2 \leq ... \leq \beta_k$ which is a simple linear programming problem. OUr approach has three benefits. First, the spline is flexible and can pick up an unknown relationship between $X^{\cdot}$ and the cheap measurement of the same, which is important because we never observe the truth and therefore don't have a reasonable guess as to the function form of the relationship. Second, the use of free knot splines eliminates the need for us to specify the number and position of the knots. We use Reversible Jump MCMC (RJMCMC) to determine the number and position of knots. This means we treat the number of knots in each regression equation and their knot locations as random variables.  Third, the linear component for the covariates allows for an easy interpretation of the parameters and thus the biases involved in the instrument. This is convenient because the covariates we are using are standard to collect in any exercise, diet, or health study and they could help better calibrate the cheap instruments.  We will make a working assumption of constant variance for all measurement errors at this time. Based on the above, the model specification is then:
 
 \begin{align}
   f(Y_{ij}^{EE}|X_i^{EE},Z_i,\sigma_{\epsilon^{EE}}^2,\boldsymbol{\beta_{ee}}) &\overset{iid}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
@@ -1162,7 +1162,7 @@ We ran the MCMC for 12,000 iterations, using the first 2000 as burn in. For all 
 \subsection{Results}
 %-----------------------------------------%
 
-Tables \ref{nsumtable},\ref{ssumtable},\ref{bsumtable} give the results for 200 Monte Carlo samples for each simulation specification. 
+Tables \ref{nsumtable},\ref{ssumtable},\ref{bsumtable} give the results for 200 Monte Carlo samples for each simulation specification. Unsuprisingly, standard errors are smaller when there are 4 replicates per person compared to 2. 
 
 
 \clearpage

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  5 DEC 2016 15:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  9 DEC 2016 15:13
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -567,14 +567,14 @@ Overfull \hbox (57.13844pt too wide) in paragraph at lines 357--357
 [10] [11] [12] [13] [14] [15] [16] [17]
 Package color Info: Redefining color shadecolor on input line 693.
 
-<figure/latentx-1.pdf, id=367, 650.43pt x 289.08pt>
+<figure/latentx-1.pdf, id=369, 650.43pt x 289.08pt>
 File: figure/latentx-1.pdf Graphic file (type pdf)
  <use figure/latentx-1.pdf>
 Package pdftex.def Info: figure/latentx-1.pdf used on input line 694.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
 Package color Info: Redefining color shadecolor on input line 702.
 
-<figure/contourx-1.pdf, id=368, 650.43pt x 289.08pt>
+<figure/contourx-1.pdf, id=370, 650.43pt x 289.08pt>
 File: figure/contourx-1.pdf Graphic file (type pdf)
 
 <use figure/contourx-1.pdf>
@@ -582,7 +582,7 @@ Package pdftex.def Info: figure/contourx-1.pdf used on input line 703.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
  [18] [19 <./figure/latentx-1.pdf> <./figure/contourx-1.pdf>] [20] [21]
 Package color Info: Redefining color shadecolor on input line 847.
- <figure/errordist-1.pdf, id=430, 650.43pt x 289.08pt>
+ <figure/errordist-1.pdf, id=432, 650.43pt x 289.08pt>
 File: figure/errordist-1.pdf Graphic file (type pdf)
 
 <use figure/errordist-1.pdf>
@@ -591,7 +591,7 @@ Package pdftex.def Info: figure/errordist-1.pdf used on input line 849.
  [22 <./figure/errordist-1.pdf>]
 Package color Info: Redefining color shadecolor on input line 911.
 
-<figure/nonlinear-1.pdf, id=446, 505.89pt x 289.08pt>
+<figure/nonlinear-1.pdf, id=448, 505.89pt x 289.08pt>
 File: figure/nonlinear-1.pdf Graphic file (type pdf)
 
 <use figure/nonlinear-1.pdf>
@@ -743,7 +743,7 @@ m/m/it/10.95 ; C[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10
 .95 = 100000\OML/cmm/m/it/10.95 ; a[] \OT1/cmr/m/n/10.95 =
  []
 
-[32]
+[32] [33]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: <default>
@@ -776,11 +776,11 @@ m/m/it/10.95 ; C[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [33
+ [34
 
 
 
-] [34
+] [35
 
 ]
 Overfull \hbox (7.14754pt too wide) in paragraph at lines 1362--1363
@@ -792,13 +792,13 @@ Overfull \hbox (11.25934pt too wide) in paragraph at lines 1379--1380
 [][] 
  []
 
-[35
+[36
 
-] [36
+] [37
 
 
-] [37] [38]
-<manual_figure/wpxdiagbvns.pdf, id=599, 794.97pt x 614.295pt>
+] [38] [39]
+<manual_figure/wpxdiagbvns.pdf, id=605, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvns.pdf>
@@ -810,7 +810,7 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1585--1586
  [][] 
  []
 
-<manual_figure/wpwdiagbvns.pdf, id=600, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvns.pdf, id=606, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvns.pdf>
@@ -822,7 +822,7 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1592--1593
  [][] 
  []
 
-<manual_figure/wpydiagbvns.pdf, id=601, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvns.pdf, id=607, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvns.pdf>
@@ -834,7 +834,7 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1599--1600
  [][] 
  []
 
-<manual_figure/predbvnsx.pdf, id=602, 578.16pt x 289.08pt>
+<manual_figure/predbvnsx.pdf, id=608, 578.16pt x 289.08pt>
 File: manual_figure/predbvnsx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnsx.pdf>
@@ -845,7 +845,7 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 1636--1637
  [][] 
  []
 
-<manual_figure/khist.pdf, id=603, 578.16pt x 289.08pt>
+<manual_figure/khist.pdf, id=609, 578.16pt x 289.08pt>
 File: manual_figure/khist.pdf Graphic file (type pdf)
 
 <use manual_figure/khist.pdf>
@@ -856,10 +856,10 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 1643--1644
  [][] 
  []
 
-[39] [40 <./manual_figure/wpxdiagbvns.pdf>] [41 <./manual_figure/wpwdiagbvns.pd
-f>] [42 <./manual_figure/wpydiagbvns.pdf>] [43 <./manual_figure/predbvnsx.pdf> 
-<./manual_figure/khist.pdf>] [44]
-<manual_figure/wpcalhist.pdf, id=669, 578.16pt x 433.62pt>
+[40] [41 <./manual_figure/wpxdiagbvns.pdf>] [42 <./manual_figure/wpwdiagbvns.pd
+f>] [43 <./manual_figure/wpydiagbvns.pdf>] [44 <./manual_figure/predbvnsx.pdf> 
+<./manual_figure/khist.pdf>] [45]
+<manual_figure/wpcalhist.pdf, id=675, 578.16pt x 433.62pt>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
@@ -870,12 +870,12 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 2448--2449
  [][] 
  []
 
-[45 <./manual_figure/wpcalhist.pdf>] [46] [47] (eb_models.bbl [48
+[46 <./manual_figure/wpcalhist.pdf>] [47] [48] (eb_models.bbl [49
 
 ])
 
 AED: lastpage setting LastPage
-[49]
+[50]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2489.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 2489.
  (eb_models.aux)
@@ -887,10 +887,10 @@ Package rerunfilecheck Info: File `eb_models.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2489.
  ) 
 Here is how much of TeX's memory you used:
- 8581 strings out of 493334
- 128045 string characters out of 3139180
- 251992 words of memory out of 3000000
- 11747 multiletter control sequences out of 15000+200000
+ 8586 strings out of 493334
+ 128109 string characters out of 3139180
+ 252008 words of memory out of 3000000
+ 11750 multiletter control sequences out of 15000+200000
  12685 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,18n,43p,2255b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -914,9 +914,9 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (49 pages, 2286767 bytes).
+Output written on eb_models.pdf (50 pages, 2288069 bytes).
 PDF statistics:
- 823 PDF objects out of 1000 (max. 8388607)
- 236 named destinations out of 1000 (max. 500000)
+ 829 PDF objects out of 1000 (max. 8388607)
+ 238 named destinations out of 1000 (max. 500000)
  300 words of extra memory for PDF output out of 10000 (max. 10000000)
 
