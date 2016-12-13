@@ -39,7 +39,7 @@ Z= cbind(zg,zb,za)
 #number of mcmc iterations after burn
 ureps <- 2000
 #tuning burnin
-burn <- 500
+burn <- 00
 #number of iterations needed
 nreps <- ureps+burn 
 #inital number of knots

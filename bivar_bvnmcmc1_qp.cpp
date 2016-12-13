@@ -664,7 +664,7 @@ List mcmc_bvn_qp(
 
     //sample x
     for(int g=0;g<n;g++){
-      
+
       propx.row(g) = mvrnormArma(1,currentx.row(g).t(),2.88*tune.slice(g));
       zbee = 0.0;
       zbes = 0.0;
@@ -672,23 +672,23 @@ List mcmc_bvn_qp(
         zbee += Z(g,gg)*currentbetaee(0,gg);
         zbes += Z(g,gg)*currentbetaes(0,gg);
       }
-      
+
       tempxee = currentx.col(0);
       tempxes = currentx.col(1);
       tempxee[g] = propx(g,0);
       tempxes[g] = propx(g,1);
-      
-      proppredee = call_my_bs(spline,NumericVector(tempxee.begin(),tempxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]); 
-      proppredes = call_my_bs(spline,NumericVector(tempxes.begin(),tempxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]); 
-      
+
+      proppredee = call_my_bs(spline,NumericVector(tempxee.begin(),tempxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
+      proppredes = call_my_bs(spline,NumericVector(tempxes.begin(),tempxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+
 
       acceptprob = cpp_log_bqx(proppredee[g]+zbee,currentsigma2ee,proppredes[g]+zbes,currentsigma2es,currentsigma2ve,currentsigma2vs,currentmu.row(0),currentSigma,trans(propx.row(g)),yee.row(g),yes.row(g),wee.row(g),wes.row(g),nr)-
         cpp_log_bqx(currentpredee[g]+zbee,currentsigma2ee,currentpredes[g]+zbes,currentsigma2es,currentsigma2ve,currentsigma2vs,currentmu.row(0),currentSigma,trans(currentx.row(g)),yee.row(g),yes.row(g),wee.row(g),wes.row(g),nr);
-      
+
       if(log(R::runif(0,1)) < acceptprob){
         currentx.row(g) = propx.row(g);
       }
-      
+
       if((i < burn) && (i > 100) && (i%20==0)){
         //tune.slice(g) = cpp_cov(latentxee.rows(0,i).col(g),latentxes.rows(0,i).col(g),i+1);
         tune.slice(g) = cpp_cov(arma::join_rows(latentxee.rows(0,i-1).col(g),latentxes.rows(0,i-1).col(g)));
@@ -697,7 +697,7 @@ List mcmc_bvn_qp(
       // if(i==burn+1){
       //   std::cout << sqrt(tune.slice(g)[0]) << " ";
       //   std::cout << sqrt(tune.slice(g)[3]) << " " << tune.slice(g)[1]/(sqrt(tune.slice(g)[0])*sqrt(tune.slice(g)[3])) << "\n";
-      //   
+      //
       // }
     }
     

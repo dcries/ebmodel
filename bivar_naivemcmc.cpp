@@ -640,7 +640,7 @@ List mcmc_naive(
       //   //modelee_alt = my_lm2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
       //   //currentpredee = as<arma::vec>(modelee_alt["preds"]);
       //   currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
-      //   
+      // 
       // }
     }
     //death step
@@ -674,7 +674,7 @@ List mcmc_naive(
       //   //modelee_alt = my_lm2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
       //   //currentpredee = as<arma::vec>(modelee_alt["preds"]);
       //   currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
-      //   
+      // 
       // }
       
     }
@@ -707,7 +707,7 @@ List mcmc_naive(
       //   //modelee_alt = my_lm2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
       //   //currentpredee = as<arma::vec>(modelee_alt["preds"]);
       //   currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
-      //   
+      // 
       // }
     }
     
