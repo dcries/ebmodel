@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  9 DEC 2016 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  14 DEC 2016 10:25
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -627,17 +627,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 976--980
  []
 
 
-Overfull \hbox (3.37122pt too wide) in paragraph at lines 982--983
-[]$\OML/cmm/m/it/10.95 []\OMS/cmsy/m/n/10.95 j  \OML/cmm/m/it/10.95 IG\OT1/c
-mr/m/n/10.95 (\OML/cmm/m/it/10.95 a[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 
-J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
-] [][](\OML/cmm/m/it/10.95 Y[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 m[]\OT
-1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ; []) \OMS/cmsy/m/n/
-10.95   [][]\OML/cmm/m/it/10.95 Z[]\OT1/cmr/m/n/10.95 )[])$ 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 982--983
+Underfull \hbox (badness 10000) in paragraph at lines 984--985
 
  []
 
@@ -647,67 +637,77 @@ Underfull \hbox (badness 10000) in paragraph at lines 986--987
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--991
+Underfull \hbox (badness 10000) in paragraph at lines 988--989
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 993--994
+Underfull \hbox (badness 10000) in paragraph at lines 991--992
+
+ []
+
+
+Overfull \hbox (3.37122pt too wide) in paragraph at lines 994--995
+[]$\OML/cmm/m/it/10.95 []\OMS/cmsy/m/n/10.95 j  \OML/cmm/m/it/10.95 IG\OT1/c
+mr/m/n/10.95 (\OML/cmm/m/it/10.95 a[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 
+J \OMS/cmsy/m/n/10.95  []\OML/cmm/m/it/10.95 ; b[] \OT1/cmr/m/n/10.95 + [] [][
+] [][](\OML/cmm/m/it/10.95 Y[] \OMS/cmsy/m/n/10.95   \OML/cmm/m/it/10.95 m[]\OT
+1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 ; []) \OMS/cmsy/m/n/
+10.95   [][]\OML/cmm/m/it/10.95 Z[]\OT1/cmr/m/n/10.95 )[])$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 994--995
 
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 997--998
+Underfull \hbox (badness 10000) in paragraph at lines 998--999
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 999--1000
+Underfull \hbox (badness 10000) in paragraph at lines 1002--1003
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1001--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1005--1006
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1004--1005
+Underfull \hbox (badness 10000) in paragraph at lines 1009--1011
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1008--1010
+Underfull \hbox (badness 10000) in paragraph at lines 1012--1014
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1011--1013
+Underfull \hbox (badness 10000) in paragraph at lines 1015--1017
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1017--1019
+Underfull \hbox (badness 10000) in paragraph at lines 1018--1020
 
  []
 
 [26] [27] [28] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 1089--1090
+Underfull \hbox (badness 10000) in paragraph at lines 1090--1091
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1092--1093
+Underfull \hbox (badness 10000) in paragraph at lines 1093--1094
 
  []
 
 
-Overfull \hbox (0.15877pt too wide) in paragraph at lines 1113--1114
+Overfull \hbox (0.15877pt too wide) in paragraph at lines 1114--1115
 []\OT1/cmr/m/n/10.95 Calculate pro-posed spline re-gres-sion co-ef-fi-cients $[
 ]$ by us-ing OLS by re-gress-ing $\OML/cmm/m/it/10.95 Y[]$ \OT1/cmr/m/n/10.95 o
 n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
@@ -715,17 +715,17 @@ n $\OML/cmm/m/it/10.95 B[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1116--1117
+Underfull \hbox (badness 10000) in paragraph at lines 1117--1118
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1119--1120
 
  []
 
 [30]
-Underfull \hbox (badness 10000) in paragraph at lines 1118--1119
-
- []
-
-
-Overfull \hbox (22.34077pt too wide) in paragraph at lines 1132--1133
+Overfull \hbox (22.34077pt too wide) in paragraph at lines 1133--1134
 []\OT1/cmr/m/n/10.95 Calculate spline ba-sis ma-trix $\OML/cmm/m/it/10.95 B[]\O
 T1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 )$ us-ing $\OML/cmm
 /m/it/10.95 r[]$ \OT1/cmr/m/n/10.95 in or-der to cal-cu-late mean func-tion $\O
@@ -734,7 +734,7 @@ ML/cmm/m/it/10.95 m[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10
  []
 
 [31]
-Overfull \hbox (7.42311pt too wide) in paragraph at lines 1156--1157
+Overfull \hbox (7.42311pt too wide) in paragraph at lines 1157--1158
 \OT1/cmr/m/n/10.95 100000\OML/cmm/m/it/10.95 ; M[] \OT1/cmr/m/n/10.95 = \OML/cm
 m/m/it/10.95 M[] \OT1/cmr/m/n/10.95 = 1\OML/cmm/m/it/10.95 ; C[] \OT1/cmr/m/n/1
 0.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10.95 = 100000\OML/cmm/m/it/10.95 ;
@@ -783,12 +783,12 @@ m/m/it/10.95 ; C[] \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 C[] \OT1/cmr/m/n/10
 ] [35
 
 ]
-Overfull \hbox (7.14754pt too wide) in paragraph at lines 1362--1363
+Overfull \hbox (7.14754pt too wide) in paragraph at lines 1363--1364
 [][] 
  []
 
 
-Overfull \hbox (11.25934pt too wide) in paragraph at lines 1379--1380
+Overfull \hbox (11.25934pt too wide) in paragraph at lines 1380--1381
 [][] 
  []
 
@@ -802,11 +802,11 @@ Overfull \hbox (11.25934pt too wide) in paragraph at lines 1379--1380
 File: manual_figure/wpxdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1585.
+Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1586.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1585--1586
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1586--1587
  [][] 
  []
 
@@ -814,11 +814,11 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1585--1586
 File: manual_figure/wpwdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1592.
+Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1593.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1592--1593
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1593--1594
  [][] 
  []
 
@@ -826,11 +826,11 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1592--1593
 File: manual_figure/wpydiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvns.pdf>
-Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1599.
+Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1600.
 
 (pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1599--1600
+Overfull \hbox (11.67473pt too wide) in paragraph at lines 1600--1601
  [][] 
  []
 
@@ -838,10 +838,10 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1599--1600
 File: manual_figure/predbvnsx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnsx.pdf>
-Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 1636.
+Package pdftex.def Info: manual_figure/predbvnsx.pdf used on input line 1637.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 1636--1637
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 1637--1638
  [][] 
  []
 
@@ -849,10 +849,10 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 1636--1637
 File: manual_figure/khist.pdf Graphic file (type pdf)
 
 <use manual_figure/khist.pdf>
-Package pdftex.def Info: manual_figure/khist.pdf used on input line 1643.
+Package pdftex.def Info: manual_figure/khist.pdf used on input line 1644.
 (pdftex.def)             Requested size: 483.6926pt x 227.62082pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 1643--1644
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 1644--1645
  [][] 
  []
 
@@ -863,10 +863,10 @@ f>] [43 <./manual_figure/wpydiagbvns.pdf>] [44 <./manual_figure/predbvnsx.pdf>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
-Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2448.
+Package pdftex.def Info: manual_figure/wpcalhist.pdf used on input line 2449.
 (pdftex.def)             Requested size: 483.6926pt x 284.54257pt.
 
-Overfull \hbox (11.66148pt too wide) in paragraph at lines 2448--2449
+Overfull \hbox (11.66148pt too wide) in paragraph at lines 2449--2450
  [][] 
  []
 
@@ -876,15 +876,15 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 2448--2449
 
 AED: lastpage setting LastPage
 [50]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2489.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2489.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2490.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2490.
  (eb_models.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2489.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2489.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2490.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2490.
 
 Package rerunfilecheck Info: File `eb_models.out' has not changed.
 (rerunfilecheck)             Checksum: FE90DA2075D37FAE4D1F33B75A1DDCD0;1784.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2489.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2490.
  ) 
 Here is how much of TeX's memory you used:
  8586 strings out of 493334
@@ -893,7 +893,7 @@ Here is how much of TeX's memory you used:
  11750 multiletter control sequences out of 15000+200000
  12685 words of font info for 45 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,18n,43p,2255b,492s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,18n,43p,2255b,494s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb><
 C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Progr
 am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files
@@ -914,7 +914,7 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (50 pages, 2288069 bytes).
+Output written on eb_models.pdf (50 pages, 2287705 bytes).
 PDF statistics:
  829 PDF objects out of 1000 (max. 8388607)
  238 named destinations out of 1000 (max. 500000)

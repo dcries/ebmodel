@@ -12,7 +12,6 @@ library(quadprog)
 
 #source('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/base_fcn.R', echo=FALSE)#Rcpp::sourceCpp('//my.files.iastate.edu/Users/dcries/Desktop/research/rprograms/trial_and_simulated/bivar_fullmcmc2.cpp')
 source('C:\\Users\\dcries\\github\\ebmodel\\base_fcn.R')
-Rcpp::sourceCpp('C:\\Users\\dcries\\github\\ebmodel\\ppred_analysis.cpp')
 Rcpp::sourceCpp('C:\\Users\\dcries\\github\\ebmodel\\bivar_naivemcmc.cpp')
 
 params <- c(100,50,300,14,-7,-200,8,-5)
@@ -36,44 +35,12 @@ za <- simdata$za#<- runif(n,20,40) #age
 
 Z= cbind(zg,zb,za)
 
-#number of mcmc iterations after burn
-ureps <- 2000
-#tuning burnin
-burn <- 00
-#number of iterations needed
-nreps <- ureps+burn 
-#inital number of knots
-currentkee <- 2;currentkee2 <- 1;currentkee3 <- 5
-currentkes <- 2;currentkes2 <- 5;currentkes3 <- 1
-#inital knot locations
-#knots <- sort(x)[c(50,125,200,250)]
-knotsee <- sort(wee)[c(50,200)];knotsee2 <- sort(wee)[c(200)];knotsee3 <- sort(wee)[c(10,50,100,200,250)]
-knotses <- sort(wes)[c(50,200)];knotses2 <- sort(wes)[c(10,50,100,200,250)];knotses3 <- sort(wes)[c(50)]
-#specified by Denison
-ck <- 0.4
-#number of continuous derivatives -1
-l <- 3
-#number of components
-h <- 1#10
-#sd for random walk
-maxkt <- 15
-
-
-#current latent variables x, used in lm(y~bs(x))
-currentxee <- rowMeans(wee);currentxee2 <- yee[,2];currentxee3 <- wee[,2]+rnorm(n,0,300)
-currentxes <- rowMeans(wes);currentxes2 <- yes[,1];currentxes3 <- wes[,2]+rnorm(n,0,100)
-#currentmuee <- 2600#runif(h,1800,3800)
-#currentmues <- 0#runif(h,-400,400)
-currentpredee <- wee[,1]
-currentpredes <- wes[,1]
-currentsigma2ee <- 400^2;currentsigma2ee2 <- 200^2;currentsigma2ee3 <- 600^2
-currentsigma2es <- 220^2;currentsigma2es2 <- 120^2;currentsigma2es3 <- 320^2
-currentbetaee <- matrix(c(0,0,0),nrow=1);currentbetaee2 <- matrix(c(-50,-15,-15),nrow=1);currentbetaee3 <- matrix(c(100,15,15),nrow=1)
-currentbetaes <- matrix(c(0,0,0),nrow=1);currentbetaes2 <- matrix(c(-100,-15,-15),nrow=1);currentbetaes3 <- matrix(c(100,15,15),nrow=1)
-
-
-#priors
-#lambda is value for mean of prior for number of knots
+yeeb <- rowMeans(yee)
+xee <- rowMeans(wee)
+yesb <- rowMeans(yes)
+xes <- rowMeans(wes)
+np <- ncol(Z)
+nr <- ncol(yee)
 lambda <- 1
 #priors for sigmae
 ae <- 0.01;be <- 0.01
@@ -85,6 +52,61 @@ psi <- diag(2)
 #prior variance for all coefficients
 Vb <- 100000
 Mb <- 0
+
+
+pick_indicies <- function(l0,full,sel){
+  l1 <- l0+1
+  temp <- match(sel,full) + matrix(rep(-l1:l1,each=length(sel)),ncol=2*l1+1,byrow=FALSE)
+  out <- c(as.numeric(temp),1:l0,(length(full)-l0):length(full))
+  return(out[out>0])
+}
+
+log_q <- function(pmean,sigma2,y){
+  n <- length(y)
+  return(-n*log(sqrt(sigma2)) - 1/(2*sigma2)*sum((y-pmean)^2))
+}
+
+#number of mcmc iterations
+nreps <- 10000
+#inital number of knots
+kes <- rep(0,nreps)
+kee <- rep(0,nreps)
+
+currentkee <- 2
+currentkes <- 2
+
+sigma2ee <- rep(0,nreps)
+sigma2es <- rep(0,nreps)
+
+currentsigma2ee <- 400
+currentsigma2es <- 200
+
+#inital knot locations
+knotsee <- sort(xee)[c(100,200)]
+knotses <- sort(xes)[c(100,200)]
+
+#lambda is value for mean of prior for number of knots
+lambda <- 2
+#priors for sigma
+a <- 0.01;b <- 0.01
+#specified by Denison
+ck <- 0.4
+#number of continuous derivatives -1
+l <- 3
+#current predictions for fucntinos for likelihood ratio
+currentpredee <- rowMeans(wee)
+currentbetaee <- rep(0,ncol(Z))
+#mean fcn
+meanfcnee <- matrix(0,nrow=n,ncol=nreps)
+#prediction locations to check mixing
+betaee <- matrix(0,nrow=nreps,ncol=ncol(Z))
+currentpredes <- rowMeans(wes)
+currentbetaes <- rep(0,ncol(Z))
+#mean fcn
+meanfcnes <- matrix(0,nrow=n,ncol=nreps)
+#prediction locations to check mixing
+betaes <- matrix(0,nrow=nreps,ncol=ncol(Z))
+
 
 
 ck <- 0.4

@@ -224,7 +224,7 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 
 
 % Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Fri, Dec 09, 2016 - 3:13:40 PM
+% Date and time: Wed, Dec 14, 2016 - 10:25:23 AM
 \begin{table}[!htbp] \centering 
   \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
   \label{ebslm} 
@@ -547,7 +547,7 @@ $\alpha$ helps control how many components are used. In any given problem, we ca
   \begin{align}
   p(\sigma^2_{\epsilon^{ee}}) &\sim IG(a_{yee},b_{yee}) \\
   p(\sigma^2_{\nu^{ee}}) &\sim IG(a_{yes},b_{yes}) \\
-  p(\gamma_{g,ee}) &\sim N(M_{\gamma_{ee}},C_{\gamma_{ee}})  , \text{ } g=1,2,3 \\
+  p(\gamma_{g,ee}|\sigma^2_{\epsilon^{ee}}) &\sim N(M_{\gamma_{ee}},\sigma^2_{\epsilon^{ee}} C_{\gamma_{ee}})  , \text{ } g=1,2,3 \\
   p(k_{ee}) &\sim Poi(\lambda_{ee}) \\
   p(r_{ee}) &\sim DisUnif(X_1^{EE},...,X_n^{EE})
   \end{align}
@@ -555,7 +555,7 @@ $\alpha$ helps control how many components are used. In any given problem, we ca
   \begin{align}
   p(\sigma^2_{\epsilon^{es}}) &\sim IG(a_{wee},b_{wee}) \\
   p(\sigma^2_{\nu^{es}}) &\sim IG(a_{wes},b_{wes}) \\
-  p(\gamma_{g,es}) &\sim N(M_{\gamma_{es}},C_{\gamma_{es}}) , \text{ } g=1,2,3 \\
+  p(\gamma_{g,es}|\sigma^2_{\epsilon^{es}}) &\sim N(M_{\gamma_{es}},\sigma^2_{\epsilon^{es}} C_{\gamma_{es}}) , \text{ } g=1,2,3 \\
   p(k_{es}) &\sim Poi(\lambda_{es}) \\
   p(r_{es}) &\sim DisUnif(X_1^{\Delta ES},...,X_n^{\Delta ES})
   \end{align}
@@ -978,6 +978,18 @@ $C_{\mu}' = (C_{\mu}^{-1} + n_h \Sigma_{X,h}^{-1(k)})^{-1}$ \\
 $M_{\mu}' = C_{\mu}'(C_{\mu}^{-1}M + n_h \Sigma_{X,h}^{-1(k)} {\bf \bar{X}^{(k-1)}})$ \\
 ${\bf \bar{X}} = \frac{1}{n_h}\sum_{i=1}^{n} {\bf X_{i,h}}$ \\
 
+ 
+
+\item
+\{${\bf X_i^{(k)}}:i=1,...,n $\}$|\cdot$ for $i=1,...n$ sample ${\bf X_i^*}$ from $N({\bf X_i^{(k)}},C_{X_i})$ \\
+
+Set ${\bf X_i^{(k)}} = {\bf X_i^*}$ with probability $\alpha_{X_i}$, otherwise set ${\bf X_i^{(k)}} = {\bf X_i^{(k-1)}}$ \\
+
+$\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdot)}  \right)$ \\
+
+\item
+Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}$ using RJMCMC described in next section. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
+
 \item
  $\sigma^{2(k)}_{\epsilon^{EE}} |\cdot \sim IG(a_{yee}+J\times \frac{n}{2},b_{yee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{EE}-m_{ee}(X_i^{EE(k-1)};\boldsymbol{\beta_{ee}^{(k-1)}})-\boldsymbol{\gamma_{ee}}^{(k-1)}Z_i)^2)$ \\
  
@@ -991,28 +1003,17 @@ ${\bf \bar{X}} = \frac{1}{n_h}\sum_{i=1}^{n} {\bf X_{i,h}}$ \\
  
 \item
  $\sigma^{2(k)}_{\nu^{\Delta ES}} |\cdot \sim IG(a_{wes}+J\times \frac{n}{2},b_{wes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{\Delta ES}-X_i^{\Delta ES(k-1)})^2)$ \\
- 
-
-\item
-\{${\bf X_i^{(k)}}:i=1,...,n $\}$|\cdot$ for $i=1,...n$ sample ${\bf X_i^*}$ from $N({\bf X_i^{(k)}},C_{X_i})$ \\
-
-Set ${\bf X_i^{(k)}} = {\bf X_i^*}$ with probability $\alpha_{X_i}$, otherwise set ${\bf X_i^{(k)}} = {\bf X_i^{(k-1)}}$ \\
-
-$\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdot)}  \right)$ \\
-
-\item
-Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}$ using RJMCMC described in next section. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
 
 
 \item
-$\boldsymbol{\gamma_{ee}^{(k)}}|\cdot \sim N(M_{\gamma_{ee}}',C_{\gamma_{ee}}')$ \\
-$\boldsymbol{\gamma_{es}^{(k)}}|\cdot \sim N(M_{\gamma_{es}}',C_{\gamma_{es}}')$ \\
+$\boldsymbol{\gamma_{ee}^{(k)}}|\cdot \sim N(M_{\gamma_{ee}}',\sigma^{2(k)}_{\epsilon^{EE}} C_{\gamma_{ee}}')$ \\
+$\boldsymbol{\gamma_{es}^{(k)}}|\cdot \sim N(M_{\gamma_{es}}',\sigma^{2(k)}_{\epsilon^{\Delta ES}} C_{\gamma_{es}}')$ \\
 
-$C_{\gamma_{ee}}' = \left( \frac{1}{\sigma^{2(k)}_{\epsilon^{EE}}} Z'Z + \frac{1}{C_{\gamma_{ee}}} I_{3 \times 3} \right)^{-1} $\\
-$M_{\gamma_{ee}}' = C_{\gamma_{ee}}' \left( \frac{1}{\sigma^{2(k)}_{\epsilon^{EE}}} Z'({\bf \bar{Y_i}^{EE}} - m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})) + \frac{m_{\gamma_{ee}}}{C_{\gamma_{ee}} } \right)$ \\
+$C_{\gamma_{ee}}' = \left(  Z'Z + \frac{1}{C_{\gamma_{ee}}} I_{3 \times 3} \right)^{-1} $\\
+$M_{\gamma_{ee}}' = C_{\gamma_{ee}}' \left(  Z'({\bf \bar{Y_i}^{EE}} - m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})) + \frac{m_{\gamma_{ee}}}{C_{\gamma_{ee}} } \right)$ \\
 
-$C_{\gamma_{es}}' = \left( \frac{1}{\sigma^{2(k)}_{\epsilon^{\Delta ES}}} Z'Z + \frac{1}{C_{\gamma_{es}}} I_{3 \times 3} \right)^{-1} $\\
-$M_{\gamma_{es}}' = C_{\gamma_{es}}' \left( \frac{1}{\sigma^{2(k)}_{\epsilon^{\Delta ES}}} Z'({\bf \bar{Y_i}^{\Delta ES}} - m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})) + \frac{m_{\gamma_{es}}}{C_{\gamma_{ee}} } \right)$ \\
+$C_{\gamma_{es}}' = \left(  Z'Z + \frac{1}{C_{\gamma_{es}}} I_{3 \times 3} \right)^{-1} $\\
+$M_{\gamma_{es}}' = C_{\gamma_{es}}' \left(  Z'({\bf \bar{Y_i}^{\Delta ES}} - m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})) + \frac{m_{\gamma_{es}}}{C_{\gamma_{ee}} } \right)$ \\
 
 ${\bf \bar{Y_i}^{EE}} = \frac{1}{J} \sum_{j=1}^{J} Y_{ij}^{EE}$ \\
 ${\bf \bar{Y_i}^{\Delta ES}} = \frac{1}{J} \sum_{j=1}^{J} Y_{ij}^{\Delta ES}$ \\
