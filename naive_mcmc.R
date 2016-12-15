@@ -17,6 +17,11 @@ Rcpp::sourceCpp('C:\\Users\\dcries\\github\\ebmodel\\bivar_naivemcmc.cpp')
 params <- c(100,50,300,14,-7,-200,8,-5)
 simdata <- generate_data5(params,dist=1,nrep=2)
 
+yee <- simdata$yee
+yes <- simdata$yes
+wee <- simdata$wee
+wes <- simdata$wes
+
 zg <- simdata$zg #<- rbinom(n,1,0.5) #gender indicator
 zb <- simdata$zb#<- rnorm(n,27,5) #bmi
 za <- simdata$za#<- runif(n,20,40) #age
