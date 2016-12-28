@@ -217,7 +217,7 @@ ppred16 <- function(data,true,xlabels=as.character(1:16)){
   #do.call(grid.arrange,p)
 }
 
-my_bs <- function (x, knots = NULL,  intercept = TRUE, degree = 3,
+my_bs <- function (x, knots = NULL,  intercept = T, degree = 3,
                    Boundary.knots = range(x)) 
 {
   ord <- 1L + (degree <- as.integer(degree))
