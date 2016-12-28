@@ -494,6 +494,52 @@ List my_lm_qp(const arma::vec & y, const arma::mat & X, Function f){
 }
 
 
+// [[Rcpp::export]]
+List my_lm_qp2(const arma::vec & y, const arma::mat & X, const arma::mat Z, Function f){
+  int k = X.n_cols;
+  int n = X.n_rows;
+  arma::mat Z2 = Z;//arma::join_rows(Z,arma::ones(n));
+  int k2 = Z2.n_cols;
+  
+  arma::vec coef(k+k2);
+  arma::vec preds(n);
+  arma::vec fullpreds(n);
+  arma::vec lincoefs(k2);
+  arma::vec splinecoefs(k);
+  //double intercept;
+  arma::rowvec dvec(k+k2);
+  arma::mat amat = arma::zeros(k+k2-1,k+k2);
+  arma::mat XZ = arma::join_rows(Z2,X);
+  for(int i=k2;i<k+k2-1;i++){
+    amat(i,i) = -1;
+    amat(i,i+1) = 1;
+  }
+  
+  dvec = y.t()*XZ;
+  arma::vec bvec = arma::zeros(k+k2-1);
+  //std::cout << "x'x " << (trans(X)*X) << "\n"
+  //          << "dvec = " << dvec << "\n" ;
+  //std::cout << "before \n";
+  coef = as<arma::vec>(f(arma::inv(arma::chol(trans(XZ)*XZ)), dvec, amat.t(), bvec,k2-1,true));
+  //std::cout << "after \n";
+  //intercept = coef[k2];
+  splinecoefs = coef.subvec(k2,k+k2-1);
+  lincoefs = coef.subvec(0,k2-1);
+  preds = X*splinecoefs;
+  fullpreds = preds + Z*lincoefs;
+  
+  
+  
+  
+  
+  return List::create(Named("coefficients") = coef,
+                      Named("preds")       = preds,
+                      Named("fullpreds")   = fullpreds,
+                      Named("lincoefs")    = lincoefs,
+                      Named("splinecoefs")  = splinecoefs);
+}
+
+
 /*removes the one knot chosen to be removed from the vector of knot 
  * locations */
 arma::vec cpp_remove_one(arma::vec fullvec, double remove){
@@ -768,8 +814,19 @@ List mcmc_full(
   
   //std::cout << "start\n";
   
-  modelee = my_lm_qp(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())),my_qp);
-  modeles = my_lm_qp(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())),my_qp);
+//  modelee = my_lm_qp(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())),my_qp);
+//  modeles = my_lm_qp(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())),my_qp);
+  
+  modelee = my_lm_qp2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())),Z,my_qp);
+  modeles = my_lm_qp2(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())),Z,my_qp);
+  //std::cout << "2\n";
+  arma:: mat Z1 = arma::join_rows(arma::ones(n),Z);
+  arma::vec fullcurrentpredee       = modelee["fullpreds"];
+  arma::vec fullcurrentpredes       = modeles["fullpreds"];
+  currentpredee = as<arma::vec>(modelee["preds"]);
+  currentpredes = as<arma::vec>(modeles["preds"]);
+  arma::vec currentbetaee2 = as<arma::vec>(modelee["lincoefs"]);
+  arma::vec currentbetaes2 = as<arma::vec>(modeles["lincoefs"]);
   
   //std::cout << "0\n";
   //RNGScope rngScope;
@@ -830,20 +887,20 @@ List mcmc_full(
     }
     //currentalpha = sample_alpha(a_alp,b_alp,h,currentv);
     
-    e2ee = 0;
-    e2es = 0;
-    v2ee = 0;
-    v2es = 0;
-    for(int ii=0;ii<nr;ii++){
-      e2ee += accu(pow(yee.col(ii)-currentpredee-Z*currentbetaee.t(),2))/2.0;
-      e2es += accu(pow(yes.col(ii)-currentpredes-Z*currentbetaes.t(),2))/2.0;
-      v2ee += accu(pow(wee.col(ii)-currentx.col(0),2))/2.0;
-      v2es += accu(pow(wes.col(ii)-currentx.col(1),2))/2.0;
-    }
-    currentsigma2ee = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2ee));
-    currentsigma2es = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2es));
-    currentsigma2ve = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2ee));
-    currentsigma2vs = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2es));
+    // e2ee = 0;
+    // e2es = 0;
+    // v2ee = 0;
+    // v2es = 0;
+    // for(int ii=0;ii<nr;ii++){
+    //   e2ee += accu(pow(yee.col(ii)-currentpredee-Z*currentbetaee.t(),2))/2.0;
+    //   e2es += accu(pow(yes.col(ii)-currentpredes-Z*currentbetaes.t(),2))/2.0;
+    //   v2ee += accu(pow(wee.col(ii)-currentx.col(0),2))/2.0;
+    //   v2es += accu(pow(wes.col(ii)-currentx.col(1),2))/2.0;
+    // }
+    // currentsigma2ee = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2ee));
+    // currentsigma2es = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2es));
+    // currentsigma2ve = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2ee));
+    // currentsigma2vs = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2es));
 
     //std::cout << "3\n";
     //sample x
@@ -856,8 +913,8 @@ List mcmc_full(
       zbee = 0.0;
       zbes = 0.0;
       for(int gg=0;gg<np;gg++){
-        zbee += Z(g,gg)*currentbetaee(0,gg);
-        zbes += Z(g,gg)*currentbetaes(0,gg);
+        zbee += Z(g,gg)*currentbetaee2(gg);
+        zbes += Z(g,gg)*currentbetaes2(gg);
       }
       
       tempxee = currentx.col(0);
@@ -865,9 +922,9 @@ List mcmc_full(
       tempxee[g] = propx(g,0);
       tempxes[g] = propx(g,1);
        
-      proppredee = call_my_bs(spline,NumericVector(tempxee.begin(),tempxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]); 
-      proppredes = call_my_bs(spline,NumericVector(tempxes.begin(),tempxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]); 
-
+      proppredee = call_my_bs(spline,NumericVector(tempxee.begin(),tempxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["splinecoefs"]);//+double(modelee["intercept"]);
+      proppredes = call_my_bs(spline,NumericVector(tempxes.begin(),tempxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["splinecoefs"]);//+double(modeles["intercept"]);
+       
 
       acceptprob = cpp_log_bqx(proppredee[g]+zbee,currentsigma2ee,proppredes[g]+zbes,currentsigma2es,currentsigma2ve,currentsigma2vs,currentmu.row(currentzeta[g]-1),currentSigma.slice(currentzeta[g]-1),trans(propx.row(g)),yee.row(g),yes.row(g),wee.row(g),wes.row(g),nr)-
         cpp_log_bqx(currentpredee[g]+zbee,currentsigma2ee,currentpredes[g]+zbes,currentsigma2es,currentsigma2ve,currentsigma2vs,currentmu.row(currentzeta[g]-1),currentSigma.slice(currentzeta[g]-1),trans(currentx.row(g)),yee.row(g),yes.row(g),wee.row(g),wes.row(g),nr);
@@ -949,65 +1006,79 @@ List mcmc_full(
       bmatrixee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotspropee.begin(),knotspropee.end()));                
       //modelee = my_lm_qp(yeeb,bmatrixee);
 
-      modelee_prop = my_lm_qp(yeeb,bmatrixee,my_qp);
-
-      acceptprob1ee = cpp_log_q(as<arma::vec>(modelee_prop["preds"]),currentsigma2ee/2.0,yeeb)-
-        cpp_log_q(currentpredee,currentsigma2ee/2.0,yeeb) -0.5*log(n) +
+      modelee_prop = my_lm_qp2(yeeb,bmatrixee,Z,my_qp);
+      
+      acceptprob1ee = cpp_log_q(as<arma::vec>(modelee_prop["fullpreds"]),currentsigma2ee/2.0,yeeb)-
+        cpp_log_q(fullcurrentpredee,currentsigma2ee/2.0,yeeb) - 0.5*log(n) +
         log(double(n) - (2.0*(double(l)+1.0) + (currentkee)*(2.0*double(l)+1.0))) - log(double(n));
-                      //std::cout << "18a" << "\n";
+      //std::cout << "18a" << "\n";
 
       if(log(u) < acceptprob1ee){
 
         modelee = modelee_prop; //
         currentpredee = as<arma::vec>(modelee["preds"]);
+        fullcurrentpredee = as<arma::vec>(modelee["fullpreds"]);
+        currentbetaee2 = as<arma::vec>(modelee["lincoefs"]);
         knotsee = knotspropee;
         
         accept_rate[0]++;
       }
       else{
-        //modelee_alt = my_lm_qp(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
+        //modelee_alt = my_lm2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
         //currentpredee = as<arma::vec>(modelee_alt["preds"]);
-        currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
-        
+        //currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
+        currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["splinecoefs"]);//+double(modelee["intercept"]); 
+        fullcurrentpredee = currentpredee + Z*currentbetaee2;
       }
     }
     //death step
     else if(u <= bkee+dkee && knotsee.size()>1){
       rmvee = cpp_sample(NumericVector(knotsee.begin(),knotsee.end()),NumericVector(rep(1.0/double(knotsee.size()),knotsee.size())));
-          //std::cout << "14b"<< "\n";
-
+      //std::cout << "14b"<< "\n";
+      
       knotspropee = arma::sort(cpp_remove_one(knotsee,rmvee[0]));
-          //std::cout << "15b"<< "\n";
-
+      //std::cout << "15b"<< "\n";
+      
       bmatrixee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotspropee.begin(),knotspropee.end()));
-                //std::cout << "16b"<< "\n";
-               
-                
-      //modelee = my_lm_qp(yeeb,bmatrixee);
-      modelee_prop = my_lm_qp(yeeb,bmatrixee,my_qp);
-
-
-      acceptprob2ee = cpp_log_q(as<arma::vec>(modelee_prop["preds"]),currentsigma2ee/2.0,yeeb)-
-        cpp_log_q(currentpredee,currentsigma2ee/2.0,yeeb) -0.5*log(n) -
+      //std::cout << "16b"<< "\n";
+      
+      
+      //modelee = my_lm2(yeeb,bmatrixee);
+      //std::cout << "4\n";
+      //std::cout << "ee death \n" << currentxee <<"\n";
+      //std::cout << "knots prop\n" << knotspropee << "\n";
+      
+      //modelee_prop = my_lm_qp(yeeb,bmatrixee,my_qp);
+      modelee_prop = my_lm_qp2(yeeb,bmatrixee,Z,my_qp);
+      
+      
+      // acceptprob2ee = cpp_log_q(as<arma::vec>(modelee_prop["preds"]),currentsigma2ee/2.0,yeeb)-
+      //   cpp_log_q(currentpredee,currentsigma2ee/2.0,yeeb) - 0.5*log(n) -
+      //   log(double(n) - (2.0*(double(l)+1.0) + (currentkee)*(2.0*double(l)+1.0))) + log(double(n));
+      acceptprob2ee = cpp_log_q(as<arma::vec>(modelee_prop["fullpreds"]),currentsigma2ee/2.0,yeeb)-
+        cpp_log_q(fullcurrentpredee,currentsigma2ee/2.0,yeeb) - 0.5*log(n) -
         log(double(n) - (2.0*(double(l)+1.0) + (currentkee)*(2.0*double(l)+1.0))) + log(double(n));
-
-          //std::cout << "18b"<< "\n";
-
+      
+      //std::cout << "18b"<< "\n";
+      
       if(log(u) < acceptprob2ee){
-
+        
         modelee = modelee_prop; //
         currentpredee = as<arma::vec>(modelee["preds"]);
+        fullcurrentpredee = as<arma::vec>(modelee["fullpreds"]);
+        currentbetaee2 = as<arma::vec>(modelee["lincoefs"]);
         knotsee = knotspropee;
         
         accept_rate[0]++;
       }
       else{
-        //modelee_alt = my_lm_qp(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
+        //modelee_alt = my_lm2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
         //currentpredee = as<arma::vec>(modelee_alt["preds"]);
-        currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
-        
+        //currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
+        currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["splinecoefs"]);//+double(modelee["intercept"]);
+        fullcurrentpredee = currentpredee + Z*currentbetaee2;
       }
-
+      
     }
     //move step
     else{
@@ -1016,31 +1087,40 @@ List mcmc_full(
       knotspropee = arma::join_cols(reduced,cpp_sample(NumericVector(availableee.begin(),availableee.end()),rep(1.0/double(availableee.size()),availableee.size())));//sample(sort(currentxee)[-unavailableee],1)
       knotspropee = arma::sort(knotspropee); 
       bmatrixee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotspropee.begin(),knotspropee.end()));           
-      //modelee = my_lm_qp(yeeb,bmatrixee);
-      modelee_prop = my_lm_qp(yeeb,bmatrixee,my_qp);
-
-      acceptprob3ee = cpp_log_q(as<arma::vec>(modelee_prop["preds"]),currentsigma2ee/2.0,yeeb)-
-        cpp_log_q(currentpredee,currentsigma2ee/2.0,yeeb) -0.5*log(n);
-
+      //modelee = my_lm2(yeeb,bmatrixee);
+      //std::cout << "5\n";
+      //std::cout << "ee move \n" << currentxee <<"\n";
+      //std::cout << "knots prop\n" << knotspropee << "\n";
+      
+      //modelee_prop = my_lm_qp(yeeb,bmatrixee,my_qp);
+      modelee_prop = my_lm_qp2(yeeb,bmatrixee,Z,my_qp);
+      
+      // acceptprob3ee = cpp_log_q(as<arma::vec>(modelee_prop["preds"]),currentsigma2ee/2.0,yeeb)-
+      //   cpp_log_q(currentpredee,currentsigma2ee/2.0,yeeb) - 0.5*log(n);
+      acceptprob3ee = cpp_log_q(as<arma::vec>(modelee_prop["fullpreds"]),currentsigma2ee/2.0,yeeb)-
+        cpp_log_q(fullcurrentpredee,currentsigma2ee/2.0,yeeb) - 0.5*log(n);
+      
       if(log(u) < acceptprob3ee){
-
+        
         modelee = modelee_prop; //
         currentpredee = as<arma::vec>(modelee["preds"]);
+        fullcurrentpredee = as<arma::vec>(modelee["fullpreds"]);
+        currentbetaee2 = as<arma::vec>(modelee["lincoefs"]);
         knotsee = knotspropee;
         
         accept_rate[0]++;
       }
       else{
-        //modelee_alt = my_lm_qp(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
+        //modelee_alt = my_lm2(yeeb,call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end())));
         //currentpredee = as<arma::vec>(modelee_alt["preds"]);
-        currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
+        //currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["coefficients"]);
+        currentpredee = call_my_bs(spline,NumericVector(currentxee.begin(),currentxee.end()),NumericVector(knotsee.begin(),knotsee.end()))*as<arma::vec>(modelee["splinecoefs"]);//+double(modelee["intercept"]);
+        fullcurrentpredee = currentpredee + Z*currentbetaee2;
         
       }
     }
-    
-    //std::cout << "5\n";
     //ES spline step
-      compare = arma::zeros(2);
+    compare = arma::zeros(2);
     compare[0] = 1;
     compare[1] = R::dpois(currentkes+1,lambda,false)/R::dpois(currentkes,lambda,false);
     bkes = ck*compare.min();
@@ -1049,30 +1129,31 @@ List mcmc_full(
     
     if((knotses.min() < currentxes.min())){
       knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] = currentxes.min()+5;
-      std::cout << "knot too small es\n";
+      std::cout << "knot too small es1\n";
     } 
     if((knotses.max() > currentxes.max())){
       knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] = currentxes.max()-5;
-      std::cout << "knot too large es\n";
+      std::cout << "knot too large es1\n";
     } 
     
     if((knotses.min() < currentxes.min())){
       knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] = currentxes.min()+15;
-      std::cout << "knot too small es\n";
+      std::cout << "knot too small es2\n";
     } 
     if((knotses.max() > currentxes.max())){
       knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] = currentxes.max()-15;
-      std::cout << "knot too large es\n";
+      std::cout << "knot too large es2\n";
     } 
     
     if((knotses.min() < currentxes.min())){
       knotses[which_min(NumericVector(knotses.begin(),knotses.end()))] = currentxes.min()+25;
-      std::cout << "knot too small es\n";
+      std::cout << "knot too small es3\n";
     } 
     if((knotses.max() > currentxes.max())){
       knotses[which_max(NumericVector(knotses.begin(),knotses.end()))] = currentxes.max()-25;
-      std::cout << "knot too large es\n";
+      std::cout << "knot too large es3\n";
     } 
+    
     
     knotsandxes = arma::join_cols(currentxes,knotses);
     knotsandxes = arma::sort(knotsandxes);
@@ -1087,25 +1168,37 @@ List mcmc_full(
       newes = cpp_sample(NumericVector(availablees.begin(),availablees.end()),NumericVector(rep(1.0/double(n-unavailablees.size()),n-unavailablees.size())));
       knotspropes = arma::sort(arma::join_cols(knotses,newes));
       bmatrixes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotspropes.begin(),knotspropes.end()));
-      //modeles = my_lm_qp(yesb,bmatrixes);
-      modeles_prop = my_lm_qp(yesb,bmatrixes,my_qp);
+      //modeles = my_lm2(yesb,bmatrixes);
+      //std::cout << "6\n";
+      //std::cout << "es birth \n" << currentxes <<"\n";
+      //std::cout << "knots prop\n" << knotspropes << "\n";
       
- 
-      acceptprob1es = cpp_log_q(as<arma::vec>(modeles_prop["preds"]),currentsigma2es/2.0,yesb)-
-        cpp_log_q(currentpredes,currentsigma2es/2.0,yesb) -0.5*log(n) +
+      //modeles_prop = my_lm_qp(yesb,bmatrixes,my_qp);
+      modeles_prop = my_lm_qp2(yesb,bmatrixes,Z,my_qp);
+      
+      
+      // acceptprob1es = cpp_log_q(as<arma::vec>(modeles_prop["preds"]),currentsigma2es/2.0,yesb)-
+      //   cpp_log_q(currentpredes,currentsigma2es/2.0,yesb) - 0.5*log(n) +
+      //   log(double(n) - (2.0*(double(l)+1.0) + (currentkes)*(2.0*double(l)+1.0))) - log(double(n));
+      acceptprob1es = cpp_log_q(as<arma::vec>(modeles_prop["fullpreds"]),currentsigma2es/2.0,yesb)-
+        cpp_log_q(fullcurrentpredes,currentsigma2es/2.0,yesb) - 0.5*log(n) +
         log(double(n) - (2.0*(double(l)+1.0) + (currentkes)*(2.0*double(l)+1.0))) - log(double(n));
-
+      
       if(log(u) < acceptprob1es){
         modeles = modeles_prop; //
         currentpredes = as<arma::vec>(modeles["preds"]);
+        fullcurrentpredes = as<arma::vec>(modeles["fullpreds"]);
+        currentbetaes2 = as<arma::vec>(modeles["lincoefs"]);
         knotses = knotspropes;
         
         accept_rate[1]++;
       }
       else{
-        //modeles_alt = my_lm_qp(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())));
+        //modeles_alt = my_lm2(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())));
         //currentpredes = as<arma::vec>(modeles_alt["preds"]);
-        currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+        //currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+        currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["splinecoefs"]);//+double(modeles["intercept"]);
+        fullcurrentpredes = currentpredes + Z*currentbetaes2;
         
       }
     }
@@ -1114,28 +1207,40 @@ List mcmc_full(
       rmves = cpp_sample(NumericVector(knotses.begin(),knotses.end()),NumericVector(rep(1.0/double(knotses.size()),knotses.size())));
       knotspropes = arma::sort(cpp_remove_one(knotses,rmves[0]));
       bmatrixes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotspropes.begin(),knotspropes.end()));              
-      //modeles = my_lm_qp(yesb,bmatrixes);
-      modeles_prop = my_lm_qp(yesb,bmatrixes,my_qp);
+      //modeles = my_lm2(yesb,bmatrixes);
+      //std::cout << "7\n";
+      //std::cout << "es death \n" << currentxes <<"\n";
+      //std::cout << "knots prop\n" << knotspropes << "\n";
       
-
-      acceptprob2es = cpp_log_q(as<arma::vec>(modeles_prop["preds"]),currentsigma2es/2.0,yesb)-
-        cpp_log_q(currentpredes,currentsigma2es/2.0,yesb) -0.5*log(n) -
+      //modeles_prop = my_lm_qp(yesb,bmatrixes,my_qp);
+      modeles_prop = my_lm_qp2(yesb,bmatrixes,Z,my_qp);
+      
+      
+      // acceptprob2es = cpp_log_q(as<arma::vec>(modeles_prop["preds"]),currentsigma2es/2.0,yesb)-
+      //   cpp_log_q(currentpredes,currentsigma2es/2.0,yesb) - 0.5*log(n) -
+      //   log(double(n) - (2.0*(double(l)+1.0) + (currentkes)*(2.0*double(l)+1.0))) + log(double(n));
+      acceptprob2es = cpp_log_q(as<arma::vec>(modeles_prop["fullpreds"]),currentsigma2es/2.0,yesb)-
+        cpp_log_q(fullcurrentpredes,currentsigma2es/2.0,yesb) - 0.5*log(n) -
         log(double(n) - (2.0*(double(l)+1.0) + (currentkes)*(2.0*double(l)+1.0))) + log(double(n));
-
+      
       if(log(u) < acceptprob2es){
         modeles = modeles_prop; //
         currentpredes = as<arma::vec>(modeles["preds"]);
+        fullcurrentpredes = as<arma::vec>(modeles["fullpreds"]);
+        currentbetaes2 = as<arma::vec>(modeles["lincoefs"]);
         knotses = knotspropes;
         
         accept_rate[1]++;
       }
       else{
-        //modeles_alt = my_lm_qp(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())));
+        //modeles_alt = my_lm2(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())));
         //currentpredes = as<arma::vec>(modeles_alt["preds"]);
-        currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+        //currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+        currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["splinecoefs"]);//+double(modeles["intercept"]);
+        fullcurrentpredes = currentpredes + Z*currentbetaes2;
         
       }
-
+      
     }
     //move step
     else{
@@ -1144,44 +1249,80 @@ List mcmc_full(
       knotspropes = arma::join_cols(reduced,cpp_sample(NumericVector(availablees.begin(),availablees.end()),rep(1.0/double(availablees.size()),availablees.size())));//sample(sort(currentxee)[-unavailableee],1)
       knotspropes = arma::sort(knotspropes); 
       bmatrixes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotspropes.begin(),knotspropes.end()));           
-      //modeles = my_lm_qp(yesb,bmatrixes);
-      modeles_prop = my_lm_qp(yesb,bmatrixes,my_qp);
+      //modeles = my_lm2(yesb,bmatrixes);
+      //std::cout << "8\n";
+      //std::cout << "es move \n" << currentxes <<"\n";
+      //std::cout << "knots prop\n" << knotspropes << "\n";
       
-
-      acceptprob3es = cpp_log_q(as<arma::vec>(modeles_prop["preds"]),currentsigma2es/2.0,yesb)-
-        cpp_log_q(currentpredes,currentsigma2es/2.0,yesb) -0.5*log(n);
-
+      //modeles_prop = my_lm_qp(yesb,bmatrixes,my_qp);
+      modeles_prop = my_lm_qp2(yesb,bmatrixes,Z,my_qp);
+      
+      
+      // acceptprob3es = cpp_log_q(as<arma::vec>(modeles_prop["preds"]),currentsigma2es/2.0,yesb)-
+      //   cpp_log_q(currentpredes,currentsigma2es/2.0,yesb) - 0.5*log(n);
+      acceptprob3es = cpp_log_q(as<arma::vec>(modeles_prop["fullpreds"]),currentsigma2es/2.0,yesb)-
+        cpp_log_q(fullcurrentpredes,currentsigma2es/2.0,yesb) - 0.5*log(n);
+      
       if(log(u) < acceptprob3es){
         modeles = modeles_prop; //
         currentpredes = as<arma::vec>(modeles["preds"]);
+        fullcurrentpredes = as<arma::vec>(modeles["fullpreds"]);
+        currentbetaes2 = as<arma::vec>(modeles["lincoefs"]);
         knotses = knotspropes;
         
         accept_rate[1]++;
       }
       else{
-        //modeles_alt = my_lm_qp(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())));
+        //modeles_alt = my_lm2(yesb,call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end())));
         //currentpredes = as<arma::vec>(modeles_alt["preds"]);
-        currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+        //currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["coefficients"]);
+        currentpredes = call_my_bs(spline,NumericVector(currentxes.begin(),currentxes.end()),NumericVector(knotses.begin(),knotses.end()))*as<arma::vec>(modeles["splinecoefs"]);//+double(modeles["intercept"]);
+        fullcurrentpredes = currentpredes + Z*currentbetaes2;
         
       }
     }
     
     
-    yeebdiff = yeeb - currentpredee;
-    yesbdiff = yesb - currentpredes; 
-            //sample beta ee
-    Vee = arma::inv((1/currentsigma2ee)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
-    Mee = Vee*((1/currentsigma2ee)*Z.t()*(yeebdiff)+Mb/Vb);
-    currentbetaee.row(0) = mvrnormArma(1,Mee,Vee);
+    // yeebdiff = yeeb - currentpredee;
+    // yesbdiff = yesb - currentpredes; 
+    //         //sample beta ee
+    // Vee = arma::inv((1/currentsigma2ee)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
+    // Mee = Vee*((1/currentsigma2ee)*Z.t()*(yeebdiff)+Mb/Vb);
+    // currentbetaee.row(0) = mvrnormArma(1,Mee,Vee);
+    // 
+    // //sample beta es
+    // Ves = arma::inv((1/currentsigma2es)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
+    // Mes = Ves*((1/currentsigma2es)*Z.t()*(yesbdiff)+Mb/Vb);
+    // currentbetaes.row(0) = mvrnormArma(1,Mes,Ves);
 
-    //sample beta es
-    Ves = arma::inv((1/currentsigma2es)*Z.t()*Z + (1/Vb)*arma::eye(np,np));
-    Mes = Ves*((1/currentsigma2es)*Z.t()*(yesbdiff)+Mb/Vb);
-    currentbetaes.row(0) = mvrnormArma(1,Mes,Ves);
-
+    e2ee = 0;
+    e2es = 0;
+    v2ee = 0;
+    v2es = 0;
+    for(int ii=0;ii<nr;ii++){
+      //e2ee += accu(pow(yee.col(ii)-currentpredee-Z*currentbetaee.t(),2))/2.0;
+      //e2es += accu(pow(yes.col(ii)-currentpredes-Z*currentbetaes.t(),2))/2.0;
+      e2ee += (accu(pow(yee.col(ii)-fullcurrentpredee,2)));
+      e2es += (accu(pow(yes.col(ii)-fullcurrentpredes,2)));
+      
+      v2ee += accu(pow(wee.col(ii)-currentx.col(0),2))/2.0;
+      v2es += accu(pow(wes.col(ii)-currentx.col(1),2))/2.0;
+    }
+    currentsigma2ee = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2ee/2.0));
+    currentsigma2es = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2es/2.0));
+    currentsigma2ve = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2ee/2.0));
+    currentsigma2vs = 1/R::rgamma(av+nr*n/2.0,1.0/(bv+v2es/2.0));
+    
 
     currentkee = knotsee.size();
     currentkes = knotses.size();
+    
+    // currentgammaee = as<arma::vec>(modelee["splinecoefs"]);
+    // currentgammaes = as<arma::vec>(modeles["splinecoefs"]);
+    // 
+    // ngee = currentgammaee.size();
+    // nges = currentgammaes.size();
+    
     
     if(i >= burn){
           //store samples
@@ -1205,8 +1346,8 @@ List mcmc_full(
       muee.row(i-burn) = trans(currentmu.col(0));
       mues.row(i-burn) = trans(currentmu.col(1));
       
-      betaee.row(i-burn) = currentbetaee.row(0);
-      betaes.row(i-burn) = currentbetaes.row(0);
+      betaee.row(i-burn) = trans(currentbetaee2);
+      betaes.row(i-burn) = trans(currentbetaes2);
     
     
       for(int u=0;u<h;u++){
