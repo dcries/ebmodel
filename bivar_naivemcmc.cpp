@@ -358,6 +358,38 @@ List my_lm_qp(const arma::vec & y, const arma::mat & X, Function f){
                       Named("preds")       = preds);
 }
 
+// [[Rcpp::export]]
+List my_lm_qp2(const arma::vec & y, const arma::mat & X, const arma::mat Z, Function f){
+  int k = X.n_cols;
+  int n = X.n_rows;
+  arma::mat Z2 = Z;//arma::join_rows(Z,arma::ones(n));
+  int k2 = Z2.n_cols;
+  
+  arma::vec coef(k+k2);
+  arma::vec preds(n);
+  arma::vec fullpreds(n);
+  arma::rowvec dvec(k+k2);
+  arma::mat amat = arma::zeros(k+k2-1,k+k2);
+  arma::mat XZ = arma::join_rows(Z2,X);
+  for(int i=k2;i<k+k2-1;i++){
+    amat(i,i) = -1;
+    amat(i,i+1) = 1;
+  }
+  
+  dvec = y.t()*XZ;
+  arma::vec bvec = arma::zeros(k+k2-1);
+  //std::cout << "x'x " << (trans(X)*X) << "\n"
+  //          << "dvec = " << dvec << "\n" ;
+  //std::cout << "before \n";
+  coef = as<arma::vec>(f(arma::inv(arma::chol(trans(XZ)*XZ)), dvec, amat.t(), bvec,k2-1,true));
+  //std::cout << "after \n";
+  preds = X*coef.subvec(k2,k+k2-1);//+coef[k2-1];
+  fullpreds = preds + Z*coef.subvec(0,k2-1);
+  
+  return List::create(Named("coefficients") = coef,
+                      Named("preds")       = preds,
+                      Named("fullpreds")   = fullpreds);
+}
 
 
 /*removes the one knot chosen to be removed from the vector of knot 

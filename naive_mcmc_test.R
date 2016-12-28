@@ -1,9 +1,29 @@
-bee <- matrix(0,ncol=3,nrow=100)
-bes <- matrix(0,ncol=3,nrow=100)
+library(MASS)
+library(ggplot2)
+library(gridExtra)
+library(mgcv) 
+library(reshape)
+library(mvtnorm)
+library(MCMCpack)
+library(splines)
+library(fGarch)
+library(xtable)
+library(quadprog)
 
-for(j in 1:100){
 params <- c(100,50,300,14,-7,-200,8,-5)
-simdata <- generate_data5(params,dist=1,nrep=2)
+#params <- c(100,50,300,14,-7,-200,8,-5)
+simdata <- generate_data4(params,dist=1,nrep=2)
+#simdata2 <- generate_data2(params,dist=1)
+
+yee <- simdata$yee
+yes <- simdata$yes
+yeeb <- rowMeans(yee)
+yesb <- rowMeans(yes)
+xee <- simdata$xee
+xes <- simdata$xes
+wee <- simdata$wee
+wes <- simdata$wes
+n <- length(yeeb)
 
 zg <- simdata$zg #<- rbinom(n,1,0.5) #gender indicator
 zb <- simdata$zb#<- rnorm(n,27,5) #bmi
@@ -11,16 +31,40 @@ za <- simdata$za#<- runif(n,20,40) #age
 
 Z= cbind(zg,zb,za)
 
-yee <- simdata$yee
-yes <- simdata$yes
-wee <- simdata$wee
-wes <- simdata$wes
-
 yeeb <- rowMeans(yee)
 xee <- rowMeans(wee)
 yesb <- rowMeans(yes)
 xes <- rowMeans(wes)
+np <- ncol(Z)
+nr <- ncol(yee)
+lambda <- 1
+#priors for sigmae
+ae <- 0.01;be <- 0.01
 
+a_alp <- 1
+b_alp <- 1
+d <- 3#3
+psi <- diag(2)
+#prior variance for all coefficients
+Vb <- 100000
+Mb <- 0
+
+
+pick_indicies <- function(l0,full,sel){
+  l1 <- l0+1
+  temp <- match(sel,full) + matrix(rep(-l1:l1,each=length(sel)),ncol=2*l1+1,byrow=FALSE)
+  out <- c(as.numeric(temp),1:l0,(length(full)-l0):length(full))
+  return(out[out>0])
+}
+
+log_q <- function(pmean,sigma2,y){
+  n <- length(y)
+  return(-n*log(sqrt(sigma2)) - 1/(2*sigma2)*sum((y-pmean)^2))
+}
+
+#number of mcmc iterations
+nreps <- 10000
+#inital number of knots
 kes <- rep(0,nreps)
 kee <- rep(0,nreps)
 
@@ -46,19 +90,115 @@ ck <- 0.4
 #number of continuous derivatives -1
 l <- 3
 #current predictions for fucntinos for likelihood ratio
-currentpredee <- xee
+currentpredee <- rowMeans(wee)
 currentbetaee <- rep(0,ncol(Z))
 #mean fcn
 meanfcnee <- matrix(0,nrow=n,ncol=nreps)
 #prediction locations to check mixing
 betaee <- matrix(0,nrow=nreps,ncol=ncol(Z))
-currentpredes <- xes
+currentpredes <- rowMeans(wes)
 currentbetaes <- rep(0,ncol(Z))
 #mean fcn
 meanfcnes <- matrix(0,nrow=n,ncol=nreps)
 #prediction locations to check mixing
 betaes <- matrix(0,nrow=nreps,ncol=ncol(Z))
 
+
+
+ck <- 0.4
+
+
+pick_indicies <- function(l0,full,sel){
+  l1 <- l0+1
+  temp <- match(sel,full) + matrix(rep(-l1:l1,each=length(sel)),ncol=2*l1+1,byrow=FALSE)
+  out <- c(as.numeric(temp),1:l0,(length(full)-l0):length(full))
+  return(out[out>0])
+}
+
+log_q <- function(pmean,sigma2,y){
+  n <- length(y)
+  return(-n*log(sqrt(sigma2)) - 1/(2*sigma2)*sum((y-pmean)^2))
+}
+
+
+bee <- matrix(0,ncol=3,nrow=300)
+bes <- matrix(0,ncol=3,nrow=300)
+
+for(j in 1:300){
+  params <- c(100,50,300,14,-7,-200,8,-5)
+  simdata <- generate_data5(params,dist=1,nrep=2)
+  
+  yee <- simdata$yee
+  yes <- simdata$yes
+  wee <- simdata$wee
+  wes <- simdata$wes
+  
+  zg <- simdata$zg #<- rbinom(n,1,0.5) #gender indicator
+  zb <- simdata$zb#<- rnorm(n,27,5) #bmi
+  za <- simdata$za#<- runif(n,20,40) #age
+  
+  Z= cbind(zg,zb,za)
+  
+  
+  yeeb <- rowMeans(yee)
+  xee <- rowMeans(wee)
+  yesb <- rowMeans(yes)
+  xes <- rowMeans(wes)
+  np <- ncol(Z)
+  nr <- ncol(yee)
+  lambda <- 1
+  #priors for sigmae
+  ae <- 0.01;be <- 0.01
+  
+  a_alp <- 1
+  b_alp <- 1
+  d <- 3#3
+  psi <- diag(2)
+  #prior variance for all coefficients
+  Vb <- 100000
+  Mb <- 0
+  
+  #number of mcmc iterations
+  nreps <- 2000
+  #inital number of knots
+  kes <- rep(0,nreps)
+  kee <- rep(0,nreps)
+  
+  currentkee <- 2
+  currentkes <- 2
+  
+  sigma2ee <- rep(0,nreps)
+  sigma2es <- rep(0,nreps)
+  
+  currentsigma2ee <- 420^2
+  currentsigma2es <- 330^2
+  
+  #inital knot locations
+  knotsee <- sort(xee)[c(100,200)]
+  knotses <- sort(xes)[c(100,200)]
+  
+  #lambda is value for mean of prior for number of knots
+  lambda <- 2
+  #priors for sigma
+  a <- 0.01;b <- 0.01
+  #specified by Denison
+  ck <- 0.4
+  #number of continuous derivatives -1
+  l <- 3
+  #current predictions for fucntinos for likelihood ratio
+  currentpredee <- rowMeans(wee)
+  currentbetaee <- rep(0,ncol(Z))
+  #mean fcn
+  meanfcnee <- matrix(0,nrow=n,ncol=nreps)
+  #prediction locations to check mixing
+  betaee <- matrix(0,nrow=nreps,ncol=ncol(Z))
+  currentpredes <- rowMeans(wes)
+  currentbetaes <- rep(0,ncol(Z))
+  #mean fcn
+  meanfcnes <- matrix(0,nrow=n,ncol=nreps)
+  #prediction locations to check mixing
+  betaes <- matrix(0,nrow=nreps,ncol=ncol(Z))
+  
 
 for(i in 1:nreps){
   
@@ -69,44 +209,47 @@ for(i in 1:nreps){
   if(u <= bk){ #birth step
     new <- sample(sort(xee)[-unavailable],1)
     knotspropee <- sort(c(knotsee,new))
-    bmatrix <- bs(xee,knots=knotspropee)
-    #bmatrix <- my_bs(xee,knots=knotspropee)
+    #bmatrix <- bs(xee,knots=knotspropee)
+    bmatrix <- my_bs(xee,knots=knotspropee)
     
-    m1 <- lm(yeeb~Z+bmatrix)
+    #m1 <- lm(yeeb~Z+bmatrix)
     #m1 <- my_lm_qp(yeeb,bmatrix,my_qp)
-    
-    #acceptprob <- log_q(unlist(m1["preds"]),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb) +
-    #  log(n - (2*(l+1) + (currentkee)*(2*l+1))) - log(n)#- 0.5*log(n) 
-    acceptprob <- log_q(predict(m1),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb) +
+    m1 <- my_lm_qp2(yeeb,bmatrix,Z,my_qp)
+
+    acceptprob <- log_q(unlist(m1["fullpreds"]),currentsigma2ee,yeeb) - log_q(currentpredee+Z%*%currentbetaee,currentsigma2ee,yeeb) +
       log(n - (2*(l+1) + (currentkee)*(2*l+1))) - log(n)#- 0.5*log(n) 
+    #acceptprob <- log_q(predict(m1),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb) +
+    #  log(n - (2*(l+1) + (currentkee)*(2*l+1))) - log(n)#- 0.5*log(n) 
     
     if(log(runif(1)) < acceptprob){
-      #currentpredee <- unlist(m1["preds"])
-      currentpredee <- predict(m1)
+      currentpredee <- unlist(m1["preds"])
+      #currentpredee <- predict(m1)
       knotsee <- knotspropee
-      currentbetaee = coef(m1)[2:4]
+      #currentbetaee = coef(m1)[1:3]
+      currentbetaee = m1$coefficients[1:3]
     }
     
   } 
   else if(u <= bk+dk & length(knotsee)>1){ #death step
     rmv <- sample(knotsee,1)
     knotspropee <- sort(knotsee[-which(knotsee==rmv)])
-    bmatrix <- bs(xee,knots=knotspropee)
-    #bmatrix <- my_bs(xee,knots=knotspropee)
+    #bmatrix <- bs(xee,knots=knotspropee)
+    bmatrix <- my_bs(xee,knots=knotspropee)
     
-    m1 <- lm(yeeb~Z+bmatrix)
+    #m1 <- lm(yeeb~Z+bmatrix)
     #m1 <- my_lm_qp(yeeb,bmatrix,my_qp)
+    m1 <- my_lm_qp2(yeeb,bmatrix,Z,my_qp)
     
-    #acceptprob <- log_q(unlist(m1["preds"]),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb) -
-    #  log(n - (2*(l+1) + currentkee*(2*l+1))) + log(n)#- 0.5*log(n)
-    acceptprob <- log_q(predict(m1),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb) -
+    acceptprob <- log_q(unlist(m1["fullpreds"]),currentsigma2ee,yeeb) - log_q(currentpredee+Z%*%currentbetaee,currentsigma2ee,yeeb) -
       log(n - (2*(l+1) + currentkee*(2*l+1))) + log(n)#- 0.5*log(n)
+    #acceptprob <- log_q(predict(m1),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb) -
+    #  log(n - (2*(l+1) + currentkee*(2*l+1))) + log(n)#- 0.5*log(n)
     
     if(log(runif(1)) < acceptprob){
-      #currentpredee <- unlist(m1["preds"])
-      currentpredee <- predict(m1)
-      currentbetaee = coef(m1)[2:4]
-      
+      currentpredee <- unlist(m1["preds"])
+      #currentpredee <- predict(m1)
+      #currentbetaee = coef(m1)[1:3]
+      currentbetaee = m1$coefficients[1:3]
       knotsee <- knotspropee
     }
     
@@ -116,20 +259,21 @@ for(i in 1:nreps){
     knotspropee <- knotsee
     knotspropee[which(knotspropee==chg)] <- sample(sort(xee)[-unavailable],1)
     knotspropee <- sort(knotspropee)
-    bmatrix <- bs(xee,knots=knotspropee)
-    #bmatrix <- my_bs(xee,knots=knotspropee)
+    #bmatrix <- bs(xee,knots=knotspropee)
+    bmatrix <- my_bs(xee,knots=knotspropee)
     
-    m1 <- lm(yeeb~Z+bmatrix)
+    #m1 <- lm(yeeb~Z+bmatrix)
     #m1 <- my_lm_qp(yeeb,bmatrix,my_qp)
+    m1 <- my_lm_qp2(yeeb,bmatrix,Z,my_qp)
     
-    #acceptprob <- log_q(unlist(m1["preds"]),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb)#- 0.5*log(n)
-    acceptprob <- log_q(predict(m1),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb)#- 0.5*log(n)
+    acceptprob <- log_q(unlist(m1["fullpreds"]),currentsigma2ee,yeeb) - log_q(currentpredee+Z%*%currentbetaee,currentsigma2ee,yeeb)#- 0.5*log(n)
+    #acceptprob <- log_q(predict(m1),currentsigma2ee,yeeb) - log_q(currentpredee,currentsigma2ee,yeeb)#- 0.5*log(n)
     
     if(log(runif(1)) < acceptprob){
-      #currentpredee <- unlist(m1["preds"])
-      currentpredee <- predict(m1)
-      currentbetaee = coef(m1)[2:4]
-      
+      currentpredee <- unlist(m1["preds"])
+      #currentpredee <- predict(m1)
+      #currentbetaee = coef(m1)[1:3]
+      currentbetaee = m1$coefficients[1:3]
       knotsee <- knotspropee
     }
   }
@@ -143,22 +287,23 @@ for(i in 1:nreps){
   if(u <= bk){ #birth step
     new <- sample(sort(xes)[-unavailable],1)
     knotspropes <- sort(c(knotses,new))
-    bmatrix <- bs(xes,knots=knotspropes)
-    #bmatrix <- my_bs(xes,knots=knotspropes)
+    #bmatrix <- bs(xes,knots=knotspropes)
+    bmatrix <- my_bs(xes,knots=knotspropes)
     
-    m1 <- lm(yesb~Z+bmatrix)
+    #m1 <- lm(yesb~Z+bmatrix)
     #m1 <- my_lm_qp(yesb,bmatrix,my_qp)
+    m1 <- my_lm_qp2(yesb,bmatrix,Z,my_qp)
     
-    #acceptprob <- log_q(unlist(m1["preds"]),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb) +
-    #  log(n - (2*(l+1) + (currentkes)*(2*l+1))) - log(n)#- 0.5*log(n)
-    acceptprob <- log_q(predict(m1),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb) +
+    acceptprob <- log_q(unlist(m1["fullpreds"]),currentsigma2es,yesb) - log_q(currentpredes+Z%*%currentbetaes,currentsigma2es,yesb) +
       log(n - (2*(l+1) + (currentkes)*(2*l+1))) - log(n)#- 0.5*log(n)
+    #acceptprob <- log_q(predict(m1),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb) +
+    #  log(n - (2*(l+1) + (currentkes)*(2*l+1))) - log(n)#- 0.5*log(n)
     
     if(log(runif(1)) < acceptprob){
-      #currentpredes <- unlist(m1["preds"])
-      currentpredes <- predict(m1)
-      currentbetaes = coef(m1)[2:4]
-      
+      currentpredes <- unlist(m1["preds"])
+      #currentpredes <- predict(m1)
+      #currentbetaes = coef(m1)[1:3]
+      currentbetaes = m1$coefficients[1:3]
       knotses <- knotspropes
     }
     
@@ -166,22 +311,23 @@ for(i in 1:nreps){
   else if(u <= bk+dk & length(knotses)>1){ #death step
     rmv <- sample(knotses,1)
     knotspropes <- sort(knotses[-which(knotses==rmv)])
-    bmatrix <- bs(xes,knots=knotspropes)
-    #bmatrix <- my_bs(xes,knots=knotspropes)
+    #bmatrix <- bs(xes,knots=knotspropes)
+    bmatrix <- my_bs(xes,knots=knotspropes)
     
-    m1 <- lm(yesb~Z+bmatrix)
+    #m1 <- lm(yesb~Z+bmatrix)
     #m1 <- my_lm_qp(yesb,bmatrix,my_qp)
+    m1 <- my_lm_qp2(yesb,bmatrix,Z,my_qp)
     
-    #acceptprob <- log_q(unlist(m1["preds"]),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb) -
-    #  log(n - (2*(l+1) + currentkes*(2*l+1))) + log(n)#- 0.5*log(n)
-    acceptprob <- log_q(predict(m1),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb) -
+    acceptprob <- log_q(unlist(m1["fullpreds"]),currentsigma2es,yesb) - log_q(currentpredes+Z%*%currentbetaes,currentsigma2es,yesb) -
       log(n - (2*(l+1) + currentkes*(2*l+1))) + log(n)#- 0.5*log(n)
+    #acceptprob <- log_q(predict(m1),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb) -
+    #  log(n - (2*(l+1) + currentkes*(2*l+1))) + log(n)#- 0.5*log(n)
     
     if(log(runif(1)) < acceptprob){
-      #currentpredes <- unlist(m1["preds"])
-      currentpredes <- predict(m1)
-      currentbetaes = coef(m1)[2:4]
-      
+      currentpredes <- unlist(m1["preds"])
+      #currentpredes <- predict(m1)
+      #currentbetaes = coef(m1)[1:3]
+      currentbetaes = m1$coefficients[1:3]
       knotses <- knotspropes
     }
     
@@ -191,47 +337,48 @@ for(i in 1:nreps){
     knotspropes <- knotses
     knotspropes[which(knotspropes==chg)] <- sample(sort(xes)[-unavailable],1)
     knotspropes <- sort(knotspropes)
-    bmatrix <- bs(xes,knots=knotspropes)
-    #bmatrix <- my_bs(xes,knots=knotspropes)
+    #bmatrix <- bs(xes,knots=knotspropes)
+    bmatrix <- my_bs(xes,knots=knotspropes)
     
-    m1 <- lm(yesb~Z+bmatrix)
+    #m1 <- lm(yesb~Z+bmatrix)
     #m1 <- my_lm_qp(yesb,bmatrix,my_qp)
+    m1 <- my_lm_qp2(yesb,bmatrix,Z,my_qp)
     
-    #acceptprob <- log_q(unlist(m1["preds"]),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb)#- 0.5*log(n)
-    acceptprob <- log_q(predict(m1),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb)#- 0.5*log(n)
+    acceptprob <- log_q(unlist(m1["fullpreds"]),currentsigma2es,yesb) - log_q(currentpredes+Z%*%currentbetaes,currentsigma2es,yesb)#- 0.5*log(n)
+    #acceptprob <- log_q(predict(m1),currentsigma2es,yesb) - log_q(currentpredes,currentsigma2es,yesb)#- 0.5*log(n)
     
     if(log(runif(1)) < acceptprob){
-      #currentpredes <- unlist(m1["preds"])
-      currentpredes <- predict(m1)
-      currentbetaes = coef(m1)[2:4]
-      
+      currentpredes <- unlist(m1["preds"])
+      #currentpredes <- predict(m1)
+      #currentbetaes = coef(m1)[1:3]
+      currenbetaes = m1$coefficients[1:3]
       knotses <- knotspropes
     }
   }
   
   
   
-  yeebdiff = yeeb #- currentpredee
-  yesbdiff = yesb #- currentpredes
-  
-  Vee = solve(t(Z)%*%Z + (1/Vb)*diag(np))
-  Mee = Vee%*%((1/Vb)*Mb + t(Z)%*%yeebdiff)
-  Ves = solve(t(Z)%*%Z + (1/Vb)*diag(np))
-  Mes = Ves%*%((1/Vb)*Mb + t(Z)%*%yesbdiff)
-  e2ee = 0
-  e2es = 0
+  # yeebdiff = yeeb #- currentpredee
+  # yesbdiff = yesb #- currentpredes
+  # 
+  # Vee = solve(t(Z)%*%Z + (1/Vb)*diag(np))
+  # Mee = Vee%*%((1/Vb)*Mb + t(Z)%*%yeebdiff)
+  # Ves = solve(t(Z)%*%Z + (1/Vb)*diag(np))
+  # Mes = Ves%*%((1/Vb)*Mb + t(Z)%*%yesbdiff)
+   e2ee = 0
+   e2es = 0
   
   for(ii in 1:nr){
     #e2ee = e2ee + sum((yee[,ii] - currentpredee - Z%*%currentbetaee)^2)/2.0
     #e2ee = e2ee + t(yee[,ii]- currentpredee)%*%(yee[,ii] - currentpredee)
     #e2es = e2es + sum((yes[,ii] - currentpredes - Z%*%currentbetaes)^2)/2.0
-    e2ee = e2ee + sum((yee[,ii])^2)/2.0
-    e2es = e2es + sum((yes[,ii])^2)/2.0
+    e2ee = e2ee + sum((yee[,ii]-currentpredee-Z%*%currentbetaee)^2)
+    e2es = e2es + sum((yes[,ii]-currentpredes-Z%*%currentbetaes)^2)
     
   }
   
-  currentsigma2ee = rinvgamma(1,ae+nr*n/2.0,(be+e2ee-t(Mee)%*%solve(Vee)%*%Mee/2))
-  currentsigma2es = rinvgamma(1,ae+nr*n/2.0,(be+e2es-t(Mes)%*%solve(Ves)%*%Mes/2))
+  currentsigma2ee = rinvgamma(1,ae+nr*n/2.0,e2ee/2)
+  currentsigma2es = rinvgamma(1,ae+nr*n/2.0,e2es/2)
   
   
   #currentbetaee = mvrnorm(1,Mee,currentsigma2ee*Vee)
@@ -258,3 +405,39 @@ bee[j,] <- colMeans(betaee)
 bes[j,] <- colMeans(betaes)
 print(j)
 }
+
+
+#ee
+x2 <- matrix(rep(xee,length(kee)),ncol=length(kee),byrow=FALSE)
+ind <- sample(1:length(kee),500)
+y <- melt((meanfcnee)[,ind])
+x <- melt((x2)[,ind])
+dat <- cbind(x,y$value)
+names(dat) = c("x1","variable", "xval", "yval")
+
+#cs95ee <- data.frame(t(apply(chain1$meanfcnee,2,quantile,probs=c(0.025,0.975))),x=rowMeans(t(chain1$latentxee)))
+#names(cs95ee) <- c("lower","upper","x")
+
+ggplot()  + geom_line(data = dat,aes(x = xval, y = yval, group = variable),alpha=0.04) +
+  geom_line(aes(x=xee,y=rowMeans((meanfcnee))),col="red",size=1) + 
+  #geom_line(aes(x=simdata$xee,y=eecurve(simdata$xee)),col="blue",size=1)+
+  #geom_ribbon(data=cs95ee,aes(x=x,ymin=lower,ymax=upper,linetype=NA),colour="blue",alpha=0.3) +
+  geom_point(aes(x=simdata$xee,y=yeeb)) + xlab("Truth") + ylab("Observed") + theme_bw()
+
+#es
+x2 <- matrix(rep(xes,length(kee)),ncol=length(kee),byrow=FALSE)
+ind <- sample(1:length(kee),500)
+y <- melt((meanfcnes)[,ind])
+x <- melt((x2)[,ind])
+dat <- cbind(x,y$value)
+names(dat) = c("x1","variable", "xval", "yval")
+
+#cs95es <- data.frame(t(apply(chain1$meanfcnes,2,quantile,probs=c(0.025,0.975))),x=rowMeans(t(chain1$latentxes)))
+#names(cs95es) <- c("lower","upper","x")
+
+ggplot() +   geom_line(data = dat,aes(x = xval, y = yval, group = variable),alpha=0.04) +
+  geom_line(aes(x=xes,y=rowMeans((meanfcnes))),col="red",size=1) + 
+  #geom_line(aes(x=simdata$xee,y=eecurve(simdata$xee)),col="blue",size=1)+
+  #geom_ribbon(data=cs95es,aes(x=x,ymin=lower,ymax=upper,linetype=NA),colour="blue",alpha=0.3) +
+  geom_point(aes(x=simdata$xes,y=yesb)) + xlab("Truth") + ylab("Observed") + theme_bw()
+
