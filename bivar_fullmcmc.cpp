@@ -1305,8 +1305,8 @@ List mcmc_full(
       e2ee += (accu(pow(yee.col(ii)-fullcurrentpredee,2)));
       e2es += (accu(pow(yes.col(ii)-fullcurrentpredes,2)));
       
-      v2ee += accu(pow(wee.col(ii)-currentx.col(0),2))/2.0;
-      v2es += accu(pow(wes.col(ii)-currentx.col(1),2))/2.0;
+      v2ee += accu(pow(wee.col(ii)-currentx.col(0),2));
+      v2es += accu(pow(wes.col(ii)-currentx.col(1),2));
     }
     currentsigma2ee = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2ee/2.0));
     currentsigma2es = 1/R::rgamma(ae+nr*n/2.0,1.0/(be+e2es/2.0));
