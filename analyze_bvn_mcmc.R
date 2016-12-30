@@ -89,7 +89,7 @@ ysum <- c(min(simdata$yee),quantile(simdata$yee,probs=c(0.05,0.1,0.25,0.75,0.9,0
 ppan=pp_bvn(chain1,truth,wsum,ysum,xee,xes,yeeb,yesb,Z)
 
 out2x <- list(chain1=chain1,chain2=chain2,chain3=chain3,ppan=ppan)
-save(out2x,file="//my.files.iastate.edu/Users/dcries/Desktop/bvn_mcmc2x.RData")
+save(out2x,file="//my.files.iastate.edu/Users/dcries/Desktop/new_bvn_mcmc2x.RData")
 #save.image("//my.files.iastate.edu/Users/dcries/Desktop/full_mcmc1x.RData")
 
 
@@ -164,27 +164,28 @@ grid.arrange(p1,p2,nrow=1)
 
 #---------------------------------------------------
 #calibration
-a <- 100 # 17
+a <- 14 # 17
+c <- 195
 
 ypredee1 <-  yee[a,1] #2500
 ypredee2 <-  yee[296,1] #3200
-ypredee3 <-  yee[184,1] #4000
+ypredee3 <-  yee[c,1] #4000 #184
 
 ypredes1 <-  yes[a,1]#-250
 ypredes2 <-  yes[296,1]#320
-ypredes3 <-  yes[184,1]#90
+ypredes3 <-  yes[c,1]#90
 
 xtrueee1 <- xee[a]
 xtrueee2 <- xee[296]
-xtrueee3 <- xee[184]
+xtrueee3 <- xee[c]
 
 xtruees1 <- xes[a]
 xtruees2 <- xes[296]
-xtruees3 <- xes[184]
+xtruees3 <- xes[c]
 
 dem1 <- Z[a,] #c(0,18,25)
 dem2 <- Z[296,]#c(1,32,20)
-dem3 <- Z[184,]#c(1,27,34)
+dem3 <- Z[c,]#c(1,27,34)
 nr <- 1000
 
 ng <- apply(as.matrix(gammaee),1,function(x) sum(x!=0))
@@ -200,8 +201,8 @@ ceei <- data.frame(t(apply(cbind(cee1,cee2,cee3),2,quantile,probs=c(0.025,0.5,0.
 names(ceei) <- c("Lower","Median","Upper")
 ceei$Observed <- c(ypredee1,ypredee2,ypredee3)
 
-ces1 <- callibrate(ypredes1,dem1,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-300,max=500)
-#ces2 <- callibrate(ypredes2,dem2,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-100,max=100)
+ces1 <- callibrate(ypredes1,dem1,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-300,max=200)
+#ces2 <- callibrate(ypredes2,dem2,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-150,max=100)
 #ces3 <- callibrate(ypredes3,dem3,as.matrix(latentxes),as.matrix(res),as.matrix(betaes),as.matrix(gammaes),nkes,nges,nr,min=-500,max=300)
 
 cesi <- data.frame(t(apply(cbind(ces1,ces2,ces3),2,quantile,probs=c(0.025,0.5,0.975))))

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.10.6)  14 DEC 2016 10:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  30 DEC 2016 15:11
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -506,7 +506,7 @@ Package caption Info: End \AtBeginDocument code.
 
 [1
 
-{C:/Users/dcries/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 110.
@@ -798,39 +798,39 @@ Overfull \hbox (11.25934pt too wide) in paragraph at lines 1380--1381
 
 
 ] [38] [39]
-<manual_figure/wpxdiagbvns.pdf, id=605, 794.97pt x 614.295pt>
+<manual_figure/wpxdiagbvns.pdf, id=605, 614.295pt x 794.97pt>
 File: manual_figure/wpxdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvns.pdf>
 Package pdftex.def Info: manual_figure/wpxdiagbvns.pdf used on input line 1586.
 
-(pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
+(pdftex.def)             Requested size: 483.70363pt x 426.80284pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1586--1587
+Overfull \hbox (11.67252pt too wide) in paragraph at lines 1586--1587
  [][] 
  []
 
-<manual_figure/wpwdiagbvns.pdf, id=606, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvns.pdf, id=606, 614.295pt x 794.97pt>
 File: manual_figure/wpwdiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvns.pdf>
 Package pdftex.def Info: manual_figure/wpwdiagbvns.pdf used on input line 1593.
 
-(pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
+(pdftex.def)             Requested size: 483.70363pt x 426.80284pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1593--1594
+Overfull \hbox (11.67252pt too wide) in paragraph at lines 1593--1594
  [][] 
  []
 
-<manual_figure/wpydiagbvns.pdf, id=607, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvns.pdf, id=607, 614.295pt x 794.97pt>
 File: manual_figure/wpydiagbvns.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvns.pdf>
 Package pdftex.def Info: manual_figure/wpydiagbvns.pdf used on input line 1600.
 
-(pdftex.def)             Requested size: 483.70584pt x 426.79787pt.
+(pdftex.def)             Requested size: 483.70363pt x 426.80284pt.
 
-Overfull \hbox (11.67473pt too wide) in paragraph at lines 1600--1601
+Overfull \hbox (11.67252pt too wide) in paragraph at lines 1600--1601
  [][] 
  []
 
@@ -888,7 +888,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2490.
  ) 
 Here is how much of TeX's memory you used:
  8586 strings out of 493334
- 128109 string characters out of 3139180
+ 128109 string characters out of 3139179
  252008 words of memory out of 3000000
  11750 multiletter control sequences out of 15000+200000
  12685 words of font info for 45 fonts, out of 3000000 for 9000
@@ -914,7 +914,7 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (50 pages, 2287705 bytes).
+Output written on eb_models.pdf (50 pages, 2290853 bytes).
 PDF statistics:
  829 PDF objects out of 1000 (max. 8388607)
  238 named destinations out of 1000 (max. 500000)
