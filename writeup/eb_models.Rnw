@@ -962,35 +962,35 @@ Set ${\bf X_i^{(k)}} = {\bf X_i^*}$ with probability $\alpha_{X_i}$, otherwise s
 $\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdot)}  \right)$ \\
 
 \item
-Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}$ using RJMCMC described in next section. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
+Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}, \boldsymbol{\gamma_{ee}^{(k)}}, \boldsymbol{\gamma_{es}^{(k)}}$ using RJMCMC described in next section. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
 
 \item
- $\sigma^{2(k)}_{\epsilon^{EE}} |\cdot \sim IG(a_{yee}+J\times \frac{n}{2},b_{yee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{EE}-m_{ee}(X_i^{EE(k-1)};\boldsymbol{\beta_{ee}^{(k-1)}})-\boldsymbol{\gamma_{ee}}^{(k-1)}Z_i)^2)$ \\
+ $\sigma^{2(k)}_{\epsilon^{EE}} |\cdot \sim IG(a_{yee}+J\times \frac{n}{2},b_{yee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{EE}-m_{ee}(X_i^{EE(k)};\boldsymbol{\beta_{ee}^{(k)}})-\boldsymbol{\gamma_{ee}}^{(k)}Z_i)^2)$ \\
  
 
 \item
- $\sigma^{2(k)}_{\epsilon^{\Delta ES}} |\cdot \sim IG(a_{yes}+J\times \frac{n}{2},b_{yes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{\Delta ES}-m_{es}(X_i^{\Delta ES(k-1)};\boldsymbol{\beta_{es}^{(k-1)}})-\boldsymbol{\gamma_{es}}^{(k-1)}Z_i)^2)$ \\
+ $\sigma^{2(k)}_{\epsilon^{\Delta ES}} |\cdot \sim IG(a_{yes}+J\times \frac{n}{2},b_{yes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{\Delta ES}-m_{es}(X_i^{\Delta ES(k)};\boldsymbol{\beta_{es}^{(k)}})-\boldsymbol{\gamma_{es}}^{(k)}Z_i)^2)$ \\
  
  
 \item
- $\sigma^{2(k)}_{\nu^{EE}} |\cdot \sim IG(a_{wee}+J\times \frac{n}{2},b_{wee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{EE}-X_i^{EE(k-1)})^2)$ \\
+ $\sigma^{2(k)}_{\nu^{EE}} |\cdot \sim IG(a_{wee}+J\times \frac{n}{2},b_{wee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{EE}-X_i^{EE(k)})^2)$ \\
  
 \item
- $\sigma^{2(k)}_{\nu^{\Delta ES}} |\cdot \sim IG(a_{wes}+J\times \frac{n}{2},b_{wes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{\Delta ES}-X_i^{\Delta ES(k-1)})^2)$ \\
+ $\sigma^{2(k)}_{\nu^{\Delta ES}} |\cdot \sim IG(a_{wes}+J\times \frac{n}{2},b_{wes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{\Delta ES}-X_i^{\Delta ES(k)})^2)$ \\
 
 
-\item
-$\boldsymbol{\gamma_{ee}^{(k)}}|\cdot \sim N(M_{\gamma_{ee}}',\sigma^{2(k)}_{\epsilon^{EE}} C_{\gamma_{ee}}')$ \\
-$\boldsymbol{\gamma_{es}^{(k)}}|\cdot \sim N(M_{\gamma_{es}}',\sigma^{2(k)}_{\epsilon^{\Delta ES}} C_{\gamma_{es}}')$ \\
-
-$C_{\gamma_{ee}}' = \left(  Z'Z + \frac{1}{C_{\gamma_{ee}}} I_{3 \times 3} \right)^{-1} $\\
-$M_{\gamma_{ee}}' = C_{\gamma_{ee}}' \left(  Z'({\bf \bar{Y_i}^{EE}} - m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})) + \frac{m_{\gamma_{ee}}}{C_{\gamma_{ee}} } \right)$ \\
-
-$C_{\gamma_{es}}' = \left(  Z'Z + \frac{1}{C_{\gamma_{es}}} I_{3 \times 3} \right)^{-1} $\\
-$M_{\gamma_{es}}' = C_{\gamma_{es}}' \left(  Z'({\bf \bar{Y_i}^{\Delta ES}} - m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})) + \frac{m_{\gamma_{es}}}{C_{\gamma_{ee}} } \right)$ \\
-
-${\bf \bar{Y_i}^{EE}} = \frac{1}{J} \sum_{j=1}^{J} Y_{ij}^{EE}$ \\
-${\bf \bar{Y_i}^{\Delta ES}} = \frac{1}{J} \sum_{j=1}^{J} Y_{ij}^{\Delta ES}$ \\
+% \item
+% $\boldsymbol{\gamma_{ee}^{(k)}}|\cdot \sim N(M_{\gamma_{ee}}',\sigma^{2(k)}_{\epsilon^{EE}} C_{\gamma_{ee}}')$ \\
+% $\boldsymbol{\gamma_{es}^{(k)}}|\cdot \sim N(M_{\gamma_{es}}',\sigma^{2(k)}_{\epsilon^{\Delta ES}} C_{\gamma_{es}}')$ \\
+% 
+% $C_{\gamma_{ee}}' = \left(  Z'Z + \frac{1}{C_{\gamma_{ee}}} I_{3 \times 3} \right)^{-1} $\\
+% $M_{\gamma_{ee}}' = C_{\gamma_{ee}}' \left(  Z'({\bf \bar{Y_i}^{EE}} - m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})) + \frac{m_{\gamma_{ee}}}{C_{\gamma_{ee}} } \right)$ \\
+% 
+% $C_{\gamma_{es}}' = \left(  Z'Z + \frac{1}{C_{\gamma_{es}}} I_{3 \times 3} \right)^{-1} $\\
+% $M_{\gamma_{es}}' = C_{\gamma_{es}}' \left(  Z'({\bf \bar{Y_i}^{\Delta ES}} - m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})) + \frac{m_{\gamma_{es}}}{C_{\gamma_{ee}} } \right)$ \\
+% 
+% ${\bf \bar{Y_i}^{EE}} = \frac{1}{J} \sum_{j=1}^{J} Y_{ij}^{EE}$ \\
+% ${\bf \bar{Y_i}^{\Delta ES}} = \frac{1}{J} \sum_{j=1}^{J} Y_{ij}^{\Delta ES}$ \\
 
 There are identity matricies because we are assuming independent priors for the linear regression components. 
 \end{enumerate}
@@ -1000,7 +1000,7 @@ There are identity matricies because we are assuming independent priors for the 
 
 
 \subsection{Reversible Jump MCMC}
-In order to complete our Gibbs algorithm in the previous section, we need to describe how we estimate the parameters of the free knot spline using RJMCMC. We first present background on estimating free knot splines using RJMCMC. At the end of the section, we present the missing piece in the above algorithm that explains how we sample ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}$. 
+In order to complete our Gibbs algorithm in the previous section, we need to describe how we estimate the parameters of the free knot spline using RJMCMC. We first present background on estimating free knot splines using RJMCMC. At the end of the section, we present the missing piece in the above algorithm that explains how we sample ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}, \boldsymbol{\gamma_{ee}^{(k)}},\boldsymbol{\gamma_{es}^{(k)}}$. 
 
 RJMCMC was introduced by Green \cite{green} as a way to jump between parameter spaces having different dimensions. It was developed as a Bayesian approach  for model determination. Model selection and model averaging can be implemented straightfoward through the use of this sampler. Although we are not using RJMCMC for the usual type of model selection \emph{per se}, we are using it to select one piece of our model; that is the spline component of our regression. As discussed earlier, we need to specify the position and number of knots for our spline, but since we have no reasonable guess as to what the error free values would look like, we want to account for that uncertainty by treating the position and number of knots as random variables. RJMCMC is the tool that allows us to do this in a Bayesian framework via free knot splines. 
 
@@ -1040,21 +1040,21 @@ where $0\leq c \leq 1/2$ to ensure $b_k+d_k \leq 1$. If the birth step transitio
 \alpha &= min(1, \text{likelihood ratio} \times \text{prior ratio} \times \text{proposal ratio})
 \end{align}
 
-Denison et al. gives simplified acceptance probabilities for each of the three transitions under Poisson prior for number of knots and discrete uniform prior for knot locations. In the regression setup in Denison et al., they then sample variance components using a Gibbs step. To check ``convergence" of the chain, Denison et al. suggest monitoring the MSE of the models as defined below. Once the MSE has ``settled down", samples from the posterior should be reasonable.
+Denison et al. gives simplified acceptance probabilities for each of the three transitions under Poisson prior for number of knots and discrete uniform prior for knot locations. In the regression setup in Denison et al., they then sample variance components using a Gibbs step. To check ``convergence" of the chain, Denison et al. suggest monitoring the MSE of the models as defined below. %Once the MSE has ``settled down", samples from the posterior should be reasonable.
 
-\begin{align}
-MSE &= \frac{1}{n} \sum_{i=1}^{n}(y_i - f(x_i;\boldsymbol{\beta}))^2
-\end{align}
+% \begin{align}
+% MSE &= \frac{1}{n} \sum_{i=1}^{n}(y_i - f(x_i;\boldsymbol{\beta}))^2
+% \end{align}
 
 %--------------------------------------
 \subsection{Our RJMCMC Implementation}
 %-------------------------------------
 
-Here we present how we implement our version of RJMCMC for free knot splines. The model \eqref{simplespline} that was used to develop the method in \cite{denison} is simpler than our model in three respects: (i) our covariate value $x_i$ is a latent variable, (ii) we have an additional linear component to our mean function, (iii) the regression model is part of a larger hierarchical model. The third issue doesn't present much of a problem due to our conditional independence assumptions. 
+Here we present how we implement our version of RJMCMC for free knot splines. The model \eqref{simplespline} that was used to develop the method in \cite{denison} is simpler than our model in three respects: (i) the regression model is part of a larger hierarchical model, (ii) we have an additional linear component to our mean function, (iii) our covariate value $x_i$ is a latent variable . The first issue doesn't present much of a problem due to our conditional independence assumptions. For issue (ii) we propose to update the linear coefficient parameters at the same time as the spline coefficient parameters using OLS. We understand this is not a fully Bayesian approach, but we anticipate results to be similar with much less computational burden.
 
-Issue (i) is not as simple. In the free knot spline setup in Denison et al., they have a regression model of the form \eqref{simplespline} where $y$ is the observed response and $x$ is the observed covariate. In our case we do not observe $x$, but rather it is a latent variable that we must sample from using the Gibbs algorithm described in the previous section. Because we have to sample our $x$'s through the Gibbs algorithm, the basis matrix has to be adjusted every iteration. We calculate the basis matrix using the current latent variables and  the proposed knots, if we accept this proposal then the knots, spline coefficients, and thus estimate of $m_{\cdot}(X^{\cdot (k)},\boldsymbol{\beta}_{\cdot}^{(k)})$ are all updated. The bigger problem is what happens when we reject the proposal. Keeping the current knot locations is fine, keeping the current spline regression parameters is fine, but keeping the current predictions doesn't make sense because they are based on $X^{\cdot (k)}$, which is being updated every iteration. What we propose is if we reject the the RJ proposal, we keep the current knots and spline coefficients, calculate a new basis matrix based on the current values of $X^{\cdot (k)}$ and the current knots, then calculate the predicted values by multiplying the basis matrix by the current spline coefficients. An additional complication with $X$ being random instead of fixed has to do with the birth step and the set of available knots to choose from $\mathcal{A}$. We want to pick randomly from the set of $X$ values which we drew in the current iteration of the MCMC, but we do not want a knot to be bigger or smaller than the maximum or minimum value, respectively. This could occur for example, if a new knot is proposed at one of the largest values and it is accepted, then the next iteration through the random walk, the $X$ values could change such that the largest knot is larger than the largest $X$, which causes issues when constructing the basis matrix. To avoid this issue, we exclude the 3 smallest and 3 largest values of $X$ from $\mathcal{A}$. We don't expect this to be a major issue because we are less concerned with flexibility of the function at its extremes.
+Issue (iii) is not as simple. In the free knot spline setup in Denison et al., they have a regression model of the form \eqref{simplespline} where $y$ is the observed response and $x$ is the observed covariate. In our case we do not observe $x$, but rather it is a latent variable that we must sample from using the Gibbs algorithm described in the previous section. Because we have to sample our $x$'s through the Gibbs algorithm, the basis matrix has to be adjusted every iteration. We calculate the basis matrix using the current latent variables and  the proposed knots, if we accept this proposal then the knots, spline coefficients, and thus estimate of $m_{\cdot}(X^{\cdot (k)},\boldsymbol{\beta}_{\cdot}^{(k)})$ are all updated. The bigger problem is what happens when we reject the proposal. Keeping the current knot locations is fine, keeping the current spline regression parameters is fine, but keeping the current predictions doesn't make sense because they are based on $X^{\cdot (k)}$, which is being updated every iteration. What we propose is if we reject the the RJ proposal, we keep the current knots and spline coefficients, calculate a new basis matrix based on the current values of $X^{\cdot (k)}$ and the current knots, then calculate the predicted values by multiplying the basis matrix by the current spline coefficients. An additional complication with $X$ being random instead of fixed has to do with the birth step and the set of available knots to choose from $\mathcal{A}$. We want to pick randomly from the set of $X$ values which we drew in the current iteration of the MCMC, but we do not want a knot to be bigger or smaller than the maximum or minimum value, respectively. This could occur for example, if a new knot is proposed at one of the largest values and it is accepted, then the next iteration through the random walk, the $X$ values could change such that the largest knot is larger than the largest $X$, which causes issues when constructing the basis matrix. To avoid this issue, we exclude the 3 smallest and 3 largest values of $X$ from $\mathcal{A}$. We don't expect this to be a major issue because we are less concerned with flexibility of the function at its extremes.
 
-Our solution to issue (ii) is a simple fix. We fit the free knot spline using the original data $Y^{EE}$ and $Y^{\Delta ES}$ regressed on the B-spline basis matrix generated using the current draw of latent variables $X^{EE}$ and $X^{\Delta ES}$, respectively. Then we calculate $\tilde{Y}^{EE(k)}=Y^{EE}-m_{ee}(X^{EE(k)},\boldsymbol{\beta}_{ee}^{(k)})$ and $\tilde{Y}^{\Delta ES(k)}=Y^{\Delta ES}-m_{es}(X^{\Delta ES(k)},\boldsymbol{\beta}_{es}^{(k)})$ where the superscript $(k)$ represents the $k^{th}$ draw from the MCMC. We then update the $\gamma^{(k)}$ coefficients using $\tilde{Y}^{EE(k)}$ and $\tilde{Y}^{\Delta ES(k)}$ as our data.
+% Our solution to issue (ii) is a simple fix. We fit the free knot spline using the original data $Y^{EE}$ and $Y^{\Delta ES}$ regressed on the B-spline basis matrix generated using the current draw of latent variables $X^{EE}$ and $X^{\Delta ES}$, respectively. Then we calculate $\tilde{Y}^{EE(k)}=Y^{EE}-m_{ee}(X^{EE(k)},\boldsymbol{\beta}_{ee}^{(k)})$ and $\tilde{Y}^{\Delta ES(k)}=Y^{\Delta ES}-m_{es}(X^{\Delta ES(k)},\boldsymbol{\beta}_{es}^{(k)})$ where the superscript $(k)$ represents the $k^{th}$ draw from the MCMC. We then update the $\gamma^{(k)}$ coefficients using $\tilde{Y}^{EE(k)}$ and $\tilde{Y}^{\Delta ES(k)}$ as our data.
 
 This algorithm is run independently for EE and $\Delta$ES regression functions due to conditional independence. Therefore let $(\cdot)$ denote the apppropriate sub/superscript for EE or $\Delta$ES. The reversible jump step that goes into our overall Gibbs algorithm is then:
 
@@ -1085,12 +1085,12 @@ Sample one knot location from $r_{\cdot}^{(k-1)}$ at random, and change it to a 
 Calculate the spline basis matrix $B^*_{\cdot}(X^{\cdot(k)})$ using $X^{\cdot(k)}$ and proposed knot locations $r_{\cdot}^{*}$
 
 \item
-Calculate proposed spline regression coefficients $\boldsymbol{\beta^*_{\cdot}}$ by using OLS by regressing $Y^{\cdot}$ on $B^*_{\cdot}(X^{\cdot(k)})$
+Calculate proposed spline regression coefficients $\boldsymbol{\beta^*_{\cdot}},\boldsymbol{\gamma^*_{\cdot}}$ by using OLS by regressing $Y^{\cdot}$ on $B^*_{\cdot}(X^{\cdot(k)}) + Z$
 
 \item
 Accept proposed knots and coefficients with probability $\alpha_{\cdot}$ \\
 
-Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cdot}} =\boldsymbol{\beta^{(k-1)}_{\cdot}}$\\
+Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cdot}} =\boldsymbol{\beta^{(k-1)}_{\cdot}}$, $\boldsymbol{\gamma^{(k)}_{\cdot}} =\boldsymbol{\gamma^{(k-1)}_{\cdot}}$\\
 
 \begin{align*}
 \alpha_{birth} &= min\left(1, \text{Likelihood ratio}\times \frac{n-Z(k)}{n} \right) \\
@@ -1104,7 +1104,7 @@ k_{\cdot} &= length(r_{\cdot}^{(k-1)})
 \end{align*}
 
 \item
-Calculate spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ using $r_{\cdot}^{(k)}$ in order to calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}})$
+calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}})$ Using spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ and $r_{\cdot}^{(k)}$
 
 
 \end{enumerate}
@@ -1137,7 +1137,9 @@ We ran the MCMC for 12,000 iterations, using the first 2000 as burn in. For all 
 \subsection{Results}
 %-----------------------------------------%
 
-Tables \ref{nsumtable},\ref{ssumtable},\ref{bsumtable} give the results for 200 Monte Carlo samples for each simulation specification. Unsuprisingly, standard errors are smaller when there are 4 replicates per person compared to 2. 
+Tables \ref{nsumtable},\ref{ssumtable},\ref{bsumtable} give the results for 200 Monte Carlo samples for normal, skewed, and bimodal errors, respectively. Across all models and error types, the linear coefficients are estimated pretty well. This is not too surprising since these covariates are measured without error. The biases and standard errors are slightly smaller for models BVN and DPMM, however. All 3 measurement error models perform comparably for assessing the measurement error in the gold standard instruments. They are all biased low for the bimodal errors. This is true for the measurement error for the cheap measurements as well. The n{\"a}ive model sees this too for bimodal errors, although not as extreme. The BVN and DPMM models have similar results for the measurement error of cheap measurements that are good for EE, but biased low for $\Delta$ES. Both the n{\"a}ive model and the linear measurement error model have estimated measurement error standard deviations for the cheap measurement that are larger than the truth under normal errors and skewed errors for EE. 
+
+Tables \ref{pmseee},\ref{pmsees} give the mean PMSE for each model under each type of error for both EE and $\Delta$ES for 2 and 4 replicates. There is a consistent decreasing pattern from left to right in terms of the models. The n{\"a}ive model and linear measurement error model perform much worse than the models with free knot splines in terms of PMSE. There's not a large difference between the BVN and DPMM model in terms of PMSE, but the DPMM model generally does better. The question is whether the small improvement is worth the increase in model complexity. It is the authors' opinion that the answer is no for two reasons: (i) our main focus with this model is callibrating the cheap measurements and not necessarily inference at the latent variable level, and (ii) this only applies in this situation when we have 4 replicates, which for gold standard measurements, is unrealistic. Given the latent data was nonormal, a question might be how poorly does a bivariate normal fit these latent data? We address this question in an example in the next section. Because the main focus is to callibrate cheap measurements as best as possible, the simulation results are promising for our model.
 
 
 \clearpage
@@ -1384,11 +1386,11 @@ Mean Est & 251.97 & 235.27 & 191.80 & 55.25 & 218.08 & 12.43 & -5.67 & -202.35 &
   \hline
  & Replicates & Naive & Linear & BVN & DPMM \\ 
   \hline
-Normal & 2 & 144869.7 & 113975.56 & 71308.89 & 0 \\ 
+Normal & 2 & 144869.7 & 113975.56 & 71308.89 & - \\ 
    & 4 & 100096.78 & 75098.25 & 35902.73 & 35602.62 \\ 
-  Skewed & 2 & 138895.41 & 101586.02 & 70058.3 & 0 \\ 
+  Skewed & 2 & 138895.41 & 101586.02 & 70058.3 & - \\ 
    & 4 & 91110.6 & 63178.21 & 35820.27 & 35449 \\ 
-  Bimodal & 2 & 93857.63 & 46486 & 42968.21 & 0 \\ 
+  Bimodal & 2 & 93857.63 & 46486 & 42968.21 & - \\ 
    & 4 & 84228.86 & 35665.26 & 30936.62 & 28335.85 \\ 
    \hline
 \end{tabular}
@@ -1405,11 +1407,11 @@ Normal & 2 & 144869.7 & 113975.56 & 71308.89 & 0 \\
   \hline
  & Replicates & Naive & Linear & BVN & DPMM \\ 
   \hline
-Normal & 2 & 61567.63 & 43557.94 & 38272.77 & 0 \\ 
+Normal & 2 & 61567.63 & 43557.94 & 38272.77 & - \\ 
    & 4 & 36238.56 & 24760.97 & 20654.15 & 20490.67 \\ 
-  Skewed & 2 & 49161.19 & 35783.01 & 31818.48 & 0 \\ 
+  Skewed & 2 & 49161.19 & 35783.01 & 31818.48 & - \\ 
    & 4 & 27917.97 & 19980.43 & 17095.63 & 16969.31 \\ 
-  Bimodal & 2 & 24583.02 & 18758.07 & 17057.83 & 0 \\ 
+  Bimodal & 2 & 24583.02 & 18758.07 & 17057.83 & - \\ 
    & 4 & 15772.86 & 11376.04 & 10362.42 & 10263.01 \\ 
    \hline
 \end{tabular}

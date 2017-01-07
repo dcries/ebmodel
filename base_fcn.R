@@ -1089,9 +1089,9 @@ generate_data5 <- function(params,dist=1,nrep=2){
        #calculate DXA est of ES
       wes[,i] <- xes + rsnorm(n,0,53,10) + delta[[i]][,1]
       #calc cheap EE
-      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2])+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10) 
+      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10) 
       #calc cheap ES
-      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],k=0.1)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) 
+      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],800,k=0.07)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) 
     }
   }
   if(dist==3){
@@ -1100,9 +1100,9 @@ generate_data5 <- function(params,dist=1,nrep=2){
        #calculate DXA est of ES
       wes[,i] <- xes + mix*rnorm(n,-45,sqrt(53^2-45^2)) + (1-mix)*rnorm(n,45,sqrt(53^2-45^2)) + delta[[i]][,1]
       #calc cheap EE
-      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2])+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2)) 
+      yee[,i] <- be0+eecurve(xee+ delta[[i]][,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2)) 
       #calc cheap ES
-      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],k=0.1)+gig*zg+gib*zb+gia*za + mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2)) 
+      yes[,i] <- bs0+escurve(xes+ delta[[i]][,1],800,k=0.07)+gig*zg+gib*zb+gia*za + mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2)) 
     }
   }
   return(list(xee=xee,xei=xei,xes=xes,wee=wee,wes=wes,yee=yee,yes=yes,zg=zg,zb=zb,za=za))

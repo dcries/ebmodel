@@ -1,8 +1,9 @@
-#    =3 bimodal symmetric
-set.seed(1146999) #114, #1146, #11469, #1146999
-#number of samples
+nrep <- 50
+yeesd <- rep(0,nrep)
+yessd <- rep(0,nrep)
+
+for(k in 1:nrep){
 n <- 300
-nrep <- 10000
 #known covariates
 zg <- rbinom(n,1,0.5) #gender indicator
 zb <- rnorm(n,27,5) #bmi
@@ -116,12 +117,10 @@ xee <- c(x1[,2],x2[,2],x3[,2],x4[,2],x5[,2])
 
 #within person variability
 dmatrix <- matrix(c(50^2,-2000,-2000,150^2),ncol=2,byrow=TRUE) #EI first row
-#dmatrix <- matrix(c(0,0,0,0),ncol=2,byrow=TRUE) #EI first row
-
-delta <- list()
-for(i in 1:nrep){
-  delta[[i]] = mvrnorm(n,rep(0,2),dmatrix)
-}
+#delta <- list()
+#for(j in 1:nrep){
+  delta = mvrnorm(n,rep(0,2),dmatrix)
+#}
 
 
 #calculate delta ES, positive change => ei > ee
@@ -129,45 +128,27 @@ for(i in 1:nrep){
 
 xes <- sample(c(rnorm(n/5,-38,23),rnorm(n/5,38,23),rnorm(n/5,0,34),rnorm(n/5,-80,85),rnorm(n/5,80,85)),n,replace=FALSE)
 
+#calculate true values T_ij of EE,EI, ES
+#   tei1 <- xei + delta1[,1]
+#   tei2 <- xei + delta2[,1]
+#   tee1 <- xee + delta1[,2]
+#   tee2 <- xee + delta2[,2]
+#   tes1 <- tei1 - tee1
+#   tes2 <- tei2 - tee2
+#calculate DLW est of EE
 
-yeesd <- rep(0,nrep)
-yessd <- rep(0,nrep)
 
-  for(i in 1:nrep){
-    yee <- be0+eecurve(xee+ delta[[i]][,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + rnorm(n,0,380) #truth 408.534
-    yeesd[i] <- sd(yee-(be0+eecurve(xee)+geg*zg+geb*zb+gea*za))
-    
-    yes <- bs0+escurve(xes+ delta[[i]][,1],800,k=0.07)+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) #truth 216.1748
-    yessd[i] <- sd(yes-(bs0+escurve(xes)+gig*zg+gib*zb+gia*za))
+
+#yee <- be0+eecurve(xee+ delta[,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2)) 
+#calc cheap ES
+#yes <- bs0+escurve(xes+ delta[,1],800,k=0.07)+gig*zg+gib*zb+gia*za + mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2)) 
+yee <- be0+eecurve(xee+ delta[,2])+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10) 
+#calc cheap ES
+yes <- bs0+escurve(xes+ delta[,1],k=0.1)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) 
+
+     # yee <- be0+eecurve(xee+ delta[,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + rnorm(n,0,380) #truth 408.534
+    #  yes <- bs0+escurve(xes+ delta[,1],800,k=0.07)+gig*zg+gib*zb+gia*za+ rnorm(n,0,210) #truth 216.1748
+      yeesd[k] <- sd(yee-(be0+eecurve(xee,4000,2100,0.002)+geg*zg+geb*zb+gea*za))
+      yessd[k] <- sd(yes-(bs0+escurve(xes,k=0.1)+gig*zg+gib*zb+gia*za))
+      #print(k)
   }
-
-yeesd2 <- rep(0,nrep)
-yessd2 <- rep(0,nrep)
-  for(i in 1:nrep){
-    yee <- be0+eecurve(xee+ delta[[i]][,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + rsnorm(n,0,380,10)  #truth 408.534
-    yeesd2[i] <- sd(yee-(be0+eecurve(xee)+geg*zg+geb*zb+gea*za))
-    
-    yes <- bs0+escurve(xes+ delta[[i]][,1],800,k=0.07)+gig*zg+gib*zb+gia*za + rsnorm(n,0,210,10) #truth 216.1748
-    yessd2[i] <- sd(yes-(bs0+escurve(xes)+gig*zg+gib*zb+gia*za))
-    
-  }
-
-yeesd3 <- rep(0,nrep)
-yessd3 <- rep(0,nrep)
-  for(i in 1:nrep){
-    mix <- rbinom(n,1,0.5) 
-    
-    yee <- be0+eecurve(xee+ delta[[i]][,2],4000,2100,0.002)+geg*zg+geb*zb+gea*za + mix*rnorm(n,-350,sqrt(380^2-350^2)) + (1-mix)*rnorm(n,350,sqrt(380^2-350^2))  #truth 408.534
-    yeesd3[i] <- sd(yee-(be0+eecurve(xee)+geg*zg+geb*zb+gea*za))
-    
-    yes <- bs0+escurve(xes+ delta[[i]][,1],800,k=0.07)+gig*zg+gib*zb+gia*za+ mix*rnorm(n,-190,sqrt(210^2-190^2)) + (1-mix)*rnorm(n,190,sqrt(210^2-190^2))  #truth 216.1748
-    yessd3[i] <- sd(yes-(bs0+escurve(xes)+gig*zg+gib*zb+gia*za))
-  }
-  
-mean(yeesd) #421.0458
-mean(yessd) #344.5043
-mean(yeesd2) #420.4765
-mean(yessd2) #344.3816
-mean(yeesd3) #420.8888
-mean(yessd3) #344.5929
-
