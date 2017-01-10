@@ -1,4 +1,4 @@
-nrep <- 50
+nrep <- 500
 yeesd <- rep(0,nrep)
 yessd <- rep(0,nrep)
 
