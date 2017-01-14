@@ -92,6 +92,12 @@ Carmen Fernandez and Mark F.~J. Steel.
 \newblock {\em Journal of the American Statistical Association}, 93:359--71,
   1998.
 
+\bibitem{bda}
+Andrew Gelman, John~B. Carlin, Hal~S. Stern, David~B. Dunson, Aki Vehtari, and
+  Donald~B. Rubin.
+\newblock {\em Bayesian Data Analysis}.
+\newblock Chapman and Hall/CRC, 2014.
+
 \bibitem{green}
 Peter~J. Green.
 \newblock Reversible jump markov chain monte carlo computation and and bayesian
