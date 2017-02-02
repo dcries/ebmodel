@@ -1,0 +1,9 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
+\beamer@subsectionintoc {1}{1}{Motivation}{2}{0}{1}
+\beamer@subsectionintoc {1}{2}{Fatal Flaw}{3}{0}{1}
+\beamer@sectionintoc {2}{Measurement Error Models}{22}{0}{2}
+\beamer@subsectionintoc {2}{1}{Statistical Model}{22}{0}{2}
+\beamer@subsectionintoc {2}{2}{Model Specification}{24}{0}{2}
+\beamer@subsectionintoc {2}{3}{Estimation}{30}{0}{2}
+\beamer@subsectionintoc {2}{4}{Model Assessment and Inference}{31}{0}{2}
