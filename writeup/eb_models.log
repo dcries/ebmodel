@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  14 JAN 2017 14:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  16 JAN 2017 09:42
 entering extended mode
 **./eb_models.tex
 (eb_models.tex
@@ -519,25 +519,24 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 110.
 
-[2] [3]
+[2] [3] [4]
 Package color Info: Redefining color shadecolor on input line 149.
- <figure/ebsw-1.pdf, id=168, 433.62pt x 289.08pt>
+ <figure/ebsw-1.pdf, id=182, 433.62pt x 289.08pt>
 File: figure/ebsw-1.pdf Graphic file (type pdf)
 
 <use figure/ebsw-1.pdf>
 Package pdftex.def Info: figure/ebsw-1.pdf used on input line 151.
 (pdftex.def)             Requested size: 433.61894pt x 289.09251pt.
- [4]
 Package color Info: Redefining color shadecolor on input line 165.
-
-<figure/ebsdiag-1.pdf, id=182, 505.89pt x 216.81pt>
+ <figure/ebsdiag-1.pdf, id=183, 505.89pt x 216.81pt>
 File: figure/ebsdiag-1.pdf Graphic file (type pdf)
- <use figure/ebsdiag-1.pdf>
+
+<use figure/ebsdiag-1.pdf>
 Package pdftex.def Info: figure/ebsdiag-1.pdf used on input line 167.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 179.
 
-<figure/ebsdiag2-1.pdf, id=183, 505.89pt x 216.81pt>
+<figure/ebsdiag2-1.pdf, id=184, 505.89pt x 216.81pt>
 File: figure/ebsdiag2-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag2-1.pdf>
@@ -545,7 +544,7 @@ Package pdftex.def Info: figure/ebsdiag2-1.pdf used on input line 181.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 192.
 
-<figure/ebsdiag3-1.pdf, id=184, 505.89pt x 216.81pt>
+<figure/ebsdiag3-1.pdf, id=185, 505.89pt x 216.81pt>
 File: figure/ebsdiag3-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag3-1.pdf>
@@ -553,7 +552,7 @@ Package pdftex.def Info: figure/ebsdiag3-1.pdf used on input line 194.
 (pdftex.def)             Requested size: 472.03111pt x 202.30278pt.
 Package color Info: Redefining color shadecolor on input line 206.
 
-<figure/ebsdiag4-1.pdf, id=185, 505.89pt x 216.81pt>
+<figure/ebsdiag4-1.pdf, id=186, 505.89pt x 216.81pt>
 File: figure/ebsdiag4-1.pdf Graphic file (type pdf)
 
 <use figure/ebsdiag4-1.pdf>
@@ -564,14 +563,14 @@ Package pdftex.def Info: figure/ebsdiag4-1.pdf used on input line 208.
 2] [13] [14] [15] [16] [17] [18]
 Package color Info: Redefining color shadecolor on input line 689.
 
-<figure/latentx-1.pdf, id=365, 650.43pt x 289.08pt>
+<figure/latentx-1.pdf, id=366, 650.43pt x 289.08pt>
 File: figure/latentx-1.pdf Graphic file (type pdf)
  <use figure/latentx-1.pdf>
 Package pdftex.def Info: figure/latentx-1.pdf used on input line 690.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
 Package color Info: Redefining color shadecolor on input line 698.
 
-<figure/contourx-1.pdf, id=366, 650.43pt x 289.08pt>
+<figure/contourx-1.pdf, id=367, 650.43pt x 289.08pt>
 File: figure/contourx-1.pdf Graphic file (type pdf)
 
 <use figure/contourx-1.pdf>
@@ -579,7 +578,7 @@ Package pdftex.def Info: figure/contourx-1.pdf used on input line 699.
 (pdftex.def)             Requested size: 472.03111pt x 209.79596pt.
  [19] [20 <./figure/latentx-1.pdf> <./figure/contourx-1.pdf>] [21] [22]
 Package color Info: Redefining color shadecolor on input line 843.
- <figure/errordist-1.pdf, id=428, 650.43pt x 289.08pt>
+ <figure/errordist-1.pdf, id=429, 650.43pt x 289.08pt>
 File: figure/errordist-1.pdf Graphic file (type pdf)
 
 <use figure/errordist-1.pdf>
@@ -588,7 +587,7 @@ Package pdftex.def Info: figure/errordist-1.pdf used on input line 845.
  [23 <./figure/errordist-1.pdf>]
 Package color Info: Redefining color shadecolor on input line 907.
 
-<figure/nonlinear-1.pdf, id=444, 505.89pt x 289.08pt>
+<figure/nonlinear-1.pdf, id=445, 505.89pt x 289.08pt>
 File: figure/nonlinear-1.pdf Graphic file (type pdf)
 
 <use figure/nonlinear-1.pdf>
@@ -747,7 +746,7 @@ Overfull \hbox (7.14754pt too wide) in paragraph at lines 1375--1376
 ] [38
 
 
-] [39] <manual_figure/wpxdiagbvn.pdf, id=594, 794.97pt x 614.295pt>
+] [39] <manual_figure/wpxdiagbvn.pdf, id=595, 794.97pt x 614.295pt>
 File: manual_figure/wpxdiagbvn.pdf Graphic file (type pdf)
 
 <use manual_figure/wpxdiagbvn.pdf>
@@ -758,7 +757,7 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1581--1582
  [][] 
  []
 
-<manual_figure/wpwdiagbvn.pdf, id=595, 794.97pt x 614.295pt>
+<manual_figure/wpwdiagbvn.pdf, id=596, 794.97pt x 614.295pt>
 File: manual_figure/wpwdiagbvn.pdf Graphic file (type pdf)
 
 <use manual_figure/wpwdiagbvn.pdf>
@@ -769,7 +768,7 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1588--1589
  [][] 
  []
 
-<manual_figure/wpydiagbvn.pdf, id=596, 794.97pt x 614.295pt>
+<manual_figure/wpydiagbvn.pdf, id=597, 794.97pt x 614.295pt>
 File: manual_figure/wpydiagbvn.pdf Graphic file (type pdf)
 
 <use manual_figure/wpydiagbvn.pdf>
@@ -780,7 +779,7 @@ Overfull \hbox (11.67473pt too wide) in paragraph at lines 1595--1596
  [][] 
  []
 
-<manual_figure/predbvnsx.pdf, id=597, 578.16pt x 289.08pt>
+<manual_figure/predbvnsx.pdf, id=598, 578.16pt x 289.08pt>
 File: manual_figure/predbvnsx.pdf Graphic file (type pdf)
 
 <use manual_figure/predbvnsx.pdf>
@@ -791,7 +790,7 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 1632--1633
  [][] 
  []
 
-<manual_figure/khist.pdf, id=598, 578.16pt x 289.08pt>
+<manual_figure/khist.pdf, id=599, 578.16pt x 289.08pt>
 File: manual_figure/khist.pdf Graphic file (type pdf)
 
 <use manual_figure/khist.pdf>
@@ -805,7 +804,7 @@ Overfull \hbox (11.66148pt too wide) in paragraph at lines 1639--1640
 [40] [41 <./manual_figure/wpxdiagbvn.pdf>] [42 <./manual_figure/wpwdiagbvn.pdf>
 ] [43 <./manual_figure/wpydiagbvn.pdf>] [44 <./manual_figure/predbvnsx.pdf> <./
 manual_figure/khist.pdf>] [45]
-<manual_figure/wpcalhist.pdf, id=663, 578.16pt x 433.62pt>
+<manual_figure/wpcalhist.pdf, id=664, 578.16pt x 433.62pt>
 File: manual_figure/wpcalhist.pdf Graphic file (type pdf)
 
 <use manual_figure/wpcalhist.pdf>
@@ -860,9 +859,9 @@ fonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on eb_models.pdf (50 pages, 2288491 bytes).
+Output written on eb_models.pdf (50 pages, 2288689 bytes).
 PDF statistics:
- 821 PDF objects out of 1000 (max. 8388607)
+ 822 PDF objects out of 1000 (max. 8388607)
  235 named destinations out of 1000 (max. 500000)
  300 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -244,6 +244,8 @@ To the best of our knowledge, no research has been done in evaluating the measur
 %----------
 
 
+\subsection{Exploratory Analysis}
+
 %---------
 \begin{frame}
 \frametitle{Energy Balance Study}
@@ -336,6 +338,8 @@ BMI & 14.146 & 3.988 & 0.0004 \\
 %-------
 
 
+\subsection{Modeling}
+
 %-------
 \begin{frame}
 \frametitle{Notation}
@@ -425,7 +429,6 @@ $E(\epsilon_{ij}^{EE}) = E(\epsilon_{ij}^{\Delta ES}) = E(\nu_{ij}^{EE}) = E(\nu
 \scalebox{0.67}{\parbox{.5\linewidth}{%
 \begin{align*}
   \begin{split}
-      \label{truedist}
   L_i(\boldsymbol{\theta}) &= \prod_{j=1}^{J} f(W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}|Z_i,\boldsymbol{\theta})  \\
    &=  \int_{\mathcal{X}_{es}} \int_{\mathcal{X}_{ee}} \prod_{j=1}^{J} f({ W_{ij}^{EE},W_{ij}^{\Delta ES}, Y_{ij}^{EE},Y_{ij}^{\Delta ES}, X_i^{EE}, X_i^{\Delta ES}|Z_i},\boldsymbol{\theta}) d{ X_i^{EE}} d{ X_i^{\Delta ES}} \\
   %
@@ -448,6 +451,118 @@ $E(\epsilon_{ij}^{EE}) = E(\epsilon_{ij}^{\Delta ES}) = E(\nu_{ij}^{EE}) = E(\nu
 \end{frame}
 
 %-------------
+
+
+%-------
+\begin{frame}
+\frametitle{N{\"a}ive Model}
+
+The N{\"a}ive Model assumes no measurement error in gold standard measurements (Note the part for EE is the same as what we used for our exploratory analysis) \\
+
+\vspace{1cm}
+
+\begin{align*}
+  (Y_{ij}^{EE} | W_{ij}^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{iid}{\sim} N(\beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
+  (Y_{ij}^{\Delta ES} | W_{ij}^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{iid}{\sim} N(\beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2)
+\end{align*}
+
+\end{frame}
+%-------
+
+
+%-------
+\begin{frame}
+\frametitle{Linear Measurement Error Model}
+This is a basic modification to the N{\"a}ive model when there is measurement error in a covariate
+
+\begin{align*}
+  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\sim N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}Z_i, \sigma_{\epsilon_{EE}}^2) \\
+  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\sim N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
+  (W_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{wee}}) &\overset{iid}{\sim} N(X_i^{EE}, \sigma_{\nu_{EE}}^2 ) \\
+  (W_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{wes}}) &\overset{iid}{\sim} N(X_i^{\Delta ES}, \sigma_{\nu_{\Delta ES}}^2 )  \\
+  (X_i^{EE},X_i^{\Delta ES}|\theta_X) &\overset{iid}{\sim} N\left(
+  \begin{bmatrix}
+  \mu_{EE}\\
+  \mu_{\Delta ES}
+  \end{bmatrix}
+  , \Sigma_X
+  \right)
+\end{align*}
+
+\end{frame}
+%-------
+
+
+%------
+\begin{frame}
+\frametitle{Extending the Linear Model}
+We would like to relax the assumption that the relationship between a cheap measurement and \emph{usual} EE and $\Delta$ES is linear \\
+
+\vspace{0.5cm}
+
+We propose using free knot splines to model the relationship between cheap and \emph{usual}
+
+\begin{itemize}
+\item
+Allows for a flexible nonlinear relationship
+\item
+No need to specify number or location of knots
+\item
+If using Reversible Jump MCMC, incorporates uncertainty in spline selection
+
+\end{itemize}
+
+
+\end{frame}
+%-------
+
+
+%---------
+\begin{frame}
+\frametitle{Free Knot Spline Model}
+
+\begin{align*}
+  f(Y_{ij}^{EE}|X_i^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{iid}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
+    f(Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{iid}{\sim} N(s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
+\end{align*}
+%vspace{0.3cm}
+
+\begin{align*}
+  s(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
+  s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
+\end{align*}
+
+% \vspace{0.3cm}
+% where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices
+% 
+% \vspace{0.3cm}
+% 
+% $k_{ee}$ and $k_{es}$ are the number of knots for the EE and $\Delta$ES splines, respectively, which are allowed to vary
+
+\end{frame}
+%-----------
+
+
+\subsection{Estimation}
+
+
+%---------
+\begin{frame}
+\frametitle{MCMC Algorithms}
+
+\begin{enumerate}
+\item
+The N{\"a}ive model and Linear Measurement Error Model were fit using JAGS
+\item
+The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and was hand written in C++ via \texttt{Rcpp}
+\end{enumerate}
+
+
+\end{frame}
+%----------
+
+
+
 
 %-------
 \begin{frame}
@@ -727,11 +842,8 @@ Implement in R/C++
 We will assess the fit of our model through the use of the posterior predictive distributions and relevant discrepancy measures $D()$
 
 \begin{align}
-  \label{ypostpred}
   p(Y^*|W,Y,Z) &= \int \int p(Y^*|\boldsymbol{\theta},X,Z) p(\boldsymbol{\theta}, X|Y,W) d\boldsymbol{\theta} dX \\
-  \label{wpostpred}
   p(W^*|W,Y,Z) &= \int \int p(W^*|\boldsymbol{\theta},X,Z) p(\boldsymbol{\theta}, X|Y,W) d\boldsymbol{\theta} dX \\
-  \label{xpostpred}
   p(X^*|W,Y,Z) &= \int \int p(X^*|\boldsymbol{\theta}) p(\boldsymbol{\theta}, X|Y,W) d\boldsymbol{\theta} dX
 \end{align}
 
