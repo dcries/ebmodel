@@ -21,6 +21,7 @@
 \newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
 \newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
 \newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
 
 \usepackage{framed}
 \makeatletter
@@ -81,7 +82,18 @@
 
 
 
+\begin{knitrout}\tiny
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in setwd("{}U:\textbackslash{}\textbackslash{}Desktop\textbackslash{}\textbackslash{}research\textbackslash{}\textbackslash{}data"{}): cannot change working directory}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(file, "{}rt"{}): cannot open the connection}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(lubridate): there is no package called 'lubridate'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(filename, "{}r"{}, encoding = encoding): cannot open the connection}}\end{kframe}
+\end{knitrout}
 
 
 
@@ -554,7 +566,7 @@ If using Reversible Jump MCMC, incorporates uncertainty in spline selection
 \item
 The N{\"a}ive model and Linear Measurement Error Model were fit using JAGS
 \item
-The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and was hand written in C++ via \texttt{Rcpp}
+The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and was written in C++ via \texttt{Rcpp}
 \end{enumerate}
 
 
@@ -562,7 +574,335 @@ The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and wa
 %----------
 
 
+%---------
+\begin{frame}
+\frametitle{Gibbs Sampler}
+Priors were chosen to be conjugate to help simplify the sampler \\
 
+\vspace{0.3cm}
+
+For iteration k=1,...,K, sample from its full conditional:
+
+\begin{enumerate}
+%\item
+%   \{$\zeta_i^{(k)}:i=1,...,n$\} $|$ $\cdot$  
+%  where P($\zeta_i^{(k)}=h$) = $\frac{\pi_h^{(k-1)} N(\mu_h^{(k-1)},\Sigma_h^{(k-1)})}{\sum_{h=1}^{H}\pi_h^{(k-1)} N(\mu_h^{(k-1)},\Sigma_h^{(k-1)})}$ \\
+% 
+% \item
+%  \{$V_h^{(k)}:h=1,...,H-1$ \}$|\cdot \overset{ind}{\sim}$  $Beta(1+n_h,\alpha+n_h')$ \\
+% Set $V_H^{(k)}$ = 1 \\
+% $n_h = \sum_{i=1}^{n} I(\zeta_i^{(k)}=h)$\\
+% $n_h' = \sum_{h'=h+1}^{H} n_{h'}$\\
+% 
+% 
+% \item
+% Calculate \{$\pi_i^{(k)}:i=1,...,n$\} $=$ $V_i^{(k)} \prod_{\ell < i} (1-V_{\ell}^{(k)})$
+
+
+% \item
+% $\alpha|\cdot \sim$ $Gamma(a_{\alpha}+n_h+1,b_{\alpha}-\sum_{r=1}^{n_h-1}log(1-V_r))$\\
+
+
+\item
+ \small \{$\Sigma^{(k)}$\} $|\cdot \overset{ind}{\sim}$ $Inv-Wish(d+n,\psi+({\bf X_{i}^{(k-1)} - \mu^{(k-1)}})'({\bf X_{i}^{(k-1)} - \mu^{(k-1)}}))$ \\
+
+% ${\bf X_{i,h}} \equiv  {\bf X_i} I(\zeta_i^{(k)}=h)$ \\
+% ${\bf X_i} = (X_i^{EE},X_i^{\Delta ES})$ \\
+% ${\bf \mu_h} = (\mu_{EE,h},\mu_{\Delta ES,h})$
+
+
+
+\item
+  \{$(\mu_{EE}^{(k)},\mu_{\Delta ES}^{(k)})$ \} $|\cdot \overset{ind}{\sim} N(M_{\mu}',C_{\mu}')$ \\
+$C_{\mu}' = (C_{\mu}^{-1} + n \Sigma^{-1(k)})^{-1}$ \\
+$M_{\mu}' = C_{\mu}'(C_{\mu}^{-1}M + n \Sigma^{-1(k)} {\bf \bar{X}^{(k-1)}})$ \\
+${\bf \bar{X}} = \frac{1}{n}\sum_{i=1}^{n} {\bf X_{i}}$ \\
+
+ 
+
+\item
+Update ${\bf X_i}$ with a random walk \\
+\{${\bf X_i^{(k)}}:i=1,...,n $\}$|\cdot$ for $i=1,...n$ sample ${\bf X_i^*}$ from $N({\bf X_i^{(k)}},C_{X_i})$ \\
+Set ${\bf X_i^{(k)}} = {\bf X_i^*}$ with probability $\alpha_{X_i}$, otherwise set ${\bf X_i^{(k)}} = {\bf X_i^{(k-1)}}$ \\
+
+$\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdot)}  \right)$ \\
+
+\end{enumerate}
+\end{frame}
+%-----------
+
+%--------------
+\begin{frame}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\small
+\item
+Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}, \boldsymbol{\gamma_{ee}^{}}, \boldsymbol{\gamma_{es}^{}}$ using RJMCMC described next. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
+
+\vspace{0.2cm}
+
+\item
+ $\sigma^{2(k)}_{\epsilon^{EE}} |\cdot \sim IG(a_{yee}+J\times \frac{n}{2},b_{yee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{EE}-m_{ee}(X_i^{EE(k)};\boldsymbol{\beta_{ee}^{(k)}})-\boldsymbol{\gamma_{ee}}^{(k)}Z_i)^2)$ \\
+ 
+\vspace{0.2cm}
+
+\item
+ $\sigma^{2(k)}_{\epsilon^{\Delta ES}} |\cdot \sim IG(a_{yes}+J\times \frac{n}{2},b_{yes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{\Delta ES}-m_{es}(X_i^{\Delta ES(k)};\boldsymbol{\beta_{es}^{(k)}})-\boldsymbol{\gamma_{es}}^{(k)}Z_i)^2)$ \\
+ 
+ \vspace{0.2cm}
+ 
+\item
+ $\sigma^{2(k)}_{\nu^{EE}} |\cdot \sim IG(a_{wee}+J\times \frac{n}{2},b_{wee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{EE}-X_i^{EE(k)})^2)$ \\
+ 
+ \vspace{0.2cm}
+ 
+\item
+ $\sigma^{2(k)}_{\nu^{\Delta ES}} |\cdot \sim IG(a_{wes}+J\times \frac{n}{2},b_{wes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(W_{ij}^{\Delta ES}-X_i^{\Delta ES(k)})^2)$ \\
+ 
+ \end{enumerate}
+
+
+\end{frame}
+%----------
+
+
+%----------
+\begin{frame}
+\frametitle{RJMCMC}
+RJCMCMC was introduced by Green (1995) as a way to ``jump" between different models and dimensions as a means for model determination. Denison introduced a simple and effective implementation of a Bayesian free-knot spline
+
+\vspace{0.3cm}
+
+We extend method of Denison (1998) in two ways:
+\begin{enumerate}
+\item
+The spline covariate is a latent variable that is also sampled from
+\item
+There are additional linear components to the mean function
+\end{enumerate}
+
+\vspace{0.3cm}
+Our algorithm is run independently for EE and $\Delta$ES regression functions due to conditional independence, so we will let ($\cdot$) be a placeholder
+
+\end{frame}
+%----------
+
+%----------
+\begin{frame}
+\small
+$\mathcal{A}$=\{$x_i,i=1,...n:x_i$ is not currently a knot or within $\ell+1$ locations of a current knot\}
+
+
+\begin{enumerate}
+\item
+Calculate $b_k = c \times min\left(1, \frac{p(k+1)}{p(k)} \right)$ \\
+$d_k = c \times min\left(1, \frac{p(k)}{p(k+1)} \right)$ 
+
+\item
+Select birth, death, or move step with probabilities $b_k,d_k,1-b_k-d_k$ respectively \\
+
+\item
+{\bf Knot Changes} \\
+If birth step:\\
+%\item
+Select a new knot location at random from the set $\mathcal{A}$ and join with current knots $r_{\cdot}^{(k-1)}$ to create the proposed knot locations $r_{\cdot}^{*}$
+
+If death Step:\\
+%\item
+Sample one knot location from $r_{\cdot}^{(k-1)}$ at random and remove it. 
+
+If move step:\\
+%\item
+Sample one knot location from $r_{\cdot}^{(k-1)}$ at random, and change it to a new knot location at random from the set $\mathcal{A}$
+
+\end{enumerate}
+\end{frame}
+%----------
+
+%----------
+\begin{frame}
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+\small
+\item
+Calculate the spline basis matrix $B^*_{\cdot}(X^{\cdot(k)})$ using $X^{\cdot(k)}$ and proposed knot locations $r_{\cdot}^{*}$
+
+\item
+Calculate proposed spline and linear regression coefficients $\boldsymbol{\beta^*_{\cdot}},\boldsymbol{\gamma^*_{\cdot}}$ by using OLS by regressing $Y^{\cdot}$ on $B^*_{\cdot}(X^{\cdot(k)}) + Z$
+
+\item
+Accept proposed knots and coefficients with probability $\alpha_{\cdot}$ \\
+
+Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cdot}} =\boldsymbol{\beta^{(k-1)}_{\cdot}}$, $\boldsymbol{\gamma^{(k)}_{\cdot}} =\boldsymbol{\gamma^{(k-1)}_{\cdot}}$\\
+
+\begin{align*}
+\alpha_{birth} &= min\left(1, \text{Likelihood ratio}\times \frac{n-Z(k)}{n} \right) \\
+\alpha_{death} &= min\left(1, \text{Likelihood ratio}\times \frac{n}{n-Z(k)} \right) \\
+\alpha_{move} &= min\left(1, \text{Likelihood ratio}\right) 
+\end{align*}
+
+\begin{align*}
+Z(k) &= 2(\ell+1) + k_{\cdot}(2\ell+1) \\
+k_{\cdot} &= length(r_{\cdot}^{(k-1)}) 
+\end{align*}
+
+\item
+calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}})$ using spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ and $r_{\cdot}^{(k)}$
+
+
+\end{enumerate}
+
+\end{frame}
+%----------
+
+\subsection{Simulation Study}
+
+%---------
+\begin{frame}
+\frametitle{Simulation Study}
+We performed a simulation study to assess the performance of the models we discussed in terms of parameter estimation and prediction (for calibration)
+
+\vspace{0.2cm}
+
+Simulated 200 data sets for both 2 and 4 replicates per individual. Number of individuals was set to be 300. Three different measurement errors were used for each set of replicates:
+
+\begin{itemize}
+\item
+Normal
+\item
+Skew-Normal
+\item
+Bimodal (50-50 mixture of two Normals)
+\end{itemize}
+
+\end{frame}
+%-----------
+
+
+%----------
+\begin{frame}
+%\begin{landscape}
+
+
+\begin{table}[ht]
+%\centering
+%\subcaption{Normal Errors, N{\"a}ive Model}
+ \scalebox{0.55}{
+\begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll}
+  \hline
+ & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
+  \hline
+Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   \hline
+Mean Est & 477.65 & 473.42 & 347.49 & 354.85 & 254.67 & 248.66 & 14.88 & 14.03 & -4.14 & -5.29 & -200.53 & -199.39 & 7.91 & 8.31 & -4.94 & -5.13 \\ 
+  Std Err & 17.82 & 19.24 & 9.43 & 6.80 & 43.65 & 36.10 & 4.33 & 3.62 & 3.37 & 3.06 & 28.19 & 22.83 & 2.90 & 2.13 & 2.35 & 1.73 \\ 
+  Bias & 72.15 & 67.92 & 13.49 & 20.85 & -45.33 & -51.34 & 0.88 & 0.03 & 2.86 & 1.71 & -0.53 & 0.61 & -0.09 & 0.31 & 0.06 & -0.13 \\ 
+  Truth & 405.50 & 405.50 & 334.00 & 334.00 & 300.00 & 300.00 & 14.00 & 14.00 & -7.00 & -7.00 & -200.00 & -200.00 & 8.00 & 8.00 & -5.00 & -5.00 \\ 
+   \hline
+\end{tabular}}
+
+\vspace{1cm}
+
+
+%\subcaption{Normal Errors, LME}
+\scalebox{0.55}{
+\begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll}
+  \hline
+ & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\sigma_{wee}$ &  & $\sigma_{wes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
+  \hline
+Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   \hline
+Mean Est & 444.34 & 446.63 & 320.41 & 338.26 & 255.70 & 255.85 & 69.18 & 71.81 & 249.50 & 240.63 & 14.30 & 13.67 & -4.50 & -5.28 & -199.27 & -198.49 & 7.91 & 8.29 & -4.91 & -5.15 \\ 
+  Std Err & 16.84 & 14.22 & 10.76 & 7.53 & 10.74 & 6.33 & 2.27 & 1.56 & 43.44 & 37.02 & 4.25 & 3.60 & 3.38 & 3.04 & 28.31 & 22.96 & 2.91 & 2.12 & 2.30 & 1.71 \\ 
+  Bias & 38.84 & 41.13 & -13.59 & 4.26 & 5.70 & 5.85 & -3.68 & -1.05 & -50.50 & -59.37 & 0.30 & -0.33 & 2.50 & 1.72 & 0.73 & 1.51 & -0.09 & 0.29 & 0.09 & -0.15 \\ 
+  Truth & 405.50 & 405.50 & 334.00 & 334.00 & 250.00 & 250.00 & 72.86 & 72.86 & 300.00 & 300.00 & 14.00 & 14.00 & -7.00 & -7.00 & -200.00 & -200.00 & 8.00 & 8.00 & -5.00 & -5.00 \\ 
+   \hline
+\end{tabular}}
+\vspace{1cm}
+
+
+%\subcaption{Normal Errors, BVN}
+\scalebox{0.55}{
+\begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll}
+  \hline
+ & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\sigma_{wee}$ &  & $\sigma_{wes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
+  \hline
+Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   \hline
+Mean Est & 393.69 & 400.55 & 313.47 & 331.79 & 246.81 & 248.93 & 67.61 & 71.04 & 293.16 & 294.61 & 14.17 & 14.11 & -6.86 & -6.78 & -200.07 & -200.86 & 8.00 & 8.04 & -4.95 & -5.26 \\ 
+  Std Err & 11.52 & 8.29 & 12.00 & 8.27 & 8.78 & 5.79 & 2.32 & 1.66 & 36.16 & 26.19 & 3.50 & 2.42 & 2.86 & 2.16 & 26.86 & 19.44 & 2.49 & 2.06 & 2.11 & 1.45 \\ 
+  Bias & -11.81 & -4.95 & -20.53 & -2.21 & -3.19 & -1.07 & -5.25 & -1.82 & -6.84 & -5.39 & 0.17 & 0.11 & 0.14 & 0.22 & -0.07 & -0.86 & 0.00 & 0.04 & 0.05 & -0.26 \\ 
+  Truth & 405.50 & 405.50 & 334.00 & 334.00 & 250.00 & 250.00 & 72.86 & 72.86 & 300.00 & 300.00 & 14.00 & 14.00 & -7.00 & -7.00 & -200.00 & -200.00 & 8.00 & 8.00 & -5.00 & -5.00 \\ 
+   \hline
+\end{tabular}}
+
+\vspace{1cm}
+
+%\end{landscape}
+\end{table}
+
+\end{frame}
+%----------
+
+
+%-----------
+\begin{frame}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ll|llll}
+  \hline
+ & Replicates & Naive & Linear & SMEMN & SMEMDP \\ 
+  \hline
+Normal & 2 & 144869.7 & 113975.56 & 71308.89 & - \\ 
+   & 4 & 100096.78 & 75098.25 & 35902.73 & 35602.62 \\ 
+  Skewed & 2 & 138895.41 & 101586.02 & 70058.3 & - \\ 
+   & 4 & 91110.6 & 63178.21 & 35820.27 & 35449 \\ 
+  Bimodal & 2 & 93857.63 & 46486 & 42968.21 & - \\ 
+   & 4 & 84228.86 & 35665.26 & 30936.62 & 28335.85 \\ 
+   \hline
+\end{tabular}
+\caption{PMSE for EE Regression} 
+\label{pmseee}
+\end{table}
+
+
+
+
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{ll|llll}
+  \hline
+ & Replicates & Naive & Linear & SMEMN & SMEMDP \\ 
+  \hline
+Normal & 2 & 61567.63 & 43557.94 & 38272.77 & - \\ 
+   & 4 & 36238.56 & 24760.97 & 20654.15 & 20490.67 \\ 
+  Skewed & 2 & 49161.19 & 35783.01 & 31818.48 & - \\ 
+   & 4 & 27917.97 & 19980.43 & 17095.63 & 16969.31 \\ 
+  Bimodal & 2 & 24583.02 & 18758.07 & 17057.83 & - \\ 
+   & 4 & 15772.86 & 11376.04 & 10362.42 & 10263.01 \\ 
+   \hline
+\end{tabular}
+\caption{PMSE for $\Delta$ES Regression} 
+\label{pmsees}
+\end{table}
+
+
+
+\end{frame}
+%------------
+
+
+%----------
+\begin{frame}
+\frametitle{Example of one data set}
+  \includegraphics[width=12cm,height=6cm]{predbvnsx.pdf}
+
+\end{frame}
+%----------
 
 %-------
 \begin{frame}
@@ -570,27 +910,21 @@ The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and wa
 
 \begin{multicols}{2}
 \begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-
-{\centering \includegraphics[width=.8\linewidth]{figure/eivsee-1} 
-
-}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
 
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'eb' not found}}
 
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in ggplot(data = df1): object 'df1' not found}}\end{kframe}
 \end{knitrout}
 
 \columnbreak
 \pause
 \begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-
-{\centering \includegraphics[width=.8\linewidth]{figure/eivsee2-1} 
-
-}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
 
-
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in ggplot(data = df1): object 'df1' not found}}\end{kframe}
 \end{knitrout}
 
 \end{multicols}
@@ -602,14 +936,10 @@ The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and wa
 \begin{frame}
 \frametitle{Armband vs DLW}
 \begin{knitrout}\tiny
-\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}
-
-{\centering \includegraphics[width=.8\linewidth]{figure/armbandvsdlw-1} 
-
-}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
 
-
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in ggplot(data, aesthetics, environment = env): object 'eb' not found}}\end{kframe}
 \end{knitrout}
 \end{frame}
 

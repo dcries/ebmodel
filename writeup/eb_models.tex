@@ -21,6 +21,7 @@
 \newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
 \newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
 \newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
 
 \usepackage{framed}
 \makeatletter
@@ -79,7 +80,18 @@
 \doublespacing
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(lubridate): there is no package called 'lubridate'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(stargazer): there is no package called 'stargazer'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(file, "{}rt"{}): cannot open the connection}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(filename, "{}r"{}, encoding = encoding): cannot open the connection}}\end{kframe}
+\end{knitrout}
 
 
 
@@ -222,46 +234,10 @@ We also wanted to check for evidence of systematic bias in the cheap measurement
 
 
 
+\begin{kframe}
 
-% Table created by stargazer v.5.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
-% Date and time: Mon, Jan 16, 2017 - 9:42:46 AM
-\begin{table}[!htbp] \centering 
-  \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
-  \label{ebslm} 
-\begin{tabular}{@{\extracolsep{5pt}}lc} 
-\\[-1.8ex]\hline 
-\hline \\[-1.8ex] 
- & \multicolumn{1}{c}{\textit{Dependent variable:}} \\ 
-\cline{2-2} 
-\\[-1.8ex] & Energy\_expenditure \\ 
-\hline \\[-1.8ex] 
- TDEE & 0.559$^{***}$ \\ 
-  & (0.040) \\ 
-  & \\ 
- age & $-$7.351$^{*}$ \\ 
-  & (4.000) \\ 
-  & \\ 
- genderMale & 305.583$^{***}$ \\ 
-  & (43.259) \\ 
-  & \\ 
- BMI & 14.146$^{***}$ \\ 
-  & (3.989) \\ 
-  & \\ 
- Constant & 878.423$^{***}$ \\ 
-  & (154.113) \\ 
-  & \\ 
-\hline \\[-1.8ex] 
-Observations & 191 \\ 
-R$^{2}$ & 0.830 \\ 
-Adjusted R$^{2}$ & 0.826 \\ 
-Residual Std. Error & 206.875 (df = 186) \\ 
-F Statistic & 226.938$^{***}$ (df = 4; 186) \\ 
-\hline 
-\hline \\[-1.8ex] 
-\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
-\end{tabular} 
-\end{table} 
 
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): could not find function "{}stargazer"{}}}\end{kframe}
 
 
 
@@ -1195,6 +1171,8 @@ Mean Est & 477.65 & 473.42 & 347.49 & 354.85 & 254.67 & 248.66 & 14.88 & 14.03 &
 %\subcaption{Normal Errors, LME}
 \scalebox{0.85}{
 \begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll}
+  \hline
+ & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\sigma_{wee}$ &  & $\sigma_{wes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
   \hline
 Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
    \hline

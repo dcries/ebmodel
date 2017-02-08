@@ -1,12 +1,13 @@
 \beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Introduction}{2}{0}{1}
-\beamer@subsectionintoc {1}{1}{Motivation}{2}{0}{1}
-\beamer@subsectionintoc {1}{2}{Fatal Flaw}{3}{0}{1}
-\beamer@subsectionintoc {1}{4}{Exploratory Analysis}{9}{0}{1}
-\beamer@subsectionintoc {1}{5}{Modeling}{14}{0}{1}
-\beamer@subsectionintoc {1}{6}{Estimation}{22}{0}{1}
-\beamer@sectionintoc {2}{Measurement Error Models}{27}{0}{2}
-\beamer@subsectionintoc {2}{1}{Statistical Model}{27}{0}{2}
-\beamer@subsectionintoc {2}{2}{Model Specification}{29}{0}{2}
-\beamer@subsectionintoc {2}{3}{Estimation}{35}{0}{2}
-\beamer@subsectionintoc {2}{4}{Model Assessment and Inference}{36}{0}{2}
+\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Motivation}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Fatal Flaw}{4}{0}{1}
+\beamer@subsectionintoc {1}{4}{Exploratory Analysis}{10}{0}{1}
+\beamer@subsectionintoc {1}{5}{Modeling}{15}{0}{1}
+\beamer@subsectionintoc {1}{6}{Estimation}{23}{0}{1}
+\beamer@subsectionintoc {1}{7}{Simulation Study}{29}{0}{1}
+\beamer@sectionintoc {2}{Measurement Error Models}{37}{0}{2}
+\beamer@subsectionintoc {2}{1}{Statistical Model}{37}{0}{2}
+\beamer@subsectionintoc {2}{2}{Model Specification}{39}{0}{2}
+\beamer@subsectionintoc {2}{3}{Estimation}{45}{0}{2}
+\beamer@subsectionintoc {2}{4}{Model Assessment and Inference}{46}{0}{2}
