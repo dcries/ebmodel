@@ -368,10 +368,10 @@ where the RHS is expanded in \eqref{truedist}. Given the independence assumption
 %-----------------------------------------
 
 %-------------------------------
-\subsection{N{\"a}ive Model}
+\subsection{na{\"i}ve Model}
 %-------------------------------
 
-The first model we will consider is what we call the n{\"a}ive model. This model will assume no measurement error in the gold standard instrument exists,  thus DLW and DXA give error-free measurements of $X_i^{EE}$ and $X_i^{\Delta ES}$, respectively. We also assume the cheap measurements $Y$ are linearly related to  the \emph{truth} and of error free covariates. Based on empirical evidence from EBS data, gender, BMI, and age all had some effect on the cheap measurement of EE.  Mathematically, the n{\"a}ive model is represented as:
+The first model we will consider is what we call the na{\"i}ve model. This model will assume no measurement error in the gold standard instrument exists,  thus DLW and DXA give error-free measurements of $X_i^{EE}$ and $X_i^{\Delta ES}$, respectively. We also assume the cheap measurements $Y$ are linearly related to  the \emph{truth} and of error free covariates. Based on empirical evidence from EBS data, gender, BMI, and age all had some effect on the cheap measurement of EE.  Mathematically, the na{\"i}ve model is represented as:
 
 \begin{align}
 Y_{ij}^{EE} &= \beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i + \epsilon_{ij}^{EE} \\
@@ -412,7 +412,7 @@ $\sigma^2_{\epsilon^{ee}}$ and $\sigma^2_{\epsilon^{es}}$ represent the measurem
 %----------------------------------------
 \subsection{Linear Measurement Error Model (LMEM)}
 %----------------------------------------
-The Linear Measurement Error Model, or what we'll refer to as the LME model, is a measurement error model that otherwise takes similar form to the n{\"a}ive model. Instead of assuming the gold standard measurements are error free, we allow them to follow the form of \eqref{gold1},\eqref{gold2}. We assume the measurement error terms follow independent normal distributions. We justify this assumption in the development of our full model. We also need to specify a bivariate distribution for the \emph{usual}, $(X_i^{EE},X_i^{\Delta ES})$. The common approach is to assume a Normal distribution, which we do here. In mathematical notation, the model is represented as:
+The Linear Measurement Error Model, or what we'll refer to as the LME model, is a measurement error model that otherwise takes similar form to the na{\"i}ve model. Instead of assuming the gold standard measurements are error free, we allow them to follow the form of \eqref{gold1},\eqref{gold2}. We assume the measurement error terms follow independent normal distributions. We justify this assumption in the development of our full model. We also need to specify a bivariate distribution for the \emph{usual}, $(X_i^{EE},X_i^{\Delta ES})$. The common approach is to assume a Normal distribution, which we do here. In mathematical notation, the model is represented as:
 
 %---------------%
 % fix
@@ -458,7 +458,7 @@ We choose the priors as:
 
 
 
-% The interpretation of $\beta_{1,\cdot}$ is similar to the n{\"a}ive model, except it is with respect to $X^{\cdot}$ instead of a gold standard measurement.  The interepretation of the $\gamma$ coefficients is then the bias in EE and $\Delta$ES from the cheap measurements. For example, all else equal, the difference in the cheap measurement of EE between a male and a female is $\gamma_{1,ee}$ kcals. The larger magniture each $\gamma$ is, the more bias that  instrument has. 
+% The interpretation of $\beta_{1,\cdot}$ is similar to the na{\"i}ve model, except it is with respect to $X^{\cdot}$ instead of a gold standard measurement.  The interepretation of the $\gamma$ coefficients is then the bias in EE and $\Delta$ES from the cheap measurements. For example, all else equal, the difference in the cheap measurement of EE between a male and a female is $\gamma_{1,ee}$ kcals. The larger magniture each $\gamma$ is, the more bias that  instrument has. 
 
 
 
@@ -898,7 +898,7 @@ grid.arrange(p1,p2,nrow=1)
 %-------------------%
 %---------------------------------------------------%
 
-We will be taking a Bayesian approach to this problem, and as such, our goal is to estimate the joint  posterior distribution of all parameters and latent variables involved. In our case the posterior is  $p(\boldsymbol{\theta}, X^{EE},X^{\Delta ES}|W^{EE},W^{\Delta ES},Y^{EE},Y^{\Delta ES},Z$). Due to the complexity of our problem and the models we will formulate, we will not be able to analytically derive the posterior distribution. Instead, we will use Markov Chain Monte Carlo (MCMC) methods. For the n{\"a}ive LME models, we utilized JAGS to simulate draws from the posterior distribution. This was easy to implement and was relatively quick to sample. In order to estimate free knot splines, which allows for dimension change, we must use Reversible Jump MCMC which requires a more complex sampler. We will first present our Gibbs sampler with the reversible jump as a single step, and in the next subsection we will describe the reversible jump in more detail.
+We will be taking a Bayesian approach to this problem, and as such, our goal is to estimate the joint  posterior distribution of all parameters and latent variables involved. In our case the posterior is  $p(\boldsymbol{\theta}, X^{EE},X^{\Delta ES}|W^{EE},W^{\Delta ES},Y^{EE},Y^{\Delta ES},Z$). Due to the complexity of our problem and the models we will formulate, we will not be able to analytically derive the posterior distribution. Instead, we will use Markov Chain Monte Carlo (MCMC) methods. For the na{\"i}ve LME models, we utilized JAGS to simulate draws from the posterior distribution. This was easy to implement and was relatively quick to sample. In order to estimate free knot splines, which allows for dimension change, we must use Reversible Jump MCMC which requires a more complex sampler. We will first present our Gibbs sampler with the reversible jump as a single step, and in the next subsection we will describe the reversible jump in more detail.
 
 \subsection{Gibbs Algorithm}
 Here we present our Gibbs algorithm to sample from the joint posterior distribution.
@@ -1134,9 +1134,9 @@ We set the values of the hyperparameters as follows: $M_{\beta_{0,ee}} = M_{\bet
 
 Tables \ref{nsumtable},\ref{ssumtable},\ref{bsumtable} give the results for 200 Monte Carlo samples for normal, skewed, and bimodal errors, respectively. The asterisk next to the truth for the measurement error with respect to the cheap measurements is to indicate this is a Monte Carlo approximation to the truth. Recall we included within person variation in the functions $m_{\cdot}(\cdot)$, but in our model we use the working assumption that the error term accounts for both within person variability and measurement error. Because we can't directly extract the value from the function, we approximate it by generating 10,000 data sets and removing the mean function from the cheap observations, and then calculating the standard deviation of the residual. We then averaged those standard deviation estimates to get the one reported in the table.
 
-Across all models and error types, the linear coefficients are estimated largely without bias. This is not too surprising since these covariates are measured without error. The biases and standard errors are slightly smaller for models SMEMN and SMEMDP, however. All 3 measurement error models perform comparably for assessing the measurement error in the gold standard instruments. They are all biased low for the bimodal errors. This is true for the measurement error for the cheap measurements as well. The n{\"a}ive model sees this too for bimodal errors, although not as extreme. The SMEMN and SMEMDP models have similar results for the measurement error of cheap measurements that are good for EE and $\Delta$ES for normal errors, but biased low for $\Delta$ES for both skewed and bimodal errors. Both the n{\"a}ive model and the linear measurement error model have estimated measurement error standard deviations for the cheap measurement that are larger than the truth under normal errors and skewed errors for EE. We have evidence that for a grosser departure from normality (bimodal distribution) in terms of measurement error can cause issues estimating variance components, although there was less issues with the skewed errors.
+Across all models and error types, the linear coefficients are estimated largely without bias. This is not too surprising since these covariates are measured without error. The biases and standard errors are slightly smaller for models SMEMN and SMEMDP, however. All 3 measurement error models perform comparably for assessing the measurement error in the gold standard instruments. They are all biased low for the bimodal errors. This is true for the measurement error for the cheap measurements as well. The na{\"i}ve model sees this too for bimodal errors, although not as extreme. The SMEMN and SMEMDP models have similar results for the measurement error of cheap measurements that are good for EE and $\Delta$ES for normal errors, but biased low for $\Delta$ES for both skewed and bimodal errors. Both the na{\"i}ve model and the linear measurement error model have estimated measurement error standard deviations for the cheap measurement that are larger than the truth under normal errors and skewed errors for EE. We have evidence that for a grosser departure from normality (bimodal distribution) in terms of measurement error can cause issues estimating variance components, although there was less issues with the skewed errors.
 
-Tables \ref{pmseee},\ref{pmsees} give the mean PMSE for each model under each type of error for both EE and $\Delta$ES for 2 and 4 replicates. There is a consistent decreasing pattern from left to right in terms of the models. First, the n{\"a}ivemodel does much worse than the same model which accounts for measurement error. The n{\"a}ive model and linear measurement error model perform much worse than the models with free knot splines in terms of PMSE. There's not a large difference between the SMEMN and SMEMDP model in terms of PMSE, but the SMEMDP model generally does better. The question is whether the small improvement is worth the increase in model complexity. It is the authors' opinion that the answer is no for two reasons: (i) our main focus with this model is calibrating the cheap measurements and not necessarily inference at the latent variable level, and (ii) this only applies in this situation when we have 4 replicates, which for gold standard measurements, is unrealistic. Given the latent data was non-normal, a question might be how poorly does a bivariate normal fit these latent data? We address this question in an example in the next section. Because the main focus is to calibrate cheap measurements as best as possible, the simulation results are promising for our model.
+Tables \ref{pmseee},\ref{pmsees} give the mean PMSE for each model under each type of error for both EE and $\Delta$ES for 2 and 4 replicates. There is a consistent decreasing pattern from left to right in terms of the models. First, the na{\"i}vemodel does much worse than the same model which accounts for measurement error. The na{\"i}ve model and linear measurement error model perform much worse than the models with free knot splines in terms of PMSE. There's not a large difference between the SMEMN and SMEMDP model in terms of PMSE, but the SMEMDP model generally does better. The question is whether the small improvement is worth the increase in model complexity. It is the authors' opinion that the answer is no for two reasons: (i) our main focus with this model is calibrating the cheap measurements and not necessarily inference at the latent variable level, and (ii) this only applies in this situation when we have 4 replicates, which for gold standard measurements, is unrealistic. Given the latent data was non-normal, a question might be how poorly does a bivariate normal fit these latent data? We address this question in an example in the next section. Because the main focus is to calibrate cheap measurements as best as possible, the simulation results are promising for our model.
 
 
 \clearpage
@@ -1148,7 +1148,7 @@ Tables \ref{pmseee},\ref{pmsees} give the mean PMSE for each model under each ty
 
 \begin{table}[ht]
 %\centering
-%\subcaption{Normal Errors, N{\"a}ive Model}
+%\subcaption{Normal Errors, na{\"i}ve Model}
  \scalebox{0.85}{
 \begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll}
   \hline
@@ -1217,7 +1217,7 @@ Mean Est & 400.13 & 331.38 & 248.94 & 70.85 & 297.62 & 14.16 & -7.11 & -198.04 &
    \end{tabular}}
 
 
-\caption{Summary of Simulation under Normal Errors for N{\"a}ive, LME,  SMEMN, SMEMDP Models, respectively}
+\caption{Summary of Simulation under Normal Errors for na{\"i}ve, LME,  SMEMN, SMEMDP Models, respectively}
 \label{nsumtable}
 \end{table}
 
@@ -1226,7 +1226,7 @@ Mean Est & 400.13 & 331.38 & 248.94 & 70.85 & 297.62 & 14.16 & -7.11 & -198.04 &
 
 
 \begin{table}[ht]
-%\subcaption*{Skewed Errors, N{\"a}ive Model}
+%\subcaption*{Skewed Errors, na{\"i}ve Model}
 \scalebox{0.85}{
 \begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll}
   \hline
@@ -1292,7 +1292,7 @@ Mean Est & 403.10 & 298.16 & 248.70 & 71.11 & 313.22 & 14.13 & -7.26 & -199.31 &
    \hline
 \end{tabular}}
 
-\caption{Summary of Simulation under Skewed Errors for N{\"a}ive, LME,  SMEMN, SMEMDP Models, respectively}
+\caption{Summary of Simulation under Skewed Errors for na{\"i}ve, LME,  SMEMN, SMEMDP Models, respectively}
 \label{ssumtable}
 \end{table}
 
@@ -1301,7 +1301,7 @@ Mean Est & 403.10 & 298.16 & 248.70 & 71.11 & 313.22 & 14.13 & -7.26 & -199.31 &
 
 
 \begin{table}[ht]
-%\subcaption*{Bimodal Errors, N{\"a}ive Model}
+%\subcaption*{Bimodal Errors, na{\"i}ve Model}
 \scalebox{0.85}{
 \begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll}
   \hline
@@ -1367,7 +1367,7 @@ Mean Est & 251.97 & 235.27 & 191.80 & 55.25 & 218.08 & 12.43 & -5.67 & -202.35 &
    \hline
 \end{tabular}}
 
-\caption{Summary of Simulation under Bimodal Errors for N{\"a}ive, LME,  SMEMN, SMEMDP Models, respectively}
+\caption{Summary of Simulation under Bimodal Errors for na{\"i}ve, LME,  SMEMN, SMEMDP Models, respectively}
 \label{bsumtable}
 \end{table}
 
@@ -1626,12 +1626,12 @@ Figure \ref{predSMEMNx} gives one of the main desired outcomes of this study. Th
 
 
 
-% \subsection{N{\"a}ive Model}
+% \subsection{na{\"i}ve Model}
 % %In this section we present results for when the within person variability error term is placed within the function $m_{\cdot}(\cdot)$, which is the correct specification. 
 % 
 % For the three of the simulated data sets, we ran 3 chains of 10,000 iterations each with 2000 burn in. JAGS automatically selects dispersed starting values. The chains for both of the models had Gelman-Rubin diagnostics of one's for all parameters and the trace plots have good mixing with little autocorrelation. 
 % 
-% Tables \ref{m0wpestimates},\ref{m0swpestimates},\ref{m0bwpestimates} give posterior summaries for parameters for the n{\"a}ive model with normal, skewed and bimodal errors, respectively. Overall, results look similar. Under all 3 data sets, the n{\"a}ive model is able to estimate the linear, error free coefficients. Slopes for $X^{EE}$ and $X^{\Delta ES}$ were different for each data set with the bimodal errors have the largest values. The bimodal errors also had lower values for the regression error variances.
+% Tables \ref{m0wpestimates},\ref{m0swpestimates},\ref{m0bwpestimates} give posterior summaries for parameters for the na{\"i}ve model with normal, skewed and bimodal errors, respectively. Overall, results look similar. Under all 3 data sets, the na{\"i}ve model is able to estimate the linear, error free coefficients. Slopes for $X^{EE}$ and $X^{\Delta ES}$ were different for each data set with the bimodal errors have the largest values. The bimodal errors also had lower values for the regression error variances.
 % 
 % 
 % Figures \ref{ydiag0wp},\ref{ydiag0swp},\ref{ydiag0bwp} gives quantiles from the posterior predictive distribution for $Y$ for EE and $\Delta$ES for simulated data with normal, skewed, and bimodal errors respectively. We computed the posterior predictive distributions using the equation below. The vertical line in each plot indicates the truth in the simulated data. If the plotted distribution covers this truth it indicates the model captures that quantity of interest. If not, it indicates a shortcoming of the model as there is a discrepany between the truth and the model. Figure \ref{ydiag0wp} shows that all values of EE are being underestimated and not capturing the truth at all for the most part. Values for $\Delta$ES actually look okay, but for both EE and $\Delta$ES these distributions have very high variance. These issues could be coming from a variety of places in the model including the mean functions for $Y$ and the distributional assumptions. Since we are in a measurement error situation, we know that using the observed $W$ as the truth is not a good idea, and we should implement a measurement error model. Figures \ref{ydiag0swp},\ref{ydiag0bwp} shows similar results. 
@@ -2269,7 +2269,7 @@ Figure \ref{predSMEMNx} gives one of the main desired outcomes of this study. Th
 %   \hline
 %   & EE & $\Delta$ES & EE & $\Delta$ES & EE & $\Delta$ES \\
 %   \hline
-%   N{\"a}ive Model & 152567 & 57792 & 148931 & 50032 & 102039 & 22365 \\
+%   na{\"i}ve Model & 152567 & 57792 & 148931 & 50032 & 102039 & 22365 \\
 %   Simple Model & 121385  & 42402 & 103757 & 39278 & 55922 & 19885 \\
 %   Our Model & 75488 & 38350 & 73637 & 37313 & 47398 & 18940 \\
 %    \hline
@@ -2317,16 +2317,16 @@ Looking at the table and figure, one can see that the calibration helps pull the
   \hline
 & Lower & Median & Upper & Observed & Truth \\ 
   \hline
-EE & 2567.87 & 2661.31 & 2745.54 & 3028.89 & 2424.49 \\ 
- & 3453.99 & 3526.34 & 3626.37 & 4119.26 & 3588.12 \\ 
- & 2576.33 & 2666.58 & 2754.15 & 2555.86 & 3467.12 \\ 
+EE & 2574.18 & 2666.00 & 2736.39 & 3028.89 & 2199.25 \\ 
+  & 3452.51 & 3525.18 & 3619.08 & 4119.26 & 3588.12 \\ 
+  & 2571.99 & 2665.46 & 2744.65 & 2555.86 & 2643.14 \\ 
    \hline  
-   $\Delta$ES & 25.19 & 42.11 & 59.99 & 142.30 & -18.80 \\ 
-  & -104.40 & -82.15 & -63.68 & -405.74 & -21.08 \\ 
-  & -8.65 & 3.98 & 16.49 & 96.06 & -65.17 \\ 
+   $\Delta$ES & 25.15 & 42.35 & 60.57 & 142.30 & 64.17 \\ 
+  & -104.21 & -82.93 & -63.90 & -405.74 & -21.08 \\ 
+  & -8.41 & 3.91 & 17.83 & 96.06 & -0.48 \\ 
    \hline
 \end{tabular}
-\caption{95\% credible interval for calibration estimate for cheap EE measurements for Skewed Errors} 
+\caption{95\% credible interval for calibration estimate for cheap measurements for Skewed Errors} 
 \label{calibratedee}
 \end{table}
 
@@ -2444,7 +2444,7 @@ EE & 2567.87 & 2661.31 & 2745.54 & 3028.89 & 2424.49 \\
 %---------------------------------------------------%
 %---------------------------------------------------%
 
-In this chapter we presented a semi-parametric model for the measurement of energy balance via EE and $\Delta$ES. We assume gold standard measurements are unbiased to the truth while cheap measurements are some functions of the truth which we use splines to evaluate, plus a linear combination of demographic, error free covariates. This allows a very flexible relationship between a cheap measurement and its unobserved truth. We assumed normality for measurement error distributions which was justified through the use of diagnostics recommended by Caroll et al. We assumed gold standard measurements and cheap measurements were conditionally independent within and between each other given the latent vector $(X^{EE},X^{\Delta ES})$. We modeled the latent vector $(X^{EE},X^{\Delta ES})$ with both a bivariate normal distribution as well as a Dirichlet process. Although the Dirichlet process was flexible and a much weaker assumption, it required more replicate observations (mainly on gold standard measurements) than is feasible in order to give stable results. The normality assumption was able to give stable and surprisingly good results given the true structure of the latent variables. Because this model was able to give stable and pleasing results under the constraint of only two replicates of gold standard measurements, we believe this is the best model for this specific application unless more than 2 replicates per person are available. The resulting estimates and PMSE show the superiority of our model to a simpler linear measurement error model and the n{\"a}ive model that doesn't take measurement error into consideration. 
+In this chapter we presented a semi-parametric model for the measurement of energy balance via EE and $\Delta$ES. We assume gold standard measurements are unbiased to the truth while cheap measurements are some functions of the truth which we use splines to evaluate, plus a linear combination of demographic, error free covariates. This allows a very flexible relationship between a cheap measurement and its unobserved truth. We assumed normality for measurement error distributions which was justified through the use of diagnostics recommended by Caroll et al. We assumed gold standard measurements and cheap measurements were conditionally independent within and between each other given the latent vector $(X^{EE},X^{\Delta ES})$. We modeled the latent vector $(X^{EE},X^{\Delta ES})$ with both a bivariate normal distribution as well as a Dirichlet process. Although the Dirichlet process was flexible and a much weaker assumption, it required more replicate observations (mainly on gold standard measurements) than is feasible in order to give stable results. The normality assumption was able to give stable and surprisingly good results given the true structure of the latent variables. Because this model was able to give stable and pleasing results under the constraint of only two replicates of gold standard measurements, we believe this is the best model for this specific application unless more than 2 replicates per person are available. The resulting estimates and PMSE show the superiority of our model to a simpler linear measurement error model and the na{\"i}ve model that doesn't take measurement error into consideration. 
 
 The main motivation for constructing this model was to model the error and bias in measurements so one can calibrate a cheap measurement tool's output in order to make it closer to the truth. We presented a simple way to do this calibration given a cheap measurement for EE and $\Delta$ES and values for gender, BMI, and age. Using a Bayesian approach we are easily able to get a posterior distribution for the calibrated estimate which provides a measure of uncertainty. Our example shows that in some cases this calibrated estimate could be far from the observed cheap measurement. 
 

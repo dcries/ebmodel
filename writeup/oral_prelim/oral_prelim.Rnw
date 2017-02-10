@@ -507,6 +507,8 @@ If using Reversible Jump MCMC, incorporates uncertainty in spline selection
   s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
 \end{align*}
 
+In order to ensure the functions are monotone, constrain $\beta_{1,ee} \leq \beta_{2,ee} \leq ... \leq \beta_{k_{ee}+3,ee}$ 
+
 % \vspace{0.3cm}
 % where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices
 % 
@@ -567,7 +569,8 @@ For iteration k=1,...,K, sample from its full conditional:
 
 
 \item
- \small \{$\Sigma^{(k)}$\} $|\cdot \overset{ind}{\sim}$ $Inv-Wish(d+n,\psi+({\bf X_{i}^{(k-1)} - \mu^{(k-1)}})'({\bf X_{i}^{(k-1)} - \mu^{(k-1)}}))$ \\
+ %\small 
+ \{$\Sigma^{(k)}$\} $|\cdot \overset{ind}{\sim}$ $Inv-Wish(d+n,\psi+({\bf X_{i}^{(k-1)} - \mu^{(k-1)}})'({\bf X_{i}^{(k-1)} - \mu^{(k-1)}}))$ \\
 
 % ${\bf X_{i,h}} \equiv  {\bf X_i} I(\zeta_i^{(k)}=h)$ \\
 % ${\bf X_i} = (X_i^{EE},X_i^{\Delta ES})$ \\
@@ -599,7 +602,7 @@ $\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdo
 
 \begin{enumerate}
 \setcounter{enumi}{3}
-\small
+%\small
 \item
 Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}, \boldsymbol{\gamma_{ee}^{}}, \boldsymbol{\gamma_{es}^{}}$ using RJMCMC described next. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
 
@@ -653,7 +656,7 @@ Our algorithm is run independently for EE and $\Delta$ES regression functions du
 
 %----------
 \begin{frame}
-\small
+%\small
 $\mathcal{A}$=\{$x_i,i=1,...n:x_i$ is not currently a knot or within $\ell+1$ locations of a current knot\}
 
 
@@ -688,7 +691,7 @@ Sample one knot location from $r_{\cdot}^{(k-1)}$ at random, and change it to a 
 
 \begin{enumerate}
 \setcounter{enumi}{3}
-\small
+%\small
 \item
 Calculate the spline basis matrix $B^*_{\cdot}(X^{\cdot(k)})$ using $X^{\cdot(k)}$ and proposed knot locations $r_{\cdot}^{*}$
 
@@ -739,6 +742,10 @@ Skew-Normal
 \item
 Bimodal (50-50 mixture of two Normals)
 \end{itemize}
+
+\vspace{0.2cm}
+
+For each simulated data set, we ran the MCMC for 12,000 iterations, using the first 2000 as burn in
 
 \end{frame}
 %-----------
@@ -866,6 +873,147 @@ Normal & 2 & 61567.63 & 43557.94 & 38272.77 & - \\
 
 \end{frame}
 %----------
+
+%--------
+\begin{frame}
+  \includegraphics[width=12cm,height=6cm]{khist.pdf}
+
+
+\end{frame}
+
+
+\subsection{Calibration}
+
+
+%----------
+\begin{frame}
+\frametitle{Calibration}
+The major goal of this model is to be able to give calibration equations for cheap measurements \\
+
+$\Rightarrow$ in the future if no gold standard measurements are taken, can correct cheap measurements using these calibration equations \\
+
+\vspace{0.2cm}
+
+Our goal is to get an estimate of the truth using cheap measurement of the truth y and covariates Z:
+\begin{align*}
+  X_{calibrated} &= s^{-1}(y-\boldsymbol{\gamma}' Z) 
+\end{align*}
+
+\vspace{0.2cm}
+Doing this for both EE and $\Delta$ES
+
+\end{frame}
+%--------
+
+
+%-------
+\begin{frame}
+Cannot take inverse of spline (which changes dimensions), so we will find its inverse numerically
+
+\vspace{0.3cm}
+
+Use \texttt{optimize} wrt x on the value $|f(x)-y^*|$ where $f()$ represents the regression function and $y^*$ is the observed cheap measurement minus the vector of coefficients $\boldsymbol{\gamma}$ multiplied by the individuals covariate values $Z$
+
+\vspace{0.3cm}
+
+Use k draws of linear and spline coefficients, knot locations, and latent variables from MCMC to get k calibrated estimates of x
+
+
+\end{frame}
+%-------
+
+%--------
+\begin{frame}
+
+For r = 1,...R
+\begin{enumerate}
+\item
+Calculate $y_i^* = y_i- \boldsymbol{\gamma}^{(r)'} Z_i$, where $Z_i$ are the covariate values for individual $i$
+\item
+Use \texttt{optimize} for the function $|f_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the aforementioned criteria, call this $x_{i,calibrated}$. $f_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients $\boldsymbol{\beta_{\cdot}}^{(r)}$, latent variables $({ X^{EE(r)},X^{\Delta ES (r)}})$, and knot locations $(r_{ee}^{(r)},r_{es}^{(r)})$ from the $r^{th}$ draw of the chain
+
+\end{enumerate}
+
+
+\end{frame}
+%------------
+
+%--------
+\begin{frame}
+\frametitle{3 example calibrations}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{r|ccc|cc}
+  \hline
+& Lower & Median & Upper & Observed & Truth \\ 
+  \hline
+EE & 2574.18 & 2666.00 & 2736.39 & 3028.89 & 2199.25 \\ 
+  & 3452.51 & 3525.18 & 3619.08 & 4119.26 & 3588.12 \\ 
+  & 2571.99 & 2665.46 & 2744.65 & 2555.86 & 2643.14 \\ 
+   \hline  
+   $\Delta$ES & 25.15 & 42.35 & 60.57 & 142.30 & 64.17 \\ 
+  & -104.21 & -82.93 & -63.90 & -405.74 & -21.08 \\ 
+  & -8.41 & 3.91 & 17.83 & 96.06 & -0.48 \\ 
+   \hline
+\end{tabular}
+\caption{95\% credible interval for calibration estimate for cheap measurements for Skewed Errors} 
+\label{calibratedee}
+\end{table}
+
+\end{frame}
+%-------
+
+\subsection{Data Analysis}
+
+%--------
+\begin{frame}
+\frametitle{Data Collection}
+We will be collecting the necessary data on $\sim$30 individuals over the next few months to aid in the development of this model
+
+\end{frame}
+%-------
+
+
+\subsection{Discussion}
+
+%-------
+\begin{frame}
+\frametitle{Discussion}
+We developed a Bayesian semi-parametric measurement error model for energy balance measurements
+
+\begin{itemize}
+\item
+Constructed a RJMCMC algorithm for free knot splines as a function of latent variables along with a linear component
+\item
+Developed calibration algorithm to correct for biases in cheap measurements
+\item
+Simulation study shows predictive power of spline model
+\item
+Data analysis (coming soon!)
+\end{itemize}
+
+\end{frame}
+%---------
+
+%--------
+\begin{frame}
+\frametitle{Further Considerations}
+There are a few ways our model can be improved upon/extended
+
+\begin{itemize}
+\item
+Allowing for non-constant variance in measurement errors
+\item
+Relaxing normality assumption of measurement errors
+\item
+Correctly specifying within person variability for cheap measurements
+\item
+Fully Bayesian estimation of spline (and linear component) parameters
+\end{itemize}
+
+\end{frame}
+%-------
 
 %-------
 \begin{frame}
