@@ -166,8 +166,8 @@ grid.arrange(p3,p4,nrow=1)
 par(mfrow=c(1,2))  
 #qqnorm(ebs$Energy_expenditure[ebs$gender=="Female"]);qqline(ebs$Energy_expenditure[ebs$gender=="Female"])
 #qqnorm(ebs$Energy_expenditure[ebs$gender=="Male"]);qqline(ebs$Energy_expenditure[ebs$gender=="Male"])
-qqnorm(ebs$TDEE[ebs$gender=="Female"]);qqline(ebs$TDEE[ebs$gender=="Female"])
-qqnorm(ebs$TDEE[ebs$gender=="Male"]);qqline(ebs$TDEE[ebs$gender=="Male"])
+qqnorm(ebs$TDEE[ebs$gender=="Female"],main="Normal Q-Q Plot (Female)");qqline(ebs$TDEE[ebs$gender=="Female"])
+qqnorm(ebs$TDEE[ebs$gender=="Male"],main="Normal Q-Q Plot (Male)");qqline(ebs$TDEE[ebs$gender=="Male"])
 #qqnorm(des$des[des$gender=="Female"]);qqline(des$des[des$gender=="Female"])
 #qqnorm(des$des[des$gender=="Male"]);qqline(des$des[des$gender=="Male"])
 #dev.off()
@@ -188,8 +188,8 @@ des4 <- ebs4 %>% group_by(ID) %>% summarise(
 par(mfrow=c(1,2)) 
 #qqnorm(des$des[des$gender=="Female"]);qqline(des$des[des$gender=="Female"])
 #qqnorm(des$des[des$gender=="Male"]);qqline(des$des[des$gender=="Male"])
-qqnorm(des4$diff[des4$gender=="Female"]);qqline(des4$diff[des4$gender=="Female"])
-qqnorm(des4$diff[des4$gender=="Male"]);qqline(des4$diff[des4$gender=="Male"])
+qqnorm(des4$diff[des4$gender=="Female"],main="Normal Q-Q Plot (Female)");qqline(des4$diff[des4$gender=="Female"])
+qqnorm(des4$diff[des4$gender=="Male"],main="Normal Q-Q Plot (Male)");qqline(des4$diff[des4$gender=="Male"])
 
 @
 
@@ -206,8 +206,8 @@ diag3 <- ebs3 %>% group_by(ID) %>% summarise(age=age[1],
 
 
 par(mfrow=c(1,2)) 
-qqnorm(diag$eediff[diag$gender=="Female"]);qqline(diag$eediff[diag$gender=="Female"])
-qqnorm(diag$eediff[diag$gender=="Male"]);qqline(diag$eediff[diag$gender=="Male"])
+qqnorm(diag$eediff[diag$gender=="Female"],main="Normal Q-Q Plot (Female)");qqline(diag$eediff[diag$gender=="Female"])
+qqnorm(diag$eediff[diag$gender=="Male"],main="Normal Q-Q Plot (Male)");qqline(diag$eediff[diag$gender=="Male"])
 
 # qqnorm(eb$Energy_expenditure[eb$gender=="Female"]);qqline(eb$Energy_expenditure[eb$gender=="Female"])
 # qqnorm(eb$Energy_expenditure[eb$gender=="Male"]);qqline(eb$Energy_expenditure[eb$gender=="Male"])
