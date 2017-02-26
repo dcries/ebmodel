@@ -97,6 +97,70 @@ pmatee[3,4] <- 0
 pmatee[4,4] <- mean(dpmm_4_2$pmse[,1])
 pmatee[5,4] <- 0
 pmatee[6,4] <- mean(dpmm_4_3$pmse[,1])
+
+
+peedf <- data.frame(pmse=c(simple_2_1$pmse0[,1],simple_2_1$pmse1[,1],
+                           bvn_2_1$pmse[,1],
+                            simple_2_2$pmse0[,1],simple_2_2$pmse1[,1],
+                            bvn_2_2$pmse[,1],
+                            simple_2_3$pmse0[,1],simple_2_3$pmse1[,1],
+                            bvn_2_3$pmse[,1],
+                            simple_4_1$pmse0[,1],simple_4_1$pmse1[,1],
+                            bvn_4_1$pmse[,1], dpmm_4_1$pmse[,1],
+                            simple_4_2$pmse0[,1],simple_4_2$pmse1[,1],
+                            bvn_4_2$pmse[,1],dpmm_4_2$pmse[,1],
+                            simple_4_3$pmse0[,1],simple_4_3$pmse1[,1],
+                            bvn_4_3$pmse[,1],dpmm_4_3$pmse[,1]),
+                    dist=c(rep(1,nrow(simple_2_1$pmse0)),rep(1,nrow(simple_2_1$pmse1)),
+                           rep(1,nrow(bvn_2_1$pmse)),
+                           rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_2$pmse)),
+                           rep(3,nrow(simple_2_1$pmse0)),rep(3,nrow(simple_2_1$pmse1)),
+                           rep(3,nrow(bvn_2_3$pmse)),
+                           
+                           rep(1,nrow(simple_4_1$pmse0)),rep(1,nrow(simple_4_1$pmse1)),
+                           rep(1,nrow(bvn_4_1$pmse)), rep(1,nrow(dpmm_4_1$pmse)),
+                           rep(2,nrow(simple_4_1$pmse0)),rep(2,nrow(simple_4_1$pmse1)),
+                           rep(2,nrow(bvn_4_2$pmse)), rep(2,nrow(dpmm_4_2$pmse)),
+                           rep(3,nrow(simple_4_1$pmse0)),rep(3,nrow(simple_4_1$pmse1)),
+                           rep(3,nrow(bvn_4_3$pmse)), rep(3,nrow(dpmm_4_3$pmse))),
+                    
+                    reps=c(rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_1$pmse)),
+                           rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_2$pmse)),
+                           rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_3$pmse)),
+                           
+                           rep(4,nrow(simple_2_1$pmse0)),rep(4,nrow(simple_2_1$pmse1)),
+                           rep(4,nrow(bvn_4_1$pmse)), rep(4,nrow(dpmm_4_1$pmse)),
+                           rep(4,nrow(simple_2_1$pmse0)),rep(4,nrow(simple_2_1$pmse1)),
+                           rep(4,nrow(bvn_4_2$pmse)), rep(4,nrow(dpmm_4_2$pmse)),
+                           rep(4,nrow(simple_2_1$pmse0)),rep(4,nrow(simple_2_1$pmse1)),
+                           rep(4,nrow(bvn_4_3$pmse)),rep(4,nrow(dpmm_4_3$pmse))),
+                    
+                    
+                    model=c(rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_2_1$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_2_2$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_2_3$pmse)),
+                            
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_4_1$pmse)), rep(4,nrow(dpmm_4_1$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_4_2$pmse)),rep(4,nrow(dpmm_4_2$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_4_2$pmse)),rep(4,nrow(dpmm_4_3$pmse)))
+                    )
+
+peedf$reps <- factor(peedf$reps,labels=c("Nreps=2","Nreps=4"),levels=c(2,4))
+peedf$dist <- factor(peedf$dist,labels=c("Normal","Skew-Normal","Bimodal"),levels=c(1,2,3))
+peedf$model <- factor(peedf$model,labels=c("Naive","LMEM","SMEM","DPSMEM"),levels=c(1,2,3,4))
+
+p1 <- ggplot(data=peedf) + geom_boxplot(aes(x=as.factor(model),y=log(pmse),group=model)) + 
+  facet_grid(reps~dist,scales="free") + theme_bw() + xlab("") + ylab("log(PMSE) (EE)")
 #---------------------------------------
 
 pmates <- matrix(0,nrow=6,ncol=4)
@@ -127,6 +191,69 @@ pmates[3,4] <- 0
 pmates[4,4] <- mean(dpmm_4_2$pmse[,2])
 pmates[5,4] <- 0
 pmates[6,4] <- mean(dpmm_4_3$pmse[,2])
+
+pesdf <- data.frame(pmse=c(simple_2_1$pmse0[,2],simple_2_1$pmse1[,2],
+                           bvn_2_1$pmse[,2],
+                           simple_2_2$pmse0[,2],simple_2_2$pmse1[,2],
+                           bvn_2_2$pmse[,2],
+                           simple_2_3$pmse0[,2],simple_2_3$pmse1[,2],
+                           bvn_2_3$pmse[,2],
+                           simple_4_1$pmse0[,2],simple_4_1$pmse1[,2],
+                           bvn_4_1$pmse[,2], dpmm_4_1$pmse[,2],
+                           simple_4_2$pmse0[,2],simple_4_2$pmse1[,2],
+                           bvn_4_2$pmse[,2],dpmm_4_2$pmse[,2],
+                           simple_4_3$pmse0[,2],simple_4_3$pmse1[,2],
+                           bvn_4_3$pmse[,2],dpmm_4_3$pmse[,2]),
+                    dist=c(rep(1,nrow(simple_2_1$pmse0)),rep(1,nrow(simple_2_1$pmse1)),
+                           rep(1,nrow(bvn_2_1$pmse)),
+                           rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_2$pmse)),
+                           rep(3,nrow(simple_2_1$pmse0)),rep(3,nrow(simple_2_1$pmse1)),
+                           rep(3,nrow(bvn_2_3$pmse)),
+                           
+                           rep(1,nrow(simple_4_1$pmse0)),rep(1,nrow(simple_4_1$pmse1)),
+                           rep(1,nrow(bvn_4_1$pmse)), rep(1,nrow(dpmm_4_1$pmse)),
+                           rep(2,nrow(simple_4_1$pmse0)),rep(2,nrow(simple_4_1$pmse1)),
+                           rep(2,nrow(bvn_4_2$pmse)), rep(2,nrow(dpmm_4_2$pmse)),
+                           rep(3,nrow(simple_4_1$pmse0)),rep(3,nrow(simple_4_1$pmse1)),
+                           rep(3,nrow(bvn_4_3$pmse)), rep(3,nrow(dpmm_4_3$pmse))),
+                    
+                    reps=c(rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_1$pmse)),
+                           rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_2$pmse)),
+                           rep(2,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                           rep(2,nrow(bvn_2_3$pmse)),
+                           
+                           rep(4,nrow(simple_2_1$pmse0)),rep(4,nrow(simple_2_1$pmse1)),
+                           rep(4,nrow(bvn_4_1$pmse)), rep(4,nrow(dpmm_4_1$pmse)),
+                           rep(4,nrow(simple_2_1$pmse0)),rep(4,nrow(simple_2_1$pmse1)),
+                           rep(4,nrow(bvn_4_2$pmse)), rep(4,nrow(dpmm_4_2$pmse)),
+                           rep(4,nrow(simple_2_1$pmse0)),rep(4,nrow(simple_2_1$pmse1)),
+                           rep(4,nrow(bvn_4_3$pmse)),rep(4,nrow(dpmm_4_3$pmse))),
+                    
+                    
+                    model=c(rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_2_1$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_2_2$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_2_3$pmse)),
+                            
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_4_1$pmse)), rep(4,nrow(dpmm_4_1$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_4_2$pmse)),rep(4,nrow(dpmm_4_2$pmse)),
+                            rep(1,nrow(simple_2_1$pmse0)),rep(2,nrow(simple_2_1$pmse1)),
+                            rep(3,nrow(bvn_4_2$pmse)),rep(4,nrow(dpmm_4_3$pmse)))
+)
+
+pesdf$reps <- factor(pesdf$reps,labels=c("Nreps=2","Nreps=4"),levels=c(2,4))
+pesdf$dist <- factor(pesdf$dist,labels=c("Normal","Skew-Normal","Bimodal"),levels=c(1,2,3))
+pesdf$model <- factor(pesdf$model,labels=c("Naive","LMEM","SMEM","DPSMEM"),levels=c(1,2,3,4))
+
+p2 <- ggplot(data=pesdf) + geom_boxplot(aes(x=as.factor(model),y=log(pmse),group=model)) + 
+  facet_grid(reps~dist,scales="free") + theme_bw() + xlab("") + ylab("log(PMSE) (ES)")
 
 #----------------------------------------------#
 
