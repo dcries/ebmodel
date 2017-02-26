@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  9 FEB 2017 13:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  23 FEB 2017 12:34
 entering extended mode
 **./oral_prelim.tex
 (oral_prelim.tex
@@ -1066,7 +1066,7 @@ LaTeX Info: Redefining \includegraphics on input line 78.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (oral_prelim.nav)
-Overfull \hbox (134.85858pt too wide) in paragraph at lines 78--78
+Overfull \hbox (27.08015pt too wide) in paragraph at lines 78--78
  [][][][]  
  []
 
@@ -1075,486 +1075,314 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 88.
 
 
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [1
 
 {C:/Users/dcries/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [2
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [3
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [4
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 187.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 187.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 187.
-
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\sa
-nsmathaccent\ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
-)
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [5
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+LaTeX Font Info:    Try loading font information for U+msa on input line 202.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 202.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 202.
+
+(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\sa
+nsmathaccent\ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [6
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [7
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [8
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [9
 
-] <dxa_qq.pdf, id=164, 794.97pt x 397.485pt>
-File: dxa_qq.pdf Graphic file (type pdf)
- <use dxa_qq.pdf>
-Package pdftex.def Info: dxa_qq.pdf used on input line 284.
-(pdftex.def)             Requested size: 284.52713pt x 142.26357pt.
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [10
 
- <./dxa_qq.pdf>] <swa_qq.pdf, id=180, 794.97pt x 397.485pt>
-File: swa_qq.pdf Graphic file (type pdf)
-
-<use swa_qq.pdf>
-Package pdftex.def Info: swa_qq.pdf used on input line 299.
-(pdftex.def)             Requested size: 284.52713pt x 142.26357pt.
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [11
 
- <./swa_qq.pdf>]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [12
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [13
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [14
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [15
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [16
 
 ]
-Overfull \hbox (284.53693pt too wide) in paragraph at lines 451--451
-[] 
- []
-
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [17
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [18
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [19
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 638
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 638.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 638.
+
+
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [20
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [21
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [22
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 622
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 622.
-
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 622.
-
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [23
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \vbox (25.56126pt too high) detected at line 764
+ []
+
+
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [24
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [25
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (36.7625pt too wide) in paragraph at lines 857--857
+ [] 
+ []
+
+
+Overfull \hbox (124.05725pt too wide) in paragraph at lines 857--857
+ [][] 
+ []
+
+
+Overfull \hbox (122.57993pt too wide) in paragraph at lines 857--857
+ [][] 
+ []
+
+
+Overfull \vbox (2.82542pt too high) detected at line 857
+ []
+
+
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [26
 
 ]
-Overfull \vbox (25.56126pt too high) detected at line 748
+Overfull \vbox (19.38644pt too high) detected at line 906
  []
 
 
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [27
 
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+] <predbvnsx.pdf, id=310, 578.16pt x 289.08pt>
+File: predbvnsx.pdf Graphic file (type pdf)
+ <use predbvnsx.pdf>
+Package pdftex.def Info: predbvnsx.pdf used on input line 915.
+(pdftex.def)             Requested size: 341.42903pt x 170.71451pt.
+
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [28
 
-]
-Overfull \hbox (36.7625pt too wide) in paragraph at lines 841--841
- [] 
- []
-
-
-Overfull \hbox (124.05725pt too wide) in paragraph at lines 841--841
- [][] 
- []
-
-
-Overfull \hbox (122.57993pt too wide) in paragraph at lines 841--841
- [][] 
- []
-
-
-Overfull \vbox (2.82542pt too high) detected at line 841
- []
-
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+ <./predbvnsx.pdf>]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [29
 
 ]
-Overfull \vbox (19.38644pt too high) detected at line 890
- []
-
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [30
 
-] <predbvnsx.pdf, id=362, 578.16pt x 289.08pt>
-File: predbvnsx.pdf Graphic file (type pdf)
- <use predbvnsx.pdf>
-Package pdftex.def Info: predbvnsx.pdf used on input line 899.
-(pdftex.def)             Requested size: 341.42903pt x 170.71451pt.
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [31
 
- <./predbvnsx.pdf>] <khist.pdf, id=381, 578.16pt x 289.08pt>
-File: khist.pdf Graphic file (type pdf)
+] <studydesign.png, id=354, 946.28531pt x 618.81187pt>
+File: studydesign.png Graphic file (type png)
 
-<use khist.pdf>
-Package pdftex.def Info: khist.pdf used on input line 907.
-(pdftex.def)             Requested size: 341.42903pt x 170.71451pt.
+<use studydesign.png>
+Package pdftex.def Info: studydesign.png used on input line 1039.
+(pdftex.def)             Requested size: 227.61848pt x 170.71672pt.
 
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [32
 
- <./khist.pdf>]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+ <./studydesign.png>]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [33
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [34
 
 ]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [35
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[36
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[37
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[38
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[39
-
-] <figure/eivsee-1.pdf, id=454, 361.35pt x 361.35pt>
-File: figure/eivsee-1.pdf Graphic file (type pdf)
-
-<use figure/eivsee-1.pdf>
-Package pdftex.def Info: figure/eivsee-1.pdf used on input line 1076.
-(pdftex.def)             Requested size: 132.91861pt x 132.91997pt.
- <figure/eivsee2-1.pdf, id=455, 361.35pt x 361.35pt>
-File: figure/eivsee2-1.pdf Graphic file (type pdf)
-
-<use figure/eivsee2-1.pdf>
-Package pdftex.def Info: figure/eivsee2-1.pdf used on input line 1076.
-(pdftex.def)             Requested size: 132.91861pt x 132.91997pt.
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[40
-
- <./figure/eivsee-1.pdf> <./figure/eivsee2-1.pdf>]
-<figure/armbandvsdlw-1.pdf, id=477, 433.62pt x 325.215pt>
-File: figure/armbandvsdlw-1.pdf Graphic file (type pdf)
-
-<use figure/armbandvsdlw-1.pdf>
-Package pdftex.def Info: figure/armbandvsdlw-1.pdf used on input line 1090.
-(pdftex.def)             Requested size: 273.83728pt x 205.38773pt.
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[41
-
- <./figure/armbandvsdlw-1.pdf>]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[42
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[43
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[44
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[45
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[46
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[47
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[48
-
-]
-Overfull \vbox (1.4848pt too high) detected at line 1241
- []
-
-
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[49
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[50
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[51
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[52
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[53
-
-]
-Overfull \hbox (134.85858pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[54
 
 ]
 \tf@nav=\write6
@@ -1566,14 +1394,14 @@ Overfull \hbox (134.85858pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `oral_prelim.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1353.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1353.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1396.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1396.
  (oral_prelim.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1353.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1353.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1396.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1396.
 
 Package rerunfilecheck Info: File `oral_prelim.out' has not changed.
-(rerunfilecheck)             Checksum: 3B0956F7989F50C1090D8DAE3D1EA2A5;959.
+(rerunfilecheck)             Checksum: 96445A22FB7BF306F78997A5D66303F3;725.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1582,16 +1410,16 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1353.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1396.
  ) 
 Here is how much of TeX's memory you used:
- 18477 strings out of 493334
- 359721 string characters out of 3139179
- 459013 words of memory out of 3000000
- 21429 multiletter control sequences out of 15000+200000
- 22770 words of font info for 76 fonts, out of 3000000 for 9000
+ 18352 strings out of 493334
+ 358220 string characters out of 3139179
+ 452089 words of memory out of 3000000
+ 21351 multiletter control sequences out of 15000+200000
+ 20622 words of font info for 68 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,22n,57p,470b,543s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,17n,57p,470b,600s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\dcries\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \ecso0800.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/c
 mbsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pf
@@ -1600,17 +1428,18 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/f
 onts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-ssi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Fil
-es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on oral_prelim.pdf (54 pages, 2020974 bytes).
+e1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss
+bx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pf
+b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on oral_prelim.pdf (35 pages, 1959036 bytes).
 PDF statistics:
- 687 PDF objects out of 1000 (max. 8388607)
- 128 named destinations out of 1000 (max. 500000)
- 228 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 468 PDF objects out of 1000 (max. 8388607)
+ 86 named destinations out of 1000 (max. 500000)
+ 179 words of extra memory for PDF output out of 10000 (max. 10000000)
 
