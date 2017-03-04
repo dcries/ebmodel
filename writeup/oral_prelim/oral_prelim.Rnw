@@ -3,8 +3,9 @@
 \usetheme{AnnArbor}
 \usecolortheme{beaver}
 
-\usepackage[font=footnotesize,labelfont=bf]{caption}
-
+%\usepackage{caption}
+%\captionsetup{font=footnotesize,labelfont=footnotesize}
+\setbeamerfont{caption}{series=\normalfont,size=\fontsize{5}{5}} 
 
 \setlength{\unitlength}{\textwidth}  % measure in textwidths
 \usepackage[normalem]{ulem}
@@ -19,13 +20,12 @@
 \title{Modeling of Energy Balance and Physical Activity Data}
 \author[Danny Ries]{Danny Ries}
 \institute[Iowa State]{Iowa State University}
-\date{June 22, 2016}
+\date{\today}
 
 \newcommand{\mG}{\mathrm{\Gamma}}
 \newcommand{\I}{\mathrm{I}}
 \newcommand{\mySigma}{\mathrm{\Sigma}}
 \newcommand{\ind}{\stackrel{ind}{\sim}}
-
 
 
 \begin{document}
@@ -166,13 +166,14 @@ Change in Energy Stores ($\Delta$ES) = Energy Intake (EI) - Energy Expenditure (
 
 where $\Delta$ES $= c_1 \frac{\Delta FM}{\Delta T } + c_2 \frac{\Delta FFM}{\Delta T}$  
 
-\vspace{0.4cm}
 
-This provides an alternative way to measure EI for an individual
 
-\vspace{0.2cm}
+\vspace{0.3cm}
+
 We are now in a situation where we must measure both EE and $\Delta$ES in order to calculate EI \\
-$\rightarrow$ But gold standard measures for both exist! (albeit very costly)
+
+$\rightarrow$ But gold standard measures (albeit very costly) and cheap measurements for both exist! 
+
 
 \end{frame}
 %-----------
@@ -198,37 +199,21 @@ $\rightarrow$ But gold standard measures for both exist! (albeit very costly)
 
 %----------
 \begin{frame}
-\frametitle{Modeling Energy Balance Cont.}
-There are many other cheaper measures of EE and $\Delta$ES, that even when used together to calculate EI, are still more accurate than self-reported EI \\
 
-\vspace{0.4cm}
 \begin{block}{Research Goal}
 Create a joint statistical measurement model for gold standard and cheap measurements of both EE and $\Delta$ES in order to develop calibration equations for cheap measurements.\\
 \end{block}
 
 \vspace{0.4cm}
 
-This will allow future research to calibrate cheaper measurements (when gold standard measures aren't used) and thus eliminate known biases
-
-\end{frame}
-%----------
-
-%----------
-\begin{frame}
-\frametitle{Modeling Energy Balance Cont. }
-
 \begin{itemize}
 \item
-Lots of research has been done for calibrating and evaluating measurement error for EI
+This will allow future research to calibrate cheaper measurements (when gold standard measures aren't used) and thus eliminate known biases
 \item
-Some research for EE
+Lots of research has been done for calibrating and evaluating measurement error for EI, some for EE, and little for $\Delta$ES
 \item
-Little research for $\Delta$ES
-\end{itemize}
-
-\vspace{0.2cm}
-
 To the best of our knowledge, no research has been done in evaluating the measurement error and calibrating measurements jointly via the Energy Balance principle
+\end{itemize}
 
 
 \end{frame}
@@ -263,31 +248,23 @@ Although these data don't have perfect replicates, it provides a baseline to sta
 %--------
 
 %--------
-% \begin{frame}
-% \frametitle{Checking Normality of Measurement Errors}
-% 
-% \begin{figure}
-% \centering
-% \includegraphics[width=10cm,height=5cm]{dxa_qq.pdf}
-% \caption{\small{Differenced DXA $\Delta$ES }}
-% \end{figure}
-% 
-% \end{frame}
-%---------
+\begin{frame}
+%\frametitle{Checking Normality of Measurement Errors}
 
-%---------
-% \begin{frame}
-% \frametitle{Checking Normality of Measurement Errors}
-% 
-% 
-% \begin{figure}
-% \centering
-% \includegraphics[width=10cm,height=5cm]{swa_qq.pdf}
-% \caption{Differenced SWA  EE }
-% \end{figure}
-% 
-% 
-% \end{frame}
+\begin{figure}
+\centering
+\includegraphics[width=8cm,height=3cm]{dxa_qq.pdf}
+\caption{{Differenced DXA $\Delta$ES, Females left, Males right}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=8cm,height=3cm]{swa_qq.pdf}
+\caption{Differenced SWA  EE , Females left, Males right}
+\end{figure}
+
+
+\end{frame}
 %--------
 
 %--------
@@ -300,9 +277,7 @@ It seems reasonable that cheap measurement tools could be affected by factors ot
 $\rightarrow$ Fit the following multiple regression model with the subset data from EBS\\
 SWA EE = $\beta_0 + \beta_1$DLW EE + $\beta_z$' Demographic Variables + $\epsilon$ \\
 
-\vspace{0.3cm}
 
-This is not ideal since we would want True EE not DLW EE in the regression, but still provides motivation
 
 
 \end{frame}
@@ -467,8 +442,8 @@ The Na{\"i}ve Model assumes no measurement error in gold standard measurements (
 This is a basic modification to the Na{\"i}ve model when there is measurement error in a covariate
 
 \begin{align*}
-  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\sim N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}Z_i, \sigma_{\epsilon_{EE}}^2) \\
-  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\sim N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
+  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}Z_i, \sigma_{\epsilon_{EE}}^2) \\
+  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
   (W_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{wee}}) &\overset{ind}{\sim} N(X_i^{EE}, \sigma_{\nu_{EE}}^2 ) \\
   (W_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{wes}}) &\overset{ind}{\sim} N(X_i^{\Delta ES}, \sigma_{\nu_{\Delta ES}}^2 )  \\
   (X_i^{EE},X_i^{\Delta ES}|\theta_X) &\overset{ind}{\sim} N\left(
@@ -491,7 +466,7 @@ We would like to relax the assumption that the relationship between a cheap meas
 
 \vspace{0.5cm}
 
-We propose using free knot splines to model the relationship between cheap and \emph{usual}
+We propose using cubic free knot splines to model the relationship between cheap and \emph{usual}
 
 \begin{itemize}
 \item
@@ -656,12 +631,14 @@ RJCMCMC was introduced by Green (1995) as a way to ``jump" between different mod
 
 \vspace{0.3cm}
 
-We extend method of Denison (1998) in two ways:
+We extend method of Denison (1998) in three ways:
 \begin{enumerate}
 \item
 The spline covariate is a latent variable that is also sampled from
 \item
 There are additional linear components to the mean function
+\item
+We make the modification from DiMatteo (2001) so the likelihood ratio is an approixmation of BIC
 \end{enumerate}
 
 \vspace{0.3cm}
@@ -836,46 +813,53 @@ Mean Est & 393.69 & 400.55 & 313.47 & 331.79 & 246.81 & 248.93 & 67.61 & 71.04 &
 %-----------
 \begin{frame}
 
-\begin{table}[ht]
+\begin{figure}
 \centering
-\begin{tabular}{ll|llll}
-  \hline
- & Replicates & Naive & Linear & SMEMN & SMEMDP \\ 
-  \hline
-Normal & 2 & 144869.7 & 113975.56 & 71308.89 & - \\ 
-   & 4 & 100096.78 & 75098.25 & 35902.73 & 35602.62 \\ 
-  Skewed & 2 & 138895.41 & 101586.02 & 70058.3 & - \\ 
-   & 4 & 91110.6 & 63178.21 & 35820.27 & 35449 \\ 
-  Bimodal & 2 & 93857.63 & 46486 & 42968.21 & - \\ 
-   & 4 & 84228.86 & 35665.26 & 30936.62 & 28335.85 \\ 
-   \hline
-\end{tabular}
-\caption{PMSE for EE Regression} 
-\label{pmseee}
-\end{table}
+\includegraphics[height=8cm,width=10cm]{pmse}
+%\caption{Log PMSE for EE Regression (top) and $\Delta$ES Regression (bottom)  faceted by measurement error distribution and number of replicates}
+%\label{pmse}
+\end{figure}
 
-
-
-
-
-\begin{table}[ht]
-\centering
-\begin{tabular}{ll|llll}
-  \hline
- & Replicates & Naive & Linear & SMEMN & SMEMDP \\ 
-  \hline
-Normal & 2 & 61567.63 & 43557.94 & 38272.77 & - \\ 
-   & 4 & 36238.56 & 24760.97 & 20654.15 & 20490.67 \\ 
-  Skewed & 2 & 49161.19 & 35783.01 & 31818.48 & - \\ 
-   & 4 & 27917.97 & 19980.43 & 17095.63 & 16969.31 \\ 
-  Bimodal & 2 & 24583.02 & 18758.07 & 17057.83 & - \\ 
-   & 4 & 15772.86 & 11376.04 & 10362.42 & 10263.01 \\ 
-   \hline
-\end{tabular}
-\caption{PMSE for $\Delta$ES Regression} 
-\label{pmsees}
-\end{table}
-
+% \begin{table}[ht]
+% \centering
+% \begin{tabular}{ll|llll}
+%   \hline
+%  & Replicates & Naive & Linear & SMEMN & SMEMDP \\ 
+%   \hline
+% Normal & 2 & 144869.7 & 113975.56 & 71308.89 & - \\ 
+%    & 4 & 100096.78 & 75098.25 & 35902.73 & 35602.62 \\ 
+%   Skewed & 2 & 138895.41 & 101586.02 & 70058.3 & - \\ 
+%    & 4 & 91110.6 & 63178.21 & 35820.27 & 35449 \\ 
+%   Bimodal & 2 & 93857.63 & 46486 & 42968.21 & - \\ 
+%    & 4 & 84228.86 & 35665.26 & 30936.62 & 28335.85 \\ 
+%    \hline
+% \end{tabular}
+% \caption{PMSE for EE Regression} 
+% \label{pmseee}
+% \end{table}
+% 
+% 
+% 
+% 
+% 
+% \begin{table}[ht]
+% \centering
+% \begin{tabular}{ll|llll}
+%   \hline
+%  & Replicates & Naive & Linear & SMEMN & SMEMDP \\ 
+%   \hline
+% Normal & 2 & 61567.63 & 43557.94 & 38272.77 & - \\ 
+%    & 4 & 36238.56 & 24760.97 & 20654.15 & 20490.67 \\ 
+%   Skewed & 2 & 49161.19 & 35783.01 & 31818.48 & - \\ 
+%    & 4 & 27917.97 & 19980.43 & 17095.63 & 16969.31 \\ 
+%   Bimodal & 2 & 24583.02 & 18758.07 & 17057.83 & - \\ 
+%    & 4 & 15772.86 & 11376.04 & 10362.42 & 10263.01 \\ 
+%    \hline
+% \end{tabular}
+% \caption{PMSE for $\Delta$ES Regression} 
+% \label{pmsees}
+% \end{table}
+% 
 
 
 \end{frame}
@@ -912,11 +896,8 @@ $\Rightarrow$ in the future if no gold standard measurements are taken, can corr
 
 Our goal is to get an estimate of the truth using cheap measurement of the truth y and covariates Z:
 \begin{align*}
-  X_{calibrated} &= s^{-1}(y-\boldsymbol{\gamma}' Z) 
+  X_{calibrated} &= m^{-1}(y-\boldsymbol{\gamma}' Z) 
 \end{align*}
-
-\vspace{0.2cm}
-Doing this for both EE and $\Delta$ES
 
 \end{frame}
 %--------
@@ -946,7 +927,7 @@ For r = 1,...R
 \item
 Calculate $y_i^* = y_i- \boldsymbol{\gamma}^{(r)'} Z_i$, where $Z_i$ are the covariate values for individual $i$
 \item
-Use \texttt{optimize} for the function $|f_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the aforementioned criteria, call this $x_{i,calibrated}$. $f_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients $\boldsymbol{\beta_{\cdot}}^{(r)}$, latent variables $({ X^{EE(r)},X^{\Delta ES (r)}})$, and knot locations $(r_{ee}^{(r)},r_{es}^{(r)})$ from the $r^{th}$ draw of the chain
+Use \texttt{optimize} for the function $|m_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the aforementioned criteria, call this $x_{i,calibrated}^{(r)}$. $m_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients, latent variables, and knot locations from the $r^{th}$ draw of the chain
 
 \end{enumerate}
 
@@ -1037,22 +1018,22 @@ Data analysis (coming soon!)
 %---------
 
 %--------
-\begin{frame}
-\frametitle{Further Considerations}
-There are a few ways our model can be improved upon/extended
-
-\begin{itemize}
-\item
-Allowing for non-constant variance in measurement errors
-\item
-Relaxing normality assumption of measurement errors
-\item
-Correctly specifying within person variability for cheap measurements
-\item
-Fully Bayesian estimation of spline (and linear component) parameters
-\end{itemize}
-
-\end{frame}
+% \begin{frame}
+% \frametitle{Further Considerations}
+% There are a few ways our model can be improved upon/extended
+% 
+% \begin{itemize}
+% \item
+% Allowing for non-constant variance in measurement errors
+% \item
+% Relaxing normality assumption of measurement errors
+% \item
+% Correctly specifying within person variability for cheap measurements
+% \item
+% Fully Bayesian estimation of spline (and linear component) parameters
+% \end{itemize}
+% 
+% \end{frame}
 %-------
 
 %-------
@@ -1367,6 +1348,225 @@ To Assess Compliance with \emph{2008 Physical Activity Guidelines}:
 \end{frame}
 %------------------
 
+\subsection{Introduction}
+
+%----------------
+\begin{frame}
+\frametitle{2008 Physical Activity Guidelines}
+Because of the many benefits linked to prevention and treatment of numerous diseases \\%such as cardiovascular disease, diabetes, hypertension, depression, etc \\
+
+The Department of Health and Human Services Recommends Adults 18-65 participate each week in at least:
+
+\begin{itemize}
+\item
+150 Minutes of Moderate Physical Activity 
+\item
+75 Minutes of Vigorous Physical Activity
+\item
+75-150 Minutes during some combindation of Moderate and Vigorous Physical Activity (MVPA)
+\item
+Full body resistance training two days per week
+\item
+Most benefits occur when activity is performed in at least 10 minute \emph{bouts}
+\end{itemize}
+
+\vspace{0.3cm}
+
+What proportion of adults adhere to these guidlines? Are there differences among different demographics?
+
+\end{frame}
+%---------------
+
+
+%-----------
+\begin{frame}
+\frametitle{Physical Activity Measurement Survery (PAMS)}
+2 year studying starting in 2009 collecting 2 days of physical activity data via Sensewear Armband and 24 Hour Recall on adults in four Iowa counties
+
+\begin{itemize}
+\item
+Measurements of physical activity are over 24 hours
+\item
+Replicate measurements taken 2-3 weeks apart
+\item
+Minute by minute data from armband (in MET-minutes)
+\item
+Survery weights needed 
+\item
+Measurement error involved
+\end{itemize}
+
+\end{frame}
+%-----------
+
+
+%-----------
+\begin{frame}
+%\frametitle{}
+
+Definition of a bout \\
+
+\begin{itemize}
+\item
+$Y_{1ij}$ : Number of bouts individual $i$ during trial $j$ participated in per day
+\item
+$Y_{2ij}$ : Total MET-minutes individual $i$ during trial $j$ accrued in at least 10 minute bouts minues 30*$Y_{1ij}$ per day (total excess MET-minutes)
+\item
+$Z_i$ : Observed demographic variables for individual $i$
+\item
+$X_{1i}$ Individual $i$'s expected number of bouts per day
+\item
+$X_{2i}$ Individual $i$'s expced total excess minutes per day
+\item
+$X_{3i}$ Individual $i$'s expected total minutes in MVPA per day ($= 30*X_{1i}+X_{2i}$)
+\end{itemize}
+
+\end{frame}
+%----------
+
+\subsection{Exchangeability}
+
+%_--------
+\begin{frame}
+\frametitle{Exchangeability within person for $Y_1$}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+Bowker's test of symmetry: p-value = 0.1474
+\end{column}
+\begin{column}{0.7\textwidth}
+\includegraphics[height=6cm, width=8cm]{y1exch}
+\end{column}
+\end{columns}
+
+\end{frame}
+%--------
+
+
+
+%_--------
+\begin{frame}
+\frametitle{Exchangeability within person for $Y_2$}
+Total excess MET-minutes depends on number of bouts, need to account for it as well as eliminate individual effects
+
+\begin{align*}
+Y_{2i1}-Y_{2i2} &= \beta_0 + \beta_1(Y_{1i1}-Y_{1i2}) + \beta_2(Weekend_{i1}-Weekend_{i2}) + \epsilon_i \\
+\epsilon_i &\overset{iid}{\sim} N(0,\sigma^2)
+\end{align*}
+
+\begin{table}[!htbp] \centering 
+\begin{tabular}{l|lll}
+\hline
+Coefficient & Estimate & Std Error & P-value \\
+\hline
+$\beta_0$ & 23.305 & 11.10 & 0.036 \\
+$\beta_1$ & 86.827 & 3.489 & $<$0.0001 \\
+$\beta_2$ & 22.145 & 18.425 & 0.230 \\
+\hline
+\end{tabular} 
+\end{table} 
+
+
+Excluding individuals with $Y_2 >$ 2300 (5 out of 1085 individuals), the estimate for trial effect  reduces to 13.62 with a p-value of 0.124, while other results remain similar
+
+\end{frame}
+%--------
+
+\subsection{Methods}
+
+%--------
+\begin{frame}
+\frametitle{Modeling Number of Bouts}
+First thought is a Poisson-Gamma mixture with mean of Gamma as a regression on covariates ${\bf Z}$ (use BMI,age,gender,smoker)
+
+\begin{align*}
+	Y_{1ij} | X_{1i} &\overset{ind}{\sim} \text{Poisson}(X_{1i}) \\
+	X_{1i} | \eta,\mu_i &\overset{ind}{\sim} \text{Gamma} \left( \eta,\frac{\eta}{\mu_i} \right) \\
+	\mu_i &= e^{Z_i' \boldsymbol{\beta}} \\
+	p(\eta) &\sim \text{Gamma}(a_1,a_2) \\
+	p(\boldsymbol{\beta}) &\sim N \left( {\bf 0_k}, \frac{1}{v} I_{k \times k} \right)
+	%p(\zeta) &\sim \text{Gamma}(b_1,b_2) 
+\end{align*}
+
+\end{frame}
+%---------
+
+
+%--------
+\begin{frame}
+\frametitle{Assessing Overdispersion}
+
+\centering
+\includegraphics{y1ppmarg}
+
+\includegraphics{y1ppcond}
+
+
+\end{frame}
+%--------
+
+%--------
+\begin{frame}
+\frametitle{Two-Part Model for $Y_2$}
+After an appropriate adjustment for day effect, we model $Y_2$ as
+
+\begin{align*}
+\begin{split}
+	Y_{2ij}|X_{2i}, X_{1i} &\overset{ind}{\sim} (1-\pi_{ij}(\boldsymbol{\alpha})) \delta_0(Y_{2ij}) + \pi_{ij}(\boldsymbol{\alpha}) LN(\mu_{y,i} (\boldsymbol{\beta_y}), \sigma_y^2)\\
+	X_{2i}|X_{1i}, Z_i &\overset{ind}{\sim} LN(\mu_{x,i} (\boldsymbol{\beta_x}), \sigma_x^2)
+\end{split}
+\end{align*}
+
+\begin{align*}
+\pi_{ij}(\boldsymbol{\alpha}) &= \Phi({\bf X_i}' \boldsymbol{\alpha}) 
+\end{align*}
+
+\begin{align*}
+ \mu_{y,i}(\boldsymbol{\beta_y}) &=  E(\text{log } Y_{2ij}|Y_{2ij} > 0) = {\bf X_i}'\boldsymbol{\beta_y}
+\end{align*} 
+
+\begin{align*}
+ \mu_{x,i}(\boldsymbol{\beta_x}) &=  E(\text{log } X_{2ij}) = {\bf Z_i}'\boldsymbol{\beta_x} + X_{1i} \gamma
+\end{align*} 
+
+
+\end{frame}
+%--------
+
+%-------
+\begin{frame}
+\frametitle{Model Assessment}
+
+\begin{align*}
+	T_{1}({\bf Y_1}) &=  \sum_{i=1}^{n} I(Y_{1i1} = Y_{1i2}) \\
+	T_2({\bf Y_2}) &= \sum_{i=1}^{n} \sum_{j=1}^{j(i)} I(Y_{2ij} = 0) \\
+	T_3({\bf Y_2}) &= \sum_{i=1}^{n}  I(Y_{2i1} = Y_{2i2} = 0) \\
+	T_4({\bf Y_2}) &= \frac{1}{N} \sum_{i=1}^{n} \sum_{j=1}^{j(i)} I \left( Y_{2ij} > \frac{450}{7} \right) \\
+	T_5({\bf Y_1,Y_2}) &= \beta_1 \text{ coefficient from regression assessing exchangebability } 
+\end{align*}
+
+\end{frame}
+%-------
+
+
+%-------
+\begin{frame}
+\frametitle{Estimating Probability of Compliance on Average}
+
+For $\ell$ from $\ell=1,2,...,L$ do:
+\begin{enumerate}
+\item
+Sample $\boldsymbol{\theta}^{(\ell)}$ from the posterior distribution $p(\boldsymbol{\theta}|{\bf Y,Z})$
+\item
+Simulate ${ X_{1i}^{*(\ell)}}$ from $p(X_{1i}|\boldsymbol{\theta}^{(\ell)},Z_i)$ for $i=1,...,n$
+\item
+Simulate ${ X_{2i}^{*(\ell)}}$ from $p(X_{2i}|\boldsymbol{\theta}^{(\ell)},X_{1i}^{*(\ell)},Z_i)$ for $i=1,...,n$
+\item
+Calculate $X_{3i}^{*(\ell)}= 30 X_{1i}^{*(\ell)} + X_{2i}^{*(\ell)}$ for $i=1,...,n$
+\item
+Calculate $p^{(\ell)} = \frac{1}{n} \sum_{i=1}^{n} I \left( X_{3i}^{*(\ell)} \geq \frac{450}{7} \right) $
+\end{enumerate}
+
+\end{frame}
+%------
 
 \end{document}
-

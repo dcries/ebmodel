@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  23 FEB 2017 12:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.12.30)  1 MAR 2017 17:38
 entering extended mode
 **./oral_prelim.tex
 (oral_prelim.tex
@@ -792,59 +792,37 @@ Package: beamercolorthemewolverine 2010/06/17  (rcs-revision d02a7cf4d8ae)
 amer\base\themes\color\beamercolorthemebeaver.sty
 Package: beamercolorthemebeaver 2010/06/17  (rcs-revision d02a7cf4d8ae)
 )
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ca
-ption\caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ca
-ption\caption3.sty
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-\captionmargin=\dimen192
-\captionmargin@=\dimen193
-\captionwidth=\dimen194
-\caption@tempdima=\dimen195
-\caption@indent=\dimen196
-\caption@parindent=\dimen197
-\caption@hangindent=\dimen198
-)
-\c@ContinuedFloat=\count153
-Package caption Info: beamer document class.
-Package caption Info: hyperref package is loaded.
-Package caption Info: Hyperref support is turned off
-(caption)             because hyperref has stopped early.
-)
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\ul
 em\ulem.sty
 \UL@box=\box53
 \UL@hyphenbox=\box54
 \UL@skip=\skip58
 \UL@hook=\toks43
-\UL@height=\dimen199
-\UL@pe=\count154
-\UL@pixel=\dimen256
+\UL@height=\dimen192
+\UL@pe=\count153
+\UL@pixel=\dimen193
 \ULC@box=\box55
 Package: ulem 2012/05/18
-\ULdepth=\dimen257
+\ULdepth=\dimen194
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
 Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
-\c@tracingmulticols=\count155
+\c@tracingmulticols=\count154
 \mult@box=\box56
-\multicol@leftmargin=\dimen258
-\c@unbalance=\count156
-\c@collectmore=\count157
-\doublecol@number=\count158
-\multicoltolerance=\count159
-\multicolpretolerance=\count160
-\full@width=\dimen259
-\page@free=\dimen260
-\premulticols=\dimen261
-\postmulticols=\dimen262
+\multicol@leftmargin=\dimen195
+\c@unbalance=\count155
+\c@collectmore=\count156
+\doublecol@number=\count157
+\multicoltolerance=\count158
+\multicolpretolerance=\count159
+\full@width=\dimen196
+\page@free=\dimen197
+\premulticols=\dimen198
+\postmulticols=\dimen199
 \multicolsep=\skip59
 \multicolbaselineskip=\skip60
 \partial@page=\box57
 \last@line=\box58
-\maxbalancingoverflow=\dimen263
+\maxbalancingoverflow=\dimen256
 \mult@rightbox=\box59
 \mult@grightbox=\box60
 \mult@gfirstbox=\box61
@@ -866,14 +844,14 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \@tempa=\box77
 \@tempa=\box78
 \@tempa=\box79
-\c@columnbadness=\count161
-\c@finalcolumnbadness=\count162
-\last@try=\dimen264
-\multicolovershoot=\dimen265
-\multicolundershoot=\dimen266
+\c@columnbadness=\count160
+\c@finalcolumnbadness=\count161
+\last@try=\dimen257
+\multicolovershoot=\dimen258
+\multicolundershoot=\dimen259
 \mult@nat@firstbox=\box80
 \colbreak@box=\box81
-\mc@col@check@num=\count163
+\mc@col@check@num=\count162
 )
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\up
 quote\upquote.sty
@@ -882,20 +860,20 @@ tim
 ) (oral_prelim.aux)
 \openout1 = `oral_prelim.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 78.
-LaTeX Font Info:    ... okay on input line 78.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -935,16 +913,16 @@ LaTeX Font Info:    ... okay on input line 78.
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\context\
 base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count164
-\scratchdimen=\dimen267
+\scratchcounter=\count163
+\scratchdimen=\dimen260
 \scratchbox=\box82
-\nofMPsegments=\count165
-\nofMParguments=\count166
+\nofMPsegments=\count164
+\nofMParguments=\count165
 \everyMPshowfont=\toks44
-\MPscratchCnt=\count167
-\MPscratchDim=\dimen268
-\MPnumerator=\count168
-\makeMPintoPDFobject=\count169
+\MPscratchCnt=\count166
+\MPscratchDim=\dimen261
+\MPnumerator=\count167
+\makeMPintoPDFobject=\count168
 \everyMPtoPDFconversion=\toks45
 ) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -961,7 +939,7 @@ G,.JBIG2,.JB2,.eps]
 )
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box83
-Package hyperref Info: Link coloring OFF on input line 78.
+Package hyperref Info: Link coloring OFF on input line 79.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -969,68 +947,68 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count170
+\c@section@level=\count169
 )
-LaTeX Info: Redefining \ref on input line 78.
-LaTeX Info: Redefining \pageref on input line 78.
-LaTeX Info: Redefining \nameref on input line 78.
+LaTeX Info: Redefining \ref on input line 79.
+LaTeX Info: Redefining \pageref on input line 79.
+LaTeX Info: Redefining \nameref on input line 79.
 
 (oral_prelim.out) (oral_prelim.out)
 \@outlinefile=\write5
 \openout5 = `oral_prelim.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 78.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 79.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 78.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 79.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 78.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 78.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 78.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 78.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 78.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 78.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 78.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 78.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 78.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 78.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 78.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 79.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 78.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 78.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 79.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 78.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 78.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 78.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 78.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 78.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 78.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 79.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 78.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 78.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 79.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 79.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 7
-8.
+9.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-78.
+79.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 78.
+ut line 79.
 
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\be
 amer\base\translator\dicts\translator-basic-dictionary\translator-basic-diction
@@ -1062,17 +1040,15 @@ amer\base\translator\dicts\translator-theorem-dictionary\translator-theorem-dic
 tionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 78.
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: End \AtBeginDocument code.
+LaTeX Info: Redefining \includegraphics on input line 79.
  (oral_prelim.nav)
-Overfull \hbox (27.08015pt too wide) in paragraph at lines 78--78
+Overfull \hbox (27.08015pt too wide) in paragraph at lines 79--79
  [][][][]  
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 88.
+(Font)              size <5> substituted on input line 89.
 
 
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
@@ -1110,17 +1086,17 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 [5
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 202.
+LaTeX Font Info:    Try loading font information for U+msa on input line 204.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 202.
+LaTeX Font Info:    Try loading font information for U+msb on input line 204.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 202.
+line 204.
 
 (\\my.files.iastate.edu\Profiles\dcries\AppData\Roaming\MiKTeX\2.9\tex\latex\sa
 nsmathaccent\ot1mathkerncmss.fd
@@ -1147,14 +1123,29 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 
 [8
 
-]
+] <dxa_qq.pdf, id=154, 794.97pt x 397.485pt>
+File: dxa_qq.pdf Graphic file (type pdf)
+ <use dxa_qq.pdf>
+Package pdftex.def Info: dxa_qq.pdf used on input line 293.
+(pdftex.def)             Requested size: 227.62413pt x 85.35449pt.
+
+<swa_qq.pdf, id=155, 794.97pt x 397.485pt>
+File: swa_qq.pdf Graphic file (type pdf)
+ <use swa_qq.pdf>
+Package pdftex.def Info: swa_qq.pdf used on input line 293.
+(pdftex.def)             Requested size: 227.62413pt x 85.35449pt.
+
+Overfull \vbox (4.44003pt too high) detected at line 293
+ []
+
+
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [9
 
-]
+ <./dxa_qq.pdf> <./swa_qq.pdf>]
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1225,14 +1216,14 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 [19
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 638
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 614
 .
-LaTeX Font Info:    No file OMScmss.fd. on input line 638.
+LaTeX Font Info:    No file OMScmss.fd. on input line 614.
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 638.
+(Font)              for symbol `textbraceleft' on input line 614.
 
 
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
@@ -1263,7 +1254,7 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 [23
 
 ]
-Overfull \vbox (25.56126pt too high) detected at line 764
+Overfull \vbox (25.56126pt too high) detected at line 742
  []
 
 
@@ -1281,22 +1272,22 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 [25
 
 ]
-Overfull \hbox (36.7625pt too wide) in paragraph at lines 857--857
+Overfull \hbox (36.7625pt too wide) in paragraph at lines 835--835
  [] 
  []
 
 
-Overfull \hbox (124.05725pt too wide) in paragraph at lines 857--857
+Overfull \hbox (124.05725pt too wide) in paragraph at lines 835--835
  [][] 
  []
 
 
-Overfull \hbox (122.57993pt too wide) in paragraph at lines 857--857
+Overfull \hbox (122.57993pt too wide) in paragraph at lines 835--835
  [][] 
  []
 
 
-Overfull \vbox (2.82542pt too high) detected at line 857
+Overfull \vbox (2.82542pt too high) detected at line 835
  []
 
 
@@ -1306,10 +1297,11 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 
 [26
 
-]
-Overfull \vbox (19.38644pt too high) detected at line 906
- []
-
+] <pmse.pdf, id=325, 614.295pt x 794.97pt>
+File: pmse.pdf Graphic file (type pdf)
+ <use pmse.pdf>
+Package pdftex.def Info: pmse.pdf used on input line 891.
+(pdftex.def)             Requested size: 284.52878pt x 227.62413pt.
 
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
  [][][][]  
@@ -1317,10 +1309,11 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 
 [27
 
-] <predbvnsx.pdf, id=310, 578.16pt x 289.08pt>
+ <./pmse.pdf>] <predbvnsx.pdf, id=339, 578.16pt x 289.08pt>
 File: predbvnsx.pdf Graphic file (type pdf)
- <use predbvnsx.pdf>
-Package pdftex.def Info: predbvnsx.pdf used on input line 915.
+
+<use predbvnsx.pdf>
+Package pdftex.def Info: predbvnsx.pdf used on input line 900.
 (pdftex.def)             Requested size: 341.42903pt x 170.71451pt.
 
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
@@ -1350,11 +1343,11 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 
 [31
 
-] <studydesign.png, id=354, 946.28531pt x 618.81187pt>
+] <studydesign.png, id=383, 946.28531pt x 618.81187pt>
 File: studydesign.png Graphic file (type png)
 
 <use studydesign.png>
-Package pdftex.def Info: studydesign.png used on input line 1039.
+Package pdftex.def Info: studydesign.png used on input line 1021.
 (pdftex.def)             Requested size: 227.61848pt x 170.71672pt.
 
 Overfull \hbox (27.08015pt too wide) has occurred while \output is active
@@ -1385,6 +1378,85 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 [35
 
 ]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[36
+
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[37
+
+] <y1exch.pdf, id=432, 578.16pt x 433.62pt>
+File: y1exch.pdf Graphic file (type pdf)
+ <use y1exch.pdf>
+Package pdftex.def Info: y1exch.pdf used on input line 1467.
+(pdftex.def)             Requested size: 227.61641pt x 170.71892pt.
+
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[38
+
+ <./y1exch.pdf>]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[39
+
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[40
+
+] <y1ppmarg.pdf, id=465, 505.89pt x 216.81pt>
+File: y1ppmarg.pdf Graphic file (type pdf)
+ <use y1ppmarg.pdf>
+Package pdftex.def Info: y1ppmarg.pdf used on input line 1530.
+(pdftex.def)             Requested size: 205.37926pt x 88.01929pt.
+
+<y1ppcond.pdf, id=466, 505.89pt x 216.81pt>
+File: y1ppcond.pdf Graphic file (type pdf)
+ <use y1ppcond.pdf>
+Package pdftex.def Info: y1ppcond.pdf used on input line 1530.
+(pdftex.def)             Requested size: 205.37926pt x 88.01929pt.
+
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[41
+
+ <./y1ppmarg.pdf> <./y1ppcond.pdf>]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[42
+
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[43
+
+]
+Overfull \hbox (27.08015pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[44
+
+]
 \tf@nav=\write6
 \openout6 = `oral_prelim.nav'.
 
@@ -1394,14 +1466,14 @@ Overfull \hbox (27.08015pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `oral_prelim.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1396.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1396.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1598.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1598.
  (oral_prelim.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1396.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1396.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1598.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1598.
 
 Package rerunfilecheck Info: File `oral_prelim.out' has not changed.
-(rerunfilecheck)             Checksum: 96445A22FB7BF306F78997A5D66303F3;725.
+(rerunfilecheck)             Checksum: 4F0D5F861D87D8FC0C96014D3C3A3A2A;915.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -1410,36 +1482,37 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1396.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1598.
  ) 
 Here is how much of TeX's memory you used:
- 18352 strings out of 493334
- 358220 string characters out of 3139179
- 452089 words of memory out of 3000000
- 21351 multiletter control sequences out of 15000+200000
- 20622 words of font info for 68 fonts, out of 3000000 for 9000
+ 17420 strings out of 493334
+ 340673 string characters out of 3139179
+ 442503 words of memory out of 3000000
+ 20403 multiletter control sequences out of 15000+200000
+ 23067 words of font info for 77 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,17n,57p,470b,600s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,19n,57p,468b,600s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\dcries\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600
 \ecso0800.pk><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/c
 mbsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pf
 b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmss9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss
-bx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on oral_prelim.pdf (35 pages, 1959036 bytes).
+eX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmss12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmss17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmssbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss
+i10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi12.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmssi8.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on oral_prelim.pdf (44 pages, 2072784 bytes).
 PDF statistics:
- 468 PDF objects out of 1000 (max. 8388607)
- 86 named destinations out of 1000 (max. 500000)
- 179 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
