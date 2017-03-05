@@ -17,7 +17,7 @@
 \setbeamertemplate{enumerate subsubitem}{\roman{enumiii}.}
 \setkeys{Gin}{width=0.6\textwidth}
 
-\title{Modeling of Energy Balance and Physical Activity Data}
+\title{Measurement Error Modeling of Energy Balance and Physical Activity Data}
 \author[Danny Ries]{Danny Ries}
 \institute[Iowa State]{Iowa State University}
 \date{\today}
@@ -133,25 +133,25 @@ To address the difficulty in measuring EI:
 
 
 %----------
-\begin{frame}
-\frametitle{The ``Fatal Flaw in Obesity Research"}
-It has been said the ``Fatal Flaw in Obesity Research" is our inability to accurately measure how much someone eats (EI) in free living situations
-
-\begin{itemize}
-\item
-Current measures of EI; ie. self report, are clouded with (measurement) error \\
-\item
-Garbage in Garbage out \\
-\item
-Tough to understand dietary trends over the years \\
-\item
-Cannot measure adherence to clinically prescribed interventions \\
-\end{itemize}
-
-This error in measurement extends to EE and body composition, albeit not nearly as severe
-
-\end{frame}
-
+% \begin{frame}
+% \frametitle{The ``Fatal Flaw in Obesity Research"}
+% It has been said the ``Fatal Flaw in Obesity Research" is our inability to accurately measure how much someone eats (EI) in free living situations
+% 
+% \begin{itemize}
+% \item
+% Current measures of EI; ie. self report, are clouded with (measurement) error \\
+% \item
+% Garbage in Garbage out \\
+% \item
+% Tough to understand dietary trends over the years \\
+% \item
+% Cannot measure adherence to clinically prescribed interventions \\
+% \end{itemize}
+% 
+% This error in measurement extends to EE and body composition, albeit not nearly as severe
+% 
+% \end{frame}
+% 
 %---------------
 
 \subsection{Energy Balance}
@@ -160,7 +160,7 @@ This error in measurement extends to EE and body composition, albeit not nearly 
 \frametitle{Modeling Energy Balance}
 
 \begin{block}{Energy Balance}
-The application of the first law of thermodynamics to nutrition/exercise science: \\
+%The application of the first law of thermodynamics to nutrition/exercise science: \\
 Change in Energy Stores ($\Delta$ES) = Energy Intake (EI) - Energy Expenditure (EE)
 \end{block}
 
@@ -170,9 +170,11 @@ where $\Delta$ES $= c_1 \frac{\Delta FM}{\Delta T } + c_2 \frac{\Delta FFM}{\Del
 
 \vspace{0.3cm}
 
-We are now in a situation where we must measure both EE and $\Delta$ES in order to calculate EI \\
+%We are now in a situation where we must measure both EE and $\Delta$ES in order to calculate EI \\
 
-$\rightarrow$ But gold standard measures (albeit very costly) and cheap measurements for both exist! 
+Current measures of EI; ie. self report, are clouded with (measurement) error, no true gold standard \\
+
+$\rightarrow$ But gold standard measures (albeit very costly) and cheap measurements for EE and $\Delta$ES exist! 
 
 
 \end{frame}
@@ -208,7 +210,7 @@ Create a joint statistical measurement model for gold standard and cheap measure
 
 \begin{itemize}
 \item
-This will allow future research to calibrate cheaper measurements (when gold standard measures aren't used) and thus eliminate known biases
+Allows future researchers to calibrate cheaper measurements
 \item
 Lots of research has been done for calibrating and evaluating measurement error for EI, some for EE, and little for $\Delta$ES
 \item
@@ -220,7 +222,7 @@ To the best of our knowledge, no research has been done in evaluating the measur
 %----------
 
 
-\subsection{Exploratory Analysis}
+\subsection{EBS}
 
 %---------
 \begin{frame}
@@ -235,13 +237,11 @@ The Energy Balance Study (EBS) was conducted 2011-2012 at the University of Sout
 Sensewear Armband measuring EE every 3 months (averaged across 10 days)
 \item
 Subset of 119 participants receieved DLW at end of 12 months, with additional DXA scan
-\item
-Demographic variables
 \end{itemize}
 
 \vspace{0.2cm}
 
-Although these data don't have perfect replicates, it provides a baseline to start our modeling of measurement error in Energy Balance
+%Although these data don't have perfect replicates, it provides a baseline to start our modeling of measurement error in Energy Balance
 
 
 \end{frame}
@@ -270,24 +270,15 @@ Although these data don't have perfect replicates, it provides a baseline to sta
 %--------
 \begin{frame}
 \frametitle{Na{\"i}ve Check for Biases}
-It seems reasonable that cheap measurement tools could be affected by factors other than the \emph{truth}, ie. demographics \\
 
-\vspace{0.3cm}
-
-$\rightarrow$ Fit the following multiple regression model with the subset data from EBS\\
+%$\rightarrow$ Fit the following multiple regression model with the subset data from EBS\\
 SWA EE = $\beta_0 + \beta_1$DLW EE + $\beta_z$' Demographic Variables + $\epsilon$ \\
 
 
-
-
-\end{frame}
-%-------
-
-%-------
-\begin{frame}
+\vspace{0.3cm}
 
 \begin{table} \centering 
-  \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
+%  \caption{Regression of Sensewear Armband EE on DLW EE, Age, BMI, Gender using EBS data. Results show systematic biases could exist in cheap EE measurements.} 
 \begin{tabular}{l|ccc}
 \hline
 Coefficient & Estimate & Std Error & P-value \\
@@ -304,7 +295,7 @@ BMI & 14.146 & 3.988 & 0.0004 \\
 %-------
 
 
-\subsection{Modeling}
+\subsection{Methods}
 
 %-------
 \begin{frame}
@@ -328,7 +319,12 @@ $Z_i$ represent a $k\times 1$ vector of error free covariates
 Latent:
 \begin{itemize}
 \item
-$X_{i}^{EE}$ and $X_{i}^{\Delta ES}$ represent \emph{usual} EE and $\Delta$ES
+$X_{i}^{EE}$ and $X_{i}^{\Delta ES}$ represent \emph{usual} EE and $\Delta$ES \\
+
+\begin{align*}
+E(W_{ij}^{EE}|i) &= X_i^{EE}\\
+E(W_{ij}^{\Delta ES}|i) &= X_i^{\Delta ES}
+\end{align*}
 
 \end{itemize}
 
@@ -339,19 +335,23 @@ $X_{i}^{EE}$ and $X_{i}^{\Delta ES}$ represent \emph{usual} EE and $\Delta$ES
 %-------
 \begin{frame}
 \frametitle{Independence Assumptions}
-Given $X_i^{EE}, Z_i$
+We assume individuals are independent \\
+
+\vspace{0.2cm}
+
+Additionally, given $X_i^{EE}, Z_i$
 
 \begin{itemize}
 \item
-$Y^{EE}_{ij}$ are mutually independent for all $i,j$ \\
+$Y^{EE}_{ij}$ are independent for all $j$ \\
 \item
-$W_{ij}^{EE}$ are mutually independent for all $i,j$ \\
+$W_{ij}^{EE}$ are independent for all $j$ \\
 \item
-$Y_{ij}^{EE}$ is independent of $W_{ij}^{EE}$ for all $i,j$ \\
+$Y_{ij}^{EE}$ is independent of $W_{ij}^{EE}$ for $j$ \\
 \item
 $Y_{ij}^{EE}$ is independent of $W_{ij}^{\Delta ES}$ and $Y_{ij}^{\Delta ES}$ for all $i,j$ \\
 \item
-$W_{ij}^{EE}$ is independent of $W_{ij}^{\Delta ES}$ and $Y_{ij}^{\Delta ES}$ for all $i,j$ \\
+$W_{ij}^{EE}$ is independent of $W_{ij}^{\Delta ES}$ and $Y_{ij}^{\Delta ES}$ for all $j$ \\
 \end{itemize}
 
 \vspace{0.2cm}
@@ -364,27 +364,27 @@ Same assumptions hold for reverse case (replace EE with $\Delta$ES and $\Delta$E
 
 
 %-------
-\begin{frame}
-\frametitle{Model for Observed Variables}
-
-
-\begin{align*}
-  Y_{ij}^{EE} &= m_{ee}(X_i^{EE} ,Z_i) + \epsilon_{ij}^{EE}   \\
-   %& \\
-  %
-  Y_{ij}^{\Delta ES} &= m_{es}(X_i^{\Delta ES} ,Z_i) + \epsilon_{ij}^{\Delta ES} \\
-  %
-     %& \\
-  W_{ij}^{EE} &= X_i^{EE}  + \nu_{ij}^{EE} \\
-  %
-     %& \\
-  W_{ij}^{\Delta ES} &= X_i^{\Delta ES}  + \nu_{ij}^{\Delta ES}
-\end{align*}
-
-\vspace{0.5cm}
-$E(\epsilon_{ij}^{EE}) = E(\epsilon_{ij}^{\Delta ES}) = E(\nu_{ij}^{EE}) = E(\nu_{ij}^{\Delta ES}) = 0$
-
-\end{frame}
+% \begin{frame}
+% \frametitle{Model for Observed Variables}
+% 
+% 
+% \begin{align*}
+%   Y_{ij}^{EE} &= m_{ee}(X_i^{EE} ,Z_i) + \epsilon_{ij}^{EE}   \\
+%    %& \\
+%   %
+%   Y_{ij}^{\Delta ES} &= m_{es}(X_i^{\Delta ES} ,Z_i) + \epsilon_{ij}^{\Delta ES} \\
+%   %
+%      %& \\
+%   W_{ij}^{EE} &= X_i^{EE}  + \nu_{ij}^{EE} \\
+%   %
+%      %& \\
+%   W_{ij}^{\Delta ES} &= X_i^{\Delta ES}  + \nu_{ij}^{\Delta ES}
+% \end{align*}
+% 
+% \vspace{0.5cm}
+% $E(\epsilon_{ij}^{EE}) = E(\epsilon_{ij}^{\Delta ES}) = E(\nu_{ij}^{EE}) = E(\nu_{ij}^{\Delta ES}) = 0$
+% 
+% \end{frame}
 %------
 
 %----------------
@@ -423,13 +423,13 @@ $E(\epsilon_{ij}^{EE}) = E(\epsilon_{ij}^{\Delta ES}) = E(\nu_{ij}^{EE}) = E(\nu
 \begin{frame}
 \frametitle{Na{\"i}ve Model}
 
-The Na{\"i}ve Model assumes no measurement error in gold standard measurements (Note the part for EE is the same as what we used for our exploratory analysis) \\
+The Na{\"i}ve Model assumes no measurement error in gold standard measurements %(Note the part for EE is the same as what we used for our exploratory analysis) \\
 
 \vspace{1cm}
 
 \begin{align*}
-  (Y_{ij}^{EE} | W_{ij}^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(\beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
-  (Y_{ij}^{\Delta ES} | W_{ij}^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(\beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2)
+  (Y_{ij}^{EE} | W_{ij}^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(\beta_{0,ee} + \beta_{1,ee}W_{ij}^{EE}+ \boldsymbol{\gamma_{ee}}'Z_i,\sigma_{\epsilon^{EE}}^2) \\
+  (Y_{ij}^{\Delta ES} | W_{ij}^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(\beta_{0,es} + \beta_{1,es}W_{ij}^{\Delta ES}+ \boldsymbol{\gamma_{es}}'Z_i,\sigma_{\epsilon^{\Delta ES}}^2)
 \end{align*}
 
 \end{frame}
@@ -438,15 +438,15 @@ The Na{\"i}ve Model assumes no measurement error in gold standard measurements (
 
 %-------
 \begin{frame}
-\frametitle{Linear Measurement Error Model}
-This is a basic modification to the Na{\"i}ve model when there is measurement error in a covariate
+\frametitle{Linear Measurement Error Model (LMEM)}
+Basic modification to the Na{\"i}ve model when we account for measurement error in a covariate
 
 \begin{align*}
-  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}Z_i, \sigma_{\epsilon_{EE}}^2) \\
-  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
+  (Y_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(\beta_{0,ee} + \beta_{1,ee}X_i^{EE} + \boldsymbol{\gamma_{ee}}'Z_i, \sigma_{\epsilon_{EE}}^2) \\
+  (Y_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(\beta_{0,es} + \beta_{1,es}X_i^{\Delta ES} +  \boldsymbol{\gamma_{es}}'Z_i, \sigma_{\epsilon_{\Delta ES}}^2) \\
   (W_{ij}^{EE}|X_i^{EE}, Z_i,\boldsymbol{\theta_{wee}}) &\overset{ind}{\sim} N(X_i^{EE}, \sigma_{\nu_{EE}}^2 ) \\
   (W_{ij}^{\Delta ES}|X_i^{\Delta ES}, Z_i,\boldsymbol{\theta_{wes}}) &\overset{ind}{\sim} N(X_i^{\Delta ES}, \sigma_{\nu_{\Delta ES}}^2 )  \\
-  (X_i^{EE},X_i^{\Delta ES}|\theta_X) &\overset{ind}{\sim} N\left(
+  (X_i^{EE},X_i^{\Delta ES}|\boldsymbol{\theta_X}) &\overset{ind}{\sim} N\left(
   \begin{bmatrix}
   \mu_{EE}\\
   \mu_{\Delta ES}
@@ -462,11 +462,11 @@ This is a basic modification to the Na{\"i}ve model when there is measurement er
 %------
 \begin{frame}
 \frametitle{Extending the Linear Model}
-We would like to relax the assumption that the relationship between a cheap measurement and \emph{usual} EE and $\Delta$ES is linear \\
+Relax the assumption that the relationship between a cheap measurement and \emph{usual} EE and $\Delta$ES is linear \\
 
 \vspace{0.5cm}
 
-We propose using cubic free knot splines to model the relationship between cheap and \emph{usual}
+We propose using cubic free knot splines to model the relationship between cheap  measurement and \emph{usual}
 
 \begin{itemize}
 \item
@@ -474,7 +474,7 @@ Allows for a flexible nonlinear relationship
 \item
 No need to specify number or location of knots
 \item
-If using Reversible Jump MCMC, incorporates uncertainty in spline selection
+Using Reversible Jump MCMC, incorporates uncertainty in spline selection
 
 \end{itemize}
 
@@ -485,17 +485,17 @@ If using Reversible Jump MCMC, incorporates uncertainty in spline selection
 
 %---------
 \begin{frame}
-\frametitle{Free Knot Spline Model}
+\frametitle{Free Knot Spline Model (SMEMN)}
 
 \begin{align*}
-  f(Y_{ij}^{EE}|X_i^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(s(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
-    f(Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
+  (Y_{ij}^{EE}|X_i^{EE},Z_i,\boldsymbol{\theta_{yee}}) &\overset{ind}{\sim} N(s_{ee}(X_i^{EE};\boldsymbol{\beta_{ee}}) + \boldsymbol{\gamma_{ee}}Z_i,\sigma_{\epsilon^{EE}}^2) \\
+    (Y_{ij}^{\Delta ES}|X_i^{\Delta ES},Z_i,\boldsymbol{\theta_{yes}}) &\overset{ind}{\sim} N(s_{es}(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) + \boldsymbol{\gamma_{es}}Z_i,\sigma_{\epsilon^{\Delta ES}}^2) \\
 \end{align*}
 %vspace{0.3cm}
 
 \begin{align*}
-  s(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
-  s(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
+  s_{ee}(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
+  s_{es}(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
 \end{align*}
 
 In order to ensure the functions are monotone, constrain $\beta_{1,ee} \leq \beta_{2,ee} \leq ... \leq \beta_{k_{ee}+3,ee}$ 
@@ -510,23 +510,46 @@ In order to ensure the functions are monotone, constrain $\beta_{1,ee} \leq \bet
 \end{frame}
 %-----------
 
+%---------
+\begin{frame}
+\frametitle{Extending the Normality of Latent Variables}
+Allow more flexibility in modeling of latent variables, use Dirichlet process mixture prior (SMEMDP):
+
+\begin{align*}
+X_i^{EE},X_i^{\Delta ES}|\zeta_i=h &\overset{ind}{\sim}  N\left( 
+  \begin{bmatrix}
+  \mu_{ee,h} \\
+  \mu_{es,h} 
+  \end{bmatrix}
+  ,
+  \Sigma_{h}
+    \right) \\
+    \zeta_i &\overset{iid}{\sim} Cat(H,\boldsymbol{\pi}) \\
+    V_h &\sim \text{Beta}(1,\alpha) \\
+    V_H & = 1 \\
+    \pi_h &= V_h \prod_{\ell < h} (1-V_{\ell}) 
+\end{align*}
+
+\end{frame}
+%--------
+
 
 \subsection{Estimation}
 
 
 %---------
-\begin{frame}
-\frametitle{MCMC Algorithms}
-
-\begin{enumerate}
-\item
-The Na{\"i}ve model and Linear Measurement Error Model were fit using JAGS
-\item
-The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and was written in C++ via \texttt{Rcpp}
-\end{enumerate}
-
-
-\end{frame}
+% \begin{frame}
+% \frametitle{MCMC Algorithms}
+% 
+% \begin{enumerate}
+% \item
+% The Na{\"i}ve model and Linear Measurement Error Model were fit using JAGS
+% \item
+% The Spline Measurement Error Model required Reversible Jump MCMC (RJMCMC) and was written in C++ via \texttt{Rcpp}
+% \end{enumerate}
+% 
+% 
+% \end{frame}
 %----------
 
 
@@ -561,7 +584,7 @@ For iteration k=1,...,K, sample from its full conditional:
 
 \item
  %\small 
- \{$\Sigma^{(k)}$\} $|\cdot \overset{ind}{\sim}$ $Inv-Wish(d+n,\psi+({\bf X_{i}^{(k-1)} - \mu^{(k-1)}})'({\bf X_{i}^{(k-1)} - \mu^{(k-1)}}))$ \\
+ \{$\Sigma^{(k)}$\} $|\cdot \overset{ind}{\sim}$ $Inv-Wish(d+n,\psi+({\bf X_{i}^{(k-1)} - \boldsymbol{\mu}^{(k-1)}})'({\bf X_{i}^{(k-1)} - \boldsymbol{\mu}^{(k-1)}}))$ \\
 
 % ${\bf X_{i,h}} \equiv  {\bf X_i} I(\zeta_i^{(k)}=h)$ \\
 % ${\bf X_i} = (X_i^{EE},X_i^{\Delta ES})$ \\
@@ -595,7 +618,7 @@ $\alpha_{X_i} = min\left(1, \frac{f({\bf X_i^*}|\cdot)}{f({\bf X_i^{(k-1)}}|\cdo
 \setcounter{enumi}{3}
 %\small
 \item
-Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}, \boldsymbol{\gamma_{ee}^{}}, \boldsymbol{\gamma_{es}^{}}$ using RJMCMC described next. Calculate $m_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $m_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
+Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{ee}, r_{es}}, \boldsymbol{\gamma_{ee}^{}}, \boldsymbol{\gamma_{es}^{}}$ using RJMCMC described next. Calculate $s_{ee}({\bf X^{EE(k)}};\boldsymbol{\beta_{ee}^{(k)}})$ and $s_{es}({\bf X^{\Delta ES(k)}};\boldsymbol{\beta_{es}^{(k)}})$ \\
 
 \vspace{0.2cm}
 
@@ -627,11 +650,11 @@ Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{e
 %----------
 \begin{frame}
 \frametitle{RJMCMC}
-RJCMCMC was introduced by Green (1995) as a way to ``jump" between different models and dimensions as a means for model determination. Denison introduced a simple and effective implementation of a Bayesian free-knot spline
+RJCMCMC was introduced by Green (1995) as a way to ``jump" between different models and dimensions as a means for model determination. Denison (1998) introduced a simple and effective implementation of a Bayesian free-knot spline
 
 \vspace{0.3cm}
 
-We extend method of Denison (1998) in three ways:
+We extend method of Denison  in three ways:
 \begin{enumerate}
 \item
 The spline covariate is a latent variable that is also sampled from
@@ -699,13 +722,15 @@ Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cd
 \begin{align*}
 \alpha_{birth} &= min\left(1, \text{Likelihood ratio}\times \frac{n-Z(k)}{n} \right) \\
 \alpha_{death} &= min\left(1, \text{Likelihood ratio}\times \frac{n}{n-Z(k)} \right) \\
-\alpha_{move} &= min\left(1, \text{Likelihood ratio}\right) 
-\end{align*}
-
-\begin{align*}
+\alpha_{move} &= min\left(1, \text{Likelihood ratio}\right) \\
 Z(k) &= 2(\ell+1) + k_{\cdot}(2\ell+1) \\
 k_{\cdot} &= length(r_{\cdot}^{(k-1)}) 
 \end{align*}
+
+% \begin{align*}
+% Z(k) &= 2(\ell+1) + k_{\cdot}(2\ell+1) \\
+% k_{\cdot} &= length(r_{\cdot}^{(k-1)}) 
+% \end{align*}
 
 \item
 calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}})$ using spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ and $r_{\cdot}^{(k)}$
@@ -721,9 +746,6 @@ calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}}
 %---------
 \begin{frame}
 \frametitle{Simulation Study}
-We performed a simulation study to assess the performance of the models we discussed in terms of parameter estimation and prediction (for calibration)
-
-\vspace{0.2cm}
 
 Simulated 200 data sets for both 2 and 4 replicates per individual. Number of individuals was set to be 300. Three different measurement errors were used for each set of replicates:
 
@@ -739,6 +761,10 @@ Bimodal (50-50 mixture of two Normals)
 \vspace{0.2cm}
 
 For each simulated data set, we ran the MCMC for 12,000 iterations, using the first 2000 as burn in
+
+\vspace{0.2cm}
+
+Issues with SMEMDP with 2 replicates
 
 \end{frame}
 %-----------
@@ -886,20 +912,20 @@ Mean Est & 393.69 & 400.55 & 313.47 & 331.79 & 246.81 & 248.93 & 67.61 & 71.04 &
 
 
 %----------
-\begin{frame}
-\frametitle{Calibration}
-The major goal of this model is to be able to give calibration equations for cheap measurements \\
-
-$\Rightarrow$ in the future if no gold standard measurements are taken, can correct cheap measurements using these calibration equations \\
-
-\vspace{0.2cm}
-
-Our goal is to get an estimate of the truth using cheap measurement of the truth y and covariates Z:
-\begin{align*}
-  X_{calibrated} &= m^{-1}(y-\boldsymbol{\gamma}' Z) 
-\end{align*}
-
-\end{frame}
+% \begin{frame}
+% \frametitle{Calibration}
+% The major goal of this model is to be able to give calibration equations for cheap measurements \\
+% 
+% $\Rightarrow$ in the future if no gold standard measurements are taken, can correct cheap measurements using these calibration equations \\
+% 
+% \vspace{0.2cm}
+% 
+% Our goal is to get an estimate of the truth using cheap measurement of the truth y and covariates Z:
+% \begin{align*}
+%   X_{calibrated} &= m^{-1}(y-\boldsymbol{\gamma}' Z) 
+% \end{align*}
+% 
+% \end{frame}
 %--------
 
 
@@ -921,13 +947,20 @@ Our goal is to get an estimate of the truth using cheap measurement of the truth
 
 %--------
 \begin{frame}
+\frametitle{Calibration}
+
+\begin{align*}
+  X_{calibrated} &= s^{-1}(y-\boldsymbol{\gamma}' Z) 
+\end{align*}
+
+\vspace{0.3cm}
 
 For r = 1,...R
 \begin{enumerate}
 \item
 Calculate $y_i^* = y_i- \boldsymbol{\gamma}^{(r)'} Z_i$, where $Z_i$ are the covariate values for individual $i$
 \item
-Use \texttt{optimize} for the function $|m_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the aforementioned criteria, call this $x_{i,calibrated}^{(r)}$. $m_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients, latent variables, and knot locations from the $r^{th}$ draw of the chain
+Use \texttt{optimize} for the function $|s_i(x) - y_i^*|$ to choose the value of $x$ that will minimize the aforementioned criteria, call this $x_{i,calibrated}^{(r)}$. $s_i(x)$ is the predicted value of $y_i$ for the given value $x$ using the MCMC draw for the spline coefficients, latent variables, and knot locations from the $r^{th}$ draw of the chain
 
 \end{enumerate}
 
@@ -938,6 +971,18 @@ Use \texttt{optimize} for the function $|m_i(x) - y_i^*|$ to choose the value of
 %--------
 \begin{frame}
 \frametitle{3 example calibrations}
+
+\begin{table}
+\begin{tabular}{l|lll}
+\hline
+ & Gender & BMI & Age \\
+ \hline
+ 1 & M & 28.6 & 20.5 \\
+ 2 & F & 21.5 & 30.1 \\
+ 3 & M & 38.6 & 22.8 \\
+ \hline
+ \end{tabular}
+ \end{table}
 
 \begin{table}[ht]
 \centering
@@ -1009,7 +1054,7 @@ Constructed a RJMCMC algorithm for free knot splines as a function of latent var
 \item
 Developed calibration algorithm to correct for biases in cheap measurements
 \item
-Simulation study shows predictive power of spline model
+Simulation study shows predictive power and mild robustness of SMEMN
 \item
 Data analysis (coming soon!)
 \end{itemize}
@@ -1343,7 +1388,7 @@ Data analysis (coming soon!)
 To Assess Compliance with \emph{2008 Physical Activity Guidelines}:
 
 \vspace{0.4cm}
-\huge A Bayesian two-part model with measurement error: Assessing adult moderate to vigorous activity and compliance to 2008 Physical Activity Guidelines
+\huge A Bayesian two-part model with measurement error: Assessing adult moderate to vigorous physical activity and compliance to 2008 Physical Activity Guidelines
 
 \end{frame}
 %------------------
@@ -1353,19 +1398,19 @@ To Assess Compliance with \emph{2008 Physical Activity Guidelines}:
 %----------------
 \begin{frame}
 \frametitle{2008 Physical Activity Guidelines}
-Because of the many benefits linked to prevention and treatment of numerous diseases \\%such as cardiovascular disease, diabetes, hypertension, depression, etc \\
+Because of the many benefits linked to prevention and treatment of numerous diseases The Department of Health and Human Services Recommends Adults 18-65 participate each week in at least: %such as cardiovascular disease, diabetes, hypertension, depression, etc \\
 
-The Department of Health and Human Services Recommends Adults 18-65 participate each week in at least:
+
 
 \begin{itemize}
 \item
-150 Minutes of Moderate Physical Activity 
+150 Minutes of Moderate Physical Activity, or
 \item
-75 Minutes of Vigorous Physical Activity
+75 Minutes of Vigorous Physical Activity, or
 \item
 75-150 Minutes during some combindation of Moderate and Vigorous Physical Activity (MVPA)
 \item
-Full body resistance training two days per week
+Resistance training targeting all major muscle groups twice
 \item
 Most benefits occur when activity is performed in at least 10 minute \emph{bouts}
 \end{itemize}
@@ -1404,7 +1449,7 @@ Measurement error involved
 \begin{frame}
 %\frametitle{}
 
-Definition of a bout \\
+%Definition of a bout \\
 
 \begin{itemize}
 \item
@@ -1458,15 +1503,16 @@ Y_{2i1}-Y_{2i2} &= \beta_0 + \beta_1(Y_{1i1}-Y_{1i2}) + \beta_2(Weekend_{i1}-Wee
 \hline
 Coefficient & Estimate & Std Error & P-value \\
 \hline
-$\beta_0$ & 23.305 & 11.10 & 0.036 \\
-$\beta_1$ & 86.827 & 3.489 & $<$0.0001 \\
-$\beta_2$ & 22.145 & 18.425 & 0.230 \\
+$\beta_0$ & 10.129 & 7.765 & 0.192 \\
+$\beta_1$ & 75.275 & 2.315 & $<$0.0001 \\
+$\beta_2$ & 3.234 & 12.868 & 0.802 \\
 \hline
 \end{tabular} 
+  %\isucaption{Results from regression in \ref{y2exchreg}} 
+  %\label{y2exch} 
 \end{table} 
 
 
-Excluding individuals with $Y_2 >$ 2300 (5 out of 1085 individuals), the estimate for trial effect  reduces to 13.62 with a p-value of 0.124, while other results remain similar
 
 \end{frame}
 %--------
@@ -1507,7 +1553,6 @@ First thought is a Poisson-Gamma mixture with mean of Gamma as a regression on c
 %--------
 \begin{frame}
 \frametitle{Two-Part Model for $Y_2$}
-After an appropriate adjustment for day effect, we model $Y_2$ as
 
 \begin{align*}
 \begin{split}
@@ -1517,16 +1562,15 @@ After an appropriate adjustment for day effect, we model $Y_2$ as
 \end{align*}
 
 \begin{align*}
-\pi_{ij}(\boldsymbol{\alpha}) &= \Phi({\bf X_i}' \boldsymbol{\alpha}) 
-\end{align*}
+\pi_{ij}(\boldsymbol{\alpha}) &= \Phi(\alpha_0 + \alpha_1 X_{1i} + \alpha_2 X_{2i}) \end{align*}
 
 \begin{align*}
- \mu_{y,i}(\boldsymbol{\beta_y}) &=  E(\text{log } Y_{2ij}|Y_{2ij} > 0) = {\bf X_i}'\boldsymbol{\beta_y}
-\end{align*} 
+ \mu_{y,i}(\boldsymbol{\beta}) &=  E(\text{log } Y_{2ij}|Y_{2ij} > 0) = {\beta_0 + \beta_1 X_{1i} + \beta_2 X_{2i}}
+ \end{align*} 
 
 \begin{align*}
- \mu_{x,i}(\boldsymbol{\beta_x}) &=  E(\text{log } X_{2ij}) = {\bf Z_i}'\boldsymbol{\beta_x} + X_{1i} \gamma
-\end{align*} 
+ \mu_{x,i}(\boldsymbol{\gamma}) &=  E(\text{log } X_{2ij}) = \gamma_0 + \gamma_1 X_{1i} + \boldsymbol{\gamma_z}'{\bf Z_i}  
+ \end{align*} 
 
 
 \end{frame}
@@ -1537,11 +1581,11 @@ After an appropriate adjustment for day effect, we model $Y_2$ as
 \frametitle{Model Assessment}
 
 \begin{align*}
-	T_{1}({\bf Y_1}) &=  \sum_{i=1}^{n} I(Y_{1i1} = Y_{1i2}) \\
-	T_2({\bf Y_2}) &= \sum_{i=1}^{n} \sum_{j=1}^{j(i)} I(Y_{2ij} = 0) \\
-	T_3({\bf Y_2}) &= \sum_{i=1}^{n}  I(Y_{2i1} = Y_{2i2} = 0) \\
-	T_4({\bf Y_2}) &= \frac{1}{N} \sum_{i=1}^{n} \sum_{j=1}^{j(i)} I \left( Y_{2ij} > \frac{450}{7} \right) \\
-	T_5({\bf Y_1,Y_2}) &= \beta_1 \text{ coefficient from regression assessing exchangebability } 
+	%T_{1}({\bf Y_1}) &=  \sum_{i=1}^{n} I(Y_{1i1} = Y_{1i2}) \\
+	T_1({\bf Y_2}) &= \sum_{i=1}^{1057} \sum_{j=1}^{2} I(Y_{2ij} = 0) \\
+	T_2({\bf Y_2}) &= \sum_{i=1}^{1057}  I(Y_{2i1} = Y_{2i2} = 0) \\
+	T_3({\bf Y_2}) &= \frac{1}{2114} \sum_{i=1}^{1057} \sum_{j=1}^{2} I \left( Y_{2ij} > \frac{450}{7} \right) \\
+	T_4({\bf Y_1,Y_2}) &= \beta_1 \text{ coefficient from regression assessing day effect of for $Y_2$ } 
 \end{align*}
 
 \end{frame}
@@ -1568,5 +1612,20 @@ Calculate $p^{(\ell)} = \frac{1}{n} \sum_{i=1}^{n} I \left( X_{3i}^{*(\ell)} \ge
 
 \end{frame}
 %------
+
+\section{Further Work}
+  
+%--------
+\begin{frame}
+\frametitle{Further work}
+
+We plan on the third chapter being a problem from the PAMS data or the data we will be collecting
+
+\vspace{0.8cm}
+
+Like the first two chapters, it will likely be centered around Bayesian measurement error modeling
+
+\end{frame}
+%--------
 
 \end{document}
