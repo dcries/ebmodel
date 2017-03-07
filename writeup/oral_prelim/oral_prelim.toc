@@ -1,13 +1,17 @@
 \beamer@endinputifotherversion {3.36pt}
-\beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@subsectionintoc {1}{1}{Motivation}{3}{0}{1}
-\beamer@subsectionintoc {1}{2}{Fatal Flaw}{4}{0}{1}
-\beamer@subsectionintoc {1}{4}{Exploratory Analysis}{10}{0}{1}
-\beamer@subsectionintoc {1}{5}{Modeling}{15}{0}{1}
-\beamer@subsectionintoc {1}{6}{Estimation}{23}{0}{1}
-\beamer@subsectionintoc {1}{7}{Simulation Study}{29}{0}{1}
-\beamer@sectionintoc {2}{Measurement Error Models}{37}{0}{2}
-\beamer@subsectionintoc {2}{1}{Statistical Model}{37}{0}{2}
-\beamer@subsectionintoc {2}{2}{Model Specification}{39}{0}{2}
-\beamer@subsectionintoc {2}{3}{Estimation}{45}{0}{2}
-\beamer@subsectionintoc {2}{4}{Model Assessment and Inference}{46}{0}{2}
+\beamer@sectionintoc {1}{Application Motivation}{2}{0}{1}
+\beamer@sectionintoc {2}{Modeling EB}{4}{0}{2}
+\beamer@subsectionintoc {2}{1}{Introduction}{4}{0}{2}
+\beamer@subsectionintoc {2}{2}{Energy Balance}{5}{0}{2}
+\beamer@subsectionintoc {2}{3}{EBS}{7}{0}{2}
+\beamer@subsectionintoc {2}{4}{Methods}{10}{0}{2}
+\beamer@subsectionintoc {2}{5}{Estimation}{17}{0}{2}
+\beamer@subsectionintoc {2}{6}{Simulation Study}{22}{0}{2}
+\beamer@subsectionintoc {2}{7}{Calibration}{26}{0}{2}
+\beamer@subsectionintoc {2}{8}{Application}{28}{0}{2}
+\beamer@subsectionintoc {2}{9}{Discussion}{29}{0}{2}
+\beamer@sectionintoc {3}{Modeling MVPA}{30}{0}{3}
+\beamer@subsectionintoc {3}{1}{Introduction}{31}{0}{3}
+\beamer@subsectionintoc {3}{2}{Exchangeability}{34}{0}{3}
+\beamer@subsectionintoc {3}{3}{Methods}{36}{0}{3}
+\beamer@sectionintoc {4}{Further Work}{41}{0}{4}
