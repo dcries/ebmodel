@@ -5,7 +5,7 @@
 
 %\usepackage{caption}
 %\captionsetup{font=footnotesize,labelfont=footnotesize}
-\setbeamerfont{caption}{series=\normalfont,size=\fontsize{5}{5}} 
+%\setbeamerfont{caption}{series=\normalfont,size=\fontsize{5}{5}} 
 
 \setlength{\unitlength}{\textwidth}  % measure in textwidths
 \usepackage[normalem]{ulem}
@@ -20,7 +20,7 @@
 \title{Measurement Error Modeling of Energy Balance and Physical Activity Data}
 \author[Danny Ries]{Danny Ries}
 \institute[Iowa State]{Iowa State University}
-\date{\today}
+\date{March 9, 2017}
 
 \newcommand{\mG}{\mathrm{\Gamma}}
 \newcommand{\I}{\mathrm{I}}
@@ -164,7 +164,7 @@ To address the difficulty in measuring EI:
 Change in Energy Stores ($\Delta$ES) = Energy Intake (EI) - Energy Expenditure (EE)
 \end{block}
 
-where $\Delta$ES $= c_1 \frac{\Delta FM}{\Delta T } + c_2 \frac{\Delta FFM}{\Delta T}$  
+where $\Delta$ES $= C_{FM} \frac{\Delta FM}{\Delta T } + C_{FFM} \frac{\Delta FFM}{\Delta T}$  
 
 
 
@@ -172,9 +172,14 @@ where $\Delta$ES $= c_1 \frac{\Delta FM}{\Delta T } + c_2 \frac{\Delta FFM}{\Del
 
 %We are now in a situation where we must measure both EE and $\Delta$ES in order to calculate EI \\
 
-Current measures of EI; ie. self report, are clouded with (measurement) error, no true gold standard \\
+Current measures of EI; ie. self report, are clouded with (measurement) error \\
 
-$\rightarrow$ But gold standard measures (albeit very costly) and cheap measurements for EE and $\Delta$ES exist! 
+\vspace{0.3cm}
+
+\begin{block}{Research Goal}
+Create a joint statistical measurement model for gold standard and inexpensive measurements of both EE and $\Delta$ES in order to develop calibration equations for cheap measurements.\\
+\end{block}
+
 
 
 \end{frame}
@@ -200,25 +205,25 @@ $\rightarrow$ But gold standard measures (albeit very costly) and cheap measurem
 % %----------
 
 %----------
-\begin{frame}
-
-\begin{block}{Research Goal}
-Create a joint statistical measurement model for gold standard and cheap measurements of both EE and $\Delta$ES in order to develop calibration equations for cheap measurements.\\
-\end{block}
-
-\vspace{0.4cm}
-
-\begin{itemize}
-\item
-Allows future researchers to calibrate cheaper measurements
-\item
-Lots of research has been done for calibrating and evaluating measurement error for EI, some for EE, and little for $\Delta$ES
-\item
-To the best of our knowledge, no research has been done in evaluating the measurement error and calibrating measurements jointly via the Energy Balance principle
-\end{itemize}
-
-
-\end{frame}
+% \begin{frame}
+% 
+% \begin{block}{Research Goal}
+% Create a joint statistical measurement model for gold standard and cheap measurements of both EE and $\Delta$ES in order to develop calibration equations for cheap measurements.\\
+% \end{block}
+% 
+% \vspace{0.4cm}
+% 
+% \begin{itemize}
+% \item
+% Allows future researchers to calibrate cheaper measurements
+% \item
+% Lots of research has been done for calibrating and evaluating measurement error for EI, some for EE, and little for $\Delta$ES
+% \item
+% To the best of our knowledge, no research has been done in evaluating the measurement error and calibrating measurements jointly via the Energy Balance principle
+% \end{itemize}
+% 
+% 
+% \end{frame}
 %----------
 
 
@@ -236,7 +241,7 @@ The Energy Balance Study (EBS) was conducted 2011-2012 at the University of Sout
 \item
 Sensewear Armband measuring EE every 3 months (averaged across 10 days)
 \item
-Subset of 119 participants receieved DLW at end of 12 months, with additional DXA scan
+Subset of 119 participants received DLW at end of 12 months, with additional DXA scan
 \end{itemize}
 
 \vspace{0.2cm}
@@ -248,23 +253,23 @@ Subset of 119 participants receieved DLW at end of 12 months, with additional DX
 %--------
 
 %--------
-\begin{frame}
-%\frametitle{Checking Normality of Measurement Errors}
-
-\begin{figure}
-\centering
-\includegraphics[width=8cm,height=3cm]{dxa_qq.pdf}
-\caption{{Differenced DXA $\Delta$ES, Females left, Males right}}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=8cm,height=3cm]{swa_qq.pdf}
-\caption{Differenced SWA  EE , Females left, Males right}
-\end{figure}
-
-
-\end{frame}
+% \begin{frame}
+% %\frametitle{Checking Normality of Measurement Errors}
+% 
+% \begin{figure}
+% \centering
+% \includegraphics[width=8cm,height=3cm]{dxa_qq.pdf}
+% \caption{{Differenced DXA $\Delta$ES, Females left, Males right}}
+% \end{figure}
+% 
+% \begin{figure}
+% \centering
+% \includegraphics[width=8cm,height=3cm]{swa_qq.pdf}
+% \caption{Differenced SWA  EE , Females left, Males right}
+% \end{figure}
+% 
+% 
+% \end{frame}
 %--------
 
 %--------
@@ -309,7 +314,7 @@ Observable:
 \item
 $W_{ij}^{EE}$ and $W_{ij}^{\Delta ES}$ represent gold standard measures of EE and $\Delta$ES
 \item
-$Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ represent cheap measures of EE and $\Delta$ES
+$Y_{ij}^{EE}$ and $Y_{ij}^{\Delta ES}$ represent inexpensive measures of EE and $\Delta$ES
 \item
 $Z_i$ represent a $k\times 1$ vector of error free covariates
 \end{itemize}
@@ -347,9 +352,9 @@ $Y^{EE}_{ij}$ are independent for all $j$ \\
 \item
 $W_{ij}^{EE}$ are independent for all $j$ \\
 \item
-$Y_{ij}^{EE}$ is independent of $W_{ij}^{EE}$ for $j$ \\
+$Y_{ij}^{EE}$ is independent of $W_{ij}^{EE}$ for all $j$ \\
 \item
-$Y_{ij}^{EE}$ is independent of $W_{ij}^{\Delta ES}$ and $Y_{ij}^{\Delta ES}$ for all $i,j$ \\
+$Y_{ij}^{EE}$ is independent of $W_{ij}^{\Delta ES}$ and $Y_{ij}^{\Delta ES}$ for all $j$ \\
 \item
 $W_{ij}^{EE}$ is independent of $W_{ij}^{\Delta ES}$ and $Y_{ij}^{\Delta ES}$ for all $j$ \\
 \end{itemize}
@@ -462,11 +467,11 @@ Basic modification to the Na{\"i}ve model when we account for measurement error 
 %------
 \begin{frame}
 \frametitle{Extending the Linear Model}
-Relax the assumption that the relationship between a cheap measurement and \emph{usual} EE and $\Delta$ES is linear \\
+Relax the assumption that the relationship between an inexpensive measurement and \emph{usual} EE and $\Delta$ES is linear \\
 
 \vspace{0.5cm}
 
-We propose using cubic free knot splines to model the relationship between cheap  measurement and \emph{usual}
+We propose using cubic free knot splines to model the relationship between inexpensive  measurement and \emph{usual}
 
 \begin{itemize}
 \item
@@ -494,11 +499,11 @@ Using Reversible Jump MCMC, incorporates uncertainty in spline selection
 %vspace{0.3cm}
 
 \begin{align*}
-  s_{ee}(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+3} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
-  s_{es}(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+3} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
+  s_{ee}(X_i^{EE};\boldsymbol{\beta_{ee}}) &= \sum_{i=1}^{k_{ee}+4} b_{i,ee}({\bf X^{EE}}) \beta_{i,ee} = B_{ee}({\bf X^{EE}}) \boldsymbol{\beta_{ee}}\\
+  s_{es}(X_i^{\Delta ES};\boldsymbol{\beta_{\Delta es}}) &= \sum_{i=1}^{k_{es}+4} b_{i,es}({\bf X^{\Delta ES}}) \beta_{i,es} = B_{es}({\bf X^{\Delta ES}}) \boldsymbol{\beta_{es}}
 \end{align*}
 
-In order to ensure the functions are monotone, constrain $\beta_{1,ee} \leq \beta_{2,ee} \leq ... \leq \beta_{k_{ee}+3,ee}$ 
+In order to ensure the functions are monotone, constrain $\beta_{1,ee} \leq \beta_{2,ee} \leq ... \leq \beta_{k_{ee}+4,ee}$ 
 
 % \vspace{0.3cm}
 % where $B_{ee}()$ and $B_{es}()$ are $n\times (k_{ee}+3)$ and $n \times (k_{es}+3)$ B-spline basis matrices
@@ -556,7 +561,7 @@ X_i^{EE},X_i^{\Delta ES}|\zeta_i=h &\overset{ind}{\sim}  N\left(
 %---------
 \begin{frame}
 \frametitle{Gibbs Sampler}
-Priors were chosen to be conjugate to help simplify the sampler \\
+We use conjugate priors to help simplify the sampler \\
 
 \vspace{0.3cm}
 
@@ -623,12 +628,12 @@ Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{e
 \vspace{0.2cm}
 
 \item
- $\sigma^{2(k)}_{\epsilon^{EE}} |\cdot \sim IG(a_{yee}+J\times \frac{n}{2},b_{yee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{EE}-m_{ee}(X_i^{EE(k)};\boldsymbol{\beta_{ee}^{(k)}})-\boldsymbol{\gamma_{ee}}^{(k)}Z_i)^2)$ \\
+ $\sigma^{2(k)}_{\epsilon^{EE}} |\cdot \sim IG(a_{yee}+J\times \frac{n}{2},b_{yee}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{EE}-s_{ee}(X_i^{EE(k)};\boldsymbol{\beta_{ee}^{(k)}})-\boldsymbol{\gamma_{ee}}^{(k)'}Z_i)^2)$ \\
  
 \vspace{0.2cm}
 
 \item
- $\sigma^{2(k)}_{\epsilon^{\Delta ES}} |\cdot \sim IG(a_{yes}+J\times \frac{n}{2},b_{yes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{\Delta ES}-m_{es}(X_i^{\Delta ES(k)};\boldsymbol{\beta_{es}^{(k)}})-\boldsymbol{\gamma_{es}}^{(k)}Z_i)^2)$ \\
+ $\sigma^{2(k)}_{\epsilon^{\Delta ES}} |\cdot \sim IG(a_{yes}+J\times \frac{n}{2},b_{yes}+\frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{J}(Y_{ij}^{\Delta ES}-s_{es}(X_i^{\Delta ES(k)};\boldsymbol{\beta_{es}^{(k)}})-\boldsymbol{\gamma_{es}}^{(k)'}Z_i)^2)$ \\
  
  \vspace{0.2cm}
  
@@ -650,9 +655,9 @@ Update ${\boldsymbol{\beta_{ee}},\boldsymbol{\beta_{es}}},k_{ee},k_{es}, {  r_{e
 %----------
 \begin{frame}
 \frametitle{RJMCMC}
-RJCMCMC was introduced by Green (1995) as a way to ``jump" between different models and dimensions as a means for model determination. Denison (1998) introduced a simple and effective implementation of a Bayesian free-knot spline
+Green (1995) introduced RJMCMC as a way to ``jump" between different models and dimensions as a means for model selection. Denison (1998) introduced a simple and effective implementation of a Bayesian free-knot spline
 
-\vspace{0.3cm}
+\vspace{0.5cm}
 
 We extend method of Denison  in three ways:
 \begin{enumerate}
@@ -661,11 +666,9 @@ The spline covariate is a latent variable that is also sampled from
 \item
 There are additional linear components to the mean function
 \item
-We make the modification from DiMatteo (2001) so the likelihood ratio is an approixmation of BIC
+We make the modification from DiMatteo (2001) so the likelihood ratio is an approximation of BIC
 \end{enumerate}
 
-\vspace{0.3cm}
-Our algorithm is run independently for EE and $\Delta$ES regression functions due to conditional independence, so we will let ($\cdot$) be a placeholder
 
 \end{frame}
 %----------
@@ -688,15 +691,15 @@ Select birth, death, or move step with probabilities $b_k,d_k,1-b_k-d_k$ respect
 {\bf Knot Changes} \\
 If birth step:\\
 %\item
-Select a new knot location at random from the set $\mathcal{A}$ and join with current knots $r_{\cdot}^{(k-1)}$ to create the proposed knot locations $r_{\cdot}^{*}$
+Select a new knot location at random from the set $\mathcal{A}$ and join with current knots $r_{}^{(k-1)}$ to create the proposed knot locations $r_{}^{*}$
 
 If death Step:\\
 %\item
-Sample one knot location from $r_{\cdot}^{(k-1)}$ at random and remove it. 
+Sample one knot location from $r_{}^{(k-1)}$ at random and remove it. 
 
 If move step:\\
 %\item
-Sample one knot location from $r_{\cdot}^{(k-1)}$ at random, and change it to a new knot location at random from the set $\mathcal{A}$
+Sample one knot location from $r_{}^{(k-1)}$ at random, and change it to a new knot location at random from the set $\mathcal{A}$
 
 \end{enumerate}
 \end{frame}
@@ -709,22 +712,23 @@ Sample one knot location from $r_{\cdot}^{(k-1)}$ at random, and change it to a 
 \setcounter{enumi}{3}
 %\small
 \item
-Calculate the spline basis matrix $B^*_{\cdot}(X^{\cdot(k)})$ using $X^{\cdot(k)}$ and proposed knot locations $r_{\cdot}^{*}$
+Calculate the spline basis matrix $B^*_{}({\bf X^{(k)}})$ using ${\bf X^{(k)}}$ and proposed knot locations $r_{}^{*}$
 
 \item
-Calculate proposed spline and linear regression coefficients $\boldsymbol{\beta^*_{\cdot}},\boldsymbol{\gamma^*_{\cdot}}$ by using OLS by regressing $Y^{\cdot}$ on $B^*_{\cdot}(X^{\cdot(k)}) + Z$
+Calculate proposed spline and linear regression coefficients $\boldsymbol{\beta^*_{}},\boldsymbol{\gamma^*_{}}$ by using OLS to regress ${\bf \bar{Y}}^{}$ on $B^*_{}({\bf X^{\cdot(k)}}) + {\bf Z}$ \\
+%${\bf \bar{Y}}= \left\{ \frac{1}{J}\sum_{j=1}^{J} Y_{ij}: i=1,...,n \right\}$
 
 \item
-Accept proposed knots and coefficients with probability $\alpha_{\cdot}$ \\
+Accept proposed knots and coefficients with probability $\alpha_{}$ \\
 
-Otherwise set $r_{\cdot}^{(k)}=r_{\cdot}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{\cdot}} =\boldsymbol{\beta^{(k-1)}_{\cdot}}$, $\boldsymbol{\gamma^{(k)}_{\cdot}} =\boldsymbol{\gamma^{(k-1)}_{\cdot}}$\\
+Otherwise set $r_{}^{(k)}=r_{}^{(k-1)}$, $\boldsymbol{\beta^{(k)}_{}} =\boldsymbol{\beta^{(k-1)}_{}}$, $\boldsymbol{\gamma^{(k)}_{}} =\boldsymbol{\gamma^{(k-1)}_{}}$\\
 
 \begin{align*}
 \alpha_{birth} &= min\left(1, \text{Likelihood ratio}\times \frac{n-Z(k)}{n} \right) \\
 \alpha_{death} &= min\left(1, \text{Likelihood ratio}\times \frac{n}{n-Z(k)} \right) \\
 \alpha_{move} &= min\left(1, \text{Likelihood ratio}\right) \\
-Z(k) &= 2(\ell+1) + k_{\cdot}(2\ell+1) \\
-k_{\cdot} &= length(r_{\cdot}^{(k-1)}) 
+Z(k) &= 2(\ell+1) + k_{}(2\ell+1) \\
+k_{} &= length(r_{}^{(k-1)}) 
 \end{align*}
 
 % \begin{align*}
@@ -733,7 +737,7 @@ k_{\cdot} &= length(r_{\cdot}^{(k-1)})
 % \end{align*}
 
 \item
-calculate mean function $m_{\cdot}(X^{\cdot(k)};\boldsymbol{\beta^{(k)}_{\cdot}})$ using spline basis matrix $B'_{\cdot}(X^{\cdot(k)})$ and $r_{\cdot}^{(k)}$
+Compute mean function $s_{}({\bf X^{(k)}};\boldsymbol{\beta^{(k)}_{}})$ using spline basis matrix $B'_{}({\bf X^{(k)}})$ and $r_{}^{(k)}$
 
 
 \end{enumerate}
@@ -774,62 +778,81 @@ Issues with SMEMDP with 2 replicates
 \begin{frame}
 %\begin{landscape}
 
-
-\begin{table}[ht]
-%\centering
-%\subcaption{Normal Errors, N{\"a}ive Model}
- \scalebox{0.55}{
-\begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll}
+\begin{table}
+%\subcaption*{Skewed Errors, LME}
+\scalebox{0.7}{
+\begin{tabular}{r|llllllllll}
   \hline
- & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
+ LMEM & $\sigma_{yee}$ &  $\sigma_{yes}$  & $\sigma_{wee}$  & $\sigma_{wes}$  & $\gamma_{1,ee}$ & $\gamma_{2,ee}$ & $\gamma_{3,ee}$  & $\gamma_{1,es}$  & $\gamma_{2,es}$ & $\gamma_{3,es}$ \\ 
   \hline
-Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
-   \hline
-Mean Est & 477.65 & 473.42 & 347.49 & 354.85 & 254.67 & 248.66 & 14.88 & 14.03 & -4.14 & -5.29 & -200.53 & -199.39 & 7.91 & 8.31 & -4.94 & -5.13 \\ 
-  Std Err & 17.82 & 19.24 & 9.43 & 6.80 & 43.65 & 36.10 & 4.33 & 3.62 & 3.37 & 3.06 & 28.19 & 22.83 & 2.90 & 2.13 & 2.35 & 1.73 \\ 
-  Bias & 72.15 & 67.92 & 13.49 & 20.85 & -45.33 & -51.34 & 0.88 & 0.03 & 2.86 & 1.71 & -0.53 & 0.61 & -0.09 & 0.31 & 0.06 & -0.13 \\ 
-  Truth & 405.50 & 405.50 & 334.00 & 334.00 & 300.00 & 300.00 & 14.00 & 14.00 & -7.00 & -7.00 & -200.00 & -200.00 & 8.00 & 8.00 & -5.00 & -5.00 \\ 
+%Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   %\hline
+Mean Est & 432.67  & 289.34  & 254.13  & 69.67 & 251.72  & 13.38  & -5.46  & -196.76  & 7.82  & -4.96  \\ 
+  Std Err & 16.70  & 9.90  & 11.99 & 2.63  & 41.34  & 3.95  & 3.35  & 25.32  & 2.39  & 2.25  \\ 
+  Bias & 27.17  & -44.66  & 4.13  & -3.20 & -48.28  & -0.62  & 1.54 & 3.24 & -0.18  & 0.04 \\ 
+  Truth & 405.50 & 334.00  & 250.00 & 72.86 & 300.00 & 14.00 & -7.00 & -200.00  & 8.00 & -5.00  \\ 
    \hline
 \end{tabular}}
 
 \vspace{1cm}
 
-
-%\subcaption{Normal Errors, LME}
-\scalebox{0.55}{
-\begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll}
+%\subcaption*{Skewed Errors, BVN}
+\scalebox{0.7}{
+\begin{tabular}{r|llllllllll}
   \hline
- & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\sigma_{wee}$ &  & $\sigma_{wes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
+ SMEMN & $\sigma_{yee}$ &  $\sigma_{yes}$  & $\sigma_{wee}$  & $\sigma_{wes}$  & $\gamma_{1,ee}$ & $\gamma_{2,ee}$ & $\gamma_{3,ee}$  & $\gamma_{1,es}$  & $\gamma_{2,es}$ & $\gamma_{3,es}$ \\ 
   \hline
-Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
-   \hline
-Mean Est & 444.34 & 446.63 & 320.41 & 338.26 & 255.70 & 255.85 & 69.18 & 71.81 & 249.50 & 240.63 & 14.30 & 13.67 & -4.50 & -5.28 & -199.27 & -198.49 & 7.91 & 8.29 & -4.91 & -5.15 \\ 
-  Std Err & 16.84 & 14.22 & 10.76 & 7.53 & 10.74 & 6.33 & 2.27 & 1.56 & 43.44 & 37.02 & 4.25 & 3.60 & 3.38 & 3.04 & 28.31 & 22.96 & 2.91 & 2.12 & 2.30 & 1.71 \\ 
-  Bias & 38.84 & 41.13 & -13.59 & 4.26 & 5.70 & 5.85 & -3.68 & -1.05 & -50.50 & -59.37 & 0.30 & -0.33 & 2.50 & 1.72 & 0.73 & 1.51 & -0.09 & 0.29 & 0.09 & -0.15 \\ 
-  Truth & 405.50 & 405.50 & 334.00 & 334.00 & 250.00 & 250.00 & 72.86 & 72.86 & 300.00 & 300.00 & 14.00 & 14.00 & -7.00 & -7.00 & -200.00 & -200.00 & 8.00 & 8.00 & -5.00 & -5.00 \\ 
-   \hline
-\end{tabular}}
-\vspace{1cm}
-
-
-%\subcaption{Normal Errors, BVN}
-\scalebox{0.55}{
-\begin{tabular}{r|ll|ll|ll|ll|ll|ll|ll|ll|ll|ll}
-  \hline
- & $\sigma_{yee}$ &  & $\sigma_{yes}$ &  & $\sigma_{wee}$ &  & $\sigma_{wes}$ &  & $\gamma_{1,ee}$ &  & $\gamma_{2,ee}$ &  & $\gamma_{3,ee}$ &  & $\gamma_{1,es}$ &  & $\gamma_{2,es}$ &  & $\gamma_{3,es}$ &  \\ 
-  \hline
-Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
-   \hline
-Mean Est & 393.69 & 400.55 & 313.47 & 331.79 & 246.81 & 248.93 & 67.61 & 71.04 & 293.16 & 294.61 & 14.17 & 14.11 & -6.86 & -6.78 & -200.07 & -200.86 & 8.00 & 8.04 & -4.95 & -5.26 \\ 
-  Std Err & 11.52 & 8.29 & 12.00 & 8.27 & 8.78 & 5.79 & 2.32 & 1.66 & 36.16 & 26.19 & 3.50 & 2.42 & 2.86 & 2.16 & 26.86 & 19.44 & 2.49 & 2.06 & 2.11 & 1.45 \\ 
-  Bias & -11.81 & -4.95 & -20.53 & -2.21 & -3.19 & -1.07 & -5.25 & -1.82 & -6.84 & -5.39 & 0.17 & 0.11 & 0.14 & 0.22 & -0.07 & -0.86 & 0.00 & 0.04 & 0.05 & -0.26 \\ 
-  Truth & 405.50 & 405.50 & 334.00 & 334.00 & 250.00 & 250.00 & 72.86 & 72.86 & 300.00 & 300.00 & 14.00 & 14.00 & -7.00 & -7.00 & -200.00 & -200.00 & 8.00 & 8.00 & -5.00 & -5.00 \\ 
+%Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   %\hline
+Mean Est & 393.56  & 282.68  & 247.00 & 68.93  & 306.58  & 14.27  & -6.95  & -197.44  & 7.76 & -4.92  \\ 
+  Std Err & 13.33  & 10.96  & 9.54  & 2.56  & 36.09  & 3.35  & 2.77& 24.41  & 2.42  & 2.10  \\ 
+  Bias & -11.94 & -51.32  & -3.00  & -3.93 & 6.58 & 0.27  & 0.05 & 2.56  & -0.24  & 0.08 \\ 
+  Truth & 405.50 & 334.00  & 250.00 & 72.86 & 300.00 & 14.00 & -7.00 & -200.00  & 8.00 & -5.00  \\ 
    \hline
 \end{tabular}}
 
-\vspace{1cm}
-
+\caption{Skewed Errors, 2 replicates per person}
 %\end{landscape}
+\end{table}
+
+\end{frame}
+%----------
+
+%----------
+\begin{frame}
+
+\begin{table}
+\scalebox{0.7}{
+\begin{tabular}{r|llllllllll}
+  \hline
+ LMEM & $\sigma_{yee}$ &  $\sigma_{yes}$  & $\sigma_{wee}$  & $\sigma_{wes}$  & $\gamma_{1,ee}$ & $\gamma_{2,ee}$ & $\gamma_{3,ee}$  & $\gamma_{1,es}$  & $\gamma_{2,es}$ & $\gamma_{3,es}$ \\ 
+  \hline
+%Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   %\hline
+Mean Est & 264.16  & 220.65  & 207.41  & 52.92  & 216.24 & 11.50  & -5.75  & -201.48  & 7.90  & -4.74  \\ 
+  Std Err & 15.07  & 7.31  & 11.92  & 1.85  & 32.90  & 3.20  & 3.07  & 17.18  & 1.66  & 1.49 \\ 
+  Bias & -141.34  & -113.35 & -42.59  & -19.94 & -83.76  & -2.50  & 1.25  & -1.48 & -0.10  & 0.26  \\ 
+  Truth & 405.50 & 334.00  & 250.00 & 72.86 & 300.00 & 14.00 & -7.00 & -200.00  & 8.00 & -5.00  \\ 
+   \hline
+\end{tabular}}
+
+\vspace{1cm}
+
+%\subcaption*{Bimodal Errors, BVN}
+\scalebox{0.7}{
+\begin{tabular}{r|llllllllll}
+  \hline
+ SMEMN & $\sigma_{yee}$ &  $\sigma_{yes}$  & $\sigma_{wee}$  & $\sigma_{wes}$  & $\gamma_{1,ee}$ & $\gamma_{2,ee}$ & $\gamma_{3,ee}$  & $\gamma_{1,es}$  & $\gamma_{2,es}$ & $\gamma_{3,es}$ \\ 
+  \hline
+%Replicates & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 & 2 & 4 \\ 
+   %\hline
+Mean Est & 257.20  & 217.62  & 182.30  & 51.86  & 220.14  & 12.25  & -5.90  & -201.34  & 7.87 & -5.08  \\ 
+  Std Err & 11.41  & 7.51  & 8.22  & 1.87  & 30.56  & 3.24  & 2.86  & 17.33  & 1.60  & 1.46  \\ 
+  Bias & -148.30  & -116.38  & -67.70  & -21.01  & -79.86  & -1.75 & 1.10  & -1.34  & -0.13  & -0.08  \\ 
+  Truth & 405.50 & 334.00  & 250.00 & 72.86 & 300.00 & 14.00 & -7.00 & -200.00  & 8.00 & -5.00  \\ 
+   \hline
+\end{tabular}}
+\caption{Bimodal Errors, 2 replicates per person}
 \end{table}
 
 \end{frame}
@@ -999,7 +1022,7 @@ EE & 2574.18 & 2666.00 & 2736.39 & 3028.89 & 2199.25 \\
   & -8.41 & 3.91 & 17.83 & 96.06 & -0.48 \\ 
    \hline
 \end{tabular}
-\caption{95\% credible interval for calibration estimate for cheap measurements for Skewed Errors} 
+\caption{95\% credible interval for mean calibration estimate for cheap measurements under Skewed Errors} 
 \label{calibratedee}
 \end{table}
 
@@ -1044,22 +1067,22 @@ EE & 2574.18 & 2666.00 & 2736.39 & 3028.89 & 2199.25 \\
 \subsection{Discussion}
 
 %-------
-\begin{frame}
-\frametitle{Discussion}
-We developed a Bayesian semi-parametric measurement error model for energy balance measurements
-
-\begin{itemize}
-\item
-Constructed a RJMCMC algorithm for free knot splines as a function of latent variables along with a linear component
-\item
-Developed calibration algorithm to correct for biases in cheap measurements
-\item
-Simulation study shows predictive power and mild robustness of SMEMN
-\item
-Data analysis (coming soon!)
-\end{itemize}
-
-\end{frame}
+% \begin{frame}
+% \frametitle{Discussion}
+% We developed a Bayesian semi-parametric measurement error model for energy balance measurements
+% 
+% \begin{itemize}
+% \item
+% Constructed a RJMCMC algorithm for free knot splines as a function of latent variables along with a linear component
+% \item
+% Developed calibration algorithm to correct for biases in inexpensive measurements
+% \item
+% Simulation study shows predictive power and mild robustness of SMEMN
+% \item
+% Data analysis (coming soon!)
+% \end{itemize}
+% 
+% \end{frame}
 %---------
 
 %--------
@@ -1388,7 +1411,7 @@ Data analysis (coming soon!)
 To Assess Compliance with \emph{2008 Physical Activity Guidelines}:
 
 \vspace{0.4cm}
-\huge A Bayesian two-part model with measurement error: Assessing adult moderate to vigorous physical activity and compliance to 2008 Physical Activity Guidelines
+\huge A Bayesian two-part model with measurement error: Assessing adult moderate with vigorous physical activity and compliance to 2008 Physical Activity Guidelines
 
 \end{frame}
 %------------------
@@ -1398,17 +1421,17 @@ To Assess Compliance with \emph{2008 Physical Activity Guidelines}:
 %----------------
 \begin{frame}
 \frametitle{2008 Physical Activity Guidelines}
-Because of the many benefits linked to prevention and treatment of numerous diseases The Department of Health and Human Services Recommends Adults 18-65 participate each week in at least: %such as cardiovascular disease, diabetes, hypertension, depression, etc \\
+Because of the many benefits linked to physical activity, the Department of Health and Human Services Recommends Adults 18-65 participate each week in at least: %such as cardiovascular disease, diabetes, hypertension, depression, etc \\
 
 
 
 \begin{itemize}
 \item
-150 Minutes of Moderate Physical Activity, or
+150 Minutes of Moderate Physical Activity (3-6 METs), or
 \item
-75 Minutes of Vigorous Physical Activity, or
+75 Minutes of Vigorous Physical Activity (6+ METs), or
 \item
-75-150 Minutes during some combindation of Moderate and Vigorous Physical Activity (MVPA)
+75-150 Minutes during some combination of Moderate and Vigorous Physical Activity (MVPA)
 \item
 Resistance training targeting all major muscle groups twice
 \item
@@ -1417,7 +1440,7 @@ Most benefits occur when activity is performed in at least 10 minute \emph{bouts
 
 \vspace{0.3cm}
 
-What proportion of adults adhere to these guidlines? Are there differences among different demographics?
+What proportion of adults adhere to these guidelines? Are there differences among different demographics?
 
 \end{frame}
 %---------------
@@ -1425,8 +1448,8 @@ What proportion of adults adhere to these guidlines? Are there differences among
 
 %-----------
 \begin{frame}
-\frametitle{Physical Activity Measurement Survery (PAMS)}
-2 year studying starting in 2009 collecting 2 days of physical activity data via Sensewear Armband and 24 Hour Recall on adults in four Iowa counties
+\frametitle{Physical Activity Measurement Survey (PAMS)}
+2 year study starting in 2009 collecting 2 days of physical activity data via Sensewear Armband and 24 Hour Recall on adults in four Iowa counties
 
 \begin{itemize}
 \item
@@ -1436,7 +1459,7 @@ Replicate measurements taken 2-3 weeks apart
 \item
 Minute by minute data from armband (in MET-minutes)
 \item
-Survery weights needed 
+Survey weights needed 
 \item
 Measurement error involved
 \end{itemize}
@@ -1453,17 +1476,17 @@ Measurement error involved
 
 \begin{itemize}
 \item
-$Y_{1ij}$ : Number of bouts individual $i$ during trial $j$ participated in per day
+$Y_{1ij}$ : Number of bouts individual $i$ during trial $j$ participated in
 \item
-$Y_{2ij}$ : Total MET-minutes individual $i$ during trial $j$ accrued in at least 10 minute bouts minues 30*$Y_{1ij}$ per day (total excess MET-minutes)
+$Y_{2ij}$ : Total MET-minutes individual $i$ during trial $j$ accrued in at least 10 minute bouts minus 30*$Y_{1ij}$  (total excess MET-minutes)
 \item
 $Z_i$ : Observed demographic variables for individual $i$
 \item
 $X_{1i}$ Individual $i$'s expected number of bouts per day
 \item
-$X_{2i}$ Individual $i$'s expced total excess minutes per day
+$X_{2i}$ Individual $i$'s expected total excess MET-minutes per day
 \item
-$X_{3i}$ Individual $i$'s expected total minutes in MVPA per day ($= 30*X_{1i}+X_{2i}$)
+$X_{3i}$ Individual $i$'s expected total MET-minutes in MVPA per day ($= 30*X_{1i}+X_{2i}$)
 \end{itemize}
 
 \end{frame}
@@ -1522,7 +1545,7 @@ $\beta_2$ & 3.234 & 12.868 & 0.802 \\
 %--------
 \begin{frame}
 \frametitle{Modeling Number of Bouts}
-First thought is a Poisson-Gamma mixture with mean of Gamma as a regression on covariates ${\bf Z}$ (use BMI,age,gender,smoker)
+Model $Y_1$ as a Poisson-Gamma mixture with mean of Gamma as a regression on covariates ${\bf Z}$ (use BMI,age,gender,smoker)
 
 \begin{align*}
 	Y_{1ij} | X_{1i} &\overset{ind}{\sim} \text{Poisson}(X_{1i}) \\
@@ -1556,8 +1579,8 @@ First thought is a Poisson-Gamma mixture with mean of Gamma as a regression on c
 
 \begin{align*}
 \begin{split}
-	Y_{2ij}|X_{2i}, X_{1i} &\overset{ind}{\sim} (1-\pi_{ij}(\boldsymbol{\alpha})) \delta_0(Y_{2ij}) + \pi_{ij}(\boldsymbol{\alpha}) LN(\mu_{y,i} (\boldsymbol{\beta_y}), \sigma_y^2)\\
-	X_{2i}|X_{1i}, Z_i &\overset{ind}{\sim} LN(\mu_{x,i} (\boldsymbol{\beta_x}), \sigma_x^2)
+	Y_{2ij}|X_{2i}, X_{1i} &\overset{ind}{\sim} (1-\pi_{ij}(\boldsymbol{\alpha})) \delta_0(Y_{2ij}) + \pi_{ij}(\boldsymbol{\alpha}) LN(\mu_{y,i} (\boldsymbol{\beta}), \sigma_y^2)\\
+	X_{2i}|X_{1i}, Z_i &\overset{ind}{\sim} LN(\mu_{x,i} (\boldsymbol{\gamma}), \sigma_x^2)
 \end{split}
 \end{align*}
 
@@ -1601,9 +1624,9 @@ For $\ell$ from $\ell=1,2,...,L$ do:
 \item
 Sample $\boldsymbol{\theta}^{(\ell)}$ from the posterior distribution $p(\boldsymbol{\theta}|{\bf Y,Z})$
 \item
-Simulate ${ X_{1i}^{*(\ell)}}$ from $p(X_{1i}|\boldsymbol{\theta}^{(\ell)},Z_i)$ for $i=1,...,n$
+Simulate ${ X_{1i}^{*(\ell)}}$ from $p(X_{1i}^*|\boldsymbol{\theta}^{(\ell)},Z_i)$ for $i=1,...,n$
 \item
-Simulate ${ X_{2i}^{*(\ell)}}$ from $p(X_{2i}|\boldsymbol{\theta}^{(\ell)},X_{1i}^{*(\ell)},Z_i)$ for $i=1,...,n$
+Simulate ${ X_{2i}^{*(\ell)}}$ from $p(X_{2i}^*|\boldsymbol{\theta}^{(\ell)},X_{1i}^{*(\ell)},Z_i)$ for $i=1,...,n$
 \item
 Calculate $X_{3i}^{*(\ell)}= 30 X_{1i}^{*(\ell)} + X_{2i}^{*(\ell)}$ for $i=1,...,n$
 \item
@@ -1619,7 +1642,7 @@ Calculate $p^{(\ell)} = \frac{1}{n} \sum_{i=1}^{n} I \left( X_{3i}^{*(\ell)} \ge
 \begin{frame}
 \frametitle{Further work}
 
-We plan on the third chapter being a problem from the PAMS data or the data we will be collecting
+We plan on the third chapter being a problem motivated from the PAMS data, the data we will be collecting, or the OPEN Study data
 
 \vspace{0.8cm}
 

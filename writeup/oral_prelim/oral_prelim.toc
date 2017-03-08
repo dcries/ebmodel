@@ -3,15 +3,15 @@
 \beamer@sectionintoc {2}{Modeling EB}{4}{0}{2}
 \beamer@subsectionintoc {2}{1}{Introduction}{4}{0}{2}
 \beamer@subsectionintoc {2}{2}{Energy Balance}{5}{0}{2}
-\beamer@subsectionintoc {2}{3}{EBS}{7}{0}{2}
-\beamer@subsectionintoc {2}{4}{Methods}{10}{0}{2}
-\beamer@subsectionintoc {2}{5}{Estimation}{17}{0}{2}
-\beamer@subsectionintoc {2}{6}{Simulation Study}{22}{0}{2}
-\beamer@subsectionintoc {2}{7}{Calibration}{26}{0}{2}
-\beamer@subsectionintoc {2}{8}{Application}{28}{0}{2}
-\beamer@subsectionintoc {2}{9}{Discussion}{29}{0}{2}
-\beamer@sectionintoc {3}{Modeling MVPA}{30}{0}{3}
-\beamer@subsectionintoc {3}{1}{Introduction}{31}{0}{3}
-\beamer@subsectionintoc {3}{2}{Exchangeability}{34}{0}{3}
-\beamer@subsectionintoc {3}{3}{Methods}{36}{0}{3}
-\beamer@sectionintoc {4}{Further Work}{41}{0}{4}
+\beamer@subsectionintoc {2}{3}{EBS}{6}{0}{2}
+\beamer@subsectionintoc {2}{4}{Methods}{8}{0}{2}
+\beamer@subsectionintoc {2}{5}{Estimation}{15}{0}{2}
+\beamer@subsectionintoc {2}{6}{Simulation Study}{20}{0}{2}
+\beamer@subsectionintoc {2}{7}{Calibration}{25}{0}{2}
+\beamer@subsectionintoc {2}{8}{Application}{27}{0}{2}
+\beamer@subsectionintoc {2}{9}{Discussion}{28}{0}{2}
+\beamer@sectionintoc {3}{Modeling MVPA}{28}{0}{3}
+\beamer@subsectionintoc {3}{1}{Introduction}{29}{0}{3}
+\beamer@subsectionintoc {3}{2}{Exchangeability}{32}{0}{3}
+\beamer@subsectionintoc {3}{3}{Methods}{34}{0}{3}
+\beamer@sectionintoc {4}{Further Work}{39}{0}{4}
